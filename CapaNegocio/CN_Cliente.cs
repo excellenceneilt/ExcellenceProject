@@ -14,6 +14,7 @@ namespace CapaNegocio
 
         public List<Cliente> Listar()
         {
+            //hola
             return objcd_Cliente.Listar();
         }
         //Procedimientos de mantenimiento
