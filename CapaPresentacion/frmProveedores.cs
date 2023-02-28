@@ -241,13 +241,6 @@ namespace CapaPresentacion
             buscar();
         }
 
-        private void btnbuscar_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyValue == (char)Keys.Enter)
-            {
-                buscar();
-            }
-        }
 
         private void btnlimpiarbuscador_Click(object sender, EventArgs e)
         {
@@ -261,6 +254,14 @@ namespace CapaPresentacion
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void txtbusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Enter)
+            {
+                buscar();
+            }
         }
     }
 }
