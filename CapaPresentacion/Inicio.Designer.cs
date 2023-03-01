@@ -50,6 +50,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.submenunegocio = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -94,7 +95,8 @@
             this.menuMantenimiento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.submenuCategoria,
             this.submenuProducto,
-            this.submenuEspecialidad});
+            this.submenuEspecialidad,
+            this.submenunegocio});
             this.menuMantenimiento.IconChar = FontAwesome.Sharp.IconChar.Tools;
             this.menuMantenimiento.IconColor = System.Drawing.Color.Black;
             this.menuMantenimiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -111,7 +113,7 @@
             this.submenuCategoria.IconColor = System.Drawing.Color.Black;
             this.submenuCategoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuCategoria.Name = "submenuCategoria";
-            this.submenuCategoria.Size = new System.Drawing.Size(139, 22);
+            this.submenuCategoria.Size = new System.Drawing.Size(180, 22);
             this.submenuCategoria.Text = "Categoría";
             this.submenuCategoria.Click += new System.EventHandler(this.submenuCategoria_Click);
             // 
@@ -121,14 +123,14 @@
             this.submenuProducto.IconColor = System.Drawing.Color.Black;
             this.submenuProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuProducto.Name = "submenuProducto";
-            this.submenuProducto.Size = new System.Drawing.Size(139, 22);
+            this.submenuProducto.Size = new System.Drawing.Size(180, 22);
             this.submenuProducto.Text = "Producto";
             this.submenuProducto.Click += new System.EventHandler(this.submenuProducto_Click);
             // 
             // submenuEspecialidad
             // 
             this.submenuEspecialidad.Name = "submenuEspecialidad";
-            this.submenuEspecialidad.Size = new System.Drawing.Size(139, 22);
+            this.submenuEspecialidad.Size = new System.Drawing.Size(180, 22);
             this.submenuEspecialidad.Text = "Especialidad";
             this.submenuEspecialidad.Click += new System.EventHandler(this.submenuEspecialidad_Click);
             // 
@@ -325,6 +327,13 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // submenunegocio
+            // 
+            this.submenunegocio.Name = "submenunegocio";
+            this.submenunegocio.Size = new System.Drawing.Size(180, 22);
+            this.submenunegocio.Text = "Negocio";
+            this.submenunegocio.Click += new System.EventHandler(this.submenunegocio_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,6 +385,7 @@
         private FontAwesome.Sharp.IconMenuItem submenuRegistrarcompra;
         private FontAwesome.Sharp.IconMenuItem submenuDetallecompra;
         private System.Windows.Forms.ToolStripMenuItem submenuEspecialidad;
+        private System.Windows.Forms.ToolStripMenuItem submenunegocio;
     }
 }
 

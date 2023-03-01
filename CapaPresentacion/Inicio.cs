@@ -138,5 +138,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario(menuMantenimiento, new frmEspecialidad());
         }
+
+        private void submenunegocio_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuMantenimiento, new frmNegocio());
+        }
     }
 }
