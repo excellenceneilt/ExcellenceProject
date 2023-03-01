@@ -135,8 +135,8 @@ namespace CapaDatos
                     query.AppendLine("update NEGOCIO set Logo = @imagen");
                     query.AppendLine("where IdNegocio = 1;");
 
-
                     SqlCommand cmd = new SqlCommand(query.ToString(), conexion);
+                    
                     cmd.Parameters.AddWithValue("@imagen", image);
                     cmd.CommandType = System.Data.CommandType.Text;
 

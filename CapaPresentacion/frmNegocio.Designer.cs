@@ -93,6 +93,7 @@
             this.picLogo.Location = new System.Drawing.Point(13, 42);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(148, 148);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 0;
             this.picLogo.TabStop = false;
             // 
@@ -119,6 +120,7 @@
             this.btnsubir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnsubir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnsubir.UseVisualStyleBackColor = true;
+            this.btnsubir.Click += new System.EventHandler(this.btnsubir_Click);
             // 
             // label3
             // 
@@ -133,14 +135,14 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(189, 42);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(319, 20);
+            this.txtNombre.Size = new System.Drawing.Size(390, 20);
             this.txtNombre.TabIndex = 4;
             // 
             // txtRuc
             // 
             this.txtRuc.Location = new System.Drawing.Point(189, 95);
             this.txtRuc.Name = "txtRuc";
-            this.txtRuc.Size = new System.Drawing.Size(319, 20);
+            this.txtRuc.Size = new System.Drawing.Size(390, 20);
             this.txtRuc.TabIndex = 6;
             // 
             // label4
@@ -156,7 +158,7 @@
             // 
             this.txtDireccion.Location = new System.Drawing.Point(189, 150);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(319, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(390, 20);
             this.txtDireccion.TabIndex = 8;
             // 
             // label5
@@ -176,7 +178,7 @@
             this.btnguardar.IconSize = 16;
             this.btnguardar.Location = new System.Drawing.Point(189, 196);
             this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(319, 23);
+            this.btnguardar.Size = new System.Drawing.Size(390, 23);
             this.btnguardar.TabIndex = 9;
             this.btnguardar.Text = "Guardar cambios";
             this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -193,6 +195,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmNegocio";
             this.Text = "frmNegocio";
+            this.Load += new System.EventHandler(this.frmNegocio_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
