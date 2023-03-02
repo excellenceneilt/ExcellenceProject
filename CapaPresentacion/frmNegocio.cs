@@ -62,5 +62,22 @@ namespace CapaPresentacion
                     MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+
+            Negocio obj = new Negocio()
+            {
+                Nombre = txtNombre.Text,
+                RUC = txtRuc.Text,
+                Direccion = txtDireccion.Text
+            };
+
+            bool respuesta = new CN_Negocio().GuardarDatos(obj, out mensaje);
+
+            if(respuesta)
+                MessageBox.Show("Los cambios fueron guardados","Mensaje",MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
