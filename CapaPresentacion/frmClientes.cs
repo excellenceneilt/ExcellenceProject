@@ -103,7 +103,7 @@ namespace CapaPresentacion
             #endregion
 
 
-            //Mostrar todos los Clientes se crea la lista
+            //Mostrar todos los Clientes se crea la listaaaa
             List<Cliente> listaCliente = new CN_Cliente().Listar();
 
             //Se recorre la lista
