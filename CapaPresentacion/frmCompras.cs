@@ -42,7 +42,36 @@ namespace CapaPresentacion
             using (var modal = new mdProveedor())
             {
                 var result = modal.ShowDialog();
-                //if(result != null)
+                if(result == DialogResult.OK)
+                {
+                    txtidproveedor.Text = modal._Proveedor.IdProveedor.ToString();
+                    txtdocproveedor.Text = modal._Proveedor.Documento;
+                    txtnombreproveedor.Text = modal._Proveedor.RazonSocial;
+                }
+                else
+                {
+                    txtdocproveedor.Select();
+                }
+
+            }
+        }
+
+        private void btnbuscarproducto_Click(object sender, EventArgs e)
+        {
+            using (var modal = new mdProducto())
+            {
+                var result = modal.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    txtidproducto.Text = modal._Producto.IdProducto.ToString();
+                    txtcodproducto.Text = modal._Producto.Codigo;
+                    txtproducto.Text = modal._Producto.Nombre;
+                    txtpreciocompra.Select();
+                }
+                else
+                {
+                    txtcodproducto.Select();
+                }
 
             }
         }
