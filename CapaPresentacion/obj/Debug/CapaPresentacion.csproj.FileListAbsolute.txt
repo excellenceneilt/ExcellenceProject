@@ -113,3 +113,4 @@ D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentac
 D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.frmNegocio.resources
+D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProveedor.resources

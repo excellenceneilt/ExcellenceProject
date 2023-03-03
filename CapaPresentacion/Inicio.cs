@@ -21,10 +21,7 @@ namespace CapaPresentacion
         private static Form FormularioActivo = null;
     
         public Inicio(Usuario objusuario = null) //Quitar null después de pruebas
-
-            
         {
-
             if (objusuario == null) 
                 usuarioActual = new Usuario() { NombreCompleto = "Admin predefinido", IdUsuario = 1 }; //Ingreso directo
             else
@@ -111,7 +108,7 @@ namespace CapaPresentacion
         //Compras
         private void submenuRegistrarcompra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuCompras, new frmCompras());
+            AbrirFormulario(menuCompras, new frmCompras(usuarioActual));
         }
 
         private void submenuDetallecompra_Click(object sender, EventArgs e)
