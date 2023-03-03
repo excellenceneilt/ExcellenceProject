@@ -24,12 +24,12 @@ namespace CapaPresentacion
 
             
         {
-
+            //PARA PRUEBAS CON LOGIN BORRAR DESDE AQUÍ
             if (objusuario == null) 
                 usuarioActual = new Usuario() { NombreCompleto = "Admin predefinido", IdUsuario = 1 }; //Ingreso directo
             else
                 usuarioActual = objusuario;
-
+            //HASTA ACÁ
            // usuarioActual = objusuario;
             InitializeComponent();
         }

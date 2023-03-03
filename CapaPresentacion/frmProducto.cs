@@ -30,6 +30,7 @@ namespace CapaPresentacion
             cboestado.DisplayMember = "Texto";
             cboestado.ValueMember = "Valor";
             cboestado.SelectedIndex = 0;
+
             //Se crea la lista del combobox a usar en el formulario
             List<Categoria> listacategoria = new CN_Categoria().Listar();
 

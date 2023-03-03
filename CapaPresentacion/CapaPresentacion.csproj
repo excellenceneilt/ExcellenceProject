@@ -259,6 +259,10 @@
     <None Include="Resources\logo blanco 128.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{CF717D39-BCF4-4D06-BF79-EFDA67AB4A42}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
       <Project>{bbcdf72d-f3bc-4a77-bb0a-3946e1394685}</Project>
       <Name>CapaEntidad</Name>

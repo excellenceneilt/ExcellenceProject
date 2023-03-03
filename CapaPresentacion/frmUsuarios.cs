@@ -29,6 +29,7 @@ namespace CapaPresentacion
             cboestado.DisplayMember = "Texto";
             cboestado.ValueMember= "Valor";
             cboestado.SelectedIndex = 0;
+
             //Se crea la lista
             List <Rol> listaRol = new CN_Rol().Listar();
 
@@ -309,5 +310,7 @@ namespace CapaPresentacion
                 buscar();
             }
         }
+
+        
     }
 }

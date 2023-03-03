@@ -34,8 +34,19 @@ namespace CapaDatos
                             {
                                 //Listar Clientes en tabla
                                 IdCliente = Convert.ToInt32(dr["IdCliente"]),
+                               // CodigoCliente = dr["CodigoCliente"].ToString(),
                                 Documento = dr["Documento"].ToString(),
                                 NombreCompleto = dr["NombreCompleto"].ToString(),
+                                NombreComercial = dr["NombreComercial"].ToString(),
+                                Direccion = dr["Direccion"].ToString(),
+                                DireccionComercial = dr["DireccionComercial"].ToString(),
+                              //  oDepartamento= new Departamento() {IdDepartamento = Convert.ToInt32(dr["IdDepartamento"]),/*Añadiendo alias*/ Descripcion = dr["Departamento"].ToString() },
+                                oProvincia = new Provincia() { IdProvincia = Convert.ToInt32(dr["IdProvincia"]),/*Añadiendo alias*/ Descripcion = dr["Provincia"].ToString() },
+                                oDistrito = new Distrito() { IdDistrito = Convert.ToInt32(dr["IdDistrito"]),/*Añadiendo alias*/ Descripcion = dr["Distrito"].ToString() },
+                                oDepartamentoComercial = new Departamento() { IdDepartamento = Convert.ToInt32(dr["IdDepartamento"]),/*Añadiendo alias*/ Descripcion = dr["Departamento"].ToString() },
+                                oProvinciaComercial = new Provincia() { IdProvincia = Convert.ToInt32(dr["IdProvincia"]),/*Añadiendo alias*/ Descripcion = dr["Provincia"].ToString() },
+                                oDistritoComercial = new Distrito() { IdDistrito = Convert.ToInt32(dr["IdDistrito"]),/*Añadiendo alias*/ Descripcion = dr["Distrito"].ToString() },
+
                                 Correo1 = dr["Correo1"].ToString(),
                                 Correo2 = dr["Correo2"].ToString(),
                                 Telefono1 = dr["Telefono1"].ToString(),
@@ -69,8 +80,20 @@ namespace CapaDatos
 
                     //Declarando los parámetros de entrada
                     SqlCommand cmd = new SqlCommand("SP_RegistrarCliente", oconexion);
+                   // cmd.Parameters.AddWithValue("CodigoCliente", obj.CodigoCliente);
                     cmd.Parameters.AddWithValue("Documento", obj.Documento);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.AddWithValue("NombreCompleto", obj.NombreCompleto);
+                    cmd.Parameters.AddWithValue("NombreComercial", obj.NombreComercial);
+                    cmd.Parameters.AddWithValue("Direccion", obj.Direccion);
+                    cmd.Parameters.AddWithValue("DireccionComercial", obj.DireccionComercial);
+                    cmd.Parameters.AddWithValue("IdTipoCliente", obj.oTipo_Cliente.IdTipoCliente);
+                    cmd.Parameters.AddWithValue("IdTipoDocumento", obj.oTipo_Documento.IdTipoDocumento);
+                    // cmd.Parameters.AddWithValue("IdDepartamento", obj.oDepartamento.IdDepartamento);
+                    // cmd.Parameters.AddWithValue("IdProvincia", obj.oProvincia.IdProvincia);
+                    //cmd.Parameters.AddWithValue("IdDistrito", obj.oDistrito.IdDistrito);
+                    // cmd.Parameters.AddWithValue("IdDepartamento", obj.oDepartamentoComercial.IdDepartamento);
+                    // cmd.Parameters.AddWithValue("IdProvincia", obj.oProvinciaComercial.IdProvincia);
+                    //cmd.Parameters.AddWithValue("IdDistrito", obj.oDistrito.IdDistrito);
                     cmd.Parameters.AddWithValue("Correo1", obj.Correo1);
                     cmd.Parameters.AddWithValue("Correo2", obj.Correo2);
                     cmd.Parameters.AddWithValue("Telefono1", obj.Telefono1);
