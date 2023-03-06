@@ -103,32 +103,39 @@ namespace CapaPresentacion
             decimal preciocompra = 0;
             decimal precioventa = 0;
             bool producto_existe = false;
-            if(int.Parse(txtidproducto.Text)==0)
+
+            if(int.Parse(txtidproducto.Text) == 0)
             {
-                MessageBox.Show("Debe seleccionar un producto","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
             if(!decimal.TryParse(txtpreciocompra.Text, out preciocompra))
             {
-                MessageBox.Show("Precio de compra - Formato de moneda incorrecto", "Mensaje Alerta!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Precio de compra - Formato moneda incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtpreciocompra.Select();
                 return;
             }
             if(!decimal.TryParse(txtprecioventa.Text, out precioventa))
             {
-                MessageBox.Show("Precio de venta - Formato de moneda incorrecto", "Mensaje de Alerta!!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Precio de venta - Formato moneda incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtprecioventa.Select();
                 return;
             }
             foreach(DataGridViewRow fila in dgvdata.Rows)
             {
-                if (fila.Cells["IdProducto"].Value.ToString() == txtidproducto.Text)
+                //la primera forma es ==> if (fila.Cells["IdProducto"].Value.ToString() == txtidproducto.Text)
+                //pero sale un mensaje de error. quitando el tostring si sale 
+                if (Convert.ToInt32(fila.Cells["IdProducto"].Value) == Convert.ToInt32(txtidproducto.Text))
                 {
                     producto_existe=true;
+                    MessageBox.Show("Este producto ya está ingresado en la tabla, por favor ingrese otro o actualice el existente", "Mensaje de información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     break;
                 }
             }
+
+            
+
+
             if (!producto_existe)
             {
                 dgvdata.Rows.Add(new object[]
@@ -138,11 +145,58 @@ namespace CapaPresentacion
                     preciocompra.ToString("0.00"),
                     precioventa.ToString("0.00"),
                     txtcantidad.Value.ToString(),
-                    (txtcantidad.Value * precioventa).ToString("0.00")
+                    (txtcantidad.Value * preciocompra).ToString("0.00")
                 });
-
+                calcularTotal();
+                limpiarProducto();
+                txtcodproducto.Select();
             }
+            
+
+        }
+         private void limpiarProducto()
+        {
+            /*txtidproveedor.Text = "0";
+            txtdocproveedor.Text = "";
+            txtnombreproveedor.Text = "";*/
+            txtidproducto.Text = "0";
+            txtcodproducto.Text = "";
+            txtcodproducto.BackColor = Color.White;
+            txtproducto.Text = "";
+            txtpreciocompra.Text = "";
+            txtprecioventa.Text = "";
+            txtcantidad.Value = 1;
         }
 
+        private void calcularTotal()
+        {
+            decimal total = 0;
+            if(dgvdata.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    total += Convert.ToDecimal(row.Cells["SubTotal"].Value);
+                }
+            }
+            txttotalpagar.Text = total.ToString("0.00");
+        }
+
+        private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 6)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.delete24.Width;
+                var h = Properties.Resources.delete24.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.delete24, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
     }
 }

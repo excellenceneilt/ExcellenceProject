@@ -57,6 +57,10 @@
             this.txtcodproducto = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvdata = new System.Windows.Forms.DataGridView();
+            this.txttotalpagar = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnregistrar = new FontAwesome.Sharp.IconButton();
             this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,10 +68,6 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btneliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txttotalpagar = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnregistrar = new FontAwesome.Sharp.IconButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -386,46 +386,7 @@
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.Size = new System.Drawing.Size(677, 258);
             this.dgvdata.TabIndex = 26;
-            // 
-            // IdProducto
-            // 
-            this.IdProducto.HeaderText = "IdProducto";
-            this.IdProducto.Name = "IdProducto";
-            this.IdProducto.Visible = false;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.Width = 130;
-            // 
-            // PrecioCompra
-            // 
-            this.PrecioCompra.HeaderText = "Precio de compra";
-            this.PrecioCompra.Name = "PrecioCompra";
-            // 
-            // PrecioVenta
-            // 
-            this.PrecioVenta.HeaderText = "Precio de venta";
-            this.PrecioVenta.Name = "PrecioVenta";
-            this.PrecioVenta.Visible = false;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "SubTotal";
-            this.SubTotal.Name = "SubTotal";
-            // 
-            // btneliminar
-            // 
-            this.btneliminar.HeaderText = "";
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btneliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
             // 
             // txttotalpagar
             // 
@@ -472,6 +433,46 @@
             this.btnregistrar.Text = "Registrar";
             this.btnregistrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnregistrar.UseVisualStyleBackColor = true;
+            // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "IdProducto";
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.Visible = false;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.Width = 130;
+            // 
+            // PrecioCompra
+            // 
+            this.PrecioCompra.HeaderText = "Precio de compra";
+            this.PrecioCompra.Name = "PrecioCompra";
+            // 
+            // PrecioVenta
+            // 
+            this.PrecioVenta.HeaderText = "Precio de venta";
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.Visible = false;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.Name = "SubTotal";
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.HeaderText = "";
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btneliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmCompras
             // 
