@@ -386,6 +386,7 @@
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.Size = new System.Drawing.Size(677, 258);
             this.dgvdata.TabIndex = 26;
+            this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
             // 
             // txttotalpagar
@@ -535,7 +536,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtcodproducto;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dgvdata;
         private FontAwesome.Sharp.IconButton btnagregarproducto;
         private System.Windows.Forms.TextBox txttotalpagar;
         private System.Windows.Forms.Label label12;
@@ -548,5 +548,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewButtonColumn btneliminar;
+        private System.Windows.Forms.DataGridView dgvdata;
     }
 }

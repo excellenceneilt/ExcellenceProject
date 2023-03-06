@@ -124,7 +124,8 @@ namespace CapaPresentacion
             foreach(DataGridViewRow fila in dgvdata.Rows)
             {
                 //la primera forma es ==> if (fila.Cells["IdProducto"].Value.ToString() == txtidproducto.Text)
-                //pero sale un mensaje de error. quitando el tostring si sale 
+                //pero sale un mensaje de error. quitando el tostring si sale
+                //if (fila.Cells["IdProducto"].Value.ToString() == txtidproducto.Text)
                 if (Convert.ToInt32(fila.Cells["IdProducto"].Value) == Convert.ToInt32(txtidproducto.Text))
                 {
                     producto_existe=true;
@@ -196,6 +197,20 @@ namespace CapaPresentacion
 
                 e.Graphics.DrawImage(Properties.Resources.delete24, new Rectangle(x, y, w, h));
                 e.Handled = true;
+            }
+        }
+
+        private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvdata.Columns[e.ColumnIndex].Name == "btneliminar")
+            {
+                int indice = e.RowIndex;
+
+                if(indice >= 0)
+                {
+                    dgvdata.Rows.RemoveAt(indice);
+                    calcularTotal();
+                }
             }
         }
     }
