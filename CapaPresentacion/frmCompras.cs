@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -125,8 +126,8 @@ namespace CapaPresentacion
             {
                 //la primera forma es ==> if (fila.Cells["IdProducto"].Value.ToString() == txtidproducto.Text)
                 //pero sale un mensaje de error. quitando el tostring si sale
-                //if (fila.Cells["IdProducto"].Value.ToString() == txtidproducto.Text)
-                if (Convert.ToInt32(fila.Cells["IdProducto"].Value) == Convert.ToInt32(txtidproducto.Text))
+                if (fila.Cells["IdProducto"].Value.ToString() == txtidproducto.Text)
+                //if (Convert.ToInt32(fila.Cells["IdProducto"].Value) == Convert.ToInt32(txtidproducto.Text))
                 {
                     producto_existe=true;
                     MessageBox.Show("Este producto ya está ingresado en la tabla, por favor ingrese otro o actualice el existente", "Mensaje de información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -176,7 +177,7 @@ namespace CapaPresentacion
             {
                 foreach (DataGridViewRow row in dgvdata.Rows)
                 {
-                    total += Convert.ToDecimal(row.Cells["SubTotal"].Value);
+                    total += Convert.ToDecimal(row.Cells["SubTotal"].Value.ToString());
                 }
             }
             txttotalpagar.Text = total.ToString("0.00");
@@ -212,6 +213,126 @@ namespace CapaPresentacion
                     calcularTotal();
                 }
             }
+        }
+
+        private void txtpreciocompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if(txtpreciocompra.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if(Char.IsControl(e.KeyChar)  || e.KeyChar.ToString() == ".") 
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        private void txtprecioventa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtprecioventa.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        private void btnregistrar_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtidproveedor.Text) == 0)
+            {
+                MessageBox.Show("Debe seleccionar un proveedor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (dgvdata.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe ingresar productos en la compra", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DataTable detalle_compra = new DataTable();
+            detalle_compra.Columns.Add("IdProducto", typeof(int));
+            detalle_compra.Columns.Add("PrecioCompra", typeof(decimal));
+            detalle_compra.Columns.Add("PrecioVenta", typeof(decimal));
+            detalle_compra.Columns.Add("Cantidad", typeof(int));
+            detalle_compra.Columns.Add("MontoTotal", typeof(decimal));
+
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                detalle_compra.Rows.Add(
+                    new object[]
+                    {
+                        Convert.ToInt32(row.Cells["IdProducto"].Value.ToString()),
+                        row.Cells["PrecioCompra"].Value.ToString(),
+                        row.Cells["PrecioVenta"].Value.ToString(),
+                        row.Cells["Cantidad"].Value.ToString(),
+                        row.Cells["SubTotal"].Value.ToString()
+                    });
+            }
+            int idcorrelativo = new CN_Compra().ObtenerCorrelativo();
+            string numerodocumento = string.Format("{0:00000}",idcorrelativo);
+
+            Compra oCompra = new Compra()
+            {
+                oUsuario = new Usuario() { IdUsuario = _Usuario.IdUsuario},
+                oProveedor = new Proveedor() { IdProveedor = Convert.ToInt32(txtidproveedor.Text) },
+                TipoDocumento = ((OpcionCombo)cbotipodocumento.SelectedItem).Texto,
+                NumeroDocumento = numerodocumento,
+                MontoTotal = Convert.ToDecimal(txttotalpagar.Text),
+            };
+
+            string mensaje = string.Empty;
+            bool respuesta = new CN_Compra().Registrar(oCompra,detalle_compra,out mensaje);
+
+            if(respuesta)
+            {
+                var result = MessageBox.Show("Numero de compra generada:\n" + numerodocumento +
+                    "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if(result == DialogResult.Yes)
+                {
+                    Clipboard.SetText(numerodocumento);
+                }
+                txtidproveedor.Text = "0";
+                txtdocproveedor.Text = "";
+                txtnombreproveedor.Text = "";
+                dgvdata.Rows.Clear();
+                calcularTotal();
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
     }
 }
