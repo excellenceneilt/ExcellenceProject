@@ -32,7 +32,25 @@ namespace CapaPresentacion
                 txtusuario.Text = oCompra.oUsuario.NombreCompleto;
                 txtdocproveedor.Text = oCompra.oProveedor.Documento;
                 txtnombreproveedor.Text = oCompra.oProveedor.RazonSocial;
+                dgvdata.Rows.Clear();
+                foreach (Detalle_Compra dc in oCompra.oDetalleCompra)
+                {
+                    dgvdata.Rows.Add(new object[] {dc.oProducto.Nombre,dc.PrecioCompra,dc.Cantidad,dc.MontoTotal});
+                }
+                txtmontototal.Text = oCompra.MontoTotal.ToString("0.00");
             }
+        }
+
+        private void btnborrar_Click(object sender, EventArgs e)
+        {
+            txtfecha.Text = "";
+            txttipodocumento.Text = "";
+            txtusuario.Text = "";
+            txtdocproveedor.Text = "";
+            txtnombreproveedor.Text = "";
+
+            dgvdata.Rows.Clear();
+            txtmontototal.Text = "0.00";
         }
     }
 }
