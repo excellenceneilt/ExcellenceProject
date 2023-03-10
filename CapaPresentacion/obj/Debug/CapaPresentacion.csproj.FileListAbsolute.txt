@@ -119,3 +119,4 @@ D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\bin\Debug\BouncyCastle.
 D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\bin\Debug\itextsharp.dll
 D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\bin\Debug\itextsharp.xmlworker.dll
 D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\bin\Debug\itextsharp.xml
+D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdCliente.resources
