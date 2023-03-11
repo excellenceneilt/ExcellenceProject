@@ -40,7 +40,7 @@ namespace CapaPresentacion
             txtfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtidproducto.Text = "0";
 
-            txtpagacon.Text = "";
+            txtpagocon.Text = "";
             txtcambio.Text = "";
             txttotalpagar.Text = "0";
 
@@ -153,6 +153,9 @@ namespace CapaPresentacion
                     txtcantidad.Value.ToString(),
                     (txtcantidad.Value*precio).ToString("0.00")
                 });
+                calcularTotal();
+                limpiarProducto();
+                txtcodproducto.Select();
             }
         }
 
@@ -167,6 +170,140 @@ namespace CapaPresentacion
                 }
             }
             txttotalpagar.Text = total.ToString("0.00");
+        }
+
+        private void limpiarProducto()
+        {
+            txtidproducto.Text = "0";
+            txtcodproducto.Text = "";
+            txtproducto.Text = "";
+            txtprecio.Text = "";
+            txtstock.Text = "";
+            txtcantidad.Value = 1;
+        }
+
+        private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if(e.RowIndex < 0) 
+                return;
+            if(e.ColumnIndex == 5)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.delete24.Width;
+                var h = Properties.Resources.delete24.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.delete24, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvdata.Columns[e.ColumnIndex].Name =="btneliminar")
+            {
+                int index = e.RowIndex;
+                if(index >= 0)
+                {
+                    dgvdata.Rows.RemoveAt(index);
+                    calcularTotal();
+                }
+            }
+        }
+
+        private void txtprecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtprecio.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        private void txtpagacon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtpagocon.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+        
+        private void txtpagocon_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                calcularcambio();
+            }
+        }
+
+        private void calcularcambio()
+        {
+            if (txttotalpagar.Text.Trim() == "")
+            {
+                MessageBox.Show("No existen productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            decimal pagacon;
+            decimal total = Convert.ToDecimal(txttotalpagar.Text);
+            
+            if (txtpagocon.Text.Trim() == "")
+            {
+                txtpagocon.Text = "0";
+            }
+
+            if(decimal.TryParse(txtpagocon.Text.Trim(), out pagacon))
+            {
+                if (pagacon < total)
+                {
+                    txtcambio.Text = "0.00";
+                }
+                else
+                {
+                    decimal cambio = pagacon - total;
+                    txtcambio.Text = cambio.ToString("0.00");
+                }
+            }
+            /*decimal cambio = 0;
+            cambio = Convert.ToDecimal(txtpagocon.Text) - Convert.ToDecimal(txttotalpagar.Text);
+            txtcambio.Text = cambio.ToString();*/
         }
     }
 }

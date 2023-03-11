@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -65,7 +65,7 @@
             this.btneliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txttotalpagar = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtpagacon = new System.Windows.Forms.TextBox();
+            this.txtpagocon = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtcambio = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -267,6 +267,7 @@
             this.txtprecio.Name = "txtprecio";
             this.txtprecio.Size = new System.Drawing.Size(65, 20);
             this.txtprecio.TabIndex = 23;
+            this.txtprecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprecio_KeyPress);
             // 
             // label9
             // 
@@ -364,15 +365,15 @@
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdProducto,
@@ -388,6 +389,8 @@
             this.dgvdata.RowTemplate.Height = 28;
             this.dgvdata.Size = new System.Drawing.Size(585, 273);
             this.dgvdata.TabIndex = 76;
+            this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
+            this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
             // 
             // IdProducto
             // 
@@ -448,13 +451,15 @@
             this.label12.TabIndex = 26;
             this.label12.Text = "Total a pagar:";
             // 
-            // txtpagacon
+            // txtpagocon
             // 
-            this.txtpagacon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtpagacon.Location = new System.Drawing.Point(865, 354);
-            this.txtpagacon.Name = "txtpagacon";
-            this.txtpagacon.Size = new System.Drawing.Size(100, 20);
-            this.txtpagacon.TabIndex = 78;
+            this.txtpagocon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtpagocon.Location = new System.Drawing.Point(865, 354);
+            this.txtpagocon.Name = "txtpagocon";
+            this.txtpagocon.Size = new System.Drawing.Size(100, 20);
+            this.txtpagocon.TabIndex = 78;
+            this.txtpagocon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtpagocon_KeyDown);
+            this.txtpagocon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpagacon_KeyPress);
             // 
             // label13
             // 
@@ -464,7 +469,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 13);
             this.label13.TabIndex = 77;
-            this.label13.Text = "Paga con:";
+            this.label13.Text = "Pago con:";
             // 
             // txtcambio
             // 
@@ -506,7 +511,7 @@
             this.Controls.Add(this.btncrearventa);
             this.Controls.Add(this.txtcambio);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.txtpagacon);
+            this.Controls.Add(this.txtpagocon);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txttotalpagar);
             this.Controls.Add(this.dgvdata);
@@ -571,7 +576,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn btneliminar;
         private System.Windows.Forms.TextBox txttotalpagar;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtpagacon;
+        private System.Windows.Forms.TextBox txtpagocon;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtcambio;
         private System.Windows.Forms.Label label14;
