@@ -211,6 +211,7 @@ namespace CapaDatos
                     oLista = new List<Detalle_Venta>();
                 }
             }
+            return oLista;
         }
     }
 }
