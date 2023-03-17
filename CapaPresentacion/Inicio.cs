@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaEntidad;
 using FontAwesome.Sharp;
 using CapaNegocio;
+using CapaPresentacion.Modales;
 
 namespace CapaPresentacion
 {
@@ -143,6 +144,20 @@ namespace CapaPresentacion
         private void submenureporteventas_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuReportes, new frmReporteVentas());
+        }
+
+        private void menuAcercade_Click(object sender, EventArgs e)
+        {
+            mdAcercade md = new mdAcercade();
+            md.ShowDialog();
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("¿Desea salir?","Mensaje",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

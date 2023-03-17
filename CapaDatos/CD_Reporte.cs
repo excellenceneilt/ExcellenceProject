@@ -1,6 +1,7 @@
 ﻿using CapaEntidad;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("fechainicio", fechainicio);
                     cmd.Parameters.AddWithValue("fechafin", fechafin);
                     cmd.Parameters.AddWithValue("idproveedor", idproveedor);
-                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
                     using (SqlDataReader dr = cmd.ExecuteReader())
@@ -70,7 +71,7 @@ namespace CapaDatos
                     SqlCommand cmd = new SqlCommand("sp_ReporteVentas", oconexion);
                     cmd.Parameters.AddWithValue("fechainicio", fechainicio);
                     cmd.Parameters.AddWithValue("fechafin", fechafin);
-                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                     oconexion.Open();
                     using (SqlDataReader dr = cmd.ExecuteReader())

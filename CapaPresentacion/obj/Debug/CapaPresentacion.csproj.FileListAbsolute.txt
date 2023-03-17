@@ -121,3 +121,5 @@ D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\bin\Debug\itextsharp.xm
 D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\bin\Debug\itextsharp.xml
 D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdCliente.resources
 D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.frmReporteCompras.resources
+D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.frmReporteVentas.resources
+D:\ProyectoExcellence\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdAcercade.resources

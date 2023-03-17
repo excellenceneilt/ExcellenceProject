@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtfechainicio = new System.Windows.Forms.DateTimePicker();
+            this.txtfechafin = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cboproveedor = new System.Windows.Forms.ComboBox();
-            this.btnbuscarproveedor = new FontAwesome.Sharp.IconButton();
+            this.btnbuscarresultado = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvdata = new System.Windows.Forms.DataGridView();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,7 @@
             this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbobuscarpor = new System.Windows.Forms.ComboBox();
+            this.cbobusqueda = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtbusqueda = new System.Windows.Forms.TextBox();
             this.btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
@@ -69,7 +69,7 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1204, 79);
+            this.label1.Size = new System.Drawing.Size(1341, 79);
             this.label1.TabIndex = 1;
             // 
             // label2
@@ -79,9 +79,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(21, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 25);
+            this.label2.Size = new System.Drawing.Size(206, 25);
             this.label2.TabIndex = 23;
-            this.label2.Text = "Registrar Compra";
+            this.label2.Text = "Reporte de compras";
             // 
             // label3
             // 
@@ -93,23 +93,23 @@
             this.label3.TabIndex = 24;
             this.label3.Text = "Fecha de inicio:";
             // 
-            // dateTimePicker2
+            // txtfechainicio
             // 
-            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(173, 52);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(102, 20);
-            this.dateTimePicker2.TabIndex = 25;
+            this.txtfechainicio.CustomFormat = "dd/MM/yyyy";
+            this.txtfechainicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtfechainicio.Location = new System.Drawing.Point(173, 52);
+            this.txtfechainicio.Name = "txtfechainicio";
+            this.txtfechainicio.Size = new System.Drawing.Size(102, 20);
+            this.txtfechainicio.TabIndex = 25;
             // 
-            // dateTimePicker1
+            // txtfechafin
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(360, 52);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(102, 20);
-            this.dateTimePicker1.TabIndex = 27;
+            this.txtfechafin.CustomFormat = "dd/MM/yyyy";
+            this.txtfechafin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtfechafin.Location = new System.Drawing.Point(360, 52);
+            this.txtfechafin.Name = "txtfechafin";
+            this.txtfechafin.Size = new System.Drawing.Size(102, 20);
+            this.txtfechafin.TabIndex = 27;
             // 
             // label4
             // 
@@ -139,17 +139,18 @@
             this.cboproveedor.Size = new System.Drawing.Size(191, 21);
             this.cboproveedor.TabIndex = 29;
             // 
-            // btnbuscarproveedor
+            // btnbuscarresultado
             // 
-            this.btnbuscarproveedor.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
-            this.btnbuscarproveedor.IconColor = System.Drawing.Color.Black;
-            this.btnbuscarproveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnbuscarproveedor.IconSize = 18;
-            this.btnbuscarproveedor.Location = new System.Drawing.Point(778, 50);
-            this.btnbuscarproveedor.Name = "btnbuscarproveedor";
-            this.btnbuscarproveedor.Size = new System.Drawing.Size(51, 23);
-            this.btnbuscarproveedor.TabIndex = 30;
-            this.btnbuscarproveedor.UseVisualStyleBackColor = true;
+            this.btnbuscarresultado.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.btnbuscarresultado.IconColor = System.Drawing.Color.Black;
+            this.btnbuscarresultado.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnbuscarresultado.IconSize = 18;
+            this.btnbuscarresultado.Location = new System.Drawing.Point(778, 50);
+            this.btnbuscarresultado.Name = "btnbuscarresultado";
+            this.btnbuscarresultado.Size = new System.Drawing.Size(51, 23);
+            this.btnbuscarresultado.TabIndex = 30;
+            this.btnbuscarresultado.UseVisualStyleBackColor = true;
+            this.btnbuscarresultado.Click += new System.EventHandler(this.btnbuscarresultado_Click);
             // 
             // label6
             // 
@@ -157,21 +158,21 @@
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Location = new System.Drawing.Point(12, 95);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(1204, 329);
+            this.label6.Size = new System.Drawing.Size(1341, 329);
             this.label6.TabIndex = 31;
             // 
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FechaRegistro,
@@ -193,7 +194,7 @@
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(1185, 261);
+            this.dgvdata.Size = new System.Drawing.Size(1319, 261);
             this.dgvdata.TabIndex = 75;
             // 
             // FechaRegistro
@@ -280,13 +281,13 @@
             this.SubTotal.Name = "SubTotal";
             this.SubTotal.ReadOnly = true;
             // 
-            // cbobuscarpor
+            // cbobusqueda
             // 
-            this.cbobuscarpor.FormattingEnabled = true;
-            this.cbobuscarpor.Location = new System.Drawing.Point(796, 106);
-            this.cbobuscarpor.Name = "cbobuscarpor";
-            this.cbobuscarpor.Size = new System.Drawing.Size(138, 21);
-            this.cbobuscarpor.TabIndex = 77;
+            this.cbobusqueda.FormattingEnabled = true;
+            this.cbobusqueda.Location = new System.Drawing.Point(796, 106);
+            this.cbobusqueda.Name = "cbobusqueda";
+            this.cbobusqueda.Size = new System.Drawing.Size(138, 21);
+            this.cbobusqueda.TabIndex = 77;
             // 
             // label7
             // 
@@ -322,6 +323,7 @@
             this.btnlimpiarbuscador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnlimpiarbuscador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnlimpiarbuscador.UseVisualStyleBackColor = false;
+            this.btnlimpiarbuscador.Click += new System.EventHandler(this.btnlimpiarbuscador_Click);
             // 
             // btnbuscar
             // 
@@ -340,6 +342,7 @@
             this.btnbuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnbuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // btnexportar
             // 
@@ -352,31 +355,33 @@
             this.btnexportar.TabIndex = 82;
             this.btnexportar.Text = "Descargar Excel";
             this.btnexportar.UseVisualStyleBackColor = true;
+            this.btnexportar.Click += new System.EventHandler(this.btnexportar_Click);
             // 
             // frmReporteCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 450);
+            this.ClientSize = new System.Drawing.Size(1365, 450);
             this.Controls.Add(this.btnexportar);
             this.Controls.Add(this.btnlimpiarbuscador);
             this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.txtbusqueda);
-            this.Controls.Add(this.cbobuscarpor);
+            this.Controls.Add(this.cbobusqueda);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dgvdata);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnbuscarproveedor);
+            this.Controls.Add(this.btnbuscarresultado);
             this.Controls.Add(this.cboproveedor);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.txtfechafin);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.txtfechainicio);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmReporteCompras";
             this.Text = "frmReporteCompras";
+            this.Load += new System.EventHandler(this.frmReporteCompras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -387,12 +392,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker txtfechainicio;
+        private System.Windows.Forms.DateTimePicker txtfechafin;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboproveedor;
-        private FontAwesome.Sharp.IconButton btnbuscarproveedor;
+        private FontAwesome.Sharp.IconButton btnbuscarresultado;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvdata;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
@@ -409,7 +414,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
-        private System.Windows.Forms.ComboBox cbobuscarpor;
+        private System.Windows.Forms.ComboBox cbobusqueda;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtbusqueda;
         private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
