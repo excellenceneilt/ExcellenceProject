@@ -17,30 +17,25 @@ namespace CapaDatos
             List<Departamento> olistaDepartamento = new List<Departamento>();
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
-                try
-                {
+                
                     SqlCommand cmd = new SqlCommand("SP_ObtenerDepartamento", oconexion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandTimeout = 600;
                     oconexion.Open();
 
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
                         {
                             olistaDepartamento.Add(new Departamento
                             {
                                 IdDepartamento = Convert.ToInt32(dr["IdDepartamento"]),
-                                Descripcion = dr["Descripcion"].ToString()
+                                Descripcion = Convert.ToString(dr["Descripcion"].ToString())
                             });
                         }
                         dr.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    olistaDepartamento = new List<Departamento>();
-                }
+                    
+               
             }
             return olistaDepartamento;
         }
@@ -50,17 +45,16 @@ namespace CapaDatos
             List<Provincia> olistaProvincia = new List<Provincia>();
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
-                try
-                {
+               
                     SqlCommand cmd = new SqlCommand("SP_ObtenerProvincia", oconexion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("IdDepartamento", IdDepartamento);
                     cmd.CommandTimeout = 600;
                     oconexion.Open();
 
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
                         {
                             olistaProvincia.Add(new Provincia
                             {
@@ -70,12 +64,8 @@ namespace CapaDatos
                             });
                         }
                         dr.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    olistaProvincia = new List<Provincia>();
-                }
+                    
+                
             }
             return olistaProvincia;
         }
@@ -86,16 +76,18 @@ namespace CapaDatos
             List<Distrito> olistaDistrito = new List<Distrito>();
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
-                try
-                {
+
+
+
+                
                     SqlCommand cmd = new SqlCommand("SP_ObtenerDistrito", oconexion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("IdProvincia", IdProvincia);
                     cmd.CommandTimeout = 600;
                     oconexion.Open();
 
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
+                SqlDataReader dr = cmd.ExecuteReader();
+                    
                         while (dr.Read())
                         {
                             olistaDistrito.Add(new Distrito
@@ -105,12 +97,9 @@ namespace CapaDatos
                             });
                         }
                         dr.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    olistaDistrito = new List<Distrito>();
-                }
+                    
+                    
+                
             }
             return olistaDistrito;
         }

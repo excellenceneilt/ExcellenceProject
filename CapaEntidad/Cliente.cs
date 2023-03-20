@@ -19,12 +19,13 @@ namespace CapaEntidad
         public string DireccionComercial {get;set;}
         public Tipo_Cliente oTipo_Cliente { get; set;}
         public Tipo_Documento oTipo_Documento { get; set; }
-        public int IdDepartamento {get;set;}
-        public Provincia oProvincia {get;set;}
-        public Distrito oDistrito {get;set;}
-        public Departamento oDepartamentoComercial { get; set; }
-        public Provincia oProvinciaComercial { get; set; }
-        public Distrito oDistritoComercial { get; set; }
+        public string Departamento {get;set;}
+        public string Provincia { get; set; }
+        public string Distrito { get; set; }
+        public string DepartamentoComercial { get; set; }
+        public string ProvinciaComercial { get; set; }
+        public string DistritoComercial { get; set; }
+
         public string Correo1 { get; set; }
         public string Correo2  { get; set; }
         public string Telefono1 { get; set; }

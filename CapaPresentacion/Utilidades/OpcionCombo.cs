@@ -11,4 +11,9 @@ namespace CapaPresentacion.Utilidades
         public string Texto { get; set; }
         public object Valor { get; set; } //Lo que pudo ser booleano
     }
+
+    public class Opcb
+    {
+        public string Val { get; set; }
+    }
 }

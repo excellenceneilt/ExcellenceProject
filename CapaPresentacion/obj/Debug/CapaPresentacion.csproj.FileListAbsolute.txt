@@ -55,3 +55,4 @@ C:\Users\Excellence\source\repos\SistemaExcellence\CapaPresentacion\bin\Debug\Sy
 C:\Users\Excellence\source\repos\SistemaExcellence\CapaPresentacion\bin\Debug\System.Text.Encoding.CodePages.xml
 C:\Users\Excellence\source\repos\SistemaExcellence\CapaPresentacion\bin\Debug\System.ValueTuple.xml
 C:\Users\Excellence\source\repos\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.frmEspecialidad.resources
+C:\Users\Excellence\source\repos\SistemaExcellence\CapaPresentacion\obj\Debug\CapaPresentacion.frmServicioTecnico.resources

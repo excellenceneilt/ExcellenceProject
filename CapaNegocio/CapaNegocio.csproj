@@ -43,11 +43,9 @@
   <ItemGroup>
     <Compile Include="CN_Categoria.cs" />
     <Compile Include="CN_Cliente.cs" />
-    <Compile Include="CN_Departamento.cs" />
     <Compile Include="CN_Especialidad.cs" />
     <Compile Include="CN_Permiso.cs" />
     <Compile Include="CN_Producto.cs" />
-    <Compile Include="CN_Provincia.cs" />
     <Compile Include="CN_Rol.cs" />
     <Compile Include="CN_TipoCliente.cs" />
     <Compile Include="CN_TipoDocumento.cs" />

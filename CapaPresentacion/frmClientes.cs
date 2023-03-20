@@ -29,7 +29,8 @@ namespace CapaPresentacion
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
-            ListarDepartamento();
+           ListarDepartamento();
+
             #region COLUMNAS
             foreach (DataGridViewColumn c in dgvdata.Columns)
             {
@@ -55,7 +56,6 @@ namespace CapaPresentacion
 
             //Listar Especialidad en combobox
             List<Especialidad> listaEspecialidad = new CN_Especialidad().Listar();
-
             foreach (Especialidad item in listaEspecialidad)
             {
                 cboespecialidad.Items.Add(new OpcionCombo() { Valor = item.IdEspecialidad, Texto = item.Descripcion });
@@ -66,7 +66,6 @@ namespace CapaPresentacion
 
             //Listar TipoCliente en combobox
             List<Tipo_Cliente> listaTipoCliente = new CN_TipoCliente().Listar();
-
             foreach (Tipo_Cliente item in listaTipoCliente)
             {
                 cbotipocliente.Items.Add(new OpcionCombo() { Valor = item.IdTipoCliente, Texto = item.Descripcion });
@@ -77,7 +76,6 @@ namespace CapaPresentacion
 
             //Listar TipoDocumento en combobox
             List<Tipo_Documento> listaTipoDocumento = new CN_TipoDocumento().Listar();
-
             foreach (Tipo_Documento item in listaTipoDocumento)
             {
                 cbotipodocumento.Items.Add(new OpcionCombo() { Valor = item.IdTipoDocumento, Texto = item.Descripcion });
@@ -88,7 +86,8 @@ namespace CapaPresentacion
 
             #endregion
 
-            #region Filtrar registros en tabla
+            #region FILTRAR REGISTROS EN TABLA
+
             //Para filtrar registros en el datagrid
             foreach (DataGridViewColumn columna in dgvdata.Columns)
             {
@@ -102,43 +101,57 @@ namespace CapaPresentacion
             cbobusqueda.SelectedIndex = 0;
             #endregion
 
-
-            //Mostrar todos los Clientes se crea la listaaaa
+            #region LLENAR DATAGRID
+            
             List<Cliente> listaCliente = new CN_Cliente().Listar();
-
-            //Se recorre la lista
             foreach (Cliente item in listaCliente)
-            {//Colocar las columnas del datagrid
-                dgvdata.Rows.Add(new object[] { //Se establecen las propiedades de cada fila
+            {//Colocar los items en orden, tal cual las columnas del datagrid
+                dgvdata.Rows.Add(new object[] {
                      "",
                     item.IdCliente,
+                    item.CodigoCliente,
+                    item.oTipo_Documento.IdTipoDocumento,
+                    item.oTipo_Documento.Descripcion,
                     item.Documento,
-                    item.NombreCompleto,
-                    item.Correo1,
-                    item.Telefono1,
-                    item.RazonSocial,
-                    item.CMP,
                     item.RUC,
+                    item.RazonSocial,
+                    item.oTipo_Cliente.IdTipoCliente,
+                    item.oTipo_Cliente.Descripcion,
+                    item.NombreCompleto,
+                    item.Direccion,
+                    item.CMP,
                     item.oEspecialidad.IdEspecialidad,
                     item.oEspecialidad.Descripcion,
+                    item.NombreComercial,
+                    item.DireccionComercial,
+                    item.Correo1,
+                    item.Telefono1,
                     item.Correo2,
                     item.Telefono2,
+                    item.Departamento,
                     item.Estado==true ?1 : 0,
                     item.Estado==true ?"Activo":"Inactivo",
-            });
+                });
             }
+            #endregion
 
         }
 
-        
+
 
         #region LISTAR DEPARTAMENTOS PROVINCIAS Y DISTRITOS
-        private void ListarDepartamento()
+        public void ListarDepartamento()
         {
+            //Facturación
             cbodepartamento.DataSource = new OperacionesDPD().ObtenerDepartamento();
             cbodepartamento.ValueMember = "IdDepartamento";
             cbodepartamento.DisplayMember = "Descripcion";
+            //Comercial
+            cbodepartamentocomercial.DataSource = new OperacionesDPD().ObtenerDepartamento();
+            cbodepartamentocomercial.ValueMember = "IdDepartamento";
+            cbodepartamentocomercial.DisplayMember = "Descripcion";
         }
+        //Datos de facturación
         private void cbodepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             Departamento odepartamentoSeleccionado = (Departamento)cbodepartamento.SelectedItem;
@@ -152,6 +165,21 @@ namespace CapaPresentacion
             cbodistrito.DataSource = new OperacionesDPD().ObtenerDistrito(oprovinciaSeleccionado.IdProvincia);
             cbodistrito.ValueMember = "IdDistrito";
             cbodistrito.DisplayMember = "Descripcion";
+        }
+        //Datos comerciales
+        private void cbodepartamentocomercial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Departamento odepartamentoSeleccionado = (Departamento)cbodepartamentocomercial.SelectedItem;
+            cboprovinciacomercial.DataSource = new OperacionesDPD().ObtenerProvincia(odepartamentoSeleccionado.IdDepartamento);
+            cboprovinciacomercial.ValueMember = "IdProvincia";
+            cboprovinciacomercial.DisplayMember = "Descripcion";
+        }
+        private void cboprovinciacomercial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Provincia oprovinciaSeleccionado = (Provincia)cboprovinciacomercial.SelectedItem;
+            cbodistritocomercial.DataSource = new OperacionesDPD().ObtenerDistrito(oprovinciaSeleccionado.IdProvincia);
+            cbodistritocomercial.ValueMember = "IdDistrito";
+            cbodistritocomercial.DisplayMember = "Descripcion";
         }
 
         #endregion
@@ -209,12 +237,12 @@ namespace CapaPresentacion
                 DireccionComercial = txtdireccioncomercial.Text,
                 oTipo_Cliente = new Tipo_Cliente() { IdTipoCliente = Convert.ToInt32(((OpcionCombo)cbotipocliente.SelectedItem).Valor) },
                 oTipo_Documento = new Tipo_Documento() { IdTipoDocumento = Convert.ToInt32(((OpcionCombo)cbotipodocumento.SelectedItem).Valor) },
-                //   oDepartamento = new Departamento() { IdDepartamento = Convert.ToInt32(((OpcionCombo)cbodepartamento.SelectedItem).Valor) },
-                //   oProvincia = new Provincia() { IdProvincia = Convert.ToInt32(((OpcionCombo)cboprovincia.SelectedItem).Valor) },
-                //   oDistrito = new Distrito() { IdDistrito = Convert.ToInt32(((OpcionCombo)cbodistrito.SelectedItem).Valor) },
-                //   oDepartamentoComercial = new Departamento() { IdDepartamento = Convert.ToInt32(((OpcionCombo)cbodepartamentocomercial.SelectedItem).Valor) },
-                //   oProvinciaComercial = new Provincia() { IdProvincia = Convert.ToInt32(((OpcionCombo)cboprovinciacomercial.SelectedItem).Valor) },
-                //   oDistritoComercial = new Distrito() { IdDistrito = Convert.ToInt32(((OpcionCombo)cbodistritocomercial.SelectedItem).Valor) },
+                Departamento = this.cbodepartamento.GetItemText(this.cbodepartamento.SelectedItem),
+                Provincia = this.cboprovincia.GetItemText(this.cboprovincia.SelectedItem),
+                Distrito = this.cbodistrito.GetItemText(this.cbodistrito.SelectedItem),
+                DepartamentoComercial = this.cbodepartamento.GetItemText(this.cbodepartamentocomercial.SelectedItem),
+                ProvinciaComercial = this.cboprovincia.GetItemText(this.cboprovinciacomercial.SelectedItem),
+                DistritoComercial = this.cbodistrito.GetItemText(this.cbodistritocomercial.SelectedItem),
                 Correo1 = txtcorreo1.Text,
                 Telefono1 = txttelefono1.Text,
                 RazonSocial = txtrazonsocial.Text,
@@ -237,39 +265,40 @@ namespace CapaPresentacion
                 //El registro se hará siempre y cuando idClientegenerado sea diferente a cero, si es igual a cero indica que o se registró
                 if (idClientegenerado != 0)
                 {
-                    //En el mismo orden que la tabla
+                    //En el mismo orden que la tabla por favor es acá
                     dgvdata.Rows.Add(new object[] {"",
                         idClientegenerado,
-                        txtdocumento.Text,
-                        txtnombrecompleto.Text,
-                        txtnombrecomercial.Text,
-                        txtdireccion.Text,
-                        txtdireccioncomercial.Text,
-                        ((OpcionCombo) cbotipocliente.SelectedItem).Valor.ToString(),
-                         ((OpcionCombo) cbotipocliente.SelectedItem).Texto.ToString(),
+                        txtcodigocliente.Text,
                          ((OpcionCombo) cbotipodocumento.SelectedItem).Valor.ToString(),
                          ((OpcionCombo) cbotipodocumento.SelectedItem).Texto.ToString(),
-                       //  ((OpcionCombo) cbodepartamento.SelectedItem).Valor.ToString(),
-                      //   ((OpcionCombo) cbodepartamento.SelectedItem).Texto.ToString(),
-                        // ((OpcionCombo) cboprovincia.SelectedItem).Valor.ToString(),
-                         //((OpcionCombo) cboprovincia.SelectedItem).Texto.ToString(),
-                         ////((OpcionCombo) cbodistrito.SelectedItem).Valor.ToString(),
-                         //((OpcionCombo) cbodistrito.SelectedItem).Texto.ToString(),
-                         //((OpcionCombo) cbodepartamentocomercial.SelectedItem).Valor.ToString(),
-                         //((OpcionCombo) cbodepartamentocomercial.SelectedItem).Texto.ToString(),
-                     //    ((OpcionCombo) cboprovinciacomercial.SelectedItem).Valor.ToString(),
-                      //   ((OpcionCombo) cboprovinciacomercial.SelectedItem).Texto.ToString(),
-                      //   ((OpcionCombo) cbodistritocomercial.SelectedItem).Valor.ToString(),
-                      //   ((OpcionCombo) cbodistritocomercial.SelectedItem).Texto.ToString(),
-                        txtcorreo1.Text,
-                        txttelefono1.Text,
-                        txtrazonsocial.Text,
-                        txtcmp.Text,
+                        txtdocumento.Text,
                         txtruc.Text,
+                        txtrazonsocial.Text,
+                        ((OpcionCombo) cbotipocliente.SelectedItem).Valor.ToString(),
+                        ((OpcionCombo) cbotipocliente.SelectedItem).Texto.ToString(),
+                        txtnombrecompleto.Text,
+                        txtdireccion.Text,
+                        txtcmp.Text,
                         ((OpcionCombo) cboespecialidad.SelectedItem).Valor.ToString(),
                          ((OpcionCombo) cboespecialidad.SelectedItem).Texto.ToString(),
+                         txtnombrecomercial.Text,
+                         txtdireccioncomercial.Text,
+                         txtcorreo1.Text,
+                        txttelefono1.Text,
                         txtcorreo2.Text,
                         txttelefono2.Text,
+                
+                        
+                         
+                        
+                        
+                        
+                        
+                      
+                        
+                        
+                        
+                        
                       ((OpcionCombo) cboestado.SelectedItem).Valor.ToString(),
                          ((OpcionCombo) cboestado.SelectedItem).Texto.ToString(),
                 });
@@ -288,18 +317,25 @@ namespace CapaPresentacion
                 if (resultado)
                 {
 
-                    //Ajustar los datos a la tabla en orden
+                    
                     DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
                     row.Cells["Id"].Value = txtid.Text;
+                    row.Cells["IdTipoDocumento"].Value = ((OpcionCombo)cbotipodocumento.SelectedItem).Valor.ToString();
+                    row.Cells["TipoDocumento"].Value = ((OpcionCombo)cbotipodocumento.SelectedItem).Texto.ToString();
                     row.Cells["Documento"].Value = txtdocumento.Text;
+                    row.Cells["RUC"].Value = txtruc.Text;
+                    row.Cells["RazonSocial"].Value = txtrazonsocial.Text;
+                    row.Cells["IdTipoCliente"].Value = ((OpcionCombo)cbotipocliente.SelectedItem).Valor.ToString();
+                    row.Cells["TipoCliente"].Value = ((OpcionCombo)cbotipocliente.SelectedItem).Texto.ToString();
                     row.Cells["NombreCompleto"].Value = txtnombrecompleto.Text;
+                    row.Cells["Direccion"].Value =txtdireccion.Text;
+                    row.Cells["CMP"].Value = txtcmp.Text;
+                    row.Cells["IdEspecialidad"].Value = ((OpcionCombo)cboespecialidad.SelectedItem).Valor.ToString();
+                    row.Cells["Especialidad"].Value = ((OpcionCombo)cboespecialidad.SelectedItem).Texto.ToString();
+                    row.Cells["NombreComercial"].Value = txtnombrecomercial.Text;
+                    row.Cells["DireccionComercial"].Value = txtdireccioncomercial.Text;
                     row.Cells["Correo1"].Value = txtcorreo1.Text;
                     row.Cells["Telefono1"].Value = txttelefono1.Text;
-                    row.Cells["RazonSocial"].Value = txtrazonsocial.Text;
-                    row.Cells["CMP"].Value = txtcmp.Text;
-                    row.Cells["RUC"].Value = txtruc.Text;
-                    row.Cells["IdEspecialidad"].Value = ((OpcionCombo)cboespecialidad.SelectedItem).Texto.ToString();
-                    row.Cells["Especialidad"].Value = ((OpcionCombo)cboespecialidad.SelectedItem).Texto.ToString();
                     row.Cells["Correo2"].Value = txtcorreo2.Text;
                     row.Cells["Telefono2"].Value = txttelefono2.Text;
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
@@ -312,6 +348,8 @@ namespace CapaPresentacion
                     MessageBox.Show(mensaje);
                 }
             }
+
+
         }
         private void btnlimpiarbuscador_Click(object sender, EventArgs e)
         {
@@ -340,6 +378,9 @@ namespace CapaPresentacion
             cboestado.SelectedIndex = 0;
             txtcorreo2.Text = "";
             txttelefono2.Text = "";
+            txtcodigocliente.Text = "";
+            cbodepartamento.SelectedIndex= 0;
+            cbodepartamentocomercial.SelectedIndex= 0;
 
         }
         private void buscar()
@@ -399,26 +440,58 @@ namespace CapaPresentacion
                 int indice = e.RowIndex;
                 if (indice >= 0)
                 {
+
+                    //No debe estar en orden necesariamente
                     txtindice.Text = indice.ToString();
-                    //Setear en campos la información del Cliente
+                    //Setear en campos la información del Cliente (obtener los datos de una fila y ponerlos en edicion)
                     txtid.Text = dgvdata.Rows[indice].Cells["Id"].Value.ToString();
+                    txtcodigocliente.Text = dgvdata.Rows[indice].Cells["CodigoCliente"].Value.ToString(); //No se edita, solo se muestra
+                   
                     txtdocumento.Text = dgvdata.Rows[indice].Cells["Documento"].Value.ToString();
                     txtnombrecompleto.Text = dgvdata.Rows[indice].Cells["NombreCompleto"].Value.ToString();
                     txtcorreo1.Text = dgvdata.Rows[indice].Cells["Correo1"].Value.ToString();
                     txttelefono1.Text = dgvdata.Rows[indice].Cells["Telefono1"].Value.ToString();
                     txtrazonsocial.Text = dgvdata.Rows[indice].Cells["RazonSocial"].Value.ToString();
                     txtcmp.Text = dgvdata.Rows[indice].Cells["CMP"].Value.ToString();
-
-
+                    txtdireccion.Text = dgvdata.Rows[indice].Cells["Direccion"].Value.ToString();
+                    txtnombrecomercial.Text = dgvdata.Rows[indice].Cells["NombreComercial"].Value.ToString();
+                    txtdireccioncomercial.Text = dgvdata.Rows[indice].Cells["DireccionComercial"].Value.ToString();
                     txtruc.Text = dgvdata.Rows[indice].Cells["RUC"].Value.ToString();
+                    //TXT DE PRUEBA PAA EL COMBOBOX COMO 0 Y -1
+             //       cbodepartamento.ValueMember= "Piura"; //Comparar el valor devuelto
+
+                    //Departamento = this.cbodepartamento.GetItemText(this.cbodepartamento.SelectedItem),
+
+                    
+                    
+
                     //Setear en el combobox el rol del Cliente oc es el elemento que recorre toda la lista
                     foreach (OpcionCombo oc in cboespecialidad.Items)
                     {
-
                         if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdEspecialidad"].Value))
                         {
                             int indice_combo = cboespecialidad.Items.IndexOf(oc);
                             cboespecialidad.SelectedIndex = indice_combo;
+                            break; //Para cuando lo encuentre debe terminar
+                        }
+                    }
+                    foreach (OpcionCombo oc in cbotipodocumento.Items)
+                    {
+
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdTipoDocumento"].Value))
+                        {
+                            int indice_combo = cbotipodocumento.Items.IndexOf(oc);
+                            cbotipodocumento.SelectedIndex = indice_combo;
+                            break; //Para cuando lo encuentre debe terminar
+                        }
+                    }
+                    foreach (OpcionCombo oc in cbotipocliente.Items)
+                    {
+
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdTipoCliente"].Value))
+                        {
+                            int indice_combo = cbotipocliente.Items.IndexOf(oc);
+                            cbotipocliente.SelectedIndex = indice_combo;
                             break; //Para cuando lo encuentre debe terminar
                         }
                     }
@@ -441,19 +514,23 @@ namespace CapaPresentacion
             }
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         #endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
+        
     }
 }

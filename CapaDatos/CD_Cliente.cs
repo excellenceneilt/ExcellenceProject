@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
+using System.Xml.Linq;
 
 namespace CapaDatos
 {
@@ -20,8 +22,13 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdCliente, Documento, NombreCompleto, Correo1,Correo2,Telefono1,Telefono2, CMP,RazonSocial, RUC,e.IdEspecialidad, e.Descripcion[Especialidad], c.Estado from CLIENTE c");
+                    
+                    query.AppendLine("select IdCliente, CodigoCliente, td.IdTipoDocumento, td.Descripcion[Documentos], Documento, RUC, RazonSocial, tc.IdTipoCliente, tc.Descripcion[TipoCliente], NombreCompleto, Direccion,CMP,e.IdEspecialidad, e.Descripcion[Especialidad],NombreComercial, DireccionComercial, Correo1,Telefono1,Correo2,Telefono2, Departamento,  c.Estado from CLIENTE c");
                     query.AppendLine("inner join ESPECIALIDAD e on e.IdEspecialidad = c.IdEspecialidad");
+                    query.AppendLine("inner join TIPODOCUMENTO td on td.IdTipoDocumento = c.IdTipoDocumento");
+                    query.AppendLine("inner join TIPOCLIENTE tc on tc.IdTipoCliente = c.IdTipoCliente");
+                    query.AppendLine("inner join Departamento d on d.Descripcion = c.Departamento");
+
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -32,29 +39,26 @@ namespace CapaDatos
                         {
                             lista.Add(new Cliente()
                             {
-                                //Listar Clientes en tabla
-                                IdCliente = Convert.ToInt32(dr["IdCliente"]),
-                               // CodigoCliente = dr["CodigoCliente"].ToString(),
-                                Documento = dr["Documento"].ToString(),
-                                NombreCompleto = dr["NombreCompleto"].ToString(),
-                                NombreComercial = dr["NombreComercial"].ToString(),
-                                Direccion = dr["Direccion"].ToString(),
-                                DireccionComercial = dr["DireccionComercial"].ToString(),
-                              //  oDepartamento= new Departamento() {IdDepartamento = Convert.ToInt32(dr["IdDepartamento"]),/*Añadiendo alias*/ Descripcion = dr["Departamento"].ToString() },
-                                oProvincia = new Provincia() { IdProvincia = Convert.ToInt32(dr["IdProvincia"]),/*Añadiendo alias*/ Descripcion = dr["Provincia"].ToString() },
-                                oDistrito = new Distrito() { IdDistrito = Convert.ToInt32(dr["IdDistrito"]),/*Añadiendo alias*/ Descripcion = dr["Distrito"].ToString() },
-                                oDepartamentoComercial = new Departamento() { IdDepartamento = Convert.ToInt32(dr["IdDepartamento"]),/*Añadiendo alias*/ Descripcion = dr["Departamento"].ToString() },
-                                oProvinciaComercial = new Provincia() { IdProvincia = Convert.ToInt32(dr["IdProvincia"]),/*Añadiendo alias*/ Descripcion = dr["Provincia"].ToString() },
-                                oDistritoComercial = new Distrito() { IdDistrito = Convert.ToInt32(dr["IdDistrito"]),/*Añadiendo alias*/ Descripcion = dr["Distrito"].ToString() },
+                                //Listar Clientes en tabla no necesariamente en orden
 
-                                Correo1 = dr["Correo1"].ToString(),
-                                Correo2 = dr["Correo2"].ToString(),
-                                Telefono1 = dr["Telefono1"].ToString(),
-                                Telefono2 = dr["Telefono2"].ToString(),
-                                CMP = dr["CMP"].ToString(),
-                                RazonSocial = dr["RazonSocial"].ToString(),
+                                IdCliente = Convert.ToInt32(dr["IdCliente"]),
+                                CodigoCliente = dr["CodigoCliente"].ToString(),
+                                oTipo_Documento = new Tipo_Documento() { IdTipoDocumento= Convert.ToInt32(dr["IdTipoDocumento"]), Descripcion = dr["Documentos"].ToString() },
+                                Documento = dr["Documento"].ToString(),
                                 RUC = dr["RUC"].ToString(),
+                                RazonSocial = dr["RazonSocial"].ToString(),
+                                oTipo_Cliente = new Tipo_Cliente() { IdTipoCliente = Convert.ToInt32(dr["IdTipoCliente"]), Descripcion = dr["TipoCliente"].ToString() },
+                                NombreCompleto = dr["NombreCompleto"].ToString(),
+                                Direccion = dr["Direccion"].ToString(),
+                                CMP = dr["CMP"].ToString(),
                                 oEspecialidad = new Especialidad() { IdEspecialidad = Convert.ToInt32(dr["IdEspecialidad"]), /*Añadiendo alias*/ Descripcion = dr["Especialidad"].ToString() },
+                                NombreComercial = dr["NombreComercial"].ToString(),
+                                DireccionComercial = dr["DireccionComercial"].ToString(),
+                                Correo1 = dr["Correo1"].ToString(),
+                                Telefono1 = dr["Telefono1"].ToString(),
+                                Correo2 = dr["Correo2"].ToString(),
+                                Telefono2 = dr["Telefono2"].ToString(),
+                                Departamento= dr["Departamento"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"])
 
                             });
@@ -81,19 +85,19 @@ namespace CapaDatos
                     //Declarando los parámetros de entrada
                     SqlCommand cmd = new SqlCommand("SP_RegistrarCliente", oconexion);
                    // cmd.Parameters.AddWithValue("CodigoCliente", obj.CodigoCliente);
-                    cmd.Parameters.AddWithValue("Documento", obj.Documento);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
+                    cmd.Parameters.AddWithValue("Documento", obj.Documento);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado, el de la derecha es la entidad
                     cmd.Parameters.AddWithValue("NombreCompleto", obj.NombreCompleto);
                     cmd.Parameters.AddWithValue("NombreComercial", obj.NombreComercial);
                     cmd.Parameters.AddWithValue("Direccion", obj.Direccion);
                     cmd.Parameters.AddWithValue("DireccionComercial", obj.DireccionComercial);
                     cmd.Parameters.AddWithValue("IdTipoCliente", obj.oTipo_Cliente.IdTipoCliente);
                     cmd.Parameters.AddWithValue("IdTipoDocumento", obj.oTipo_Documento.IdTipoDocumento);
-                    // cmd.Parameters.AddWithValue("IdDepartamento", obj.oDepartamento.IdDepartamento);
-                    // cmd.Parameters.AddWithValue("IdProvincia", obj.oProvincia.IdProvincia);
-                    //cmd.Parameters.AddWithValue("IdDistrito", obj.oDistrito.IdDistrito);
-                    // cmd.Parameters.AddWithValue("IdDepartamento", obj.oDepartamentoComercial.IdDepartamento);
-                    // cmd.Parameters.AddWithValue("IdProvincia", obj.oProvinciaComercial.IdProvincia);
-                    //cmd.Parameters.AddWithValue("IdDistrito", obj.oDistrito.IdDistrito);
+                    cmd.Parameters.AddWithValue("Departamento", obj.Departamento);
+                    cmd.Parameters.AddWithValue("Provincia", obj.Provincia);
+                    cmd.Parameters.AddWithValue("Distrito", obj.Distrito);
+                    cmd.Parameters.AddWithValue("DepartamentoComercial", obj.DepartamentoComercial);
+                    cmd.Parameters.AddWithValue("ProvinciaComercial", obj.ProvinciaComercial);
+                    cmd.Parameters.AddWithValue("DistritoComercial", obj.DistritoComercial);
                     cmd.Parameters.AddWithValue("Correo1", obj.Correo1);
                     cmd.Parameters.AddWithValue("Correo2", obj.Correo2);
                     cmd.Parameters.AddWithValue("Telefono1", obj.Telefono1);
@@ -139,8 +143,20 @@ namespace CapaDatos
                     //Declarando los parámetros de entrada
                     SqlCommand cmd = new SqlCommand("SP_ModificarCliente", oconexion);
                     cmd.Parameters.AddWithValue("IdCliente", obj.IdCliente);
+
                     cmd.Parameters.AddWithValue("Documento", obj.Documento);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.AddWithValue("NombreCompleto", obj.NombreCompleto);
+                    cmd.Parameters.AddWithValue("NombreComercial", obj.NombreComercial);
+                    cmd.Parameters.AddWithValue("Direccion", obj.Direccion);
+                    cmd.Parameters.AddWithValue("DireccionComercial", obj.DireccionComercial);
+                    cmd.Parameters.AddWithValue("IdTipoCliente", obj.oTipo_Cliente.IdTipoCliente);
+                    cmd.Parameters.AddWithValue("IdTipoDocumento", obj.oTipo_Documento.IdTipoDocumento);
+                    cmd.Parameters.AddWithValue("Departamento", obj.Departamento);
+                    cmd.Parameters.AddWithValue("Provincia", obj.Provincia);
+                    cmd.Parameters.AddWithValue("Distrito", obj.Distrito);
+                    cmd.Parameters.AddWithValue("DepartamentoComercial", obj.DepartamentoComercial);
+                    cmd.Parameters.AddWithValue("ProvinciaComercial", obj.ProvinciaComercial);
+                    cmd.Parameters.AddWithValue("DistritoComercial", obj.DistritoComercial);
                     cmd.Parameters.AddWithValue("Correo1", obj.Correo1);
                     cmd.Parameters.AddWithValue("Correo2", obj.Correo2);
                     cmd.Parameters.AddWithValue("Telefono1", obj.Telefono1);
@@ -150,6 +166,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("RUC", obj.RUC);
                     cmd.Parameters.AddWithValue("IdEspecialidad", obj.oEspecialidad.IdEspecialidad);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
+
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 

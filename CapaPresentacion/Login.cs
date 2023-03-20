@@ -16,8 +16,8 @@ namespace CapaPresentacion
 {
     public partial class Login : Form
     {
+        #region Esquinas circulares propiedades
 
-        //Rounded corner
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -28,10 +28,9 @@ namespace CapaPresentacion
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
-        //End Rounded corner
-
         
-
+        #endregion
+        
         public Login()
         {   //Rounded corner
             this.FormBorderStyle = FormBorderStyle.None;
@@ -52,6 +51,8 @@ namespace CapaPresentacion
             cbousuario.SelectedIndex = 0;
         }
 
+        #region BOTONES
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -59,42 +60,64 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
-            
-
             List<Usuario> TEST = new CN_Usuario().Listar();
-
-            
 
             //Expresiones landa para tomar acciones respecto a listas, se automatiza la búsqueda de un objeto y devuelve el primero que encuentre o null
             Usuario oUsuario = new CN_Usuario().Listar().Where(u => u.Documento == cbousuario.Text && u.Clave == txtClave.Text).FirstOrDefault();
 
+
             if (oUsuario != null)
             {
-
                 Inicio form = new Inicio(oUsuario);
                 form.Show();
                 this.Hide();
-
                 form.FormClosing += frm_closing;
             }
             else
             {
                 MessageBox.Show("No se ha encontrado el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-         }          
+        }
+
+        #endregion
+
+        #region ACCIONES
 
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
-           // txtDocumento.Text = "";
             txtClave.Text = "";
             this.Show();
-
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void txtClave_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Enter)
+            {
+                List<Usuario> TEST = new CN_Usuario().Listar();
+
+                //Expresiones landa para tomar acciones respecto a listas, se automatiza la búsqueda de un objeto y devuelve el primero que encuentre o null
+                Usuario oUsuario = new CN_Usuario().Listar().Where(u => u.Documento == cbousuario.Text && u.Clave == txtClave.Text).FirstOrDefault();
+
+
+                if (oUsuario != null)
+                {
+                    Inicio form = new Inicio(oUsuario);
+                    form.Show();
+                    this.Hide();
+                    form.FormClosing += frm_closing;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha encontrado el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        #endregion
     }
 }

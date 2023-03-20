@@ -247,5 +247,10 @@ namespace CapaPresentacion
                 buscar();
             }
         }
+
+        private void frmEspecialidad_Shown(object sender, EventArgs e)
+        {
+            txtdescripcion.Focus();
+        }
     }
 }
