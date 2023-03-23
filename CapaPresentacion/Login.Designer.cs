@@ -30,12 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtDocumento = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.btnIngresar = new FontAwesome.Sharp.IconButton();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
+            this.cbousuario = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,17 +59,10 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // txtDocumento
-            // 
-            this.txtDocumento.Location = new System.Drawing.Point(282, 63);
-            this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.Size = new System.Drawing.Size(254, 20);
-            this.txtDocumento.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(282, 40);
+            this.label2.Location = new System.Drawing.Point(279, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 3;
@@ -78,7 +71,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(282, 97);
+            this.label3.Location = new System.Drawing.Point(279, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 5;
@@ -91,6 +84,7 @@
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(254, 20);
             this.txtClave.TabIndex = 4;
+            this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
             // 
             // btnIngresar
             // 
@@ -134,17 +128,26 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // cbousuario
+            // 
+            this.cbousuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbousuario.FormattingEnabled = true;
+            this.cbousuario.Location = new System.Drawing.Point(282, 66);
+            this.cbousuario.Name = "cbousuario";
+            this.cbousuario.Size = new System.Drawing.Size(254, 21);
+            this.cbousuario.TabIndex = 8;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 242);
+            this.Controls.Add(this.cbousuario);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -162,11 +165,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtClave;
         private FontAwesome.Sharp.IconButton btnIngresar;
         private FontAwesome.Sharp.IconButton btnCancelar;
+        private System.Windows.Forms.ComboBox cbousuario;
     }
 }

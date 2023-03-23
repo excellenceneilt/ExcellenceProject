@@ -52,9 +52,12 @@
     <Compile Include="CD_Proveedor.cs" />
     <Compile Include="CD_Reporte.cs" />
     <Compile Include="CD_Rol.cs" />
+    <Compile Include="CD_TipoCliente.cs" />
+    <Compile Include="CD_TipoDocumento.cs" />
     <Compile Include="CD_Usuario.cs" />
     <Compile Include="CD_Venta.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="OperacionesDPD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

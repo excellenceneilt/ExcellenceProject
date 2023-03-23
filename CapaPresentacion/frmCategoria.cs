@@ -251,6 +251,11 @@ namespace CapaPresentacion
             }
         }
 
+        private void frmCategoria_Shown(object sender, EventArgs e)
+        {
+            txtdescripcion.Focus();
+        }
+
         //Acción de presionar la tecla enter
 
     }

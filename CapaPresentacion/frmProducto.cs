@@ -24,26 +24,29 @@ namespace CapaPresentacion
 
         private void frmProducto_Load(object sender, EventArgs e)
         {
-            //Si la tabla tiene estados
+
+            #region COMBOBOX
+
+            //Estados
             cboestado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
             cboestado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No activo" });
             cboestado.DisplayMember = "Texto";
             cboestado.ValueMember = "Valor";
             cboestado.SelectedIndex = 0;
-            //Se crea la lista del combobox a usar en el formulario
-            List<Categoria> listacategoria = new CN_Categoria().Listar();
 
-            //Se recorre la listadel combobox usar después para leer Productos
+            //Listar categorías
+            List<Categoria> listacategoria = new CN_Categoria().Listar();
             foreach (Categoria item in listacategoria)
-            {   //cambiar aquí el combo box que se dispone
+            {
                 cbocategoria.Items.Add(new OpcionCombo() { Valor = item.IdCategoria, Texto = item.Descripcion });
             }
             cbocategoria.DisplayMember = "Texto";
             cbocategoria.ValueMember = "Valor";
             cbocategoria.SelectedIndex = 0;
 
+            #endregion
 
-
+            #region Filtrar registros en búsqueda
 
             //Para filtrar datos en la lista
             foreach (DataGridViewColumn columna in dgvdata.Columns)
@@ -51,52 +54,74 @@ namespace CapaPresentacion
                 if (columna.Visible == true && columna.Name != "btnseleccionar")
                 {
                     cbobusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
-
                 }
             }
-
             cbobusqueda.DisplayMember = "Texto";
             cbobusqueda.ValueMember = "Valor";
             cbobusqueda.SelectedIndex = 0;
+            #endregion
 
-            //Mostrar todos los productos
-            //Se crea la lista
+            #region Datagrid
+
             List<Producto> listaProducto = new CN_Producto().Listar();
-
-            //Se recorre la lista
             foreach (Producto item in listaProducto)
-            {//Colocar las columnas del datagrid
-                dgvdata.Rows.Add(new object[] {"",item.IdProducto,item.Codigo,item.Nombre,item.Descripcion,item.oCategoria.IdCategoria,
+            {
+                dgvdata.Rows.Add(new object[] {
+                    "",
+                   item.IdProducto,
+                   item.Codigo,
+                   item.Nombre,
+                   item.Descripcion,
+                   item.oCategoria.IdCategoria,
                    item.oCategoria.Descripcion,
                    item.Stock,
                    item.PrecioCompra,
                    item.PrecioVenta,
                    item.Estado==true ?1 : 0,
-                   item.Estado==true ?"Activo":"Inactivo",
-
-            });
+                   item.Estado==true ?"Activo":"Inactivo"
+                });
             }
-            /*try {
-                foreach (Producto item in listaProducto)
-                {//Colocar las columnas del datagrid
-                    dgvdata.Rows.Add(new object[] {"",item.IdProducto,item.Codigo,item.Nombre,item.Descripcion,item.oCategoria.IdCategoria,
-                   item.oCategoria.Descripcion,
-                   item.Stock,
-                   item.PrecioCompra,
-                   item.PrecioVenta,
-                   item.Estado==true ?1 : 0,
-                   item.Estado==true ?"Activo":"Inactivo",
-
-            });
-                }
-            }
-            catch (Exception ex){
-                MessageBox.Show(ex.ToString());
-            }*/
-           
-
+            #endregion
         }
 
+        #region BOTONES
+        private void btnlimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtid.Text) != 0)
+            {
+                if (MessageBox.Show("¿Desea eliminar el producto?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string mensaje = string.Empty;
+                    Producto objproducto = new Producto()
+                    {
+                        //Llenando atributos de la clase Producto
+                        IdProducto = Convert.ToInt32(txtid.Text),
+
+
+                    };
+
+                    bool respuesta = new CN_Producto().Eliminar(objproducto, out mensaje);
+                    if (respuesta)
+                    {
+                        dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+
+                }
+            }
+        }
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            buscar();
+        }
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
@@ -109,7 +134,7 @@ namespace CapaPresentacion
                 Descripcion = txtnombre.Text,
                 //Para los combobox:
                 oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(((OpcionCombo)cbocategoria.SelectedItem).Valor) },
-                
+
                 //El item seleccionado se convierte a la clase opcioncombo, y se accede a su propiedad valor, si es igual a 1 será true caso contrario false
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
             };
@@ -156,11 +181,11 @@ namespace CapaPresentacion
                     row.Cells["Codigo"].Value = txtcodigo.Text;
                     row.Cells["Nombre"].Value = txtnombre.Text;
                     row.Cells["Descripcion"].Value = txtdescripcion.Text;
-                    
-                    row.Cells["IdCategoria"].Value = ((OpcionCombo)cbocategoria.SelectedItem).Texto.ToString();
+
+                    row.Cells["IdCategoria"].Value = ((OpcionCombo)cbocategoria.SelectedItem).Valor.ToString();
                     row.Cells["Categoria"].Value = ((OpcionCombo)cbocategoria.SelectedItem).Texto.ToString();
 
-                    
+
 
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
                     row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
@@ -173,140 +198,6 @@ namespace CapaPresentacion
                 }
             }
         }
-        private void Limpiar()
-        {
-            txtindice.Text = "-1";
-            txtid.Text = "0";
-            txtcodigo.Text = "";
-            txtnombre.Text = "";
-            txtdescripcion.Text = "";
-           
-            cbocategoria.SelectedIndex = 0;
-            cboestado.SelectedIndex = 0;
-            txtcodigo.Select();
-
-        }
-
-        private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex < 0)
-                return;
-            if (e.ColumnIndex == 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                //Obteniendo las dimensiones de la imagen
-                var w = Properties.Resources.check20.Width;
-                var h = Properties.Resources.check20.Height;
-                //Centrando la imagen en la celda
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
-                //Si la acción del click puede continuar
-                e.Handled = true;
-            }
-        }
-
-        private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvdata.Columns[e.ColumnIndex].Name == "btnseleccionar")
-            {
-                int indice = e.RowIndex;
-                if (indice >= 0)
-                {
-                    txtindice.Text = indice.ToString();
-                    //Setear en campos la información del Producto
-                    txtid.Text = dgvdata.Rows[indice].Cells["Id"].Value.ToString();
-                    txtcodigo.Text = dgvdata.Rows[indice].Cells["Codigo"].Value.ToString();
-                    txtnombre.Text = dgvdata.Rows[indice].Cells["Nombre"].Value.ToString();
-                    txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
-               
-
-                    //Setear en el combobox el rol del Producto oc es el elemento que recorre toda la lista
-                    foreach (OpcionCombo oc in cbocategoria.Items)
-                    {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdCategoria"].Value))
-                        {
-                            int indice_combo = cbocategoria.Items.IndexOf(oc);
-                            cbocategoria.SelectedIndex = indice_combo;
-                            break; //Para cuando lo encuentre debe terminar
-                        }
-                    }
-
-                    //Setear en el combobox el rol del Producto oc es el elemento que recorre toda la lista
-                    foreach (OpcionCombo oc in cboestado.Items)
-                    {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value))
-                        {
-                            int indice_combo = cboestado.Items.IndexOf(oc);
-                            cboestado.SelectedIndex = indice_combo;
-                            break; //Para cuando lo encuentre debe terminar
-                        }
-                    }
-
-                }
-            }
-        }
-
-        private void btnlimpiar_Click(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
-        private void btneliminar_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(txtid.Text) != 0)
-            {
-                if (MessageBox.Show("¿Desea eliminar el producto?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    string mensaje = string.Empty;
-                    Producto objproducto = new Producto()
-                    {
-                        //Llenando atributos de la clase Producto
-                        IdProducto = Convert.ToInt32(txtid.Text),
-
-
-                    };
-
-                    bool respuesta = new CN_Producto().Eliminar(objproducto, out mensaje);
-                    if (respuesta)
-                    {
-                        dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
-                        Limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-
-                }
-            }
-        }
-
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
-            buscar();
-        }
-        private void buscar()
-        {
-            string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
-            if (dgvdata.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dgvdata.Rows)
-                {
-                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
-                    {
-                        row.Visible = true;
-                    }
-                    else
-                    {
-                        row.Visible = false;
-                    }
-                }
-            }
-        }
-
         private void btnlimpiarbuscador_Click(object sender, EventArgs e)
         {
             txtbusqueda.Text = "";
@@ -315,15 +206,6 @@ namespace CapaPresentacion
                 row.Visible = true;
             }
         }
-
-        private void txtbusqueda_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyValue == (char)Keys.Enter)
-            {
-                buscar();
-            }
-        }
-
         private void btnexportar_Click(object sender, EventArgs e)
         {
             if (dgvdata.Rows.Count < 1)
@@ -371,13 +253,126 @@ namespace CapaPresentacion
                         wb.SaveAs(saveFile.FileName);
                         MessageBox.Show("Reporte Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch 
+                    catch
                     {
                         MessageBox.Show("Error al generar reporte", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+
                     }
                 }
             }
+        }
+        #endregion
+
+        #region ACCIONES
+        private void Limpiar()
+        {
+            txtindice.Text = "-1";
+            txtid.Text = "0";
+            txtcodigo.Text = "";
+            txtnombre.Text = "";
+            txtdescripcion.Text = "";
+
+            cbocategoria.SelectedIndex = 0;
+            cboestado.SelectedIndex = 0;
+            txtcodigo.Select();
+
+        }
+        private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                //Obteniendo las dimensiones de la imagen
+                var w = Properties.Resources.check20.Width;
+                var h = Properties.Resources.check20.Height;
+                //Centrando la imagen en la celda
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
+                //Si la acción del click puede continuar
+                e.Handled = true;
+            }
+        }
+        private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvdata.Columns[e.ColumnIndex].Name == "btnseleccionar")
+            {
+                int indice = e.RowIndex;
+                if (indice >= 0)
+                {
+                    txtindice.Text = indice.ToString();
+                    //Setear en campos la información del Producto
+                    txtid.Text = dgvdata.Rows[indice].Cells["Id"].Value.ToString();
+                    txtcodigo.Text = dgvdata.Rows[indice].Cells["Codigo"].Value.ToString();
+                    txtnombre.Text = dgvdata.Rows[indice].Cells["Nombre"].Value.ToString();
+                    txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
+
+
+                    //Setear en el combobox el rol del Producto oc es el elemento que recorre toda la lista
+                    foreach (OpcionCombo oc in cbocategoria.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdCategoria"].Value))
+                        {
+                            int indice_combo = cbocategoria.Items.IndexOf(oc);
+                            cbocategoria.SelectedIndex = indice_combo;
+                            break; //Para cuando lo encuentre debe terminar
+                        }
+                    }
+
+                    //Setear en el combobox el rol del Producto oc es el elemento que recorre toda la lista
+                    foreach (OpcionCombo oc in cboestado.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value))
+                        {
+                            int indice_combo = cboestado.Items.IndexOf(oc);
+                            cboestado.SelectedIndex = indice_combo;
+                            break; //Para cuando lo encuentre debe terminar
+                        }
+                    }
+
+                }
+            }
+        }
+        private void buscar()
+        {
+            string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
+            if (dgvdata.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+        private void txtbusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Enter)
+            {
+                buscar();
+            }
+        }
+        private void frmProducto_Shown(object sender, EventArgs e)
+        {
+            txtcodigo.Focus();
+        }
+
+
+        #endregion
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
