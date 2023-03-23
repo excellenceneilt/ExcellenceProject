@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaEntidad;
 using FontAwesome.Sharp;
 using CapaNegocio;
+using CapaPresentacion.Modales;
 
 namespace CapaPresentacion
 {
@@ -21,8 +22,6 @@ namespace CapaPresentacion
         private static Form FormularioActivo = null;
     
         public Inicio(Usuario objusuario = null) //Quitar null después de pruebas
-
-            
         {
             //PARA PRUEBAS CON LOGIN BORRAR DESDE AQUÍ
             if (objusuario == null) 
@@ -114,7 +113,7 @@ namespace CapaPresentacion
         //Ventas
         private void submenuRegistrarventas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuVentas, new frmVentas());
+            AbrirFormulario(menuVentas, new frmVentas(usuarioActual));
         }
         private void submenuDetalleVenta_Click(object sender, EventArgs e)
         {
@@ -123,7 +122,7 @@ namespace CapaPresentacion
         //Compras
         private void submenuRegistrarcompra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuCompras, new frmCompras());
+            AbrirFormulario(menuCompras, new frmCompras(usuarioActual));
         }
         private void submenuDetallecompra_Click(object sender, EventArgs e)
         {
