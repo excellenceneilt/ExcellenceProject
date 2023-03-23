@@ -129,5 +129,34 @@ namespace CapaPresentacion
             AbrirFormulario(menuCompras, new frmDetalleCompra());
         }
         #endregion
+
+        private void submenureportecompras_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuReportes, new frmReporteCompras());
+        }
+
+        private void submenureporteventas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuReportes, new frmReporteVentas());
+        }
+
+        private void submenunegocio_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuMantenimiento, new frmNegocio());
+        }
+
+        private void menuAcercade_Click(object sender, EventArgs e)
+        {
+            mdAcercade md=new mdAcercade();
+            md.ShowDialog();
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Deseas salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }
