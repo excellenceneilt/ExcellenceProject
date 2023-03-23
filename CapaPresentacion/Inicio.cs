@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaEntidad;
 using FontAwesome.Sharp;
 using CapaNegocio;
+using CapaPresentacion.Modales;
 
 namespace CapaPresentacion
 {
@@ -21,10 +22,7 @@ namespace CapaPresentacion
         private static Form FormularioActivo = null;
     
         public Inicio(Usuario objusuario = null) //Quitar null después de pruebas
-
-            
         {
-
             if (objusuario == null) 
                 usuarioActual = new Usuario() { NombreCompleto = "Admin predefinido", IdUsuario = 1 }; //Ingreso directo
             else
@@ -100,7 +98,7 @@ namespace CapaPresentacion
         //Ventas
         private void submenuRegistrarventas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuVentas, new frmVentas());
+            AbrirFormulario(menuVentas, new frmVentas(usuarioActual));
         }
 
         private void submenuDetalleVenta_Click(object sender, EventArgs e)
@@ -111,7 +109,7 @@ namespace CapaPresentacion
         //Compras
         private void submenuRegistrarcompra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuCompras, new frmCompras());
+            AbrirFormulario(menuCompras, new frmCompras(usuarioActual));
         }
 
         private void submenuDetallecompra_Click(object sender, EventArgs e)
@@ -128,15 +126,38 @@ namespace CapaPresentacion
         {
             AbrirFormulario((IconMenuItem)sender, new frmProveedores());
         }
-
-        private void menuReportes_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)sender, new frmReportes());
-        }
-
         private void submenuEspecialidad_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuMantenimiento, new frmEspecialidad());
+        }
+
+        private void submenunegocio_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuMantenimiento, new frmNegocio());
+        }
+
+        private void submenureportecompras_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuReportes, new frmReporteCompras());
+        }
+
+        private void submenureporteventas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuReportes, new frmReporteVentas());
+        }
+
+        private void menuAcercade_Click(object sender, EventArgs e)
+        {
+            mdAcercade md = new mdAcercade();
+            md.ShowDialog();
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("¿Desea salir?","Mensaje",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

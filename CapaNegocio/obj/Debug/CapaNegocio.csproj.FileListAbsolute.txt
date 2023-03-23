@@ -9,3 +9,14 @@ C:\Users\Excellence\source\repos\SistemaExcellence\CapaNegocio\obj\Debug\CapaNeg
 C:\Users\Excellence\source\repos\SistemaExcellence\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 C:\Users\Excellence\source\repos\SistemaExcellence\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\Excellence\source\repos\SistemaExcellence\CapaNegocio\obj\Debug\CapaNegocio.pdb
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\bin\Debug\CapaNegocio.dll
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\bin\Debug\CapaNegocio.pdb
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\bin\Debug\CapaDatos.dll
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\bin\Debug\CapaEntidad.dll
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\bin\Debug\CapaDatos.pdb
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\bin\Debug\CapaEntidad.pdb
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\obj\Debug\CapaNegocio.dll
+D:\ProyectoExcellence\SistemaExcellence\CapaNegocio\obj\Debug\CapaNegocio.pdb

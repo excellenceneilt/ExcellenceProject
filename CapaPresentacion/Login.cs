@@ -27,7 +27,7 @@ namespace CapaPresentacion
         private void btnIngresar_Click(object sender, EventArgs e)
         {
 
-            List<Usuario> TEST = new CN_Usuario().Listar();
+            //List<Usuario> TEST = new CN_Usuario().Listar();
             //Expresiones landa para tomar acciones respecto a listas, se automatiza la búsqueda de un objeto y devuelve el primero que encuentre o null
             Usuario oUsuario = new CN_Usuario().Listar().Where(u => u.Documento == txtDocumento.Text && u.Clave == txtClave.Text).FirstOrDefault();
 
@@ -51,6 +51,11 @@ namespace CapaPresentacion
             txtDocumento.Text = "";
             txtClave.Text = "";
             this.Show();
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
 
         }
     }
