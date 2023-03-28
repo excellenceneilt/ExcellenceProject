@@ -16,3 +16,9 @@ D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyR
 D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.dll
 D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.pdb
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\bin\Debug\CapaEntidad.dll
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\bin\Debug\CapaEntidad.pdb
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.dll
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.pdb

@@ -162,6 +162,12 @@
     <Compile Include="frmNegocio.Designer.cs">
       <DependentUpon>frmNegocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOrdenST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrdenST.Designer.cs">
+      <DependentUpon>frmOrdenST.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,12 @@
     </Compile>
     <Compile Include="frmProveedores.Designer.cs">
       <DependentUpon>frmProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistroRecepcionST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistroRecepcionST.Designer.cs">
+      <DependentUpon>frmRegistroRecepcionST.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReporteCompras.cs">
       <SubType>Form</SubType>
@@ -264,11 +276,17 @@
     <EmbeddedResource Include="frmNegocio.resx">
       <DependentUpon>frmNegocio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmOrdenST.resx">
+      <DependentUpon>frmOrdenST.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProducto.resx">
       <DependentUpon>frmProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProveedores.resx">
       <DependentUpon>frmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroRecepcionST.resx">
+      <DependentUpon>frmRegistroRecepcionST.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteCompras.resx">
       <DependentUpon>frmReporteCompras.cs</DependentUpon>

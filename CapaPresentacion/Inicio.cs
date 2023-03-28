@@ -158,5 +158,20 @@ namespace CapaPresentacion
                 this.Close();
             }
         }
+
+        private void iconMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //SERVICIO TECNICO
+        private void submenuIngresoOrdenServicio_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuServicioTecnico, new frmOrdenST());
+        }
+        private void submenuReporteRecepcionServicioTecnico_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuServicioTecnico, new frmRegistroRecepcionST());
+        }
     }
 }
