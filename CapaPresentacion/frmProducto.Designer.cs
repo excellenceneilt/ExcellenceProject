@@ -110,7 +110,7 @@
             this.btnbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnbuscar.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.btnbuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
             this.btnbuscar.IconColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnbuscar.IconSize = 16;
@@ -413,7 +413,6 @@
             // 
             this.txtcodigo.Location = new System.Drawing.Point(24, 350);
             this.txtcodigo.Name = "txtcodigo";
-            this.txtcodigo.ReadOnly = true;
             this.txtcodigo.Size = new System.Drawing.Size(154, 20);
             this.txtcodigo.TabIndex = 32;
             // 
