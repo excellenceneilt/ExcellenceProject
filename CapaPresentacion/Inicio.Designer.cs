@@ -175,7 +175,7 @@
             this.submenuRegistrarventas.IconColor = System.Drawing.Color.Black;
             this.submenuRegistrarventas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuRegistrarventas.Name = "submenuRegistrarventas";
-            this.submenuRegistrarventas.Size = new System.Drawing.Size(180, 22);
+            this.submenuRegistrarventas.Size = new System.Drawing.Size(128, 22);
             this.submenuRegistrarventas.Text = "Registrar";
             this.submenuRegistrarventas.Click += new System.EventHandler(this.submenuRegistrarventas_Click);
             // 
@@ -185,7 +185,7 @@
             this.submenuDetalleVenta.IconColor = System.Drawing.Color.Black;
             this.submenuDetalleVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuDetalleVenta.Name = "submenuDetalleVenta";
-            this.submenuDetalleVenta.Size = new System.Drawing.Size(180, 22);
+            this.submenuDetalleVenta.Size = new System.Drawing.Size(128, 22);
             this.submenuDetalleVenta.Text = "Ver detalle";
             this.submenuDetalleVenta.Click += new System.EventHandler(this.submenuDetalleVenta_Click);
             // 
@@ -242,12 +242,14 @@
             this.submenuHistorialIncidencias.Name = "submenuHistorialIncidencias";
             this.submenuHistorialIncidencias.Size = new System.Drawing.Size(287, 22);
             this.submenuHistorialIncidencias.Text = "Historial de incidencias";
+            this.submenuHistorialIncidencias.Click += new System.EventHandler(this.submenuHistorialIncidencias_Click);
             // 
             // submenuCertificadosGarantia
             // 
             this.submenuCertificadosGarantia.Name = "submenuCertificadosGarantia";
             this.submenuCertificadosGarantia.Size = new System.Drawing.Size(287, 22);
             this.submenuCertificadosGarantia.Text = "Certificados de garantía";
+            this.submenuCertificadosGarantia.Click += new System.EventHandler(this.submenuCertificadosGarantia_Click);
             // 
             // submenuReporteCertificadosGarantia
             // 

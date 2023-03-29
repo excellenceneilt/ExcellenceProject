@@ -156,6 +156,18 @@
     <Compile Include="frmEspecialidad.Designer.cs">
       <DependentUpon>frmEspecialidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHistorialIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistorialIncidencias.Designer.cs">
+      <DependentUpon>frmHistorialIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMantenimientoTablas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMantenimientoTablas.Designer.cs">
+      <DependentUpon>frmMantenimientoTablas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNegocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +284,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEspecialidad.resx">
       <DependentUpon>frmEspecialidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHistorialIncidencias.resx">
+      <DependentUpon>frmHistorialIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMantenimientoTablas.resx">
+      <DependentUpon>frmMantenimientoTablas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNegocio.resx">
       <DependentUpon>frmNegocio.cs</DependentUpon>

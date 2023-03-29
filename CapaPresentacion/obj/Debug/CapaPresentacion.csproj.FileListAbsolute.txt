@@ -136,3 +136,5 @@ D:\ProyectoExcellence\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentac
 D:\ProyectoExcellence\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 D:\ProyectoExcellence\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmRegistroRecepcionST.resources
 D:\ProyectoExcellence\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmOrdenST.resources
+D:\ProyectoExcellence\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmHistorialIncidencias.resources
+D:\ProyectoExcellence\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmMantenimientoTablas.resources
