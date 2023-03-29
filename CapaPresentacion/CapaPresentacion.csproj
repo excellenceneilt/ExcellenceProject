@@ -156,11 +156,17 @@
     <Compile Include="frmEspecialidad.Designer.cs">
       <DependentUpon>frmEspecialidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHistorialIncidencias.cs" />
+
+    <Compile Include="frmHistorialIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmHistorialIncidencias.Designer.cs">
       <DependentUpon>frmHistorialIncidencias.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMantenimientoTablas.cs" />
+    <Compile Include="frmMantenimientoTablas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+
     <Compile Include="frmMantenimientoTablas.Designer.cs">
       <DependentUpon>frmMantenimientoTablas.cs</DependentUpon>
     </Compile>
@@ -170,7 +176,9 @@
     <Compile Include="frmNegocio.Designer.cs">
       <DependentUpon>frmNegocio.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOrdenST.cs" />
+    <Compile Include="frmOrdenST.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmOrdenST.Designer.cs">
       <DependentUpon>frmOrdenST.cs</DependentUpon>
     </Compile>
@@ -186,7 +194,9 @@
     <Compile Include="frmProveedores.Designer.cs">
       <DependentUpon>frmProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistroRecepcionST.cs" />
+    <Compile Include="frmRegistroRecepcionST.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmRegistroRecepcionST.Designer.cs">
       <DependentUpon>frmRegistroRecepcionST.cs</DependentUpon>
     </Compile>
