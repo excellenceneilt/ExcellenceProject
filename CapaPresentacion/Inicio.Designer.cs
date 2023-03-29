@@ -38,6 +38,14 @@
             this.menuVentas = new FontAwesome.Sharp.IconMenuItem();
             this.submenuRegistrarventas = new FontAwesome.Sharp.IconMenuItem();
             this.submenuDetalleVenta = new FontAwesome.Sharp.IconMenuItem();
+            this.menuServicioTecnico = new FontAwesome.Sharp.IconMenuItem();
+            this.submenuIngresoRecepcionEquipos = new FontAwesome.Sharp.IconMenuItem();
+            this.submenuReporteRecepcionServicioTecnico = new FontAwesome.Sharp.IconMenuItem();
+            this.submenuIngresoOrdenServicio = new System.Windows.Forms.ToolStripMenuItem();
+            this.submenuHistorialIncidencias = new System.Windows.Forms.ToolStripMenuItem();
+            this.submenuCertificadosGarantia = new System.Windows.Forms.ToolStripMenuItem();
+            this.submenuReporteCertificadosGarantia = new System.Windows.Forms.ToolStripMenuItem();
+            this.submenuActualizarDatosBasicosOst = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCompras = new FontAwesome.Sharp.IconMenuItem();
             this.submenuRegistrarcompra = new FontAwesome.Sharp.IconMenuItem();
             this.submenuDetallecompra = new FontAwesome.Sharp.IconMenuItem();
@@ -65,6 +73,7 @@
             this.menuUsuarios,
             this.menuMantenimiento,
             this.menuVentas,
+            this.menuServicioTecnico,
             this.menuCompras,
             this.menuClientes,
             this.menuProveedores,
@@ -180,13 +189,87 @@
             this.submenuDetalleVenta.Text = "Ver detalle";
             this.submenuDetalleVenta.Click += new System.EventHandler(this.submenuDetalleVenta_Click);
             // 
+            // menuServicioTecnico
+            // 
+            this.menuServicioTecnico.AutoSize = false;
+            this.menuServicioTecnico.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.submenuIngresoRecepcionEquipos,
+            this.submenuReporteRecepcionServicioTecnico,
+            this.submenuIngresoOrdenServicio,
+            this.submenuHistorialIncidencias,
+            this.submenuCertificadosGarantia,
+            this.submenuReporteCertificadosGarantia,
+            this.submenuActualizarDatosBasicosOst});
+            this.menuServicioTecnico.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.menuServicioTecnico.IconColor = System.Drawing.Color.Black;
+            this.menuServicioTecnico.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuServicioTecnico.IconSize = 50;
+            this.menuServicioTecnico.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuServicioTecnico.Name = "menuServicioTecnico";
+            this.menuServicioTecnico.Size = new System.Drawing.Size(122, 69);
+            this.menuServicioTecnico.Text = "Servicio Técnico";
+            this.menuServicioTecnico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuServicioTecnico.Click += new System.EventHandler(this.iconMenuItem1_Click);
+            // 
+            // submenuIngresoRecepcionEquipos
+            // 
+            this.submenuIngresoRecepcionEquipos.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.submenuIngresoRecepcionEquipos.IconColor = System.Drawing.Color.Black;
+            this.submenuIngresoRecepcionEquipos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.submenuIngresoRecepcionEquipos.Name = "submenuIngresoRecepcionEquipos";
+            this.submenuIngresoRecepcionEquipos.Size = new System.Drawing.Size(287, 22);
+            this.submenuIngresoRecepcionEquipos.Text = "Ingreso de recepción de equipos";
+            // 
+            // submenuReporteRecepcionServicioTecnico
+            // 
+            this.submenuReporteRecepcionServicioTecnico.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.submenuReporteRecepcionServicioTecnico.IconColor = System.Drawing.Color.Black;
+            this.submenuReporteRecepcionServicioTecnico.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.submenuReporteRecepcionServicioTecnico.Name = "submenuReporteRecepcionServicioTecnico";
+            this.submenuReporteRecepcionServicioTecnico.Size = new System.Drawing.Size(287, 22);
+            this.submenuReporteRecepcionServicioTecnico.Text = "Reporte de recepción de servicio técnico";
+            this.submenuReporteRecepcionServicioTecnico.Click += new System.EventHandler(this.submenuReporteRecepcionServicioTecnico_Click);
+            // 
+            // submenuIngresoOrdenServicio
+            // 
+            this.submenuIngresoOrdenServicio.Name = "submenuIngresoOrdenServicio";
+            this.submenuIngresoOrdenServicio.Size = new System.Drawing.Size(287, 22);
+            this.submenuIngresoOrdenServicio.Text = "Ingreso de orden de servicio";
+            this.submenuIngresoOrdenServicio.Click += new System.EventHandler(this.submenuIngresoOrdenServicio_Click);
+            // 
+            // submenuHistorialIncidencias
+            // 
+            this.submenuHistorialIncidencias.Name = "submenuHistorialIncidencias";
+            this.submenuHistorialIncidencias.Size = new System.Drawing.Size(287, 22);
+            this.submenuHistorialIncidencias.Text = "Historial de incidencias";
+            this.submenuHistorialIncidencias.Click += new System.EventHandler(this.submenuHistorialIncidencias_Click);
+            // 
+            // submenuCertificadosGarantia
+            // 
+            this.submenuCertificadosGarantia.Name = "submenuCertificadosGarantia";
+            this.submenuCertificadosGarantia.Size = new System.Drawing.Size(287, 22);
+            this.submenuCertificadosGarantia.Text = "Certificados de garantía";
+            this.submenuCertificadosGarantia.Click += new System.EventHandler(this.submenuCertificadosGarantia_Click);
+            // 
+            // submenuReporteCertificadosGarantia
+            // 
+            this.submenuReporteCertificadosGarantia.Name = "submenuReporteCertificadosGarantia";
+            this.submenuReporteCertificadosGarantia.Size = new System.Drawing.Size(287, 22);
+            this.submenuReporteCertificadosGarantia.Text = "Reporte de certificados de garantía";
+            // 
+            // submenuActualizarDatosBasicosOst
+            // 
+            this.submenuActualizarDatosBasicosOst.Name = "submenuActualizarDatosBasicosOst";
+            this.submenuActualizarDatosBasicosOst.Size = new System.Drawing.Size(287, 22);
+            this.submenuActualizarDatosBasicosOst.Text = "Actualizar datos básicos en ost";
+            // 
             // menuCompras
             // 
             this.menuCompras.AutoSize = false;
             this.menuCompras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.submenuRegistrarcompra,
             this.submenuDetallecompra});
-            this.menuCompras.IconChar = FontAwesome.Sharp.IconChar.CartFlatbed;
+            this.menuCompras.IconChar = FontAwesome.Sharp.IconChar.DollyFlatbed;
             this.menuCompras.IconColor = System.Drawing.Color.Black;
             this.menuCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.menuCompras.IconSize = 50;
@@ -316,7 +399,7 @@
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(0, 142);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1333, 511);
+            this.contenedor.Size = new System.Drawing.Size(1333, 653);
             this.contenedor.TabIndex = 3;
             // 
             // label2
@@ -374,7 +457,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1333, 653);
+            this.ClientSize = new System.Drawing.Size(1333, 795);
             this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblUsuario);
@@ -426,6 +509,14 @@
         private System.Windows.Forms.ToolStripMenuItem submenureportecompras;
         private System.Windows.Forms.ToolStripMenuItem submenureporteventas;
         private FontAwesome.Sharp.IconButton btnsalir;
+        private FontAwesome.Sharp.IconMenuItem menuServicioTecnico;
+        private FontAwesome.Sharp.IconMenuItem submenuIngresoRecepcionEquipos;
+        private FontAwesome.Sharp.IconMenuItem submenuReporteRecepcionServicioTecnico;
+        private System.Windows.Forms.ToolStripMenuItem submenuIngresoOrdenServicio;
+        private System.Windows.Forms.ToolStripMenuItem submenuHistorialIncidencias;
+        private System.Windows.Forms.ToolStripMenuItem submenuCertificadosGarantia;
+        private System.Windows.Forms.ToolStripMenuItem submenuReporteCertificadosGarantia;
+        private System.Windows.Forms.ToolStripMenuItem submenuActualizarDatosBasicosOst;
     }
 }
 

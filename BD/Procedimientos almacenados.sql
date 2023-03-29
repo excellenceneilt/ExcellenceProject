@@ -441,27 +441,38 @@ set
 drop proc SP_RegistrarCliente
 create proc SP_RegistrarCliente(
 	@Documento varchar(50), 
+	@DocumentoContacto varchar(50),
 	 @NombreCompleto varchar(50),
 	 @NombreComercial varchar(50),
+	 @NombreContacto varchar(50),
 	 @Direccion nvarchar(50),
 	 @DireccionComercial nvarchar(50),--New
+	 @DireccionContacto nvarchar(50),
 	 @IdTipoCliente int, --New
 	 @IdTipoDocumento int, --New
-	-- @IdDepartamento nvarchar(50),--New
-	--@IdProvincia nvarchar(50),--New
-	--@IdDistrito nvarchar(50),--New
-	--@IdDepartamentoComercial nvarchar(50),--New
-	--@IdProvinciaComercial nvarchar(50),--New
-	--@IdDistritoComercial nvarchar(50),--New
+	@Departamento nvarchar(50),
+	@Provincia nvarchar(50),
+	@Distrito nvarchar(50),
+	@DepartamentoComercial nvarchar(50),
+	@ProvinciaComercial nvarchar(50),
+	@DistritoComercial nvarchar(50),--New new 
+	@DepartamentoContacto nvarchar(50),--New
+	@ProvinciaContacto nvarchar(50),--New
+	@DistritoContacto nvarchar(50),--New
 	@Correo1 varchar(50),
 	@Correo2 varchar(50),
+	@CorreoContacto varchar(50),
 	@Telefono1 varchar(50),
 	@Telefono2 varchar(50),
+	@TelefonofijoContacto varchar(50),
+	@CelularContacto varchar(50), --New
 	@CMP varchar(7),
 	@RazonSocial varchar(100), 
   @RUC varchar(20),
-  @IdEspecialidad int,
+  @RUCContacto varchar(20),
+  
   @Estado bit, 
+
   @Resultado int output, 
   @Mensaje varchar(500) output
 ) as begin 
@@ -474,31 +485,54 @@ set
     where 
       Documento = @Documento
   ) begin insert into CLIENTE(
-    Documento, NombreCompleto,NombreComercial,Direccion,DireccionComercial,IdTipoCliente,IdTipoDocumento, Correo1,Correo2,Telefono1,Telefono2, CMP,RazonSocial, RUC,IdEspecialidad, Estado
+    Documento,DocumentoContacto, NombreCompleto,NombreComercial,NombreContacto, Direccion,DireccionComercial,DireccionContacto,IdTipoCliente,IdTipoDocumento,Departamento, Provincia, Distrito,DepartamentoComercial, ProvinciaComercial, DistritoComercial,DepartamentoContacto, ProvinciaContacto, DistritoContacto, Correo1,Correo2,CorreoContacto, Telefono1,Telefono2,TelefonofijoContacto,CelularContacto, CMP,RazonSocial, RUC,RUCContacto, Estado
   ) 
 values 
   (
-    @Documento, @NombreCompleto,@NombreComercial, @Direccion,@DireccionComercial,@IdTipoCliente,@IdTipoDocumento,@Correo1,@Correo2,@Telefono1,@Telefono2, @CMP,@RazonSocial, @RUC,@IdEspecialidad, @Estado
+    @Documento,@DocumentoContacto, @NombreCompleto,@NombreComercial,@NombreContacto, @Direccion,@DireccionComercial,@DireccionContacto,@IdTipoCliente,@IdTipoDocumento, @Departamento, @Provincia, @Distrito,@DepartamentoComercial, @ProvinciaComercial, @DistritoComercial,@DepartamentoContacto, @ProvinciaContacto, @DistritoContacto, @Correo1,@Correo2,@CorreoContacto,@Telefono1,@Telefono2,@TelefonofijoContacto,@CelularContacto, @CMP,@RazonSocial, @RUC,@RUCContacto, @Estado
   ) 
 set 
   @Resultado = SCOPE_IDENTITY() end else 
 set 
   @Mensaje = 'El número de documento ya existe' end 
 
+  select * from CLIENTE
+
 --Modificar cliente
 
 create proc SP_ModificarCliente(
   @IdCliente int, 
-  @Documento varchar(50), 
-  @NombreCompleto varchar(50), 
-  @Correo1 varchar(50), 
-  @Correo2 varchar(50), 
-  @Telefono1 varchar(50), 
-  @Telefono2 varchar(50), 
-  @CMP varchar(7), 
-  @RazonSocial varchar(100), 
-  @RUC varchar(20), 
-  @IdEspecialidad int,
+@Documento varchar(50), 
+	@DocumentoContacto varchar(50),
+	 @NombreCompleto varchar(50),
+	 @NombreComercial varchar(50),
+	 @NombreContacto varchar(50),
+	 @Direccion nvarchar(50),
+	 @DireccionComercial nvarchar(50),--New
+	 @DireccionContacto nvarchar(50),
+	 @IdTipoCliente int, --New
+	 @IdTipoDocumento int, --New
+	@Departamento nvarchar(50),
+	@Provincia nvarchar(50),
+	@Distrito nvarchar(50),
+	@DepartamentoComercial nvarchar(50),
+	@ProvinciaComercial nvarchar(50),
+	@DistritoComercial nvarchar(50),--New new 
+	@DepartamentoContacto nvarchar(50),--New
+	@ProvinciaContacto nvarchar(50),--New
+	@DistritoContacto nvarchar(50),--New
+	@Correo1 varchar(50),
+	@Correo2 varchar(50),
+	@CorreoContacto varchar(50),
+	@Telefono1 varchar(50),
+	@Telefono2 varchar(50),
+	@TelefonofijoContacto varchar(50),
+	@CelularContacto varchar(50), --New
+	@CMP varchar(7),
+	@RazonSocial varchar(100), 
+  @RUC varchar(20),
+  @RUCContacto varchar(20),
+  
   @Estado bit, 
   @Resultado int output, 
   @Mensaje varchar(500) output
@@ -518,6 +552,17 @@ update
 set 
   Documento = @Documento, 
   NombreCompleto = @NombreCompleto, 
+  NombreComercial = @NombreComercial,
+  Direccion = @Direccion,
+  DireccionComercial = @DireccionComercial,
+  IdTipoCliente = @IdTipoCliente,
+  IdTipoDocumento = @IdTipoDocumento,
+  Departamento = @Departamento,
+  Provincia = @Provincia,
+  Distrito = @Distrito,
+  DepartamentoComercial = @DepartamentoComercial,
+  ProvinciaComercial = @ProvinciaComercial,
+  DistritoComercial = @DistritoComercial,
   Correo1 = @Correo1, 
   Correo2 = @Correo2, 
   Telefono1 = @Telefono1, 
@@ -568,7 +613,7 @@ set
   exec SP_ObtenerDistrito 1
 
 
-
+  delete from CLIENTE
 
 
 
@@ -617,3 +662,7 @@ inner join TIPOCLIENTE tc on tc.IdTipoCliente = c.IdTipoCliente
 delete from CLIENTE where IdCliente=4
 
 select * from ESPECIALIDAD
+
+select * from Departamento
+
+select IdDepartamento, Descripcion, Estado from Departamento

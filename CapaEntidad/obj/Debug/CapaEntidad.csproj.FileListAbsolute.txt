@@ -10,3 +10,15 @@ D:\ProyectoExcellence\SistemaExcellence\CapaEntidad\obj\Debug\CapaEntidad.csproj
 D:\ProyectoExcellence\SistemaExcellence\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 D:\ProyectoExcellence\SistemaExcellence\CapaEntidad\obj\Debug\CapaEntidad.dll
 D:\ProyectoExcellence\SistemaExcellence\CapaEntidad\obj\Debug\CapaEntidad.pdb
+D:\Proyecto\ExcellenceProject\CapaEntidad\bin\Debug\CapaEntidad.dll
+D:\Proyecto\ExcellenceProject\CapaEntidad\bin\Debug\CapaEntidad.pdb
+D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.dll
+D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.pdb
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\bin\Debug\CapaEntidad.dll
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\bin\Debug\CapaEntidad.pdb
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.dll
+D:\ProyectoExcellence\ExcellenceProject\CapaEntidad\obj\Debug\CapaEntidad.pdb
