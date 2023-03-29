@@ -156,7 +156,6 @@
     <Compile Include="frmEspecialidad.Designer.cs">
       <DependentUpon>frmEspecialidad.cs</DependentUpon>
     </Compile>
-
     <Compile Include="frmHistorialIncidencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,7 +165,6 @@
     <Compile Include="frmMantenimientoTablas.cs">
       <SubType>Form</SubType>
     </Compile>
-
     <Compile Include="frmMantenimientoTablas.Designer.cs">
       <DependentUpon>frmMantenimientoTablas.cs</DependentUpon>
     </Compile>
