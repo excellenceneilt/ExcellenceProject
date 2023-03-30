@@ -71,3 +71,4 @@ D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmHis
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmMantenimientoTablas.resources
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmOrdenST.resources
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmRegistroRecepcionST.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmReporteDatos.resources

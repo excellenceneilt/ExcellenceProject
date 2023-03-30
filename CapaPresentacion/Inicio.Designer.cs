@@ -219,6 +219,7 @@
             this.submenuIngresoRecepcionEquipos.Name = "submenuIngresoRecepcionEquipos";
             this.submenuIngresoRecepcionEquipos.Size = new System.Drawing.Size(287, 22);
             this.submenuIngresoRecepcionEquipos.Text = "Ingreso de recepción de equipos";
+            this.submenuIngresoRecepcionEquipos.Click += new System.EventHandler(this.submenuIngresoRecepcionEquipos_Click);
             // 
             // submenuReporteRecepcionServicioTecnico
             // 
@@ -256,6 +257,7 @@
             this.submenuReporteCertificadosGarantia.Name = "submenuReporteCertificadosGarantia";
             this.submenuReporteCertificadosGarantia.Size = new System.Drawing.Size(287, 22);
             this.submenuReporteCertificadosGarantia.Text = "Reporte de certificados de garantía";
+            this.submenuReporteCertificadosGarantia.Click += new System.EventHandler(this.submenuReporteCertificadosGarantia_Click);
             // 
             // submenuActualizarDatosBasicosOst
             // 

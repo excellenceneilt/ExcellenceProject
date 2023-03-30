@@ -183,5 +183,15 @@ namespace CapaPresentacion
         {
             AbrirFormulario(menuServicioTecnico, new frmMantenimientoTablas());
         }
+
+        private void submenuIngresoRecepcionEquipos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuServicioTecnico, new frmServicioTecnico());
+        }
+
+        private void submenuReporteCertificadosGarantia_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuServicioTecnico, new frmReporteDatos());
+        }
     }
 }
