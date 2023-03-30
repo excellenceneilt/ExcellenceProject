@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class frmServicioTecnico
+    partial class frmRecepcionServicioTecnico
     {
         /// <summary>
         /// Required designer variable.

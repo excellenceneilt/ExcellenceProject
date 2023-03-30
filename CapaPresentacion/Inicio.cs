@@ -165,30 +165,26 @@ namespace CapaPresentacion
         }
 
         //SERVICIO TECNICO
-        private void submenuIngresoOrdenServicio_Click(object sender, EventArgs e)
+        private void submenuIngresoRecepcionEquipos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuServicioTecnico, new frmOrdenST());
+            AbrirFormulario(menuServicioTecnico, new frmRecepcionServicioTecnico());
         }
         private void submenuReporteRecepcionServicioTecnico_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuServicioTecnico, new frmRegistroRecepcionST());
         }
-
+        private void submenuIngresoOrdenServicio_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuServicioTecnico, new frmOrdenST());
+        }
         private void submenuHistorialIncidencias_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuServicioTecnico, new frmHistorialIncidencias());
         }
-
         private void submenuCertificadosGarantia_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuServicioTecnico, new frmMantenimientoTablas());
+            AbrirFormulario(menuServicioTecnico, new frmCertifiadoGarantia());
         }
-
-        private void submenuIngresoRecepcionEquipos_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menuServicioTecnico, new frmServicioTecnico());
-        }
-
         private void submenuReporteCertificadosGarantia_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuServicioTecnico, new frmReporteDatos());
