@@ -162,6 +162,12 @@
     <Compile Include="frmHistorialIncidencias.Designer.cs">
       <DependentUpon>frmHistorialIncidencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCertificadoGarantia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCertificadoGarantia.Designer.cs">
+      <DependentUpon>frmCertificadoGarantia.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMantenimientoTablas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,12 +215,6 @@
     </Compile>
     <Compile Include="frmReporteDatos.Designer.cs">
       <DependentUpon>frmReporteDatos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmReportes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmReportes.Designer.cs">
-      <DependentUpon>frmReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReporteVentas.cs">
       <SubType>Form</SubType>
@@ -300,6 +300,9 @@
     <EmbeddedResource Include="frmHistorialIncidencias.resx">
       <DependentUpon>frmHistorialIncidencias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCertificadoGarantia.resx">
+      <DependentUpon>frmCertificadoGarantia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoTablas.resx">
       <DependentUpon>frmMantenimientoTablas.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,9 +326,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteDatos.resx">
       <DependentUpon>frmReporteDatos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmReportes.resx">
-      <DependentUpon>frmReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteVentas.resx">
       <DependentUpon>frmReporteVentas.cs</DependentUpon>

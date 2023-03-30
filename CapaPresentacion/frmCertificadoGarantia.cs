@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmReportes : Form
+    public partial class frmCertifiadoGarantia : Form
     {
-        public frmReportes()
+        public frmCertifiadoGarantia()
         {
             InitializeComponent();
         }
+
     }
 }

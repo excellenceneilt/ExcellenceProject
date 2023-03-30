@@ -90,10 +90,6 @@ namespace CapaPresentacion
         {
             AbrirFormulario((IconMenuItem)sender, new frmProveedores());
         }
-        private void menuReportes_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)sender, new frmReportes());
-        }
         private void submenuEspecialidad_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuMantenimiento, new frmEspecialidad());
@@ -188,6 +184,11 @@ namespace CapaPresentacion
         private void submenuReporteCertificadosGarantia_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuServicioTecnico, new frmReporteDatos());
+        }
+
+        private void submenuActualizarDatosBasicosOst_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuServicioTecnico, new frmMantenimientoTablas());
         }
     }
 }

@@ -264,6 +264,7 @@
             this.submenuActualizarDatosBasicosOst.Name = "submenuActualizarDatosBasicosOst";
             this.submenuActualizarDatosBasicosOst.Size = new System.Drawing.Size(287, 22);
             this.submenuActualizarDatosBasicosOst.Text = "Actualizar datos básicos en ost";
+            this.submenuActualizarDatosBasicosOst.Click += new System.EventHandler(this.submenuActualizarDatosBasicosOst_Click);
             // 
             // menuCompras
             // 
