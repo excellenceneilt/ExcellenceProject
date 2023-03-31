@@ -78,6 +78,173 @@
             this.groupBox1.Size = new System.Drawing.Size(490, 259);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Edición de datos";
+            // 
+            // dgvdata
+            // 
+            this.dgvdata.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Producto,
+            this.ProductoManual,
+            this.Serie,
+            this.Cliente,
+            this.FacturaBoleta,
+            this.FBManual,
+            this.Entrega,
+            this.Comprobante,
+            this.Soles,
+            this.Dolares});
+            this.dgvdata.Location = new System.Drawing.Point(23, 203);
+            this.dgvdata.MultiSelect = false;
+            this.dgvdata.Name = "dgvdata";
+            this.dgvdata.ReadOnly = true;
+            this.dgvdata.RowTemplate.Height = 28;
+            this.dgvdata.Size = new System.Drawing.Size(1253, 352);
+            this.dgvdata.TabIndex = 119;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 370;
+            // 
+            // ProductoManual
+            // 
+            this.ProductoManual.HeaderText = "Producto manual";
+            this.ProductoManual.Name = "ProductoManual";
+            this.ProductoManual.ReadOnly = true;
+            // 
+            // Serie
+            // 
+            this.Serie.HeaderText = "Serie";
+            this.Serie.Name = "Serie";
+            this.Serie.ReadOnly = true;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            // 
+            // FacturaBoleta
+            // 
+            this.FacturaBoleta.HeaderText = "Factura/Boleta";
+            this.FacturaBoleta.Name = "FacturaBoleta";
+            this.FacturaBoleta.ReadOnly = true;
+            // 
+            // FBManual
+            // 
+            this.FBManual.HeaderText = "F./B. Manual";
+            this.FBManual.Name = "FBManual";
+            this.FBManual.ReadOnly = true;
+            // 
+            // Entrega
+            // 
+            this.Entrega.HeaderText = "Entrega";
+            this.Entrega.Name = "Entrega";
+            this.Entrega.ReadOnly = true;
+            this.Entrega.Width = 80;
+            // 
+            // Comprobante
+            // 
+            this.Comprobante.HeaderText = "Comprobante";
+            this.Comprobante.Name = "Comprobante";
+            this.Comprobante.ReadOnly = true;
+            // 
+            // Soles
+            // 
+            this.Soles.HeaderText = "S/.";
+            this.Soles.Name = "Soles";
+            this.Soles.ReadOnly = true;
+            this.Soles.Width = 80;
+            // 
+            // Dolares
+            // 
+            this.Dolares.HeaderText = "US$";
+            this.Dolares.Name = "Dolares";
+            this.Dolares.ReadOnly = true;
+            this.Dolares.Width = 80;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(23, 164);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(177, 23);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Generar archivo";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox9
+            // 
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox9.Location = new System.Drawing.Point(369, 99);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(148, 20);
+            this.textBox9.TabIndex = 27;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(293, 101);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 13);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "F/B manual:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox8.Location = new System.Drawing.Point(610, 73);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 25;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(577, 75);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(29, 13);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "DNI:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox7.Location = new System.Drawing.Point(460, 73);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 23;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(422, 75);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(33, 13);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "RUC:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox6.Location = new System.Drawing.Point(473, 46);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(170, 20);
+            this.textBox6.TabIndex = 21;
+            // 
+            // label11
             // 
             // label1
             // 
@@ -269,7 +436,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1339, 614);
+            this.ClientSize = new System.Drawing.Size(1344, 649);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmMantenimientoTablas";
             this.Text = "Mantenimiento de tablas";
