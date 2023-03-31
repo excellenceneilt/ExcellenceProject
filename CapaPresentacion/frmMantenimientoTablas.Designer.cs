@@ -81,7 +81,8 @@
             this.groupBox1.Text = "Edición de datos";
             // 
             // dgvdata
-            // 
+            //
+            /*
             this.dgvdata.AllowUserToAddRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -200,7 +201,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 13);
             this.label14.TabIndex = 26;
-            this.label14.Text = "F/B manual:";
+            this.label14.Text = "F/B manual:";*/
             // 
             // textBox8
             // 
@@ -212,12 +213,12 @@
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
+            /*this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(577, 75);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 13);
             this.label13.TabIndex = 24;
-            this.label13.Text = "DNI:";
+            this.label13.Text = "DNI:";*/
             // 
             // textBox7
             // 
@@ -229,12 +230,12 @@
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
+            /*this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(422, 75);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(33, 13);
             this.label12.TabIndex = 22;
-            this.label12.Text = "RUC:";
+            this.label12.Text = "RUC:";*/
             // 
             // textBox6
             // 
