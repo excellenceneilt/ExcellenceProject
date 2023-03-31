@@ -66,4 +66,4 @@ D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.csproj
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
-D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmServicioTecnico.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmRecepcionServicioTecnico.resources

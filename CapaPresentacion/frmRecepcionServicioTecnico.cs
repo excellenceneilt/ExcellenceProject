@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmServicioTecnico : Form
+    public partial class frmRecepcionServicioTecnico : Form
     {
-        public frmServicioTecnico()
+        public frmRecepcionServicioTecnico()
         {
             InitializeComponent();
         }
 
         private void label27_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnbuscarcliente_Click(object sender, EventArgs e)
         {
 
         }

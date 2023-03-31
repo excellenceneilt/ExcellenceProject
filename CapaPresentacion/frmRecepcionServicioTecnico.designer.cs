@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class frmServicioTecnico
+    partial class frmRecepcionServicioTecnico
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtdireccion = new System.Windows.Forms.TextBox();
             this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.cbotipodocumento = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.cbotipocliente = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtcodigocliente = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -114,9 +113,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.btnbuscarcliente = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -356,16 +357,6 @@
             this.label18.TabIndex = 164;
             this.label18.Text = "Moneda";
             // 
-            // cbotipocliente
-            // 
-            this.cbotipocliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbotipocliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbotipocliente.FormattingEnabled = true;
-            this.cbotipocliente.Location = new System.Drawing.Point(63, 53);
-            this.cbotipocliente.Name = "cbotipocliente";
-            this.cbotipocliente.Size = new System.Drawing.Size(259, 21);
-            this.cbotipocliente.TabIndex = 163;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -516,15 +507,15 @@
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnseleccionar,
@@ -809,7 +800,7 @@
             this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnbuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnbuscar.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.btnbuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
             this.btnbuscar.IconColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnbuscar.IconSize = 16;
@@ -933,6 +924,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox2.Controls.Add(this.btnbuscarcliente);
+            this.groupBox2.Controls.Add(this.textBox6);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtnombrecomercial);
@@ -942,7 +935,6 @@
             this.groupBox2.Controls.Add(this.txtcorreo2);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.cbotipocliente);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.txtdocumento);
@@ -1004,15 +996,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Estado del equipo";
             // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(17, 192);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(649, 81);
-            this.textBox3.TabIndex = 195;
-            // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1021,6 +1004,15 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(649, 81);
             this.textBox5.TabIndex = 196;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(17, 192);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(649, 81);
+            this.textBox3.TabIndex = 195;
             // 
             // groupBox5
             // 
@@ -1043,7 +1035,28 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Equipo";
             // 
-            // frmServicioTecnico
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(63, 54);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(196, 20);
+            this.textBox6.TabIndex = 186;
+            // 
+            // btnbuscarcliente
+            // 
+            this.btnbuscarcliente.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnbuscarcliente.IconColor = System.Drawing.Color.Black;
+            this.btnbuscarcliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnbuscarcliente.IconSize = 18;
+            this.btnbuscarcliente.Location = new System.Drawing.Point(287, 51);
+            this.btnbuscarcliente.Name = "btnbuscarcliente";
+            this.btnbuscarcliente.Size = new System.Drawing.Size(35, 23);
+            this.btnbuscarcliente.TabIndex = 187;
+            this.btnbuscarcliente.UseVisualStyleBackColor = true;
+            this.btnbuscarcliente.Click += new System.EventHandler(this.btnbuscarcliente_Click);
+            // 
+            // frmRecepcionServicioTecnico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1054,7 +1067,7 @@
             this.Controls.Add(this.dgvdata);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
-            this.Name = "frmServicioTecnico";
+            this.Name = "frmRecepcionServicioTecnico";
             this.Text = "frmServicioTecnico";
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -1097,7 +1110,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox cbotipodocumento;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox cbotipocliente;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtcodigocliente;
         private System.Windows.Forms.Label label16;
@@ -1160,5 +1172,7 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private FontAwesome.Sharp.IconButton btnbuscarcliente;
     }
 }
