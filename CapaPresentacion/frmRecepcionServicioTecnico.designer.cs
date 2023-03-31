@@ -30,10 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtdireccion = new System.Windows.Forms.TextBox();
-            this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtdeja = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.cbodistritocomercial = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -46,21 +43,18 @@
             this.txtrazonsocial = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.txttelefono1 = new System.Windows.Forms.TextBox();
+            this.txttelefono = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtcorreo2 = new System.Windows.Forms.TextBox();
+            this.txtcorreo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtnombrecomercial = new System.Windows.Forms.TextBox();
+            this.txtfecha = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.cbotipodocumento = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtcodigocliente = new System.Windows.Forms.TextBox();
+            this.txtnumero = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.Telefono2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Correo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtcorreo1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -69,29 +63,14 @@
             this.txtbusqueda = new System.Windows.Forms.TextBox();
             this.cbobusqueda = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.Telefono1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvdata = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdTipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DireccionComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtindice = new System.Windows.Forms.TextBox();
             this.txtid = new System.Windows.Forms.TextBox();
-            this.txtnombrecompleto = new System.Windows.Forms.TextBox();
-            this.txtdocumento = new System.Windows.Forms.TextBox();
+            this.txtcontacto = new System.Windows.Forms.TextBox();
+            this.txtdni = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btneliminar = new FontAwesome.Sharp.IconButton();
@@ -101,7 +80,7 @@
             this.btnbuscar = new FontAwesome.Sharp.IconButton();
             this.label15 = new System.Windows.Forms.Label();
             this.txtruc = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtost = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -111,8 +90,9 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtcodproducto = new System.Windows.Forms.TextBox();
             this.btnbuscarcliente = new FontAwesome.Sharp.IconButton();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtcliente = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -126,32 +106,13 @@
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtdireccion
+            // txtdeja
             // 
-            this.txtdireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdireccion.Location = new System.Drawing.Point(63, 97);
-            this.txtdireccion.Name = "txtdireccion";
-            this.txtdireccion.Size = new System.Drawing.Size(259, 20);
-            this.txtdireccion.TabIndex = 128;
-            // 
-            // EstadoValor
-            // 
-            this.EstadoValor.HeaderText = "EstadoValor";
-            this.EstadoValor.Name = "EstadoValor";
-            this.EstadoValor.ReadOnly = true;
-            this.EstadoValor.Visible = false;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            // 
-            // Departamento
-            // 
-            this.Departamento.HeaderText = "Departamento";
-            this.Departamento.Name = "Departamento";
-            this.Departamento.ReadOnly = true;
+            this.txtdeja.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdeja.Location = new System.Drawing.Point(63, 97);
+            this.txtdeja.Name = "txtdeja";
+            this.txtdeja.Size = new System.Drawing.Size(259, 20);
+            this.txtdeja.TabIndex = 128;
             // 
             // label30
             // 
@@ -184,7 +145,6 @@
             this.label27.Size = new System.Drawing.Size(64, 13);
             this.label27.TabIndex = 181;
             this.label27.Text = "¿Enciende?";
-            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // cbodistrito
             // 
@@ -279,13 +239,13 @@
             this.label12.TabIndex = 154;
             this.label12.Text = "Observaciones:";
             // 
-            // txttelefono1
+            // txttelefono
             // 
-            this.txttelefono1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefono1.Location = new System.Drawing.Point(537, 97);
-            this.txttelefono1.Name = "txttelefono1";
-            this.txttelefono1.Size = new System.Drawing.Size(72, 20);
-            this.txttelefono1.TabIndex = 138;
+            this.txttelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttelefono.Location = new System.Drawing.Point(537, 97);
+            this.txttelefono.Name = "txttelefono";
+            this.txttelefono.Size = new System.Drawing.Size(72, 20);
+            this.txttelefono.TabIndex = 138;
             // 
             // label6
             // 
@@ -298,32 +258,32 @@
             this.label6.TabIndex = 153;
             this.label6.Text = "Teléfono 1:\r\n";
             // 
-            // txtcorreo2
+            // txtcorreo
             // 
-            this.txtcorreo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcorreo2.Location = new System.Drawing.Point(384, 76);
-            this.txtcorreo2.Name = "txtcorreo2";
-            this.txtcorreo2.Size = new System.Drawing.Size(225, 20);
-            this.txtcorreo2.TabIndex = 136;
+            this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcorreo.Location = new System.Drawing.Point(384, 76);
+            this.txtcorreo.Name = "txtcorreo";
+            this.txtcorreo.Size = new System.Drawing.Size(225, 20);
+            this.txtcorreo.TabIndex = 136;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(328, 78);
+            this.label5.Location = new System.Drawing.Point(336, 78);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 152;
-            this.label5.Text = "Correo 1:\r\n";
+            this.label5.Text = "Correo:\r\n";
             // 
-            // txtnombrecomercial
+            // txtfecha
             // 
-            this.txtnombrecomercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombrecomercial.Location = new System.Drawing.Point(209, 32);
-            this.txtnombrecomercial.Name = "txtnombrecomercial";
-            this.txtnombrecomercial.Size = new System.Drawing.Size(71, 20);
-            this.txtnombrecomercial.TabIndex = 132;
+            this.txtfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfecha.Location = new System.Drawing.Point(209, 32);
+            this.txtfecha.Name = "txtfecha";
+            this.txtfecha.Size = new System.Drawing.Size(71, 20);
+            this.txtfecha.TabIndex = 132;
             // 
             // label20
             // 
@@ -368,14 +328,14 @@
             this.label17.TabIndex = 162;
             this.label17.Text = "Cliente";
             // 
-            // txtcodigocliente
+            // txtnumero
             // 
-            this.txtcodigocliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcodigocliente.Location = new System.Drawing.Point(63, 32);
-            this.txtcodigocliente.Name = "txtcodigocliente";
-            this.txtcodigocliente.ReadOnly = true;
-            this.txtcodigocliente.Size = new System.Drawing.Size(72, 20);
-            this.txtcodigocliente.TabIndex = 161;
+            this.txtnumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnumero.Location = new System.Drawing.Point(63, 32);
+            this.txtnumero.Name = "txtnumero";
+            this.txtnumero.ReadOnly = true;
+            this.txtnumero.Size = new System.Drawing.Size(72, 20);
+            this.txtnumero.TabIndex = 161;
             // 
             // label16
             // 
@@ -398,25 +358,6 @@
             this.label13.Size = new System.Drawing.Size(62, 13);
             this.label13.TabIndex = 155;
             this.label13.Text = "Accesorios:";
-            // 
-            // Telefono2
-            // 
-            this.Telefono2.HeaderText = "Telefono 2";
-            this.Telefono2.Name = "Telefono2";
-            this.Telefono2.ReadOnly = true;
-            // 
-            // btnseleccionar
-            // 
-            this.btnseleccionar.HeaderText = "";
-            this.btnseleccionar.Name = "btnseleccionar";
-            this.btnseleccionar.ReadOnly = true;
-            this.btnseleccionar.Width = 30;
-            // 
-            // Correo2
-            // 
-            this.Correo2.HeaderText = "Correo 2";
-            this.Correo2.Name = "Correo2";
-            this.Correo2.ReadOnly = true;
             // 
             // txtcorreo1
             // 
@@ -498,12 +439,6 @@
             this.label11.TabIndex = 145;
             this.label11.Text = "Buscar por:";
             // 
-            // Telefono1
-            // 
-            this.Telefono1.HeaderText = "Telefono 1";
-            this.Telefono1.Name = "Telefono1";
-            this.Telefono1.ReadOnly = true;
-            // 
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
@@ -518,30 +453,9 @@
             this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnseleccionar,
-            this.Id,
-            this.CodigoCliente,
-            this.IdTipoDocumento,
-            this.TipoDocumento,
-            this.Documento,
-            this.RUC,
-            this.RazonSocial,
-            this.IdTipoCliente,
-            this.TipoCliente,
-            this.NombreCompleto,
-            this.Direccion,
-            this.CMP,
-            this.IdEspecialidad,
-            this.Especialidad,
-            this.NombreComercial,
-            this.DireccionComercial,
-            this.Correo1,
-            this.Telefono1,
-            this.Correo2,
-            this.Telefono2,
-            this.Departamento,
-            this.EstadoValor,
-            this.Estado});
+            this.Numero,
+            this.Cliente,
+            this.Equipo});
             this.dgvdata.Location = new System.Drawing.Point(0, 323);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
@@ -550,113 +464,25 @@
             this.dgvdata.Size = new System.Drawing.Size(652, 209);
             this.dgvdata.TabIndex = 141;
             // 
-            // Id
+            // Numero
             // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
+            this.Numero.HeaderText = "Número";
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
             // 
-            // CodigoCliente
+            // Cliente
             // 
-            this.CodigoCliente.HeaderText = "Cod. Cliente";
-            this.CodigoCliente.Name = "CodigoCliente";
-            this.CodigoCliente.ReadOnly = true;
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Width = 275;
             // 
-            // IdTipoDocumento
+            // Equipo
             // 
-            this.IdTipoDocumento.HeaderText = "IdTipoDocumento";
-            this.IdTipoDocumento.Name = "IdTipoDocumento";
-            this.IdTipoDocumento.ReadOnly = true;
-            this.IdTipoDocumento.Visible = false;
-            // 
-            // TipoDocumento
-            // 
-            this.TipoDocumento.HeaderText = "Tipo Documento";
-            this.TipoDocumento.Name = "TipoDocumento";
-            this.TipoDocumento.ReadOnly = true;
-            // 
-            // Documento
-            // 
-            this.Documento.HeaderText = "DNI";
-            this.Documento.Name = "Documento";
-            this.Documento.ReadOnly = true;
-            this.Documento.Width = 80;
-            // 
-            // RUC
-            // 
-            this.RUC.HeaderText = "RUC";
-            this.RUC.Name = "RUC";
-            this.RUC.ReadOnly = true;
-            // 
-            // RazonSocial
-            // 
-            this.RazonSocial.HeaderText = "Razon Social";
-            this.RazonSocial.Name = "RazonSocial";
-            this.RazonSocial.ReadOnly = true;
-            // 
-            // IdTipoCliente
-            // 
-            this.IdTipoCliente.HeaderText = "IdTipoCliente";
-            this.IdTipoCliente.Name = "IdTipoCliente";
-            this.IdTipoCliente.ReadOnly = true;
-            this.IdTipoCliente.Visible = false;
-            // 
-            // TipoCliente
-            // 
-            this.TipoCliente.HeaderText = "Tipo Cliente";
-            this.TipoCliente.Name = "TipoCliente";
-            this.TipoCliente.ReadOnly = true;
-            // 
-            // NombreCompleto
-            // 
-            this.NombreCompleto.HeaderText = "Nombre Completo";
-            this.NombreCompleto.Name = "NombreCompleto";
-            this.NombreCompleto.ReadOnly = true;
-            this.NombreCompleto.Width = 180;
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            // 
-            // CMP
-            // 
-            this.CMP.HeaderText = "CMP";
-            this.CMP.Name = "CMP";
-            this.CMP.ReadOnly = true;
-            // 
-            // IdEspecialidad
-            // 
-            this.IdEspecialidad.HeaderText = "IdEspecialidad";
-            this.IdEspecialidad.Name = "IdEspecialidad";
-            this.IdEspecialidad.ReadOnly = true;
-            this.IdEspecialidad.Visible = false;
-            // 
-            // Especialidad
-            // 
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.Name = "Especialidad";
-            this.Especialidad.ReadOnly = true;
-            // 
-            // NombreComercial
-            // 
-            this.NombreComercial.HeaderText = "Nombre Comercial";
-            this.NombreComercial.Name = "NombreComercial";
-            this.NombreComercial.ReadOnly = true;
-            // 
-            // DireccionComercial
-            // 
-            this.DireccionComercial.HeaderText = "Direccion Comercial";
-            this.DireccionComercial.Name = "DireccionComercial";
-            this.DireccionComercial.ReadOnly = true;
-            // 
-            // Correo1
-            // 
-            this.Correo1.HeaderText = "Correo 1";
-            this.Correo1.Name = "Correo1";
-            this.Correo1.ReadOnly = true;
+            this.Equipo.HeaderText = "Equipo";
+            this.Equipo.Name = "Equipo";
+            this.Equipo.ReadOnly = true;
+            this.Equipo.Width = 230;
             // 
             // txtindice
             // 
@@ -676,21 +502,21 @@
             this.txtid.TabIndex = 157;
             this.txtid.Text = "0";
             // 
-            // txtnombrecompleto
+            // txtcontacto
             // 
-            this.txtnombrecompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombrecompleto.Location = new System.Drawing.Point(63, 75);
-            this.txtnombrecompleto.Name = "txtnombrecompleto";
-            this.txtnombrecompleto.Size = new System.Drawing.Size(259, 20);
-            this.txtnombrecompleto.TabIndex = 126;
+            this.txtcontacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcontacto.Location = new System.Drawing.Point(63, 75);
+            this.txtcontacto.Name = "txtcontacto";
+            this.txtcontacto.Size = new System.Drawing.Size(259, 20);
+            this.txtcontacto.TabIndex = 126;
             // 
-            // txtdocumento
+            // txtdni
             // 
-            this.txtdocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdocumento.Location = new System.Drawing.Point(384, 97);
-            this.txtdocumento.Name = "txtdocumento";
-            this.txtdocumento.Size = new System.Drawing.Size(79, 20);
-            this.txtdocumento.TabIndex = 123;
+            this.txtdni.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdni.Location = new System.Drawing.Point(384, 97);
+            this.txtdni.Name = "txtdni";
+            this.txtdni.Size = new System.Drawing.Size(79, 20);
+            this.txtdni.TabIndex = 123;
             // 
             // label3
             // 
@@ -831,14 +657,14 @@
             this.txtruc.Size = new System.Drawing.Size(225, 20);
             this.txtruc.TabIndex = 124;
             // 
-            // textBox1
+            // txtost
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(384, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(72, 20);
-            this.textBox1.TabIndex = 185;
+            this.txtost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtost.Location = new System.Drawing.Point(384, 31);
+            this.txtost.Name = "txtost";
+            this.txtost.ReadOnly = true;
+            this.txtost.Size = new System.Drawing.Size(72, 20);
+            this.txtost.TabIndex = 185;
             // 
             // label1
             // 
@@ -924,26 +750,27 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox2.Controls.Add(this.txtcodproducto);
             this.groupBox2.Controls.Add(this.btnbuscarcliente);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.txtcliente);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txtnombrecomercial);
+            this.groupBox2.Controls.Add(this.txtfecha);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txttelefono1);
-            this.groupBox2.Controls.Add(this.txtcorreo2);
+            this.groupBox2.Controls.Add(this.txttelefono);
+            this.groupBox2.Controls.Add(this.txtcorreo);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtost);
             this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.txtdocumento);
-            this.groupBox2.Controls.Add(this.txtcodigocliente);
+            this.groupBox2.Controls.Add(this.txtdni);
+            this.groupBox2.Controls.Add(this.txtnumero);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.txtnombrecompleto);
+            this.groupBox2.Controls.Add(this.txtcontacto);
             this.groupBox2.Controls.Add(this.txtruc);
-            this.groupBox2.Controls.Add(this.txtdireccion);
+            this.groupBox2.Controls.Add(this.txtdeja);
             this.groupBox2.Controls.Add(this.txtindice);
             this.groupBox2.Controls.Add(this.label30);
             this.groupBox2.Controls.Add(this.txtid);
@@ -955,26 +782,34 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información";
             // 
+            // txtcodproducto
+            // 
+            this.txtcodproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcodproducto.Location = new System.Drawing.Point(287, 13);
+            this.txtcodproducto.Name = "txtcodproducto";
+            this.txtcodproducto.Size = new System.Drawing.Size(71, 20);
+            this.txtcodproducto.TabIndex = 188;
+            // 
             // btnbuscarcliente
             // 
             this.btnbuscarcliente.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
             this.btnbuscarcliente.IconColor = System.Drawing.Color.Black;
             this.btnbuscarcliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnbuscarcliente.IconSize = 18;
-            this.btnbuscarcliente.Location = new System.Drawing.Point(287, 51);
+            this.btnbuscarcliente.Location = new System.Drawing.Point(287, 52);
             this.btnbuscarcliente.Name = "btnbuscarcliente";
             this.btnbuscarcliente.Size = new System.Drawing.Size(35, 23);
             this.btnbuscarcliente.TabIndex = 187;
             this.btnbuscarcliente.UseVisualStyleBackColor = true;
             this.btnbuscarcliente.Click += new System.EventHandler(this.btnbuscarcliente_Click);
             // 
-            // textBox6
+            // txtcliente
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(63, 54);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(196, 20);
-            this.textBox6.TabIndex = 186;
+            this.txtcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcliente.Location = new System.Drawing.Point(63, 55);
+            this.txtcliente.Name = "txtcliente";
+            this.txtcliente.Size = new System.Drawing.Size(217, 20);
+            this.txtcliente.TabIndex = 186;
             // 
             // groupBox3
             // 
@@ -1060,7 +895,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 649);
+            this.ClientSize = new System.Drawing.Size(1344, 531);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
@@ -1086,10 +921,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtdireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
+        private System.Windows.Forms.TextBox txtdeja;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox cbodistritocomercial;
         private System.Windows.Forms.Label label27;
@@ -1102,24 +934,21 @@
         private System.Windows.Forms.TextBox txtrazonsocial;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txttelefono1;
+        private System.Windows.Forms.TextBox txttelefono;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtcorreo2;
+        private System.Windows.Forms.TextBox txtcorreo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtnombrecomercial;
+        private System.Windows.Forms.TextBox txtfecha;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox cbotipodocumento;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox txtcodigocliente;
+        private System.Windows.Forms.TextBox txtnumero;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono2;
-        private System.Windows.Forms.DataGridViewButtonColumn btnseleccionar;
         private FontAwesome.Sharp.IconButton btneliminar;
         private FontAwesome.Sharp.IconButton btnlimpiar;
         private FontAwesome.Sharp.IconButton btnguardar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo2;
         private System.Windows.Forms.TextBox txtcorreo1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
@@ -1130,34 +959,16 @@
         private System.Windows.Forms.TextBox txtbusqueda;
         private System.Windows.Forms.ComboBox cbobusqueda;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono1;
         private System.Windows.Forms.DataGridView dgvdata;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdTipoDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RUC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdTipoCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CMP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdEspecialidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreComercial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DireccionComercial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo1;
         private System.Windows.Forms.TextBox txtindice;
         private System.Windows.Forms.TextBox txtid;
-        private System.Windows.Forms.TextBox txtnombrecompleto;
-        private System.Windows.Forms.TextBox txtdocumento;
+        private System.Windows.Forms.TextBox txtcontacto;
+        private System.Windows.Forms.TextBox txtdni;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtruc;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtost;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label19;
@@ -1172,7 +983,11 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Equipo;
+        private System.Windows.Forms.TextBox txtcliente;
         private FontAwesome.Sharp.IconButton btnbuscarcliente;
+        private System.Windows.Forms.TextBox txtcodproducto;
     }
 }

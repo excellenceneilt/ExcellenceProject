@@ -162,6 +162,12 @@
     <Compile Include="frmHistorialIncidencias.Designer.cs">
       <DependentUpon>frmHistorialIncidencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCertificadoGarantia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCertificadoGarantia.Designer.cs">
+      <DependentUpon>frmCertificadoGarantia.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMantenimientoTablas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,12 @@
     </Compile>
     <Compile Include="frmReporteCompras.Designer.cs">
       <DependentUpon>frmReporteCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteDatos.Designer.cs">
+      <DependentUpon>frmReporteDatos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReporteVentas.cs">
       <SubType>Form</SubType>
@@ -252,11 +264,11 @@
     <Compile Include="Modales\mdCliente.Designer.cs">
       <DependentUpon>mdCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modales\mdClientesRST.cs">
+    <Compile Include="Modales\mdClienteST.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modales\mdClientesRST.Designer.cs">
-      <DependentUpon>mdClientesRST.cs</DependentUpon>
+    <Compile Include="Modales\mdClienteST.Designer.cs">
+      <DependentUpon>mdClienteST.cs</DependentUpon>
     </Compile>
     <Compile Include="Modales\mdProducto.cs">
       <SubType>Form</SubType>
@@ -294,6 +306,9 @@
     <EmbeddedResource Include="frmHistorialIncidencias.resx">
       <DependentUpon>frmHistorialIncidencias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCertificadoGarantia.resx">
+      <DependentUpon>frmCertificadoGarantia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoTablas.resx">
       <DependentUpon>frmMantenimientoTablas.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteCompras.resx">
       <DependentUpon>frmReporteCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteDatos.resx">
+      <DependentUpon>frmReporteDatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteVentas.resx">
       <DependentUpon>frmReporteVentas.cs</DependentUpon>
@@ -338,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdCliente.resx">
       <DependentUpon>mdCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\mdClienteST.resx">
+      <DependentUpon>mdClienteST.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdProducto.resx">
       <DependentUpon>mdProducto.cs</DependentUpon>

@@ -350,7 +350,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmReporteVentas";
-            this.Text = "frmReporteVentas";
+            this.Text = "Reporte de ventas";
             this.Load += new System.EventHandler(this.frmReporteVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.ResumeLayout(false);
