@@ -90,10 +90,6 @@ namespace CapaPresentacion
         {
             AbrirFormulario((IconMenuItem)sender, new frmProveedores());
         }
-        private void menuReportes_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)sender, new frmReportes());
-        }
         private void submenuEspecialidad_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuMantenimiento, new frmEspecialidad());
@@ -165,21 +161,32 @@ namespace CapaPresentacion
         }
 
         //SERVICIO TECNICO
-        private void submenuIngresoOrdenServicio_Click(object sender, EventArgs e)
+        private void submenuIngresoRecepcionEquipos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuServicioTecnico, new frmOrdenST());
+            AbrirFormulario(menuServicioTecnico, new frmRecepcionServicioTecnico());
         }
         private void submenuReporteRecepcionServicioTecnico_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuServicioTecnico, new frmRegistroRecepcionST());
         }
-
+        private void submenuIngresoOrdenServicio_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuServicioTecnico, new frmOrdenST());
+        }
         private void submenuHistorialIncidencias_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuServicioTecnico, new frmHistorialIncidencias());
         }
-
         private void submenuCertificadosGarantia_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuServicioTecnico, new frmCertifiadoGarantia());
+        }
+        private void submenuReporteCertificadosGarantia_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuServicioTecnico, new frmReporteDatos());
+        }
+
+        private void submenuActualizarDatosBasicosOst_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuServicioTecnico, new frmMantenimientoTablas());
         }

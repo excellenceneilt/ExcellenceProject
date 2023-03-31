@@ -13,21 +13,23 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Modales
 {
-    public partial class mdCliente : Form
+    public partial class mdClienteST : Form
     {
         public Cliente _Cliente { get; set; }
-        public mdCliente()
+        public mdClienteST()
         {
             InitializeComponent();
         }
 
-        private void mdCliente_Load(object sender, EventArgs e)
+        private void mdClienteST_Load(object sender, EventArgs e)
         {
             foreach (DataGridViewColumn columna in dgvdata.Columns)
             {
                 if (columna.Visible == true)
                 {
-                    cbobusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                    cbobusqueda.Items.Add(new OpcionCombo() 
+                    { 
+                        Valor = columna.Name, Texto = columna.HeaderText });
                 }
             }
             cbobusqueda.DisplayMember = "Texto";
@@ -36,14 +38,26 @@ namespace CapaPresentacion.Modales
 
             List<Cliente> lista = new CN_Cliente().Listar();
 
-            foreach (Cliente item in lista) 
+            foreach (Cliente item in lista)
             {
-                if(item.Estado)
+                if (item.Estado)
                     dgvdata.Rows.Add(new object[] 
                     {
+                        item.NombreCompleto,
+                        item.RUC,
+                        item.NombreContacto,
+                        item.Correo1,
                         item.Documento,
-                        item.NombreCompleto 
+                        item.Telefono1
                     });
+            }
+        }
+        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
+        {
+            txtbusqueda.Text = "";
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                row.Visible = true;
             }
         }
 
@@ -55,8 +69,12 @@ namespace CapaPresentacion.Modales
             {
                 _Cliente = new Cliente()
                 {
+                    NombreCompleto = dgvdata.Rows[iRow].Cells["NombreCompleto"].Value.ToString(),
+                    RUC = dgvdata.Rows[iRow].Cells["Ruc"].Value.ToString(),
+                    NombreContacto = dgvdata.Rows[iRow].Cells["Contacto"].Value.ToString(),
+                    Correo1 = dgvdata.Rows[iRow].Cells["Correo"].Value.ToString(),
                     Documento = dgvdata.Rows[iRow].Cells["Documento"].Value.ToString(),
-                    NombreCompleto = dgvdata.Rows[iRow].Cells["NombreCompleto"].Value.ToString()
+                    Telefono1 = dgvdata.Rows[iRow].Cells["Telefono"].Value.ToString()
                 };
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -67,24 +85,15 @@ namespace CapaPresentacion.Modales
         {
             string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
 
-            if(dgvdata.Rows.Count > 0)
+            if (dgvdata.Rows.Count > 0)
             {
-                foreach(DataGridViewRow row in dgvdata.Rows)
+                foreach (DataGridViewRow row in dgvdata.Rows)
                 {
                     if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
                         row.Visible = true;
                     else
                         row.Visible = false;
                 }
-            }
-        }
-
-        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
-        {
-            txtbusqueda.Text = "";
-            foreach (DataGridViewRow row in dgvdata.Rows)
-            {
-                row.Visible = true;
             }
         }
     }

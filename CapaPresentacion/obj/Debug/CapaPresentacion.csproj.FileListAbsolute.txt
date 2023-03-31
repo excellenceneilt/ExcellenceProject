@@ -50,7 +50,6 @@ D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmNeg
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmProducto.resources
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmProveedores.resources
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmReporteCompras.resources
-D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmReportes.resources
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmReporteVentas.resources
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmUsuarios.resources
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmVentas.resources
@@ -66,4 +65,11 @@ D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.csproj
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
-D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmServicioTecnico.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmHistorialIncidencias.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmOrdenST.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmRegistroRecepcionST.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmReporteDatos.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmCertifiadoGarantia.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmRecepcionServicioTecnico.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmMantenimientoTablas.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdClienteST.resources
