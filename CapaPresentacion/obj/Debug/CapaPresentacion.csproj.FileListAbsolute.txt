@@ -66,4 +66,12 @@ D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.csproj
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+<<<<<<< HEAD
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmRecepcionServicioTecnico.resources
+=======
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmServicioTecnico.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmHistorialIncidencias.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmMantenimientoTablas.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmOrdenST.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmRegistroRecepcionST.resources
+>>>>>>> 8d0965e57d02f164b646973078d8887ca6c939c3
