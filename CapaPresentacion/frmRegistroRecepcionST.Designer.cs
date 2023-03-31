@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvdata = new System.Windows.Forms.DataGridView();
+            this.btnexportar = new FontAwesome.Sharp.IconButton();
+            this.txtTotalDolares = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTotalSoles = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboestado = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -41,6 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtfechainicio = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.dgvdata = new System.Windows.Forms.DataGridView();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRst = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rst = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,14 +56,9 @@
             this.Comprobante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Soles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dolares = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtTotalSoles = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTotalDolares = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnexportar = new FontAwesome.Sharp.IconButton();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -78,37 +78,53 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Reporte de recepción de servicio técnico";
             // 
-            // dgvdata
+            // btnexportar
             // 
-            this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cliente,
-            this.FechaRst,
-            this.Rst,
-            this.FechaOst,
-            this.Ost,
-            this.Resultado,
-            this.Garantia,
-            this.Comprobante,
-            this.Soles,
-            this.Dolares});
-            this.dgvdata.Location = new System.Drawing.Point(33, 67);
-            this.dgvdata.MultiSelect = false;
-            this.dgvdata.Name = "dgvdata";
-            this.dgvdata.ReadOnly = true;
-            this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(1253, 473);
-            this.dgvdata.TabIndex = 118;
+            this.btnexportar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnexportar.IconColor = System.Drawing.Color.Black;
+            this.btnexportar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnexportar.Location = new System.Drawing.Point(33, 549);
+            this.btnexportar.Name = "btnexportar";
+            this.btnexportar.Size = new System.Drawing.Size(147, 23);
+            this.btnexportar.TabIndex = 129;
+            this.btnexportar.Text = "Descargar Excel";
+            this.btnexportar.UseVisualStyleBackColor = true;
+            // 
+            // txtTotalDolares
+            // 
+            this.txtTotalDolares.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTotalDolares.Location = new System.Drawing.Point(1160, 556);
+            this.txtTotalDolares.Name = "txtTotalDolares";
+            this.txtTotalDolares.Size = new System.Drawing.Size(126, 20);
+            this.txtTotalDolares.TabIndex = 128;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(1089, 559);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.TabIndex = 127;
+            this.label2.Text = "Total dólares:";
+            // 
+            // txtTotalSoles
+            // 
+            this.txtTotalSoles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTotalSoles.Location = new System.Drawing.Point(896, 556);
+            this.txtTotalSoles.Name = "txtTotalSoles";
+            this.txtTotalSoles.Size = new System.Drawing.Size(126, 20);
+            this.txtTotalSoles.TabIndex = 126;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(834, 559);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 125;
+            this.label1.Text = "Total soles:";
             // 
             // groupBox1
             // 
@@ -220,6 +236,38 @@
             this.label3.TabIndex = 89;
             this.label3.Text = "Fecha de inicio:";
             // 
+            // dgvdata
+            // 
+            this.dgvdata.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cliente,
+            this.FechaRst,
+            this.Rst,
+            this.FechaOst,
+            this.Ost,
+            this.Resultado,
+            this.Garantia,
+            this.Comprobante,
+            this.Soles,
+            this.Dolares});
+            this.dgvdata.Location = new System.Drawing.Point(33, 67);
+            this.dgvdata.MultiSelect = false;
+            this.dgvdata.Name = "dgvdata";
+            this.dgvdata.ReadOnly = true;
+            this.dgvdata.RowTemplate.Height = 28;
+            this.dgvdata.Size = new System.Drawing.Size(1253, 473);
+            this.dgvdata.TabIndex = 118;
+            // 
             // Cliente
             // 
             this.Cliente.HeaderText = "Cliente";
@@ -284,67 +332,19 @@
             this.Dolares.ReadOnly = true;
             this.Dolares.Width = 80;
             // 
-            // txtTotalSoles
-            // 
-            this.txtTotalSoles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotalSoles.Location = new System.Drawing.Point(896, 556);
-            this.txtTotalSoles.Name = "txtTotalSoles";
-            this.txtTotalSoles.Size = new System.Drawing.Size(126, 20);
-            this.txtTotalSoles.TabIndex = 126;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(834, 559);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 125;
-            this.label1.Text = "Total soles:";
-            // 
-            // txtTotalDolares
-            // 
-            this.txtTotalDolares.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotalDolares.Location = new System.Drawing.Point(1160, 556);
-            this.txtTotalDolares.Name = "txtTotalDolares";
-            this.txtTotalDolares.Size = new System.Drawing.Size(126, 20);
-            this.txtTotalDolares.TabIndex = 128;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(1089, 559);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 127;
-            this.label2.Text = "Total dólares:";
-            // 
-            // btnexportar
-            // 
-            this.btnexportar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnexportar.IconColor = System.Drawing.Color.Black;
-            this.btnexportar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnexportar.Location = new System.Drawing.Point(33, 549);
-            this.btnexportar.Name = "btnexportar";
-            this.btnexportar.Size = new System.Drawing.Size(147, 23);
-            this.btnexportar.TabIndex = 129;
-            this.btnexportar.Text = "Descargar Excel";
-            this.btnexportar.UseVisualStyleBackColor = true;
-            // 
             // frmRegistroRecepcionST
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1339, 614);
+            this.ClientSize = new System.Drawing.Size(1344, 649);
             this.Controls.Add(this.groupBox2);
             this.Name = "frmRegistroRecepcionST";
             this.Text = "Registro de recepción de servicio técnico";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -70,7 +70,7 @@ namespace CapaPresentacion
             formulario.FormBorderStyle= FormBorderStyle.None;
             formulario.Dock= DockStyle.Fill;
             formulario.BackColor= Color.CornflowerBlue;
-            contenedor.Controls.Add(formulario);
+           contenedor.Controls.Add(formulario);
             formulario.Show();
         }
         
@@ -90,10 +90,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario((IconMenuItem)sender, new frmProveedores());
         }
-        private void menuReportes_Click(object sender, EventArgs e)
+        /*private void menuReportes_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmReportes());
-        }
+        }*/
         private void submenuEspecialidad_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuMantenimiento, new frmEspecialidad());

@@ -57,11 +57,11 @@
             this.menuAcercade = new FontAwesome.Sharp.IconMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
-            this.contenedor = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnsalir = new FontAwesome.Sharp.IconButton();
+            this.contenedor = new System.Windows.Forms.Panel();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -285,7 +285,7 @@
             this.submenuRegistrarcompra.IconColor = System.Drawing.Color.Black;
             this.submenuRegistrarcompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuRegistrarcompra.Name = "submenuRegistrarcompra";
-            this.submenuRegistrarcompra.Size = new System.Drawing.Size(128, 22);
+            this.submenuRegistrarcompra.Size = new System.Drawing.Size(180, 22);
             this.submenuRegistrarcompra.Text = "Registrar";
             this.submenuRegistrarcompra.Click += new System.EventHandler(this.submenuRegistrarcompra_Click);
             // 
@@ -295,7 +295,7 @@
             this.submenuDetallecompra.IconColor = System.Drawing.Color.Black;
             this.submenuDetallecompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuDetallecompra.Name = "submenuDetallecompra";
-            this.submenuDetallecompra.Size = new System.Drawing.Size(128, 22);
+            this.submenuDetallecompra.Size = new System.Drawing.Size(180, 22);
             this.submenuDetallecompra.Text = "Ver detalle";
             this.submenuDetallecompra.Click += new System.EventHandler(this.submenuDetallecompra_Click);
             // 
@@ -394,14 +394,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Excellence System";
             // 
-            // contenedor
-            // 
-            this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contenedor.Location = new System.Drawing.Point(0, 142);
-            this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1333, 653);
-            this.contenedor.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -453,6 +445,14 @@
             this.btnsalir.UseVisualStyleBackColor = false;
             this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
+            // contenedor
+            // 
+            this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contenedor.Location = new System.Drawing.Point(0, 142);
+            this.contenedor.Name = "contenedor";
+            this.contenedor.Size = new System.Drawing.Size(1333, 653);
+            this.contenedor.TabIndex = 3;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,7 +494,6 @@
         private FontAwesome.Sharp.IconMenuItem menuReportes;
         private FontAwesome.Sharp.IconMenuItem menuAcercade;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel contenedor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUsuario;
         private FontAwesome.Sharp.IconMenuItem submenuCategoria;
@@ -517,6 +516,7 @@
         private System.Windows.Forms.ToolStripMenuItem submenuCertificadosGarantia;
         private System.Windows.Forms.ToolStripMenuItem submenuReporteCertificadosGarantia;
         private System.Windows.Forms.ToolStripMenuItem submenuActualizarDatosBasicosOst;
+        private System.Windows.Forms.Panel contenedor;
     }
 }
 

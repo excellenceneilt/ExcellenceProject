@@ -172,7 +172,7 @@
             // 
             // btnbuscarproveedor
             // 
-            this.btnbuscarproveedor.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.btnbuscarproveedor.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
             this.btnbuscarproveedor.IconColor = System.Drawing.Color.Black;
             this.btnbuscarproveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnbuscarproveedor.IconSize = 18;
@@ -273,7 +273,7 @@
             // 
             this.btnagregarproducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnagregarproducto.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.btnagregarproducto.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnagregarproducto.IconChar = FontAwesome.Sharp.IconChar.Add;
             this.btnagregarproducto.IconColor = System.Drawing.Color.Green;
             this.btnagregarproducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnagregarproducto.IconSize = 30;
@@ -329,7 +329,7 @@
             // 
             // btnbuscarproducto
             // 
-            this.btnbuscarproducto.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.btnbuscarproducto.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
             this.btnbuscarproducto.IconColor = System.Drawing.Color.Black;
             this.btnbuscarproducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnbuscarproducto.IconSize = 18;
@@ -503,7 +503,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1290, 500);
+            this.ClientSize = new System.Drawing.Size(1344, 649);
             this.Controls.Add(this.dgvdata);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.txttotalpagar);
