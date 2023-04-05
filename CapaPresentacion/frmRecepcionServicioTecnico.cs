@@ -41,5 +41,13 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void btnbuscarequipo_Click(object sender, EventArgs e)
+        {
+            using (var modal = new mdEquipoST())
+            {
+                var result = modal.ShowDialog();
+            }
+        }
     }
 }

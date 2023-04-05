@@ -34,9 +34,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.cbodistritocomercial = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.cbodistrito = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.cboprovincia = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
             this.cbodepartamento = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -98,6 +96,9 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnbuscarequipo = new FontAwesome.Sharp.IconButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,6 +109,7 @@
             // 
             // txtdeja
             // 
+            this.txtdeja.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtdeja.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdeja.Location = new System.Drawing.Point(63, 97);
             this.txtdeja.Name = "txtdeja";
@@ -146,16 +148,6 @@
             this.label27.TabIndex = 181;
             this.label27.Text = "¿Enciende?";
             // 
-            // cbodistrito
-            // 
-            this.cbodistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbodistrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbodistrito.FormattingEnabled = true;
-            this.cbodistrito.Location = new System.Drawing.Point(405, 63);
-            this.cbodistrito.Name = "cbodistrito";
-            this.cbodistrito.Size = new System.Drawing.Size(204, 21);
-            this.cbodistrito.TabIndex = 176;
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -166,16 +158,6 @@
             this.label26.Size = new System.Drawing.Size(45, 13);
             this.label26.TabIndex = 175;
             this.label26.Text = "Modelo:";
-            // 
-            // cboprovincia
-            // 
-            this.cboprovincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboprovincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboprovincia.FormattingEnabled = true;
-            this.cboprovincia.Location = new System.Drawing.Point(74, 63);
-            this.cboprovincia.Name = "cboprovincia";
-            this.cboprovincia.Size = new System.Drawing.Size(230, 21);
-            this.cboprovincia.TabIndex = 174;
             // 
             // label25
             // 
@@ -211,6 +193,7 @@
             // 
             // txtrazonsocial
             // 
+            this.txtrazonsocial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtrazonsocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtrazonsocial.Location = new System.Drawing.Point(74, 86);
             this.txtrazonsocial.Name = "txtrazonsocial";
@@ -241,6 +224,7 @@
             // 
             // txttelefono
             // 
+            this.txttelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txttelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttelefono.Location = new System.Drawing.Point(537, 97);
             this.txttelefono.Name = "txttelefono";
@@ -260,6 +244,7 @@
             // 
             // txtcorreo
             // 
+            this.txtcorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcorreo.Location = new System.Drawing.Point(384, 76);
             this.txtcorreo.Name = "txtcorreo";
@@ -279,8 +264,9 @@
             // 
             // txtfecha
             // 
+            this.txtfecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfecha.Location = new System.Drawing.Point(209, 32);
+            this.txtfecha.Location = new System.Drawing.Point(209, 30);
             this.txtfecha.Name = "txtfecha";
             this.txtfecha.Size = new System.Drawing.Size(71, 20);
             this.txtfecha.TabIndex = 132;
@@ -330,8 +316,9 @@
             // 
             // txtnumero
             // 
+            this.txtnumero.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtnumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnumero.Location = new System.Drawing.Point(63, 32);
+            this.txtnumero.Location = new System.Drawing.Point(63, 30);
             this.txtnumero.Name = "txtnumero";
             this.txtnumero.ReadOnly = true;
             this.txtnumero.Size = new System.Drawing.Size(72, 20);
@@ -361,6 +348,7 @@
             // 
             // txtcorreo1
             // 
+            this.txtcorreo1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtcorreo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcorreo1.Location = new System.Drawing.Point(506, 48);
             this.txtcorreo1.Name = "txtcorreo1";
@@ -412,6 +400,7 @@
             // 
             // txtbusqueda
             // 
+            this.txtbusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbusqueda.Location = new System.Drawing.Point(240, 38);
             this.txtbusqueda.Name = "txtbusqueda";
@@ -486,6 +475,7 @@
             // 
             // txtindice
             // 
+            this.txtindice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtindice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtindice.Location = new System.Drawing.Point(530, 27);
             this.txtindice.Name = "txtindice";
@@ -495,6 +485,7 @@
             // 
             // txtid
             // 
+            this.txtid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtid.Location = new System.Drawing.Point(558, 27);
             this.txtid.Name = "txtid";
@@ -504,6 +495,7 @@
             // 
             // txtcontacto
             // 
+            this.txtcontacto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtcontacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcontacto.Location = new System.Drawing.Point(63, 75);
             this.txtcontacto.Name = "txtcontacto";
@@ -512,6 +504,7 @@
             // 
             // txtdni
             // 
+            this.txtdni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtdni.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdni.Location = new System.Drawing.Point(384, 97);
             this.txtdni.Name = "txtdni";
@@ -651,6 +644,7 @@
             // 
             // txtruc
             // 
+            this.txtruc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtruc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtruc.Location = new System.Drawing.Point(384, 54);
             this.txtruc.Name = "txtruc";
@@ -659,6 +653,7 @@
             // 
             // txtost
             // 
+            this.txtost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtost.Location = new System.Drawing.Point(384, 31);
             this.txtost.Name = "txtost";
@@ -679,6 +674,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(405, 86);
             this.textBox2.Name = "textBox2";
@@ -724,6 +720,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(17, 304);
             this.textBox4.Multiline = true;
@@ -784,6 +781,7 @@
             // 
             // txtcodproducto
             // 
+            this.txtcodproducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtcodproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcodproducto.Location = new System.Drawing.Point(287, 13);
             this.txtcodproducto.Name = "txtcodproducto";
@@ -805,8 +803,9 @@
             // 
             // txtcliente
             // 
+            this.txtcliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcliente.Location = new System.Drawing.Point(63, 55);
+            this.txtcliente.Location = new System.Drawing.Point(63, 53);
             this.txtcliente.Name = "txtcliente";
             this.txtcliente.Size = new System.Drawing.Size(217, 20);
             this.txtcliente.TabIndex = 186;
@@ -854,6 +853,7 @@
             // 
             // textBox5
             // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(17, 87);
             this.textBox5.Multiline = true;
@@ -863,6 +863,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(17, 192);
             this.textBox3.Multiline = true;
@@ -873,11 +874,12 @@
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox5.Controls.Add(this.textBox6);
+            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.btnbuscarequipo);
             this.groupBox5.Controls.Add(this.textBox2);
-            this.groupBox5.Controls.Add(this.cbodistrito);
             this.groupBox5.Controls.Add(this.label26);
             this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.cboprovincia);
             this.groupBox5.Controls.Add(this.label25);
             this.groupBox5.Controls.Add(this.cbodepartamento);
             this.groupBox5.Controls.Add(this.label24);
@@ -890,6 +892,37 @@
             this.groupBox5.TabIndex = 189;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Equipo";
+            // 
+            // btnbuscarequipo
+            // 
+            this.btnbuscarequipo.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnbuscarequipo.IconColor = System.Drawing.Color.Black;
+            this.btnbuscarequipo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnbuscarequipo.IconSize = 18;
+            this.btnbuscarequipo.Location = new System.Drawing.Point(269, 34);
+            this.btnbuscarequipo.Name = "btnbuscarequipo";
+            this.btnbuscarequipo.Size = new System.Drawing.Size(35, 23);
+            this.btnbuscarequipo.TabIndex = 189;
+            this.btnbuscarequipo.UseVisualStyleBackColor = true;
+            this.btnbuscarequipo.Click += new System.EventHandler(this.btnbuscarequipo_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(74, 60);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(230, 20);
+            this.textBox1.TabIndex = 190;
+            // 
+            // textBox6
+            // 
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(405, 60);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(230, 20);
+            this.textBox6.TabIndex = 191;
             // 
             // frmRecepcionServicioTecnico
             // 
@@ -925,9 +958,7 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox cbodistritocomercial;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox cbodistrito;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ComboBox cboprovincia;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ComboBox cbodepartamento;
         private System.Windows.Forms.Label label24;
@@ -989,5 +1020,8 @@
         private System.Windows.Forms.TextBox txtcliente;
         private FontAwesome.Sharp.IconButton btnbuscarcliente;
         private System.Windows.Forms.TextBox txtcodproducto;
+        private FontAwesome.Sharp.IconButton btnbuscarequipo;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

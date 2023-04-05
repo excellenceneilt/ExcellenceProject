@@ -61,6 +61,9 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnsalir = new FontAwesome.Sharp.IconButton();
+            //dev-angel
+            this.equipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            //develop
             this.contenedor = new System.Windows.Forms.Panel();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,7 +111,8 @@
             this.submenuCategoria,
             this.submenuProducto,
             this.submenuEspecialidad,
-            this.submenunegocio});
+            this.submenunegocio,
+            this.equipoToolStripMenuItem});
             this.menuMantenimiento.IconChar = FontAwesome.Sharp.IconChar.Tools;
             this.menuMantenimiento.IconColor = System.Drawing.Color.Black;
             this.menuMantenimiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -125,7 +129,7 @@
             this.submenuCategoria.IconColor = System.Drawing.Color.Black;
             this.submenuCategoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuCategoria.Name = "submenuCategoria";
-            this.submenuCategoria.Size = new System.Drawing.Size(139, 22);
+            this.submenuCategoria.Size = new System.Drawing.Size(180, 22);
             this.submenuCategoria.Text = "Categoría";
             this.submenuCategoria.Click += new System.EventHandler(this.submenuCategoria_Click);
             // 
@@ -135,21 +139,21 @@
             this.submenuProducto.IconColor = System.Drawing.Color.Black;
             this.submenuProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submenuProducto.Name = "submenuProducto";
-            this.submenuProducto.Size = new System.Drawing.Size(139, 22);
+            this.submenuProducto.Size = new System.Drawing.Size(180, 22);
             this.submenuProducto.Text = "Producto";
             this.submenuProducto.Click += new System.EventHandler(this.submenuProducto_Click);
             // 
             // submenuEspecialidad
             // 
             this.submenuEspecialidad.Name = "submenuEspecialidad";
-            this.submenuEspecialidad.Size = new System.Drawing.Size(139, 22);
+            this.submenuEspecialidad.Size = new System.Drawing.Size(180, 22);
             this.submenuEspecialidad.Text = "Especialidad";
             this.submenuEspecialidad.Click += new System.EventHandler(this.submenuEspecialidad_Click);
             // 
             // submenunegocio
             // 
             this.submenunegocio.Name = "submenunegocio";
-            this.submenunegocio.Size = new System.Drawing.Size(139, 22);
+            this.submenunegocio.Size = new System.Drawing.Size(180, 22);
             this.submenunegocio.Text = "Negocio";
             this.submenunegocio.Click += new System.EventHandler(this.submenunegocio_Click);
             // 
@@ -448,8 +452,15 @@
             this.btnsalir.UseVisualStyleBackColor = false;
             this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
-            // contenedor
+            //dev-angel
+            // equipoToolStripMenuItem
             // 
+            this.equipoToolStripMenuItem.Name = "equipoToolStripMenuItem";
+            this.equipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.equipoToolStripMenuItem.Text = "Equipo";
+            this.equipoToolStripMenuItem.Click += new System.EventHandler(this.equipoToolStripMenuItem_Click);
+            // contenedor
+            // develop
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(0, 142);
             this.contenedor.Name = "contenedor";
@@ -519,6 +530,9 @@
         private System.Windows.Forms.ToolStripMenuItem submenuCertificadosGarantia;
         private System.Windows.Forms.ToolStripMenuItem submenuReporteCertificadosGarantia;
         private System.Windows.Forms.ToolStripMenuItem submenuActualizarDatosBasicosOst;
+        //dev-angel
+        private System.Windows.Forms.ToolStripMenuItem equipoToolStripMenuItem;
+        //develop
         private System.Windows.Forms.Panel contenedor;
     }
 }
