@@ -13,9 +13,44 @@
 	insert into TIPOCLIENTE(Descripcion, Estado, FechaRegistro)
 	values
 	('Persona natural',1, GETDATE()), ('Persona jurídica',1,GETDATE())
+	--............Recepcion servicio tecnico....................--
+
+	drop table IngresoRecepcionEquipos
+	
+
+	create table IngresoRecepcionEquipos(
+	IdResete int primary key identity,
+	CodResete AS('RST' + RIGHT('000000000'+ CONVERT(VARCHAR, IdResete),(7))),
+	FechaResete  date default getdate() ,
+	FechaRegistroVenta date,
+	OST varchar(8),
+	Cliente nvarchar(50),
+	RUC nvarchar(50),
+	Contacto nvarchar(50),
+	Correo nvarchar(50),
+	TelefonoContacto nvarchar(50),
+	Deja nvarchar(50),
+	DocumentoContacto nvarchar(50),
+	Linea nvarchar(50),
+	Modelo nvarchar(50),
+	Serie nvarchar(50),
+	FechaCompra smalldatetime,
+	Garantia nvarchar(50),
+	Costorev nvarchar(50),
+	Costo float,
+	Enciende nvarchar(50),
+	Situacion nvarchar(50),
+	Accesorios nvarchar(50),
+	Observaciones nvarchar(50),
+	Moneda nvarchar(50),
+	Hora datetime,
+	Hora1 nvarchar(50),
+	Codequipo int
+	);
+
 
 	--............Línea (Categoría)....................--
-	create table Linea(
+	create table Linea(	
 	IdLinea int primary key identity,
 	Descripcion varchar(100),
 	Estado bit,
@@ -50,8 +85,6 @@
 	--............PRODUCTO ....................--
 	create table Producto(
 	IdProducto int
-	
-	
 	);
 
 	--............Tipo documento....................--
@@ -78,11 +111,11 @@
 	--............Cliente....................--
 
 	drop table CLIENTE
-
+	select * from cliente
 	create table CLIENTE(
 	IdCliente int primary key identity not null,
 	CodigoCliente  AS('CL' + RIGHT('000000000'+ CONVERT(VARCHAR, IdCliente),(7))),  --New
-	Documento varchar(50) unique, --dni
+	Documento varchar(50) , --dni
 	DocumentoContacto varchar(50), --new
 	NombreCompleto nvarchar(50),
 	NombreComercial nvarchar(50), --New
@@ -97,9 +130,9 @@
 	Telefono2 varchar(50),
 	TelefonofijoContacto varchar(50),
 	CelularContacto varchar(50), --New
-	CMP varchar(7) unique,
+	CMP varchar(7) ,
 	RazonSocial varchar(100),
-	RUC varchar(20) unique,
+	RUC varchar(20) ,
 	RUCContacto varchar(20),
 	Departamento nvarchar(50),--New
 	Provincia nvarchar(50),--New
@@ -118,6 +151,7 @@
 	);
 	go
 
+	select * from PRODUCTO
 	
 	use EXCELLENCE5
 	select * from clientes
@@ -160,6 +194,43 @@
 	insert into ESPECIALIDAD(Descripcion,Estado) values 
 	('Dermatología', 1),('Cirugía estética',1)
 
+	
+	-----------------NEGOCIO-------------------------
+	create table NEGOCIO
+	(
+	IdNegocio int primary key,
+	Nombre varchar(60),
+	RUC varchar(60),
+	Direccion varchar(60),
+	Logo varbinary(max) NULL
+	)
+	go
+
+	-----------------EstadoEquipo-------------------------
+	drop table EstadoEquipo
+
+	create table Estadoequipo(
+	IdEstadoEquipo int primary key identity,
+	Descripcion varchar(50),
+	Estado bit,
+	FechaRegistro date default getdate()
+	);
+
+	insert into Estadoequipo(Descripcion,Estado) values
+	('Disponible',1),('Vendido',1),('Mantenimiento',1),('NoDisponible',1)
+
+	-----------------EQUIPO-------------------------
+	drop table equipo
+	create table Equipo(
+	IdEquipo int primary key identity,
+	CodigoEquipo int foreign key references Producto(IdProducto),
+	Modelo varchar(50),
+	SerialNumber varchar(50),
+	IdCategoria int foreign key references Categoria(IdCategoria),
+	IdEstadoEquipo  int foreign key references EstadoEquipo(IdEstadoEquipo),
+	Estado bit,
+	FechaRegistro date default getdate()
+	);
 
 
 
@@ -207,3 +278,5 @@ inner join TIPOCLIENTE tc on tc.IdTipoCliente = c.IdTipoCliente
 inner join Departamento d on d.Descripcion = c.Departamento
 
 select * from VW_PRODUCTO ORDER BY tdescripcionproducto
+
+insert into NEGOCIO (IdNegocio,Nombre,RUC,Direccion) values (1,'GRUPO DE INVERSIONES Y DROGUERIAS MONSALVE SAC','20602438881','AV. JUAN DE ALIAGA NRO. 455 INT. 701A URB. SAN FELIPE LIMA')

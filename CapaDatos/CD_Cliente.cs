@@ -23,7 +23,7 @@ namespace CapaDatos
                 {
                     StringBuilder query = new StringBuilder();
 
-                    query.AppendLine("select IdCliente, CodigoCliente, td.IdTipoDocumento, td.Descripcion[Documentos], Documento, RUC, RazonSocial, tc.IdTipoCliente, tc.Descripcion[TipoCliente], NombreCompleto, Direccion,CMP,NombreComercial, DireccionComercial, Correo1,Telefono1,NombreContacto,DireccionContacto,DocumentoContacto,RUCContacto,TelefonofijoContacto,CelularContacto,CorreoContacto,Correo2,Telefono2, Departamento,  c.Estado from CLIENTE c");
+                    query.AppendLine("select IdCliente, CodigoCliente, td.IdTipoDocumento, td.Descripcion[Documentos], Documento, RUC, RazonSocial, tc.IdTipoCliente, tc.Descripcion[TipoCliente], NombreCompleto, Direccion,CMP,NombreComercial, DireccionComercial, Correo1,Telefono1,NombreContacto,DireccionContacto,DocumentoContacto,RUCContacto,TelefonofijoContacto,CelularContacto,CorreoContacto,Correo2,Telefono2, Departamento, Provincia, Distrito,DepartamentoComercial, ProvinciaComercial, DistritoComercial,DepartamentoContacto, ProvinciaContacto, DistritoContacto,  c.Estado from CLIENTE c");
                     // query.AppendLine("inner join ESPECIALIDAD e on e.IdEspecialidad = c.IdEspecialidad");
                     query.AppendLine("inner join TIPODOCUMENTO td on td.IdTipoDocumento = c.IdTipoDocumento");
                     query.AppendLine("inner join TIPOCLIENTE tc on tc.IdTipoCliente = c.IdTipoCliente");
@@ -74,6 +74,14 @@ namespace CapaDatos
                                 Correo2 = dr["Correo2"].ToString(),
                                 Telefono2 = dr["Telefono2"].ToString(),
                                 Departamento = dr["Departamento"].ToString(),
+                                Provincia = dr["Provincia"].ToString(),
+                                Distrito = dr["Distrito"].ToString(),
+                                DepartamentoComercial = dr["DepartamentoComercial"].ToString(),
+                                ProvinciaComercial = dr["ProvinciaComercial"].ToString(),
+                                DistritoComercial = dr["DistritoComercial"].ToString(),
+                                DepartamentoContacto = dr["DepartamentoContacto"].ToString(),
+                                ProvinciaContacto = dr["ProvinciaContacto"].ToString(),
+                                DistritoContacto = dr["DistritoContacto"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"])
 
                             });

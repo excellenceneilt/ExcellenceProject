@@ -162,6 +162,12 @@
     <Compile Include="frmHistorialIncidencias.Designer.cs">
       <DependentUpon>frmHistorialIncidencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCertificadoGarantia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCertificadoGarantia.Designer.cs">
+      <DependentUpon>frmCertificadoGarantia.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMantenimientoTablas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,11 +210,11 @@
     <Compile Include="frmReporteCompras.Designer.cs">
       <DependentUpon>frmReporteCompras.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReportes.cs">
+    <Compile Include="frmReporteDatos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReportes.Designer.cs">
-      <DependentUpon>frmReportes.cs</DependentUpon>
+    <Compile Include="frmReporteDatos.Designer.cs">
+      <DependentUpon>frmReporteDatos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReporteVentas.cs">
       <SubType>Form</SubType>
@@ -216,11 +222,11 @@
     <Compile Include="frmReporteVentas.Designer.cs">
       <DependentUpon>frmReporteVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmServicioTecnico.cs">
+    <Compile Include="frmRecepcionServicioTecnico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmServicioTecnico.designer.cs">
-      <DependentUpon>frmServicioTecnico.cs</DependentUpon>
+    <Compile Include="frmRecepcionServicioTecnico.designer.cs">
+      <DependentUpon>frmRecepcionServicioTecnico.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUsuarios.cs">
       <SubType>Form</SubType>
@@ -233,6 +239,12 @@
     </Compile>
     <Compile Include="frmVentas.Designer.cs">
       <DependentUpon>frmVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEquipo.Designer.cs">
+      <DependentUpon>frmEquipo.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -257,6 +269,18 @@
     </Compile>
     <Compile Include="Modales\mdCliente.Designer.cs">
       <DependentUpon>mdCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modales\mdClienteST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\mdClienteST.Designer.cs">
+      <DependentUpon>mdClienteST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modales\mdEquipoST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\mdEquipoST.Designer.cs">
+      <DependentUpon>mdEquipoST.cs</DependentUpon>
     </Compile>
     <Compile Include="Modales\mdProducto.cs">
       <SubType>Form</SubType>
@@ -288,11 +312,17 @@
     <EmbeddedResource Include="frmDetalleVenta.resx">
       <DependentUpon>frmDetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEquipo.resx">
+      <DependentUpon>frmEquipo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEspecialidad.resx">
       <DependentUpon>frmEspecialidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHistorialIncidencias.resx">
       <DependentUpon>frmHistorialIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCertificadoGarantia.resx">
+      <DependentUpon>frmCertificadoGarantia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoTablas.resx">
       <DependentUpon>frmMantenimientoTablas.cs</DependentUpon>
@@ -315,14 +345,14 @@
     <EmbeddedResource Include="frmReporteCompras.resx">
       <DependentUpon>frmReporteCompras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReportes.resx">
-      <DependentUpon>frmReportes.cs</DependentUpon>
+    <EmbeddedResource Include="frmReporteDatos.resx">
+      <DependentUpon>frmReporteDatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteVentas.resx">
       <DependentUpon>frmReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmServicioTecnico.resx">
-      <DependentUpon>frmServicioTecnico.cs</DependentUpon>
+    <EmbeddedResource Include="frmRecepcionServicioTecnico.resx">
+      <DependentUpon>frmRecepcionServicioTecnico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
@@ -341,6 +371,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdCliente.resx">
       <DependentUpon>mdCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\mdClienteST.resx">
+      <DependentUpon>mdClienteST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\mdEquipoST.resx">
+      <DependentUpon>mdEquipoST.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdProducto.resx">
       <DependentUpon>mdProducto.cs</DependentUpon>

@@ -37,7 +37,7 @@ set
   @IdUsuarioResultado = SCOPE_IDENTITY() end else 
 set 
   @Mensaje = 'No se puede repetir el documento para más de un usuario' end
-
+  GO
 
 --Test
 	declare @idusuariogenerado int
@@ -402,7 +402,7 @@ set
 set 
   @Mensaje = 'No se puede repetir la descripción de una especialidad' end end go
 
-
+  select * from PRODUCTO
 --Eliminar especialidad
 
 CREATE PROC SP_EliminarEspecialidad(
@@ -439,6 +439,7 @@ set
 --Registrar cliente
 
 drop proc SP_RegistrarCliente
+
 create proc SP_RegistrarCliente(
 	@Documento varchar(50), 
 	@DocumentoContacto varchar(50),
@@ -497,8 +498,11 @@ set
   @Mensaje = 'El número de documento ya existe' end 
 
   select * from CLIENTE
+  exec SP_RegistrarCliente 
 
 --Modificar cliente
+
+drop proc SP_ModificarCliente
 
 create proc SP_ModificarCliente(
   @IdCliente int, 
@@ -532,13 +536,13 @@ create proc SP_ModificarCliente(
 	@RazonSocial varchar(100), 
   @RUC varchar(20),
   @RUCContacto varchar(20),
-  
+
   @Estado bit, 
   @Resultado int output, 
   @Mensaje varchar(500) output
 ) as begin 
 set 
-  @Resultado = 1 declare @IDPERSONA INT if not exists(
+  @Resultado = 1 declare @IDCLIENTE INT if not exists(
     select 
       * 
     from 
@@ -551,10 +555,13 @@ update
   CLIENTE 
 set 
   Documento = @Documento, 
+  DocumentoContacto = @DocumentoContacto,
   NombreCompleto = @NombreCompleto, 
   NombreComercial = @NombreComercial,
+  NombreContacto = @NombreContacto,
   Direccion = @Direccion,
   DireccionComercial = @DireccionComercial,
+  DireccionContacto = @DireccionContacto,
   IdTipoCliente = @IdTipoCliente,
   IdTipoDocumento = @IdTipoDocumento,
   Departamento = @Departamento,
@@ -563,14 +570,19 @@ set
   DepartamentoComercial = @DepartamentoComercial,
   ProvinciaComercial = @ProvinciaComercial,
   DistritoComercial = @DistritoComercial,
+  DepartamentoContacto = @DepartamentoContacto,
+  ProvinciaContacto = @ProvinciaContacto,
+  DistritoContacto = @DistritoContacto,
   Correo1 = @Correo1, 
-  Correo2 = @Correo2, 
+  Correo2 = @Correo2,
+  CorreoContacto = @CorreoContacto, 
   Telefono1 = @Telefono1, 
   Telefono2 = @Telefono2, 
+  TelefonofijoContacto = @TelefonofijoContacto,
+  CelularContacto = @CelularContacto,
   CMP = @CMP, 
   RazonSocial = @RazonSocial, 
   RUC = @RUC, 
-  IdEspecialidad = @IdEspecialidad,
   Estado = @Estado 
 where 
   IdCliente = @IdCliente end else begin 
@@ -579,7 +591,321 @@ set
 set 
   @Mensaje = 'El número de documento ya existe' end end
 
- 
+  ----------------------------------------------REPORTE DE COMPRAS Y VENTAS----------------------------------------------
+
+  create proc sp_ReporteCompras
+(
+@fechainicio varchar(10),
+@fechafin varchar(10),
+@idproveedor int
+)
+as
+begin
+set dateformat dmy;
+select
+CONVERT(char(10),c.FechaRegistro,103)[FechaRegistro],c.TipoDocumento,c.NumeroDocumento,c.MontoTotal,
+u.NombreCompleto[UsuarioRegistro],
+pr.Documento[DocumentoProveedor],pr.RazonSocial,
+p.Codigo[CodigoProducto],p.Nombre[NombreProducto],ca.Descripcion[Categoria],dc.PrecioCompra,dc.PrecioVenta,dc.Cantidad,dc.MontoTotal[SubTotal]
+from COMPRA c
+inner join USUARIO u on u.IdUsuario = c.IdUsuario
+inner join PROVEEDOR pr on pr.IdProveedor = c.IdProveedor
+inner join DETALLE_COMPRA dc on dc.IdCompra = c.IdCompra
+inner join PRODUCTO p on p.IdProducto = dc.IdProducto
+inner join CATEGORIA ca on ca.IdCategoria = p.IdCategoria
+where CONVERT(date,c.FechaRegistro) between @fechainicio and @fechafin
+and pr.IdProveedor = iif(@idproveedor=0,pr.IdProveedor,@idproveedor)
+end
+go
+
+create proc sp_ReporteVentas
+(
+@fechainicio varchar(10),
+@fechafin varchar(10)
+)
+as
+begin
+set dateformat dmy;
+select
+CONVERT(char(10),v.FechaRegistro,103)[FechaRegistro],v.TipoDocumento,v.NumeroDocumento,v.MontoTotal,
+u.NombreCompleto[UsuarioRegistro],
+v.DocumentoCliente,v.NombreCliente,
+p.Codigo[CodigoProducto],p.Nombre[NombreProducto],ca.Descripcion[Categoria],dv.PrecioVenta,dv.Cantidad,dv.SubTotal
+from VENTA v
+inner join USUARIO u on u.IdUsuario = v.IdUsuario
+inner join DETALLE_VENTA dv on dv.IdVenta = v.IdVenta
+inner join PRODUCTO p on p.IdProducto = dv.IdProducto
+inner join CATEGORIA ca on ca.IdCategoria = p.IdCategoria
+where CONVERT(date,v.FechaRegistro) between @fechainicio and @fechafin
+end
+go
+
+ -------------------------------------------REGISTRAR COMPRA--------------------------------------------------
+
+ create procedure sp_RegistrarCompra
+(
+	@IdUsuario int,
+	@IdProveedor int,
+	@TipoDocumento varchar(500),
+	@NumeroDocumento varchar(500),
+	@MontoTotal decimal(18,2),
+	@DetalleCompra [EDetalle_Compra] READONLY,
+	@Resultado bit output,
+	@Mensaje varchar(500) output
+)
+as
+begin
+	begin try
+		declare	@idcompra int = 0
+			set @Resultado = 1
+			set @Mensaje = ''
+
+			begin transaction registro
+				
+				insert into COMPRA (IdUsuario,IdProveedor,TipoDocumento,NumeroDocumento,MontoTotal)
+				values(@IdUsuario,@IdProveedor,@TipoDocumento,@NumeroDocumento,@MontoTotal)
+
+				set @idcompra = SCOPE_IDENTITY()
+
+				insert into DETALLE_COMPRA(IdCompra,IdProducto,PrecioCompra,PrecioVenta,Cantidad,MontoTotal)
+				select @idcompra,IdProducto,PrecioCompra,PrecioVenta,Cantidad,MontoTotal from @DetalleCompra
+
+				update p set p.Stock = p.Stock +dc.Cantidad,
+				p.PrecioCompra = dc.PrecioCompra,
+				p.PrecioVenta = dc.PrecioVenta
+				from PRODUCTO p
+				inner join @DetalleCompra dc on dc.IdProducto = p.IdProducto
+
+			commit transaction registro
+
+	end try
+	begin catch
+		set @Resultado = 0
+		set @Mensaje = ERROR_MESSAGE()
+		rollback transaction registo
+	end catch
+end
+go
+
+-------------------------------------------------------REGISTRAR VENTA----------------------------------------------------
+create procedure usp_RegistrarVenta
+(
+@IdUsuario int,
+@TipoDocumento varchar(500),
+@NumeroDocumento varchar(500),
+@DocumentoCliente varchar(500),
+@NombreCliente varchar(500),
+@MontoPago decimal(18,2),
+@MontoCambio decimal(18,2),
+@MontoTotal decimal (18,2),
+@DetalleVenta [EDetalle_Venta] READONLY,
+@Resultado bit output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	
+	begin try
+		
+		declare @idventa int = 0
+		set @Resultado = 1
+		set @Mensaje = ''
+
+		begin transaction registro
+
+		insert into VENTA(IdUsuario,TipoDocumento,NumeroDocumento,DocumentoCliente,NombreCliente,MontoPago,MontoCambio,MontoTotal)
+		values(@IdUsuario,@TipoDocumento,@NumeroDocumento,@DocumentoCliente,@NombreCliente,@MontoPago,@MontoCambio,@MontoTotal)
+
+		set @idventa = SCOPE_IDENTITY()
+
+		insert into DETALLE_VENTA(IdVenta,IdProducto,PrecioVenta,Cantidad,SubTotal)
+		select @idventa, IdProducto, PrecioVenta, Cantidad, SubTotal from @DetalleVenta
+		
+		commit transaction registro
+
+	end try
+	begin catch
+		set @Resultado = 0
+		set @Mensaje = ERROR_MESSAGE()
+		rollback transaction registro
+	end catch
+
+end
+go
+
+
+
+---------------------------------------------PROVEEDOR------------------------------------------------------------
+	----------------------------PROCEDIMIENTO PARA PROVEEDOR--------------------------------
+
+create proc sp_RegistrarProveedor
+(
+@Documento varchar(50),
+@RazonSocial varchar(50),
+@Correo varchar(50),
+@Telefono varchar(50),
+@Estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	SET @Resultado = 0
+	DECLARE @IDPERSONA int
+	IF NOT EXISTS (select * from PROVEEDOR where Documento = @Documento)
+	begin
+		insert into PROVEEDOR(Documento,RazonSocial,Correo,Telefono,Estado) values
+		(@Documento,@RazonSocial,@Correo,@Telefono,@Estado)
+
+		set @Resultado = SCOPE_IDENTITY()
+	end
+	else
+		set @Mensaje = 'El numero de documento ya existe'
+end
+go
+
+create proc sp_ModificarProveedor
+(
+@IdProvedor int,
+@Documento varchar(50),
+@RazonSocial varchar(50),
+@Correo varchar(50),
+@Telefono varchar(50),
+@Estado bit,
+@Resultado bit output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	set @Resultado = 1
+	declare @IDPERSONA int
+	if not exists (select * from PROVEEDOR where Documento = @Documento and IdProveedor != @IdProvedor)
+	begin
+		update PROVEEDOR set
+		Documento = @Documento,
+		RazonSocial = @RazonSocial,
+		Correo = @Correo,
+		Telefono = @Telefono,
+		Estado = @Estado
+		where IdProveedor = @IdProvedor
+	end
+	else
+	begin
+		set @Resultado = 0
+		set @Mensaje = 'El numero de documento ya existe'
+	end
+end
+go
+
+create proc sp_EliminarProveedor
+(
+@IdProveedor int,
+@Resultado bit output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	set @Resultado = 1
+	if not exists
+	(select * from PROVEEDOR p
+	inner join COMPRA c on p.IdProveedor = c.IdProveedor
+	where p.IdProveedor = @IdProveedor)
+	begin
+		delete top(1) from PROVEEDOR where IdProveedor = @IdProveedor
+	end
+	else
+	begin
+		set @Resultado = 0
+		set @Mensaje = 'El proveedor se encuentra relacionado a una compra'
+	end
+end
+go
+
+
+--..........................................Mantenimiento de cliente..................................................--
+
+--Registrar cliente
+
+drop proc SP_RegistrarEquipos
+
+create proc SP_RegistrarEquipos(
+
+@CodigoEquipo varchar(50),
+@NombreEquipo varchar (50),
+@SerialNumber varchar (50),
+@CodigoLinea int,
+@CodigoEstado int,
+@Estado bit, 
+
+  @Resultado int output, 
+  @Mensaje varchar(500) output
+) as begin 
+set 
+  @Resultado = 0 declare @IdEquipo int if not exists (
+    select 
+      * 
+    from 
+      Equipo 
+    where 
+      CodigoEquipo = @CodigoEquipo
+  ) begin insert into Equipo(
+    CodigoEquipo, NombreEquipo, SerialNumber, CodigoLinea, CodigoEstado, Estado
+  ) 
+values 
+  (
+   @CodigoEquipo, @NombreEquipo, @SerialNumber, @CodigoLinea, @CodigoEstado, @Estado
+  ) 
+set 
+  @Resultado = SCOPE_IDENTITY() end else 
+set 
+  @Mensaje = 'El número de CodEquipo ya existe' end 
+
+
+  --Modificar cliente
+
+drop proc SP_ModificarEquipo
+
+create proc SP_ModificarEquipo(
+  @IdEquipo int, 
+@CodigoEquipo varchar(50),
+@NombreEquipo varchar (50),
+@SerialNumber varchar (50),
+@CodigoLinea int,
+@CodigoEstado int,
+
+	@Estado bit, 
+  @Resultado int output, 
+  @Mensaje varchar(500) output
+) as begin 
+set 
+  @Resultado = 1 declare @IDequipp INT if not exists(
+    select 
+      * 
+    from 
+      Equipo 
+    WHERE 
+     CodigoEquipo = @CodigoEquipo
+      and IdEquipo != @IdEquipo
+  ) begin 
+update 
+  Equipo 
+set 
+ CodigoEquipo = @CodigoEquipo,
+NombreEquipo = @NombreEquipo,
+SerialNumber = @SerialNumber,
+CodigoLinea = @CodigoLinea,
+CodigoEstado = @CodigoEstado,
+  Estado = @Estado 
+where 
+  IdEquipo = @IdEquipo end else begin 
+set 
+  @Resultado = 0 
+set 
+  @Mensaje = 'El número de equipo ya existe' end end
+
+
+
+
 
   --...............................................STORED PRECEDURES........................................--
 
@@ -666,3 +992,39 @@ select * from ESPECIALIDAD
 select * from Departamento
 
 select IdDepartamento, Descripcion, Estado from Departamento
+
+select IdCliente, CodigoCliente, td.IdTipoDocumento, td.Descripcion[Documentos], Documento, RUC, RazonSocial, tc.IdTipoCliente, tc.Descripcion[TipoCliente], NombreCompleto, Direccion,CMP,NombreComercial, DireccionComercial, Correo1,Telefono1,Correo2,Telefono2, Departamento,  c.Estado from CLIENTE c
+
+inner join TIPODOCUMENTO td on td.IdTipoDocumento = c.IdTipoDocumento
+inner join TIPOCLIENTE tc on tc.IdTipoCliente = c.IdTipoCliente
+inner join Departamento d on d.Descripcion = c.Departamento
+
+select * from CATEGORIA
+select * from PRODUCTO
+select * from VENTA
+SELECT * FROM DETALLE_VENTA
+
+SELECT IdDetalleVenta, IdProducto, v.IdVenta, c.IdCategoria, dv.FechaRegistro  from DETALLE_VENTA dv
+inner join VENTA v on v.IdVenta = dv.IdVenta
+inner join CATEGORIA c on c.IdCategoria = (select IdCategoria from PRODUCTO where IdProducto = dv.IdProducto)
+--inner join PRODUCTO p on p.IdProducto = dv.IdProducto
+where v.DocumentoCliente = '72914361'
+
+select * from cliente
+select * from PRODUCTO
+
+Select IdDetalleVenta, IdProducto from DETALLE_VENTA
+
+inner join Producto p on p.Descripcion =
+inner join Cliente c on c.DocumentoCliente =
+
+
+  /*PROCESOS PARA REGISTRAR UNA VENTA*/
+CREATE TYPE [dbo].[EDetalle_Venta] AS TABLE
+(
+[IdProducto] int NULL,
+[PrecioVenta] decimal(18,2) NULL,
+[Cantidad] int NULL,
+[SubTotal] decimal(18,2)
+)
+go

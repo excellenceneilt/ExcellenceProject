@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion
+namespace CapaPresentacion.Modales
 {
-    public partial class frmServicioTecnico : Form
+    public partial class mdEquipoST : Form
     {
-        public frmServicioTecnico()
+        public mdEquipoST()
         {
             InitializeComponent();
-        }
-
-        private void label27_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

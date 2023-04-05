@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion
+namespace CapaPresentacion.Modales
 {
-    public partial class frmMantenimientoTablas : Form
+    public partial class mdClientesRST : Form
     {
-        public frmMantenimientoTablas()
+        public mdClientesRST()
         {
             InitializeComponent();
         }
