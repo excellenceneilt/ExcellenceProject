@@ -49,6 +49,7 @@
     <Compile Include="CN_Categoria.cs" />
     <Compile Include="CN_Cliente.cs" />
     <Compile Include="CN_Compra.cs" />
+    <Compile Include="CN_Equipo.cs" />
     <Compile Include="CN_Especialidad.cs" />
     <Compile Include="CN_Negocio.cs" />
     <Compile Include="CN_Permiso.cs" />

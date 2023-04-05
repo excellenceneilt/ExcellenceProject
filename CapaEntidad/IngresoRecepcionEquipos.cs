@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    public class RecepcionServicioTecnico
+    public class IngresoRecepcionEquipos
     {
 
         public int IdResete { get; set; }
         public string CodResete { get; set; }
         public string fechaResete { get; set; }
         public string fechaRegistroVenta { get; set; }
+        public string OST { get; set; }
         public  string cliente{ get; set; }
         public string ruc { get; set; }
         public string contacto { get; set; }
