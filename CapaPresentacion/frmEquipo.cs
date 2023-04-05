@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaPresentacion.Modales;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,19 @@ namespace CapaPresentacion
         public frmEquipo()
         {
             InitializeComponent();
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            using (var modal = new mdProductoE())
+            {
+                var result = modal.ShowDialog();
+            }
+        }
+
+        private void frmEquipo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

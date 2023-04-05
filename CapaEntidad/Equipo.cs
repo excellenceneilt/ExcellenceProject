@@ -9,7 +9,7 @@ namespace CapaEntidad
     public class Equipo
     {
         public int IdEquipo { get; set; }
-        public int CodigoEquipo { get; set;}
+        public Producto eCodigoEquipo { get; set;}
         public string Modelo { get; set; }
         public string SerialNumber { get; set; }
         public Categoria eCategoria { get; set; }

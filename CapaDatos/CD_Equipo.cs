@@ -35,7 +35,7 @@ namespace CapaDatos
                             {
                                 //Listar productos en tabla
                                 IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
-                                CodigoEquipo = Convert.ToInt32(dr["CodigoEquipo"]),
+                                eCodigoEquipo = new Producto() { Codigo = dr["CodigoEquipo"].ToString() },//,
                                 Modelo = dr["Modelo"].ToString(),
                                 SerialNumber = dr["SerialNumber"].ToString(),
                                 //Llave foránea
@@ -67,9 +67,9 @@ namespace CapaDatos
 
                     //Declarando los parámetros de entrada
                     SqlCommand cmd = new SqlCommand("SP_RegistrarEquipo", oconexion);
-                    cmd.Parameters.AddWithValue("Codigo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
+                    cmd.Parameters.AddWithValue("CodigoEquipo", obj.eCodigoEquipo.Codigo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
-                    cmd.Parameters.AddWithValue("Descripcion", obj.SerialNumber);
+                    cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
                     cmd.Parameters.AddWithValue("IdCategoria", obj.eCategoria.IdCategoria);
                   //  cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
@@ -109,7 +109,7 @@ namespace CapaDatos
                     //Declarando los parámetros de entrada
                     SqlCommand cmd = new SqlCommand("SP_ModificarProducto", oconexion);
                     cmd.Parameters.AddWithValue("IdEquipo", obj.IdEquipo);
-                    cmd.Parameters.AddWithValue("CodigoEquipo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
+                    cmd.Parameters.AddWithValue("CodigoEquipo", obj.eCodigoEquipo.Codigo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
                     cmd.Parameters.AddWithValue("Descripcion", obj.SerialNumber);
                     cmd.Parameters.AddWithValue("IdCategoria", obj.eCategoria.IdCategoria);
