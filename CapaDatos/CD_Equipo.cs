@@ -35,7 +35,7 @@ namespace CapaDatos
                             {
                                 //Listar productos en tabla
                                 IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
-                                CodigoEquipo = dr["CodigoEquipo"].ToString(),
+                                CodigoEquipo = Convert.ToInt32(dr["CodigoEquipo"]),
                                 Modelo = dr["Modelo"].ToString(),
                                 SerialNumber = dr["SerialNumber"].ToString(),
                                 //Llave foránea
