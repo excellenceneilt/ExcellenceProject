@@ -70,7 +70,7 @@ namespace CapaPresentacion
             formulario.FormBorderStyle= FormBorderStyle.None;
             formulario.Dock= DockStyle.Fill;
             formulario.BackColor= Color.CornflowerBlue;
-            contenedor.Controls.Add(formulario);
+           contenedor.Controls.Add(formulario);
             formulario.Show();
         }
         

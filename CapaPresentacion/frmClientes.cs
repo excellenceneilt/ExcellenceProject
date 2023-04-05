@@ -5,6 +5,7 @@ using CapaNegocio;
 using CapaPresentacion.Utilidades;
 using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Drawing.Charts;
+using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,11 +30,12 @@ namespace CapaPresentacion
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
-           ListarDepartamento();
+            
+            ListarDepartamento();
 
-            #region COLUMNAS
+            #region COLUMNAS (Por ahora deshabilitado)
             // Descripción: Permite seleccionar todas las celdas de una columna
-            foreach (DataGridViewColumn c in dgvdata.Columns)
+            /*foreach (DataGridViewColumn c in dgvdata.Columns)
             {
                 c.SortMode = DataGridViewColumnSortMode.NotSortable;
                 c.Selected = false;
@@ -43,7 +45,7 @@ namespace CapaPresentacion
 
             //Seleccionar columnas
             this.dgvdata.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.dgvdata.MultiSelect = false;
+            this.dgvdata.MultiSelect = false;*/
             #endregion
 
             #region COMBOBOX
@@ -129,7 +131,20 @@ namespace CapaPresentacion
                     item.CorreoContacto,
                     item.Correo2,
                     item.Telefono2,
+
                     item.Departamento,
+                    item.Provincia,
+                    item.Distrito,
+
+                    item.DepartamentoComercial,
+                    item.ProvinciaComercial,
+                    item.DistritoComercial,
+
+                    
+                    item.DepartamentoContacto,
+                    item.ProvinciaContacto,
+                    item.DistritoContacto,
+
                     item.Estado==true ?1 : 0,
                     item.Estado==true ?"Activo":"Inactivo",
                 });
@@ -153,22 +168,27 @@ namespace CapaPresentacion
             cbodepartamentocontacto.ValueMember = "IdDepartamento";
             cbodepartamentocontacto.DisplayMember = "Descripcion";
 
+            defaultindexcombo();
         }
+
+
         //Datos de facturación
         private void cbodepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Departamento odepartamentoSeleccionado = (Departamento)cbodepartamento.SelectedItem;
-            cboprovincia.DataSource = new OperacionesDPD().ObtenerProvincia(odepartamentoSeleccionado.IdDepartamento);
-            cboprovincia.ValueMember = "IdProvincia";
-            cboprovincia.DisplayMember = "Descripcion";
+                Departamento odepartamentoSeleccionado = (Departamento)cbodepartamento.SelectedItem;
+                cboprovincia.DataSource = new OperacionesDPD().ObtenerProvincia(odepartamentoSeleccionado.IdDepartamento);
+                cboprovincia.ValueMember = "IdProvincia";
+                cboprovincia.DisplayMember = "Descripcion";
         }
         private void cboprovincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Provincia oprovinciaSeleccionado = (Provincia)cboprovincia.SelectedItem;
-            cbodistrito.DataSource = new OperacionesDPD().ObtenerDistrito(oprovinciaSeleccionado.IdProvincia);
-            cbodistrito.ValueMember = "IdDistrito";
-            cbodistrito.DisplayMember = "Descripcion";
+                Provincia oprovinciaSeleccionado = (Provincia)cboprovincia.SelectedItem;
+                cbodistrito.DataSource = new OperacionesDPD().ObtenerDistrito(oprovinciaSeleccionado.IdProvincia);
+                cbodistrito.ValueMember = "IdDistrito";
+                cbodistrito.DisplayMember = "Descripcion";
         }
+
+
         //Datos comerciales
         private void cbodepartamentocomercial_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -184,6 +204,8 @@ namespace CapaPresentacion
             cbodistritocomercial.ValueMember = "IdDistrito";
             cbodistritocomercial.DisplayMember = "Descripcion";
         }
+
+
         //Datos de contacto
         private void cbodepartamentocontacto_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -200,11 +222,9 @@ namespace CapaPresentacion
             cbodistritocontacto.DisplayMember = "Descripcion";
         }
 
-        
-
         #endregion
 
-        #region BOTONES
+        #region CONTROLES  (Botones y checkbox)
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -316,14 +336,29 @@ namespace CapaPresentacion
                          txtdireccioncomercial.Text,
                          txtcorreo1.Text,
                         txttelefono1.Text,
+                        txtnombrecontacto.Text,
+                        txtdireccioncontacto.Text,
+                        txtdocumentocontacto.Text,
+                        txtruccontacto.Text,
+                        txttlffijo.Text,
+                        txtcelularcontacto.Text,
                         txtcorreo2.Text,
                         txttelefono2.Text,
                         cbodepartamento.Text,
+                        cboprovincia.Text,
+                        cbodistrito.Text,
+                        cbodepartamentocomercial.Text,
+                        cboprovinciacomercial.Text,
+                        cbodistritocomercial.Text,
+                        cbodepartamentocontacto.Text,
+                        cboprovinciacontacto.Text,
+                        cbodistritocontacto.Text,
                       ((OpcionCombo) cboestado.SelectedItem).Valor.ToString(),
                          ((OpcionCombo) cboestado.SelectedItem).Texto.ToString(),
                 });
 
                     Limpiar();
+                    
                 }
                 else
                 {
@@ -340,6 +375,7 @@ namespace CapaPresentacion
                     
                     DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
                     row.Cells["Id"].Value = txtid.Text;
+                    row.Cells["CodigoCliente"].Value = txtcodigocliente.Text;
                     row.Cells["IdTipoDocumento"].Value = ((OpcionCombo)cbotipodocumento.SelectedItem).Valor.ToString();
                     row.Cells["TipoDocumento"].Value = ((OpcionCombo)cbotipodocumento.SelectedItem).Texto.ToString();
                     row.Cells["Documento"].Value = txtdocumento.Text;
@@ -362,6 +398,7 @@ namespace CapaPresentacion
                     row.Cells["CelularContacto"].Value = txtcelularcontacto.Text;
                     row.Cells["Correo2"].Value = txtcorreo2.Text;
                     row.Cells["Telefono2"].Value = txttelefono2.Text;
+                  
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
                     row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
                     Limpiar();
@@ -374,6 +411,8 @@ namespace CapaPresentacion
             }
 
 
+            defaultindexcombo();
+            
         }
         private void btnlimpiarbuscador_Click(object sender, EventArgs e)
         {
@@ -391,20 +430,36 @@ namespace CapaPresentacion
         {
             txtindice.Text = "-1";
             txtid.Text = "0";
+
             txtdocumento.Text = "";
+            txtdocumentocontacto.Text = "";
             txtnombrecompleto.Text = "";
+            txtnombrecomercial.Text = "";
+            txtnombrecontacto.Text = "";
             txtcorreo1.Text = "";
+            txtcorreocontacto.Text = "";
             txttelefono1.Text = "";
+            txttlffijo.Text = "";
+            txtcelularcontacto.Text = "";
             txtrazonsocial.Text = "";
             txtcmp.Text = "";
             txtruc.Text = "";
-           // cboespecialidad.SelectedIndex = 0;
+            txtruccontacto.Text = "";
             cboestado.SelectedIndex = 0;
             txtcorreo2.Text = "";
             txttelefono2.Text = "";
             txtcodigocliente.Text = "";
+            txtdireccion.Text = "";
+            txtdireccioncomercial.Text = "";
+            txtdireccioncontacto.Text = "";
             cbodepartamento.SelectedIndex= 0;
             cbodepartamentocomercial.SelectedIndex= 0;
+            cbodepartamentocontacto.SelectedIndex = 0;
+
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+
 
         }
         private void buscar()
@@ -459,7 +514,7 @@ namespace CapaPresentacion
         }
         private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvdata.Columns[e.ColumnIndex].Name == "btnseleccionar")
+                if (dgvdata.Columns[e.ColumnIndex].Name == "btnseleccionar")
             {
                 int indice = e.RowIndex;
                 if (indice >= 0)
@@ -494,26 +549,19 @@ namespace CapaPresentacion
                     txtcorreo2.Text = dgvdata.Rows[indice].Cells["Correo2"].Value.ToString();
                     txttelefono2.Text = dgvdata.Rows[indice].Cells["Telefono2"].Value.ToString();
 
+                    cbodepartamento.SelectedIndex = cbodepartamento.FindStringExact(dgvdata.Rows[indice].Cells["Departamento"].Value.ToString());
+                    cboprovincia.SelectedIndex = cboprovincia.FindStringExact(dgvdata.Rows[indice].Cells["Provincia"].Value.ToString());
+                    cbodistrito.SelectedIndex = cbodistrito.FindStringExact(dgvdata.Rows[indice].Cells["Distrito"].Value.ToString());
+
+                    cbodepartamentocomercial.SelectedIndex = cbodepartamentocomercial.FindStringExact(dgvdata.Rows[indice].Cells["DepartamentoComercial"].Value.ToString());
+                    cboprovinciacomercial.SelectedIndex = cboprovinciacomercial.FindStringExact(dgvdata.Rows[indice].Cells["ProvinciaComercial"].Value.ToString());
+                    cbodistritocomercial.SelectedIndex = cbodistritocomercial.FindStringExact(dgvdata.Rows[indice].Cells["DistritoComercial"].Value.ToString());
+
+                    cbodepartamentocontacto.SelectedIndex = cbodepartamentocontacto.FindStringExact(dgvdata.Rows[indice].Cells["DepartamentoContacto"].Value.ToString());
+                     cboprovinciacontacto.SelectedIndex = cboprovinciacontacto.FindStringExact(dgvdata.Rows[indice].Cells["ProvinciaContacto"].Value.ToString());
+                     cbodistritocontacto.SelectedIndex = cbodistritocontacto.FindStringExact(dgvdata.Rows[indice].Cells["DistritoContacto"].Value.ToString());
 
 
-                    //TXT DE PRUEBA PAA EL COMBOBOX COMO 0 Y -1
-                    //       cbodepartamento.ValueMember= "Piura"; //Comparar el valor devuelto
-
-                    //Departamento = this.cbodepartamento.GetItemText(this.cbodepartamento.SelectedItem),
-
-
-
-
-                    //Setear en el combobox el rol del Cliente oc es el elemento que recorre toda la lista
-                    /*foreach (OpcionCombo oc in cboespecialidad.Items)
-                    {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdEspecialidad"].Value))
-                        {
-                            int indice_combo = cboespecialidad.Items.IndexOf(oc);
-                            cboespecialidad.SelectedIndex = indice_combo;
-                            break; //Para cuando lo encuentre debe terminar
-                        }
-                    }*/
                     foreach (OpcionCombo oc in cbotipodocumento.Items)
                     {
 
@@ -539,8 +587,9 @@ namespace CapaPresentacion
                     //Setear en el combobox el rol del Cliente oc es el elemento que recorre toda la lista
                     foreach (OpcionCombo oc in cboestado.Items)
                     {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value))
-                        {
+                      //  if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value))
+                            if (oc.Valor == dgvdata.Rows[indice].Cells["EstadoValor"].Value)
+                            {
                             int indice_combo = cboestado.Items.IndexOf(oc);
                             cboestado.SelectedIndex = indice_combo;
                             break; //Para cuando lo encuentre debe terminar
@@ -550,14 +599,61 @@ namespace CapaPresentacion
                 }
             }
         }
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked) {
 
+                txtdireccioncomercial.Text = txtdireccion.Text;
+                cbodepartamentocomercial.SelectedIndex = cbodepartamento.SelectedIndex;
+                cboprovinciacomercial.SelectedIndex=cboprovincia.SelectedIndex;
+                cbodistritocomercial.SelectedIndex=cbodistrito.SelectedIndex;
+            }
+            else
+            {
+                txtdireccioncomercial.Text = "";
+                cbodepartamentocomercial.SelectedIndex = 25;
+               
+                
+            }
+        }
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                txtdireccioncontacto.Text = txtdireccion.Text;
+                cbodepartamentocontacto.SelectedIndex = cbodepartamento.SelectedIndex;
+                cboprovinciacontacto.SelectedIndex = cboprovincia.SelectedIndex;
+                cbodistritocontacto.SelectedIndex = cbodistrito.SelectedIndex;
+            }
+            else
+            {
+                txtdireccioncontacto.Text = "";
+                
+                cbodepartamentocontacto.SelectedIndex = 25;
+                
+            }
+        }
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked)
+            {
+                txtdocumentocontacto.Text = txtdocumento.Text;
+                txtruccontacto.Text = txtruc.Text;
+            }
+            else
+            {
+                txtdocumentocontacto.Text = "";
+                txtruccontacto.Text = "";
+            }
+        }
+        public void defaultindexcombo()
+        {
+            cbodepartamento.SelectedIndex = 25;
+            cbodepartamentocomercial.SelectedIndex = 25;
+            cbodepartamentocontacto.SelectedIndex = 25;
+        }
 
         #endregion
 
-       
-
-        
-
-        
     }
 }

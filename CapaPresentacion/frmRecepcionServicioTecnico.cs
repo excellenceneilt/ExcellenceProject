@@ -1,4 +1,4 @@
-﻿using CapaPresentacion.Modales;
+using CapaPresentacion.Modales;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

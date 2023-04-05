@@ -349,7 +349,7 @@
             // 
             // btnagregar
             // 
-            this.btnagregar.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnagregar.IconChar = FontAwesome.Sharp.IconChar.Add;
             this.btnagregar.IconColor = System.Drawing.Color.DarkSeaGreen;
             this.btnagregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnagregar.IconSize = 30;
@@ -491,7 +491,7 @@
             // 
             // btncrearventa
             // 
-            this.btncrearventa.IconChar = FontAwesome.Sharp.IconChar.CartShopping;
+            this.btncrearventa.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
             this.btncrearventa.IconColor = System.Drawing.Color.DarkSeaGreen;
             this.btncrearventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btncrearventa.IconSize = 30;
@@ -508,7 +508,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 558);
+            this.ClientSize = new System.Drawing.Size(1344, 649);
             this.Controls.Add(this.btncrearventa);
             this.Controls.Add(this.txtcambio);
             this.Controls.Add(this.label14);
