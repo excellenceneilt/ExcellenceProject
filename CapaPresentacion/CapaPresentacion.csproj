@@ -240,6 +240,12 @@
     <Compile Include="frmVentas.Designer.cs">
       <DependentUpon>frmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEquipo.Designer.cs">
+      <DependentUpon>frmEquipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,12 @@
     <Compile Include="Modales\mdClienteST.Designer.cs">
       <DependentUpon>mdClienteST.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\mdEquipoST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\mdEquipoST.Designer.cs">
+      <DependentUpon>mdEquipoST.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modales\mdProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDetalleVenta.resx">
       <DependentUpon>frmDetalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEquipo.resx">
+      <DependentUpon>frmEquipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEspecialidad.resx">
       <DependentUpon>frmEspecialidad.cs</DependentUpon>
@@ -359,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdClienteST.resx">
       <DependentUpon>mdClienteST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\mdEquipoST.resx">
+      <DependentUpon>mdEquipoST.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdProducto.resx">
       <DependentUpon>mdProducto.cs</DependentUpon>

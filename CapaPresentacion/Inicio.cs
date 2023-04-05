@@ -98,6 +98,7 @@ namespace CapaPresentacion
         #endregion
 
         #region SUBMENU
+        //Mantenimiento
         private void submenuCategoria_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuMantenimiento, new frmCategoria());
@@ -105,6 +106,10 @@ namespace CapaPresentacion
         private void submenuProducto_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuMantenimiento, new frmProducto());
+        }
+        private void equipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuMantenimiento, new frmEquipo());
         }
         //Ventas
         private void submenuRegistrarventas_Click(object sender, EventArgs e)

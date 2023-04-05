@@ -73,3 +73,5 @@ D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmCer
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmRecepcionServicioTecnico.resources
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmMantenimientoTablas.resources
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdClienteST.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdEquipoST.resources
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Debug\CapaPresentacion.frmEquipo.resources
