@@ -23,12 +23,12 @@ namespace CapaPresentacion.Modales
 
         private void mdProductoE_Load(object sender, EventArgs e)
         {
+            //Para filtrar datos en la tabla
             foreach (DataGridViewColumn columna in dgvdata.Columns)
             {
                 if (columna.Visible == true)
                 {
                     cbobusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
-
                 }
             }
 
@@ -51,21 +51,26 @@ namespace CapaPresentacion.Modales
                 });
             }
         }
-
-        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
+        private void dgvdata_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtbusqueda.Text = "";
-            foreach (DataGridViewRow row in dgvdata.Rows)
+            int iRow = e.RowIndex;
+            int iColum = e.ColumnIndex;
+            if (iRow >= 0 && iColum >= 0)
             {
-                row.Visible = true;
+                _Producto = new Producto()
+                {
+                    Codigo = dgvdata.Rows[iRow].Cells["Codigo"].Value.ToString(),
+                    Nombre = dgvdata.Rows[iRow].Cells["Nombre"].Value.ToString(),
+                    oCategoria = new Categoria() { Descripcion = dgvdata.Rows[iRow].Cells["Categoria"].Value.ToString() }
+                };
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
-
         private void btnbuscar_Click(object sender, EventArgs e)
         {
             buscar();
         }
-
         private void buscar()
         {
             string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
@@ -85,24 +90,22 @@ namespace CapaPresentacion.Modales
             }
         }
 
-        private void dgvdata_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
         {
-            int iRow = e.RowIndex;
-            int iColum = e.ColumnIndex;
-            if (iRow >= 0 && iColum > 0)
+            txtbusqueda.Text = "";
+            foreach (DataGridViewRow row in dgvdata.Rows)
             {
-                _Producto = new Producto()
-                {
-                    IdProducto = Convert.ToInt32(dgvdata.Rows[iRow].Cells["Id"].Value.ToString()),
-                    Codigo = dgvdata.Rows[iRow].Cells["Codigo"].Value.ToString(),
-                    Nombre = dgvdata.Rows[iRow].Cells["Nombre"].Value.ToString(),
-                    Stock = Convert.ToInt32(dgvdata.Rows[iRow].Cells["Stock"].Value.ToString()),
-                    PrecioCompra = Convert.ToDecimal(dgvdata.Rows[iRow].Cells["PrecioCompra"].Value.ToString()),
-                    PrecioVenta = Convert.ToDecimal(dgvdata.Rows[iRow].Cells["PrecioVenta"].Value.ToString())
-                };
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                row.Visible = true;
             }
         }
+
+        private void txtbusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                buscar();
+            }
+        }
+
     }
 }

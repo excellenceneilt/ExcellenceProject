@@ -1,4 +1,5 @@
-﻿using CapaPresentacion.Modales;
+﻿using CapaEntidad;
+using CapaPresentacion.Modales;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,12 +24,42 @@ namespace CapaPresentacion
             using (var modal = new mdProductoE())
             {
                 var result = modal.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    txtcategoria.Text = modal._Producto.oCategoria.Descripcion;
+                    txtcodigo.Text = modal._Producto.Codigo;
+                    txtmodelo.Select();
+                }
+                else
+                {
+                    txtcategoria.Select();
+                }
             }
         }
 
         private void frmEquipo_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnlimpiar_Click(object sender, EventArgs e)
+        {
+            txtcategoria.Text = string.Empty;
+            txtmodelo.Text = string.Empty;
+            txtcodigo.Text = string.Empty;
+            txtserial.Text = string.Empty;
+            txtcategoria.Focus();
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+
+            Equipo obj = new Equipo()
+            {
+
+            };
         }
     }
 }

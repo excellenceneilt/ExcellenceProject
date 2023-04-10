@@ -79,7 +79,7 @@
             this.dgvdata.RowTemplate.Height = 28;
             this.dgvdata.Size = new System.Drawing.Size(573, 330);
             this.dgvdata.TabIndex = 62;
-            this.dgvdata.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentDoubleClick);
+            this.dgvdata.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellDoubleClick);
             // 
             // Codigo
             // 
@@ -108,6 +108,7 @@
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(135, 20);
             this.txtbusqueda.TabIndex = 71;
+            this.txtbusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbusqueda_KeyDown);
             // 
             // cbobusqueda
             // 

@@ -168,6 +168,7 @@
             this.Controls.Add(this.dgvdata);
             this.Name = "mdEquipoST";
             this.Text = "mdEquipoST";
+            this.Load += new System.EventHandler(this.mdEquipoST_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
