@@ -20,8 +20,10 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdEquipo, CodigoEquipo, NombreEquipo, SerialNumber, c.IdCategoria,C.Descripcion[DescripcionCategoria],  e.Estado from Equipo e");
-                    query.AppendLine("inner join CATEGORIA c on c.IdCategoria = e.IdCategoria");
+                    query.AppendLine("select IdEquipo, CodigoEquipo, Modelo, SerialNumber,p.IdProducto,p.Nombre[NombreEquipo] c.IdCategoria,C.Descripcion[DescripcionCategoria],  e.IdEstadoEquipo, e.Descripcion[DescripcionEquipo] from Equipo e");
+                    query.AppendLine("inner join CATEGORIA c on c.IdCategoria = c.IdCategoria");
+                    query.AppendLine("inner join PRODUCTO p on c.IdProducto = p.IdProducto");
+                    query.AppendLine("inner join EstadoEquipo e on c.IdEstadoEquipo = e.IdEstadoEquipo");
                     
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -35,11 +37,28 @@ namespace CapaDatos
                             {
                                 //Listar productos en tabla
                                 IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
-                                CodigoEquipo = Convert.ToInt32(dr["CodigoEquipo"]),
+                                CodigoEquipo = dr["CodigoEquipo"].ToString(),
                                 Modelo = dr["Modelo"].ToString(),
                                 SerialNumber = dr["SerialNumber"].ToString(),
                                 //Llave foránea
-                                eCategoria = new Categoria() { IdCategoria = Convert.ToInt32(dr["IdCategoria"]), /*Añadiendo alias*/ Descripcion = dr["DescripcionCategoria"].ToString() },
+                                eProducto = new Producto()
+                                {
+                                    IdProducto = Convert.ToInt32(dr["IdProducto"]),
+                                    Nombre = dr["NombreEquipo"].ToString()
+                                },
+
+                                eCategoria = new Categoria() { 
+                                    IdCategoria = Convert.ToInt32(dr["IdCategoria"]),
+
+                                    /*Añadiendo alias*/ 
+                                    Descripcion = dr["DescripcionCategoria"].ToString()
+                                },
+                                oEstadoEquipo = new EstadoEquipo()
+                                {
+                                    IdEstadoEquipo = Convert.ToInt32(dr["IdEstadoEquipo"]),
+                                    Descripcion = dr["DescripcionEquipo"].ToString()
+                                },
+
                                 
                                 Estado = Convert.ToBoolean(dr["Estado"])
 
@@ -58,7 +77,7 @@ namespace CapaDatos
 
         public int Registrar(Equipo obj, out string Mensaje)
         {
-            int idProductogenerado = 0;
+            int idEquipogenerado = 0;
             Mensaje = string.Empty;
             try
             {
@@ -67,11 +86,14 @@ namespace CapaDatos
 
                     //Declarando los parámetros de entrada
                     SqlCommand cmd = new SqlCommand("SP_RegistrarEquipo", oconexion);
-                    cmd.Parameters.AddWithValue("Codigo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
+                    cmd.Parameters.AddWithValue("CodigoEquipo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
-                    cmd.Parameters.AddWithValue("Descripcion", obj.SerialNumber);
+                    cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
+
+                    cmd.Parameters.AddWithValue("IdProducto",obj.eProducto.IdProducto);
                     cmd.Parameters.AddWithValue("IdCategoria", obj.eCategoria.IdCategoria);
-                  //  cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
+                   cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
+
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
 
                     //Declarando parámetros de salida
@@ -83,18 +105,18 @@ namespace CapaDatos
                     cmd.ExecuteNonQuery();
 
                     //Obtener parametros de salida después de ejecución
-                    idProductogenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    idEquipogenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
 
             }
             catch (Exception ex)
             {
-                idProductogenerado = 0;
+                idEquipogenerado = 0;
                 Mensaje = ex.Message;
             }
 
-            return idProductogenerado;
+            return idEquipogenerado;
         }
 
         public bool Editar(Equipo obj, out string Mensaje)
@@ -111,9 +133,12 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdEquipo", obj.IdEquipo);
                     cmd.Parameters.AddWithValue("CodigoEquipo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
-                    cmd.Parameters.AddWithValue("Descripcion", obj.SerialNumber);
+                    cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
+
+                    cmd.Parameters.AddWithValue("IdProducto", obj.eProducto.IdProducto);
                     cmd.Parameters.AddWithValue("IdCategoria", obj.eCategoria.IdCategoria);
-                    //  cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
+                    cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
+
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
@@ -137,6 +162,8 @@ namespace CapaDatos
             return respuesta;
         }
 
+
+        //Eliminar incompleto
         public bool Eliminar(Equipo obj, out string Mensaje)
         {
             bool respuesta = false;

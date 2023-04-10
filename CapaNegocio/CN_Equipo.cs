@@ -10,27 +10,27 @@ namespace CapaNegocio
 {
     public class CN_Equipo
     {
-        private CD_Producto objcd_Producto = new CD_Producto();
+        private CD_Equipo objcd_Equipo = new CD_Equipo();
 
-        public List<Producto> Listar()
+        public List<Equipo> Listar()
         {
-            return objcd_Producto.Listar();
+            return objcd_Equipo.Listar();
         }
         //Procedimientos de mantenimiento
-        public int Registrar(Producto obj, out string Mensaje)
+        public int Registrar(Equipo obj, out string Mensaje)
         {
 
             //Validaciones por si se dejan campos vacíos
             Mensaje = string.Empty;
-            if (obj.Codigo == "")
+            if (obj.CodigoEquipo == "")
             {
                 Mensaje += "Es necesario definir un codigo de producto\n";
             }
-            if (obj.Nombre == "")
+            if (obj.Modelo == "")
             {
                 Mensaje += "Es necesario definir un nombre de producto\n";
             }
-            if (obj.Descripcion == "")
+            if (obj.SerialNumber == "")
             {
                 Mensaje += "Es necesario definir una descripción del producto\n";
             }
@@ -40,26 +40,26 @@ namespace CapaNegocio
             }
             else
             {
-                return objcd_Producto.Registrar(obj, out Mensaje);
+                return objcd_Equipo.Registrar(obj, out Mensaje);
             }
 
         }
 
-        public bool Editar(Producto obj, out string Mensaje)
+        public bool Editar(Equipo obj, out string Mensaje)
         {
 
             //Validaciones
             Mensaje = string.Empty;
 
-            if (obj.Codigo == "")
+            if (obj.CodigoEquipo == "")
             {
                 Mensaje += "Es necesario definir un codigo de producto\n";
             }
-            if (obj.Nombre == "")
+            if (obj.Modelo == "")
             {
                 Mensaje += "Es necesario definir un nombre de producto\n";
             }
-            if (obj.Descripcion == "")
+            if (obj.SerialNumber == "")
             {
                 Mensaje += "Es necesario definir una descripción del producto\n";
             }
@@ -69,7 +69,7 @@ namespace CapaNegocio
             }
             else
             {
-                return objcd_Producto.Editar(obj, out Mensaje);
+                return objcd_Equipo.Editar(obj, out Mensaje);
             }
 
 
@@ -79,9 +79,9 @@ namespace CapaNegocio
             //return objcd_Producto.Editar(obj, out Mensaje);
         }
 
-        public bool Eliminar(Producto obj, out string Mensaje)
+        public bool Eliminar(Equipo obj, out string Mensaje)
         {
-            return objcd_Producto.Eliminar(obj, out Mensaje);
+            return objcd_Equipo.Eliminar(obj, out Mensaje);
         }
 
     }
