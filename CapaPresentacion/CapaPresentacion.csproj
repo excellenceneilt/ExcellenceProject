@@ -288,6 +288,12 @@
     <Compile Include="Modales\mdProducto.Designer.cs">
       <DependentUpon>mdProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\mdProductoE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\mdProductoE.Designer.cs">
+      <DependentUpon>mdProductoE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modales\mdProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdProducto.resx">
       <DependentUpon>mdProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\mdProductoE.resx">
+      <DependentUpon>mdProductoE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdProveedor.resx">
       <DependentUpon>mdProveedor.cs</DependentUpon>
