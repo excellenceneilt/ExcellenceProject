@@ -195,5 +195,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario(menuServicioTecnico, new frmMantenimientoTablas());
         }
+
+        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuMantenimiento, new frmMarca());
+        }
     }
 }
