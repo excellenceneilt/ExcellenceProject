@@ -33,7 +33,7 @@ namespace CapaPresentacion
                     txtcorreo.Text = modal._Cliente.Correo1;
                     txtdni.Text = modal._Cliente.Documento;
                     txttelefono.Text = modal._Cliente.Telefono1;
-                    txtcodproducto.Select();
+                    
                 }
                 else
                 {
@@ -48,6 +48,11 @@ namespace CapaPresentacion
             {
                 var result = modal.ShowDialog();
             }
+        }
+
+        private void frmRecepcionServicioTecnico_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
