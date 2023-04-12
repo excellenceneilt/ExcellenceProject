@@ -43,10 +43,6 @@ namespace CapaNegocio
             //Validaciones
             Mensaje = string.Empty;
 
-            if (obj.Descripcion == "")
-            {
-                Mensaje += "Es necesario definir una Categoria\n";
-            }
             if (Mensaje != string.Empty)
             {
                 return false;
@@ -55,12 +51,6 @@ namespace CapaNegocio
             {
                 return objcd_Marca.Editar(obj, out Mensaje);
             }
-
-
-
-
-
-            //return objcd_Categoria.Editar(obj, out Mensaje);
         }
 
         public bool Eliminar(Marca obj, out string Mensaje)

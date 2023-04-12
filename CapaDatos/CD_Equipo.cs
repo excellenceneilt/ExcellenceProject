@@ -20,10 +20,9 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdEquipo, CodigoEquipo, Modelo, SerialNumber,p.IdProducto,p.Nombre[NombreEquipo] c.IdCategoria,C.Descripcion[DescripcionCategoria],  e.IdEstadoEquipo, e.Descripcion[DescripcionEquipo] from Equipo e");
-                    query.AppendLine("inner join CATEGORIA c on c.IdCategoria = c.IdCategoria");
-                    query.AppendLine("inner join PRODUCTO p on c.IdProducto = p.IdProducto");
-                    query.AppendLine("inner join EstadoEquipo e on c.IdEstadoEquipo = e.IdEstadoEquipo");
+                    query.AppendLine("select IdEquipo, CodigoEquipo, Modelo, SerialNumber,p.IdProducto,p.Nombre[NombreEquipo],  ed.IdEstadoEquipo, ed.Descripcion[DescripcionEquipo] from Equipo e");
+                    query.AppendLine("inner join PRODUCTO p on p.IdProducto = e.IdProducto");
+                    query.AppendLine("inner join EstadoEquipo ed on ed.IdEstadoEquipo = e.IdEstadoEquipo");
                     
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -45,13 +44,6 @@ namespace CapaDatos
                                 {
                                     IdProducto = Convert.ToInt32(dr["IdProducto"]),
                                     Nombre = dr["NombreEquipo"].ToString()
-                                },
-
-                                eCategoria = new Categoria() { 
-                                    IdCategoria = Convert.ToInt32(dr["IdCategoria"]),
-
-                                    /*Añadiendo alias*/ 
-                                    Descripcion = dr["DescripcionCategoria"].ToString()
                                 },
                                 oEstadoEquipo = new EstadoEquipo()
                                 {
@@ -91,8 +83,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
 
                     cmd.Parameters.AddWithValue("IdProducto",obj.eProducto.IdProducto);
-                    cmd.Parameters.AddWithValue("IdCategoria", obj.eCategoria.IdCategoria);
-                   cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
+                    cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
 
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
 
@@ -136,7 +127,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
 
                     cmd.Parameters.AddWithValue("IdProducto", obj.eProducto.IdProducto);
-                    cmd.Parameters.AddWithValue("IdCategoria", obj.eCategoria.IdCategoria);
                     cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
 
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);

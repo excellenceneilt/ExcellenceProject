@@ -31,11 +31,11 @@
             this.menu = new System.Windows.Forms.MenuStrip();
             this.menuUsuarios = new FontAwesome.Sharp.IconMenuItem();
             this.menuMantenimiento = new FontAwesome.Sharp.IconMenuItem();
-            this.submenuCategoria = new FontAwesome.Sharp.IconMenuItem();
             this.submenuProducto = new FontAwesome.Sharp.IconMenuItem();
             this.submenuEspecialidad = new System.Windows.Forms.ToolStripMenuItem();
             this.submenunegocio = new System.Windows.Forms.ToolStripMenuItem();
             this.equipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuVentas = new FontAwesome.Sharp.IconMenuItem();
             this.submenuRegistrarventas = new FontAwesome.Sharp.IconMenuItem();
             this.submenuDetalleVenta = new FontAwesome.Sharp.IconMenuItem();
@@ -63,7 +63,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnsalir = new FontAwesome.Sharp.IconButton();
             this.contenedor = new System.Windows.Forms.Panel();
-            this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -107,7 +106,6 @@
             // 
             this.menuMantenimiento.AutoSize = false;
             this.menuMantenimiento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.submenuCategoria,
             this.submenuProducto,
             this.submenuEspecialidad,
             this.submenunegocio,
@@ -122,16 +120,6 @@
             this.menuMantenimiento.Size = new System.Drawing.Size(122, 69);
             this.menuMantenimiento.Text = "Mantenimiento";
             this.menuMantenimiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // submenuCategoria
-            // 
-            this.submenuCategoria.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.submenuCategoria.IconColor = System.Drawing.Color.Black;
-            this.submenuCategoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.submenuCategoria.Name = "submenuCategoria";
-            this.submenuCategoria.Size = new System.Drawing.Size(180, 22);
-            this.submenuCategoria.Text = "Categoría";
-            this.submenuCategoria.Click += new System.EventHandler(this.submenuCategoria_Click);
             // 
             // submenuProducto
             // 
@@ -163,6 +151,13 @@
             this.equipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.equipoToolStripMenuItem.Text = "Equipo";
             this.equipoToolStripMenuItem.Click += new System.EventHandler(this.equipoToolStripMenuItem_Click);
+            // 
+            // marcaToolStripMenuItem
+            // 
+            this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
+            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.marcaToolStripMenuItem.Text = "Marca";
+            this.marcaToolStripMenuItem.Click += new System.EventHandler(this.marcaToolStripMenuItem_Click);
             // 
             // menuVentas
             // 
@@ -467,13 +462,6 @@
             this.contenedor.Size = new System.Drawing.Size(1333, 653);
             this.contenedor.TabIndex = 3;
             // 
-            // marcaToolStripMenuItem
-            // 
-            this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
-            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.marcaToolStripMenuItem.Text = "Marca";
-            this.marcaToolStripMenuItem.Click += new System.EventHandler(this.marcaToolStripMenuItem_Click);
-            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -517,7 +505,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUsuario;
-        private FontAwesome.Sharp.IconMenuItem submenuCategoria;
         private FontAwesome.Sharp.IconMenuItem submenuProducto;
         private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconMenuItem submenuRegistrarventas;

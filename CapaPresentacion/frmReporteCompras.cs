@@ -71,7 +71,6 @@ namespace CapaPresentacion
                     rc.RazonSocial,
                     rc.CodigoProducto,
                     rc.NombreProducto,
-                    rc.Categoria,
                     rc.PrecioCompra,
                     rc.PrecioVenta,
                     rc.Cantidad,

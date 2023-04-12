@@ -31,16 +31,6 @@ namespace CapaPresentacion
             cboestado.ValueMember = "Valor";
             cboestado.SelectedIndex = 0;
 
-            //Listar categorías
-            List<Categoria> listacategoria = new CN_Categoria().Listar();
-            foreach (Categoria item in listacategoria)
-            {
-                cbocategoria.Items.Add(new OpcionCombo() { Valor = item.IdCategoria, Texto = item.Descripcion });
-            }
-            cbocategoria.DisplayMember = "Texto";
-            cbocategoria.ValueMember = "Valor";
-            cbocategoria.SelectedIndex = 0;
-
             #endregion
 
             #region Filtrar registros en búsqueda
@@ -67,8 +57,6 @@ namespace CapaPresentacion
                     "",
                    item.IdMarca,
                    item.Descripcion,
-                   item.mCategoria.IdCategoria,
-                   item.mCategoria.Descripcion,
                    
                    item.Estado==true ?1 : 0,
                    item.Estado==true ?"Activo":"Inactivo"
@@ -86,7 +74,6 @@ namespace CapaPresentacion
                 //Llenando atributos de la clase usuario
                 IdMarca = Convert.ToInt32(txtid.Text),
                 Descripcion = txtdescripcion.Text,
-                mCategoria = new Categoria() { IdCategoria = Convert.ToInt32(((OpcionCombo)cbocategoria.SelectedItem).Valor) },
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
             };
 
@@ -101,8 +88,6 @@ namespace CapaPresentacion
                 {
                     //Agregar nueva fila y declara nuevo objeto en el datagridview
                     dgvdata.Rows.Add(new object[] {"",idgenerado,txtdescripcion.Text,
-                        ((OpcionCombo) cbocategoria.SelectedItem).Valor.ToString(),
-                         ((OpcionCombo) cbocategoria.SelectedItem).Texto.ToString(),
               ((OpcionCombo) cboestado.SelectedItem).Valor.ToString(),
               ((OpcionCombo) cboestado.SelectedItem).Texto.ToString(),
                 });
@@ -123,8 +108,6 @@ namespace CapaPresentacion
                     DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
                     row.Cells["Id"].Value = txtid.Text;
                     row.Cells["Descripcion"].Value = txtdescripcion.Text;
-                    row.Cells["IdCategoria"].Value = ((OpcionCombo)cbocategoria.SelectedItem).Valor.ToString();
-                    row.Cells["Categoria"].Value = ((OpcionCombo)cbocategoria.SelectedItem).Texto.ToString();
 
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
                     row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
@@ -147,7 +130,6 @@ namespace CapaPresentacion
             
             txtdescripcion.Text = "";
 
-            cbocategoria.SelectedIndex = 0;
             cboestado.SelectedIndex = 0;
             
 
@@ -222,18 +204,6 @@ namespace CapaPresentacion
 
                     txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
 
-
-                    //Setear en el combobox el rol del Producto oc es el elemento que recorre toda la lista
-                    foreach (OpcionCombo oc in cbocategoria.Items)
-                    {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdCategoria"].Value))
-                        {
-                            int indice_combo = cbocategoria.Items.IndexOf(oc);
-                            cbocategoria.SelectedIndex = indice_combo;
-                            break; //Para cuando lo encuentre debe terminar
-                        }
-                    }
-
                     //Setear en el combobox el rol del Producto oc es el elemento que recorre toda la lista
                     foreach (OpcionCombo oc in cboestado.Items)
                     {
@@ -256,7 +226,6 @@ namespace CapaPresentacion
 
             txtdescripcion.Text = "";
 
-            cbocategoria.SelectedIndex = 0;
             cboestado.SelectedIndex = 0;
         }
     }
