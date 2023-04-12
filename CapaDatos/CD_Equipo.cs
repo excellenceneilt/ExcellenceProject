@@ -122,7 +122,11 @@ namespace CapaDatos
                     //Declarando los parámetros de entrada
                     SqlCommand cmd = new SqlCommand("SP_ModificarProducto", oconexion);
                     cmd.Parameters.AddWithValue("IdEquipo", obj.IdEquipo);
+
                  //   cmd.Parameters.AddWithValue("CodigoEquipo", obj.eCodigoEquipo.Codigo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
+
+                    cmd.Parameters.AddWithValue("CodigoEquipo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
+
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
                     cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
 
