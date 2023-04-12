@@ -49,7 +49,6 @@ namespace CapaPresentacion.Modales
                     item.IdProducto,
                     item.Codigo,
                     item.Nombre,
-                    item.oCategoria.Descripcion,
                     item.Stock,
                     item.PrecioCompra,
                     item.PrecioVenta

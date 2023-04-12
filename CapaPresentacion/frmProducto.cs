@@ -1,4 +1,5 @@
-﻿using CapaEntidad;
+﻿using CapaDatos;
+using CapaEntidad;
 using CapaNegocio;
 using CapaPresentacion.Utilidades;
 using ClosedXML.Excel;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
@@ -17,6 +19,9 @@ namespace CapaPresentacion
 {
     public partial class frmProducto : Form
     {
+
+        SqlConnection conn = new SqlConnection(@"Data Source=192.168.1.110;Initial Catalog=DBSISTEMA_EXCELLENCE;User Id=sa;Password=1234;");
+
         public frmProducto()
         {
             InitializeComponent();
@@ -34,15 +39,15 @@ namespace CapaPresentacion
             cboestado.ValueMember = "Valor";
             cboestado.SelectedIndex = 0;
 
-            //Listar categorías
-            List<Categoria> listacategoria = new CN_Categoria().Listar();
-            foreach (Categoria item in listacategoria)
+            //Listar marcas
+            List<Marca> listamarca = new CN_Marca().Listar();
+            foreach (Marca item in listamarca)
             {
-                cbocategoria.Items.Add(new OpcionCombo() { Valor = item.IdCategoria, Texto = item.Descripcion });
+                cbomarca.Items.Add(new OpcionCombo() { Valor = item.IdMarca, Texto = item.Descripcion });
             }
-            cbocategoria.DisplayMember = "Texto";
-            cbocategoria.ValueMember = "Valor";
-            cbocategoria.SelectedIndex = 0;
+            cbomarca.DisplayMember = "Texto";
+            cbomarca.ValueMember = "Valor";
+            cbomarca.SelectedIndex = 0;
 
             #endregion
 
@@ -72,8 +77,8 @@ namespace CapaPresentacion
                    item.Codigo,
                    item.Nombre,
                    item.Descripcion,
-                   item.oCategoria.IdCategoria,
-                   item.oCategoria.Descripcion,
+                   item.oMarca.IdMarca,
+                   item.oMarca.Descripcion,
                    item.Stock,
                    item.PrecioCompra,
                    item.PrecioVenta,
@@ -83,6 +88,7 @@ namespace CapaPresentacion
             }
             #endregion
         }
+
 
         #region BOTONES
         private void btnlimpiar_Click(object sender, EventArgs e)
@@ -133,7 +139,7 @@ namespace CapaPresentacion
                 Codigo = txtcodigo.Text,
                 Descripcion = txtnombre.Text,
                 //Para los combobox:
-                oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(((OpcionCombo)cbocategoria.SelectedItem).Valor) },
+                oMarca = new Marca() { IdMarca = Convert.ToInt32(cbomarca.SelectedIndex)},
 
                 //El item seleccionado se convierte a la clase opcioncombo, y se accede a su propiedad valor, si es igual a 1 será true caso contrario false
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
@@ -154,8 +160,8 @@ namespace CapaPresentacion
                         txtcodigo.Text,
                         txtnombre.Text,
                         txtdescripcion.Text,
-                        ((OpcionCombo) cbocategoria.SelectedItem).Valor.ToString(),
-                         ((OpcionCombo) cbocategoria.SelectedItem).Texto.ToString(),
+                        ((OpcionCombo) cbomarca.SelectedItem).Valor.ToString(),
+                         ((OpcionCombo) cbomarca.SelectedItem).Texto.ToString(),
                           "0",
               "0.00", //Se establece por default
               "0.00",
@@ -181,11 +187,8 @@ namespace CapaPresentacion
                     row.Cells["Codigo"].Value = txtcodigo.Text;
                     row.Cells["Nombre"].Value = txtnombre.Text;
                     row.Cells["Descripcion"].Value = txtdescripcion.Text;
-
-                    row.Cells["IdCategoria"].Value = ((OpcionCombo)cbocategoria.SelectedItem).Valor.ToString();
-                    row.Cells["Categoria"].Value = ((OpcionCombo)cbocategoria.SelectedItem).Texto.ToString();
-
-
+                    row.Cells["IdMarca"].Value = ((OpcionCombo)cbomarca.SelectedItem).Valor.ToString();
+                    row.Cells["Marca"].Value = ((OpcionCombo)cbomarca.SelectedItem).Texto.ToString();
 
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
                     row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
@@ -272,7 +275,8 @@ namespace CapaPresentacion
             txtnombre.Text = "";
             txtdescripcion.Text = "";
 
-            cbocategoria.SelectedIndex = 0;
+            cbomarca.SelectedIndex = 0;
+
             cboestado.SelectedIndex = 0;
             txtcodigo.Select();
 
@@ -311,14 +315,12 @@ namespace CapaPresentacion
                     txtnombre.Text = dgvdata.Rows[indice].Cells["Nombre"].Value.ToString();
                     txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
 
-
-                    //Setear en el combobox el rol del Producto oc es el elemento que recorre toda la lista
-                    foreach (OpcionCombo oc in cbocategoria.Items)
+                    foreach (OpcionCombo oc in cbomarca.Items)
                     {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdCategoria"].Value))
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdMarca"].Value))
                         {
-                            int indice_combo = cbocategoria.Items.IndexOf(oc);
-                            cbocategoria.SelectedIndex = indice_combo;
+                            int indice_combo = cbomarca.Items.IndexOf(oc);
+                            cbomarca.SelectedIndex = indice_combo;
                             break; //Para cuando lo encuentre debe terminar
                         }
                     }
@@ -369,10 +371,5 @@ namespace CapaPresentacion
 
 
         #endregion
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

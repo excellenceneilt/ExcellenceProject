@@ -6,21 +6,21 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace CapaDatos
 {
-    public class CD_Categoria
+    public class CD_Marca
     {
-        //Metodo para listar
-        public List<Categoria> Listar()
+        public List<Marca> Listar()
         {
-            List<Categoria> lista = new List<Categoria>();
+            List<Marca> lista = new List<Marca>();
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdCategoria, Descripcion, Estado from CATEGORIA");
+                    query.AppendLine("select IdMarca, Descripcion, Estado from Marca");
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -30,9 +30,9 @@ namespace CapaDatos
                     {
                         while (dr.Read())
                         {
-                            lista.Add(new Categoria()
+                            lista.Add(new Marca()
                             {
-                                IdCategoria = Convert.ToInt32(dr["IdCategoria"]),
+                                IdMarca = Convert.ToInt32(dr["IdMarca"]),
                                 Descripcion = dr["Descripcion"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"])
 
@@ -42,15 +42,15 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<Categoria>();
+                    lista = new List<Marca>();
                 }
             }
             return lista;
         }
-        //Los parametros de Mensaje es un parametro de salida y Categoria de entrada
-        public int Registrar(Categoria obj, out string Mensaje)
+
+        public int Registrar(Marca obj, out string Mensaje)
         {
-            int idCategoriagenerado = 0;
+            int idMarcagenerado = 0;
             Mensaje = string.Empty;
             try
             {
@@ -58,8 +58,8 @@ namespace CapaDatos
                 {
 
                     //Declarando los parámetros de entrada
-                    SqlCommand cmd = new SqlCommand("SP_RegistrarCategoria", oconexion);
-                    cmd.Parameters.AddWithValue("Descripcion", obj.Descripcion);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado                 
+                    SqlCommand cmd = new SqlCommand("SP_RegistrarMarca", oconexion);
+                    cmd.Parameters.AddWithValue("Descripcion", obj.Descripcion);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
@@ -69,21 +69,20 @@ namespace CapaDatos
                     cmd.ExecuteNonQuery();
 
                     //Obtener parametros de salida después de ejecución
-                    idCategoriagenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    idMarcagenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
 
             }
             catch (Exception ex)
             {
-                idCategoriagenerado = 0;
+                idMarcagenerado = 0;
                 Mensaje = ex.Message;
             }
-
-            return idCategoriagenerado;
+            return idMarcagenerado;
         }
 
-        public bool Editar(Categoria obj, out string Mensaje)
+        public bool Editar(Marca obj, out string Mensaje)
         {
             bool respuesta = false;
             Mensaje = string.Empty;
@@ -93,15 +92,15 @@ namespace CapaDatos
                 {
 
                     //Declarando los parámetros de entrada
-                    SqlCommand cmd = new SqlCommand("SP_EditarCategoria", oconexion);
-                    cmd.Parameters.AddWithValue("IdCategoria", obj.IdCategoria);
+                    SqlCommand cmd = new SqlCommand("SP_EditarMarca", oconexion);
+                    cmd.Parameters.AddWithValue("IdMarca", obj.IdMarca);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
-                    cmd.Parameters.AddWithValue("Descripcion", obj.Descripcion);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado                 
+                    cmd.Parameters.AddWithValue("Descripcion", obj.Descripcion);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                  
+
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
@@ -116,11 +115,10 @@ namespace CapaDatos
                 respuesta = false;
                 Mensaje = ex.Message;
             }
-
             return respuesta;
         }
 
-        public bool Eliminar(Categoria obj, out string Mensaje)
+        public bool Eliminar(Marca obj, out string Mensaje)
         {
             bool respuesta = false;
             Mensaje = string.Empty;
@@ -130,18 +128,18 @@ namespace CapaDatos
                 {
 
                     //Declarando los parámetros de entrada
-                    SqlCommand cmd = new SqlCommand("SP_EliminarCategoria", oconexion);
-                    cmd.Parameters.AddWithValue("IdCategoria", obj.IdCategoria);
+                    SqlCommand cmd = new SqlCommand("SP_EliminarMarca", oconexion);
+                    cmd.Parameters.AddWithValue("IdMarca", obj.IdMarca);
 
                     //Declarando parámetros de salida
-                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
                     //Obtener parametros de salida después de ejecución
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
 
@@ -154,6 +152,5 @@ namespace CapaDatos
 
             return respuesta;
         }
-
     }
 }

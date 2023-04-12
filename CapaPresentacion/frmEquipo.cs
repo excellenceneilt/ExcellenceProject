@@ -27,13 +27,10 @@ namespace CapaPresentacion
 
                 if (result == DialogResult.OK)
                 {
-                    txtcategoria.Text = modal._Producto.oCategoria.Descripcion;
                     txtcodigo.Text = modal._Producto.Codigo;
-                    txtmodelo.Select();
-                }
-                else
-                {
-                    txtcategoria.Select();
+                    txtmodelo.Text = modal._Producto.Nombre;
+                    txtmarca.Text = modal._Producto.oMarca.Descripcion;
+                    txtserial.Select();
                 }
             }
         }
@@ -45,11 +42,10 @@ namespace CapaPresentacion
 
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
-            txtcategoria.Text = string.Empty;
             txtmodelo.Text = string.Empty;
             txtcodigo.Text = string.Empty;
             txtserial.Text = string.Empty;
-            txtcategoria.Focus();
+            txtmodelo.Focus();
         }
 
         private void btnguardar_Click(object sender, EventArgs e)

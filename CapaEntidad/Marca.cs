@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    public class Categoria
+    public class Marca
     {
-        public int IdCategoria { get; set; }
+        public int IdMarca { get; set; }
         public string Descripcion { get; set; }
-
         public bool Estado { get; set; }
         public string FechaRegistro { get; set; }
+
     }
 }
