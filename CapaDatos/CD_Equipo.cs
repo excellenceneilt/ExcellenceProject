@@ -20,10 +20,10 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdEquipo, CodigoEquipo, Modelo, SerialNumber,Marca,Producto,  ed.IdEstadoEquipo, ed.Descripcion[DescripcionEquipo] from Equipo e");
+                    query.AppendLine("select IdEquipo, Modelo, SerialNumber from  Equipo ");
                     
                    // query.AppendLine("inner join PRODUCTO p on p.IdProducto = e.IdProducto");
-                    query.AppendLine("inner join EstadoEquipo ed on ed.IdEstadoEquipo = e.IdEstadoEquipo");
+                    //query.AppendLine("inner join EstadoEquipo ed on ed.IdEstadoEquipo = e.IdEstadoEquipo");
                     
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -36,19 +36,21 @@ namespace CapaDatos
                             lista.Add(new Equipo()
                             {
                                 //Listar productos en tabla
-                                IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
-                                CodigoEquipo = dr["CodigoEquipo"].ToString(),
+                                  IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
+                                //  CodigoEquipo = dr["CodigoEquipo"].ToString(),
                                 Modelo = dr["Modelo"].ToString(),
                                 SerialNumber = dr["SerialNumber"].ToString(),
-                                Marca = dr["Marca"].ToString(),
+                                
+                                
+                             //   Marca = dr["Marca"].ToString(),
                                // Producto = dr["Producto"].ToString(),
                                 //Llave foránea
                                
-                                eEstadoEquipo = new EstadoEquipo()
+                               /* eEstadoEquipo = new EstadoEquipo()
                                 {
                                     IdEstadoEquipo = Convert.ToInt32(dr["IdEstadoEquipo"]),
                                     Descripcion = dr["DescripcionEquipo"].ToString()
-                                },
+                                },*/
 
                                 
                                 Estado = Convert.ToBoolean(dr["Estado"])

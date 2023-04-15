@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtindice = new System.Windows.Forms.TextBox();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.txtmarca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnbuscar = new FontAwesome.Sharp.IconButton();
@@ -37,16 +39,15 @@
             this.btnlimpiar = new FontAwesome.Sharp.IconButton();
             this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.dgvdata = new System.Windows.Forms.DataGridView();
-            this.Serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtserial = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtcodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtindice = new System.Windows.Forms.TextBox();
-            this.txtid = new System.Windows.Forms.TextBox();
+            this.IdEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +77,24 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingreso de equipo";
+            // 
+            // txtindice
+            // 
+            this.txtindice.Location = new System.Drawing.Point(403, 28);
+            this.txtindice.Name = "txtindice";
+            this.txtindice.Size = new System.Drawing.Size(23, 29);
+            this.txtindice.TabIndex = 151;
+            this.txtindice.Text = "-1";
+            this.txtindice.Visible = false;
+            // 
+            // txtid
+            // 
+            this.txtid.Location = new System.Drawing.Point(432, 28);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(23, 29);
+            this.txtid.TabIndex = 150;
+            this.txtid.Text = "0";
+            this.txtid.Visible = false;
             // 
             // txtmarca
             // 
@@ -183,8 +202,9 @@
             this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Serial,
-            this.Modelo});
+            this.IdEquipo,
+            this.Modelo,
+            this.Serial});
             this.dgvdata.Location = new System.Drawing.Point(8, 209);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
@@ -192,20 +212,6 @@
             this.dgvdata.RowTemplate.Height = 28;
             this.dgvdata.Size = new System.Drawing.Size(544, 205);
             this.dgvdata.TabIndex = 142;
-            // 
-            // Serial
-            // 
-            this.Serial.HeaderText = "Serial";
-            this.Serial.Name = "Serial";
-            this.Serial.ReadOnly = true;
-            this.Serial.Width = 160;
-            // 
-            // Modelo
-            // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
-            this.Modelo.Width = 340;
             // 
             // txtserial
             // 
@@ -266,23 +272,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código de equipo:";
             // 
-            // txtindice
+            // IdEquipo
             // 
-            this.txtindice.Location = new System.Drawing.Point(403, 28);
-            this.txtindice.Name = "txtindice";
-            this.txtindice.Size = new System.Drawing.Size(23, 29);
-            this.txtindice.TabIndex = 151;
-            this.txtindice.Text = "-1";
-            this.txtindice.Visible = false;
+            this.IdEquipo.HeaderText = "IdEquipo";
+            this.IdEquipo.Name = "IdEquipo";
+            this.IdEquipo.ReadOnly = true;
             // 
-            // txtid
+            // Modelo
             // 
-            this.txtid.Location = new System.Drawing.Point(432, 28);
-            this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(23, 29);
-            this.txtid.TabIndex = 150;
-            this.txtid.Text = "0";
-            this.txtid.Visible = false;
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            this.Modelo.Width = 340;
+            // 
+            // Serial
+            // 
+            this.Serial.HeaderText = "Serial";
+            this.Serial.Name = "Serial";
+            this.Serial.ReadOnly = true;
+            this.Serial.Width = 160;
             // 
             // frmEquipo
             // 
@@ -311,8 +319,6 @@
         private System.Windows.Forms.TextBox txtserial;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvdata;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Serial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
         private System.Windows.Forms.Label label5;
         private FontAwesome.Sharp.IconButton btnlimpiar;
         private FontAwesome.Sharp.IconButton btnguardar;
@@ -321,5 +327,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtindice;
         private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdEquipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Serial;
     }
 }

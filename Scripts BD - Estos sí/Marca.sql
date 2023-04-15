@@ -15,6 +15,7 @@ FechaRegistro datetime default getdate()
 )
 drop table Marca
 select * from Marca
+select * from PRODUCTO
 EXEC sp_fkeys 'Marca'
 
 /*
@@ -65,7 +66,33 @@ set
   @Mensaje = 'No se puede repetir la descripción de una categoría' end
   go
 
+Create proc SP_EditarMarca(
+@IdMarca int,
+@Descripcion varchar(50),
+@Estado bit,
+@Mensaje varchar(500) output
+) as begin
+set @Mensaje = '' if not exists(
+	select * from Marca where IdMarca = @IdMarca
+	)
+	begin
+	update
+		marca
+	set
+		Descripcion = @Descripcion,
+		Estado = @Estado
+	where
+		IdMarca = @IdMarca
+	set
 
+	/*
+ 
+set 
+  @Respuesta = 1 end else 
+set 
+  @Mensaje = 'No se puede repetir el documento para más de un usuario' end
+
+	*/
 
 --NO DEBERIA EJECUTAR ESE QUERY PORQUE NO EXISTE LA TABLA CATEGORIA
 select IdProducto, Codigo, Nombre, p.Descripcion, c.IdCategoria,C.Descripcion[DescripcionCategoria],m.IdMarca, m.Descripcion[DescripcionMarca], Stock, PrecioCompra, PrecioVenta, p.Estado from PRODUCTO p

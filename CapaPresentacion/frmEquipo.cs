@@ -52,14 +52,16 @@ namespace CapaPresentacion
                 //procurar tener la misma cantidad de items que de columnas.
 
                 dgvdata.Rows.Add(new object[] {
-                     "",
+                  //   "",
                      item.IdEquipo,
-                    item.CodigoEquipo,
-                    item.Modelo,
-                    item.Marca,
-                    item.SerialNumber,
+                   // item.CodigoEquipo,
+                   item.Modelo,
+                   item.SerialNumber,
+                    
+                  //  item.Marca,
+                    
                   //  item.Producto,
-                    item.eEstadoEquipo.Descripcion,
+                  //  item.eEstadoEquipo.Descripcion,
                     
 
                     item.Estado==true ?1 : 0,
@@ -102,8 +104,8 @@ namespace CapaPresentacion
                     //No sé qué es lo que hace ._.
 
                     dgvdata.Rows.Add(new object[] {
-                        "",
-                        idEquipogenerado,
+                       // "",
+                       // idEquipogenerado,
                         
                         txtcodigo.Text,
                         txtmarca.Text,
@@ -146,5 +148,7 @@ namespace CapaPresentacion
 
 
         }
+
+        
     }
 }
