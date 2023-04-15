@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtmarca = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnbuscar = new FontAwesome.Sharp.IconButton();
             this.label5 = new System.Windows.Forms.Label();
             this.btnlimpiar = new FontAwesome.Sharp.IconButton();
@@ -43,8 +45,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtcodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtmarca = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtindice = new System.Windows.Forms.TextBox();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +54,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.txtindice);
+            this.groupBox1.Controls.Add(this.txtid);
             this.groupBox1.Controls.Add(this.txtmarca);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnbuscar);
@@ -72,6 +76,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingreso de equipo";
+            // 
+            // txtmarca
+            // 
+            this.txtmarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtmarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmarca.Location = new System.Drawing.Point(66, 113);
+            this.txtmarca.Name = "txtmarca";
+            this.txtmarca.ReadOnly = true;
+            this.txtmarca.Size = new System.Drawing.Size(201, 20);
+            this.txtmarca.TabIndex = 149;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 148;
+            this.label3.Text = "Marca:";
             // 
             // btnbuscar
             // 
@@ -243,25 +267,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código de equipo:";
             // 
-            // txtmarca
+            // txtindice
             // 
-            this.txtmarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtmarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmarca.Location = new System.Drawing.Point(66, 113);
-            this.txtmarca.Name = "txtmarca";
-            this.txtmarca.ReadOnly = true;
-            this.txtmarca.Size = new System.Drawing.Size(201, 20);
-            this.txtmarca.TabIndex = 149;
+            this.txtindice.Location = new System.Drawing.Point(403, 28);
+            this.txtindice.Name = "txtindice";
+            this.txtindice.Size = new System.Drawing.Size(23, 29);
+            this.txtindice.TabIndex = 151;
+            this.txtindice.Text = "-1";
+            this.txtindice.Visible = false;
             // 
-            // label3
+            // txtid
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 148;
-            this.label3.Text = "Marca:";
+            this.txtid.Location = new System.Drawing.Point(432, 28);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(23, 29);
+            this.txtid.TabIndex = 150;
+            this.txtid.Text = "0";
+            this.txtid.Visible = false;
             // 
             // frmEquipo
             // 
@@ -298,5 +320,7 @@
         private FontAwesome.Sharp.IconButton btnbuscar;
         private System.Windows.Forms.TextBox txtmarca;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtindice;
+        private System.Windows.Forms.TextBox txtid;
     }
 }

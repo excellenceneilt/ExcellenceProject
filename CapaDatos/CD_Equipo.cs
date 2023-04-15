@@ -20,8 +20,9 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdEquipo, CodigoEquipo, Modelo, SerialNumber,p.IdProducto,p.Nombre[NombreEquipo],  ed.IdEstadoEquipo, ed.Descripcion[DescripcionEquipo] from Equipo e");
-                    query.AppendLine("inner join PRODUCTO p on p.IdProducto = e.IdProducto");
+                    query.AppendLine("select IdEquipo, CodigoEquipo, Modelo, SerialNumber,Marca,Producto,  ed.IdEstadoEquipo, ed.Descripcion[DescripcionEquipo] from Equipo e");
+                    
+                   // query.AppendLine("inner join PRODUCTO p on p.IdProducto = e.IdProducto");
                     query.AppendLine("inner join EstadoEquipo ed on ed.IdEstadoEquipo = e.IdEstadoEquipo");
                     
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
@@ -39,13 +40,11 @@ namespace CapaDatos
                                 CodigoEquipo = dr["CodigoEquipo"].ToString(),
                                 Modelo = dr["Modelo"].ToString(),
                                 SerialNumber = dr["SerialNumber"].ToString(),
+                                Marca = dr["Marca"].ToString(),
+                               // Producto = dr["Producto"].ToString(),
                                 //Llave foránea
-                                eProducto = new Producto()
-                                {
-                                    IdProducto = Convert.ToInt32(dr["IdProducto"]),
-                                    Nombre = dr["NombreEquipo"].ToString()
-                                },
-                                oEstadoEquipo = new EstadoEquipo()
+                               
+                                eEstadoEquipo = new EstadoEquipo()
                                 {
                                     IdEstadoEquipo = Convert.ToInt32(dr["IdEstadoEquipo"]),
                                     Descripcion = dr["DescripcionEquipo"].ToString()
@@ -77,13 +76,14 @@ namespace CapaDatos
                 {
 
                     //Declarando los parámetros de entrada
-                    SqlCommand cmd = new SqlCommand("SP_RegistrarEquipo", oconexion);
+                    SqlCommand cmd = new SqlCommand("SP_RegistrarEquipos", oconexion);
                     cmd.Parameters.AddWithValue("CodigoEquipo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
+                    cmd.Parameters.AddWithValue("Marca", obj.Marca);
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
                     cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
-
-                    cmd.Parameters.AddWithValue("IdProducto",obj.eProducto.IdProducto);
-                    cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
+                    
+                 //   cmd.Parameters.AddWithValue("IdProducto",obj.Producto);
+                   // cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.eEstadoEquipo.IdEstadoEquipo);
 
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
 
@@ -129,9 +129,9 @@ namespace CapaDatos
 
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
                     cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
-
-                    cmd.Parameters.AddWithValue("IdProducto", obj.eProducto.IdProducto);
-                    cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
+                    cmd.Parameters.AddWithValue("Marca", obj.Marca);
+                  //  cmd.Parameters.AddWithValue("IdProducto", obj.Producto);
+                    cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.eEstadoEquipo.IdEstadoEquipo);
 
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;

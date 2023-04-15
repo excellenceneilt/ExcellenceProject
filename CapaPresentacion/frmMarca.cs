@@ -57,7 +57,6 @@ namespace CapaPresentacion
                     "",
                    item.IdMarca,
                    item.Descripcion,
-                   
                    item.Estado==true ?1 : 0,
                    item.Estado==true ?"Activo":"Inactivo"
                 });

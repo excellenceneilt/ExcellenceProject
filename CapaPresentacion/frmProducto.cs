@@ -139,8 +139,8 @@ namespace CapaPresentacion
                 Codigo = txtcodigo.Text,
                 Descripcion = txtnombre.Text,
                 //Para los combobox:
-                oMarca = new Marca() { IdMarca = Convert.ToInt32(cbomarca.SelectedIndex)},
-
+                //  oMarca = new Marca() { IdMarca = Convert.ToInt32(cbomarca.SelectedIndex)}, incorrecto
+                oMarca = new Marca() { IdMarca = Convert.ToInt32(((OpcionCombo)cbomarca.SelectedItem).Valor) },
                 //El item seleccionado se convierte a la clase opcioncombo, y se accede a su propiedad valor, si es igual a 1 será true caso contrario false
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
             };
