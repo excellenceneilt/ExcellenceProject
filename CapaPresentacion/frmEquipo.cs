@@ -58,7 +58,7 @@ namespace CapaPresentacion
                     item.Modelo,
                     item.Marca,
                     item.SerialNumber,
-                    item.Producto,
+                  //  item.Producto,
                     item.eEstadoEquipo.Descripcion,
                     
 
@@ -85,9 +85,8 @@ namespace CapaPresentacion
             {
                 IdEquipo = Convert.ToInt32(txtid.Text),
                 CodigoEquipo = txtcodigo.Text,
-                Modelo = txtmodelo.Text,
                 Marca = txtmarca.Text,
-                Producto = txtmodelo.Text,
+                Modelo = txtmodelo.Text,
                 SerialNumber = txtserial.Text
                
             };
@@ -105,10 +104,10 @@ namespace CapaPresentacion
                     dgvdata.Rows.Add(new object[] {
                         "",
                         idEquipogenerado,
-                        objEquipo.IdEquipo,
+                        
                         txtcodigo.Text,
-                        txtmodelo.Text,
                         txtmarca.Text,
+                        txtmodelo.Text,
                         txtserial.Text
 
                 });
@@ -132,7 +131,6 @@ namespace CapaPresentacion
                     DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
                     row.Cells["Id"].Value = txtid.Text;
                     row.Cells["CodigoEquipo"].Value = txtcodigo.Text;
-                  
                     row.Cells["Marca"].Value = txtmarca.Text;
                     row.Cells["Modelo"].Value = txtmodelo.Text;
                     row.Cells["Serial"].Value = txtserial.Text;

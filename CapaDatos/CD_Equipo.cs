@@ -20,9 +20,9 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdEquipo, CodigoEquipo, Modelo, SerialNumber,Marca,p.IdProducto,p.Nombre[NombreEquipo],  ed.IdEstadoEquipo, ed.Descripcion[DescripcionEquipo] from Equipo e");
+                    query.AppendLine("select IdEquipo, CodigoEquipo, Modelo, SerialNumber,Marca,Producto,  ed.IdEstadoEquipo, ed.Descripcion[DescripcionEquipo] from Equipo e");
                     
-                    query.AppendLine("inner join PRODUCTO p on p.IdProducto = e.IdProducto");
+                   // query.AppendLine("inner join PRODUCTO p on p.IdProducto = e.IdProducto");
                     query.AppendLine("inner join EstadoEquipo ed on ed.IdEstadoEquipo = e.IdEstadoEquipo");
                     
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
@@ -41,7 +41,7 @@ namespace CapaDatos
                                 Modelo = dr["Modelo"].ToString(),
                                 SerialNumber = dr["SerialNumber"].ToString(),
                                 Marca = dr["Marca"].ToString(),
-                                Producto = dr["Producto"].ToString(),
+                               // Producto = dr["Producto"].ToString(),
                                 //Llave foránea
                                
                                 eEstadoEquipo = new EstadoEquipo()
@@ -78,10 +78,11 @@ namespace CapaDatos
                     //Declarando los parámetros de entrada
                     SqlCommand cmd = new SqlCommand("SP_RegistrarEquipos", oconexion);
                     cmd.Parameters.AddWithValue("CodigoEquipo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
+                    cmd.Parameters.AddWithValue("Marca", obj.Marca);
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
                     cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
-                    cmd.Parameters.AddWithValue("Marca", obj.Marca);
-                    cmd.Parameters.AddWithValue("IdProducto",obj.Producto);
+                    
+                 //   cmd.Parameters.AddWithValue("IdProducto",obj.Producto);
                    // cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.eEstadoEquipo.IdEstadoEquipo);
 
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
@@ -129,7 +130,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
                     cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
                     cmd.Parameters.AddWithValue("Marca", obj.Marca);
-                    cmd.Parameters.AddWithValue("IdProducto", obj.Producto);
+                  //  cmd.Parameters.AddWithValue("IdProducto", obj.Producto);
                     cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.eEstadoEquipo.IdEstadoEquipo);
 
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);

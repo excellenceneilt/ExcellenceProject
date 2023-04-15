@@ -14,7 +14,7 @@ namespace CapaEntidad
         public string Modelo { get; set; }
         
         public string SerialNumber { get; set; }
-        public string Producto { get; set; }
+      //  public string Producto { get; set; }
         public EstadoEquipo eEstadoEquipo { get; set; }
         public bool Estado {get; set;}
         public string FechaRegistro { get; set; }
