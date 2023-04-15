@@ -10,10 +10,12 @@ namespace CapaEntidad
     {
         public int IdEquipo { get; set; }
         public string CodigoEquipo { get; set;}
+        public string  Marca { get; set; }
         public string Modelo { get; set; }
+        
         public string SerialNumber { get; set; }
-        public Producto eProducto { get; set; }
-        public EstadoEquipo oEstadoEquipo { get; set; }
+      //  public string Producto { get; set; }
+        public EstadoEquipo eEstadoEquipo { get; set; }
         public bool Estado {get; set;}
         public string FechaRegistro { get; set; }
     }

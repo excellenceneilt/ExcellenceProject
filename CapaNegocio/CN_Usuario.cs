@@ -10,8 +10,10 @@ namespace CapaNegocio
 {
     public class CN_Usuario
     {
+        //crea un objeto de la capa de datos de usuario
         private CD_Usuario objcd_usuario = new CD_Usuario();
 
+        //Lista los usuarios
         public List <Usuario> Listar()
         {
             return objcd_usuario.Listar();
@@ -20,7 +22,16 @@ namespace CapaNegocio
         public int Registrar(Usuario obj, out string Mensaje)
         {
 
-            //Validaciones
+            //Validaciones de que los campos tengan información
+
+
+
+
+
+        
+
+
+
             Mensaje = string.Empty;
             if (obj.Documento == "")
             {
@@ -79,11 +90,6 @@ namespace CapaNegocio
             {
                 return objcd_usuario.Editar(obj, out Mensaje);
             }
-
-
-
-
-
             //return objcd_usuario.Editar(obj, out Mensaje);
         }
 
