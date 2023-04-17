@@ -29,6 +29,8 @@ go
 exec sp_fkeys 'Equipo'
 
 select * from Equipo
+select * from Estado
+select IdEquipo, Modelo, SerialNumber from  Equipo 
 
 --Procedimientos almacenados
 
