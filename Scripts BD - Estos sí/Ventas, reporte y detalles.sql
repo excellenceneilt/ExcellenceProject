@@ -1,18 +1,25 @@
 create table VENTA(
 IdVenta				int primary key identity,
-IdTipComprobanteV	int,
-NumeroDocumento		nvarchar(100),
-IdClienteV			int,
+IdUsuario			int references USUARIO(IdUsuario),
+TipoDocumento		varchar(50),
+NumeroDocumento		varchar(50),
 DocumentoCliente	varchar(50),
 NombreCliente		varchar(50),
-TotalPagar			decimal(10,2),
-PagoCon				decimal(10,2),
-Cambio				decimal(10,2),
+MontoPago			decimal(10,2),
+MontoCambio			decimal(10,2),
+MontoTotal			decimal(10,2),
 FechaRegistro		datetime default getdate()
-CONSTRAINT FK_IdClienteV FOREIGN KEY (IdClienteV)
-    REFERENCES CLIENTE(IdCliente),
-CONSTRAINT FK_IdTipComprobanteV FOREIGN KEY (IdTipComprobanteV)
-    REFERENCES TIPO_COMPROBANTE(IdTipoComprobante)
+)
+
+create table DETALLE_VENTA
+(
+	IdDetalleVenta	int primary key identity,
+	IdVenta			int references VENTA(IdVenta),
+	IdProducto		int references PRODUCTO(IdProducto),
+	PrecioVenta		decimal(10,2),
+	Cantidad		int,
+	SubTotal		decimal(10,2),
+	FechaCreacion	datetime default getdate()
 )
 
 create procedure usp_RegistrarVenta
@@ -60,30 +67,6 @@ begin
 end
 go
 
-/*
-create proc sp_ReporteVentas
-(
-@fechainicio varchar(10),
-@fechafin varchar(10)
-)
-as
-begin
-set dateformat dmy;
-select
-CONVERT(char(10),v.FechaRegistro,103)[FechaRegistro],v.TipoDocumento,v.NumeroDocumento,v.MontoTotal,
-u.NombreCompleto[UsuarioRegistro],
-v.DocumentoCliente,v.NombreCliente,
-p.Codigo[CodigoProducto],p.Nombre[NombreProducto],ca.Descripcion[Categoria],dv.PrecioVenta,dv.Cantidad,dv.SubTotal
-from VENTA v
-inner join USUARIO u on u.IdUsuario = v.IdUsuario
-inner join DETALLE_VENTA dv on dv.IdVenta = v.IdVenta
-inner join PRODUCTO p on p.IdProducto = dv.IdProducto
-inner join CATEGORIA ca on ca.IdCategoria = p.IdCategoria
-where CONVERT(date,v.FechaRegistro) between @fechainicio and @fechafin
-end
-go
-*/
-drop procedure sp_ReporteVentas
 create proc sp_ReporteVentas
 (
 @fechainicio varchar(10),
@@ -104,9 +87,6 @@ inner join PRODUCTO p on p.IdProducto = dv.IdProducto
 where CONVERT(date,v.FechaRegistro) between @fechainicio and @fechafin
 end
 go
-
-
-
 
   /*PROCESOS PARA REGISTRAR UNA VENTA*/
 CREATE TYPE [dbo].[EDetalle_Venta] AS TABLE

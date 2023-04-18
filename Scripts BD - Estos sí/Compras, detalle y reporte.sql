@@ -57,7 +57,7 @@ begin
 
 				set @idcompra = SCOPE_IDENTITY()
 
-				insert into DETALLE_COMPRA(IdCompra,IdProducto,PrecioCompra,PrecioVenta,Cantidad,MontoTotal)
+				insert into DETALLE_COMPRA(IdCompraDC,IdProductoDC,PrecioCompra,PrecioVenta,Cantidad,Total)
 				select @idcompra,IdProducto,PrecioCompra,PrecioVenta,Cantidad,MontoTotal from @DetalleCompra
 
 				update p set p.Stock = p.Stock +dc.Cantidad,
@@ -76,6 +76,7 @@ begin
 	end catch
 end
 go
+
 
 /* 
 create proc sp_ReporteCompras
@@ -103,6 +104,8 @@ and pr.IdProveedor = iif(@idproveedor=0,pr.IdProveedor,@idproveedor)
 end
 go*/
 
+drop proc sp_ReporteCompras
+
   create proc sp_ReporteCompras
 (
 @fechainicio varchar(10),
@@ -116,13 +119,15 @@ select
 CONVERT(char(10),c.FechaRegistro,103)[FechaRegistro],c.TipoDocumento,c.NumeroDocumento,c.MontoTotal,
 u.NombreCompleto[UsuarioRegistro],
 pr.Documento[DocumentoProveedor],pr.RazonSocial,
-p.Codigo[CodigoProducto],p.Nombre[NombreProducto],dc.PrecioCompra,dc.PrecioVenta,dc.Cantidad,dc.MontoTotal[SubTotal]
+p.Codigo[CodigoProducto],p.Nombre[NombreProducto],dc.PrecioCompra,dc.PrecioVenta,dc.Cantidad,dc.Total[SubTotal]
 from COMPRA c
 inner join USUARIO u on u.IdUsuario = c.IdUsuario
 inner join PROVEEDOR pr on pr.IdProveedor = c.IdProveedor
-inner join DETALLE_COMPRA dc on dc.IdCompra = c.IdCompra
-inner join PRODUCTO p on p.IdProducto = dc.IdProducto
+inner join DETALLE_COMPRA dc on dc.IdCompraDC = c.IdCompra
+inner join PRODUCTO p on p.IdProducto = dc.IdProductoDC
 where CONVERT(date,c.FechaRegistro) between @fechainicio and @fechafin
 and pr.IdProveedor = iif(@idproveedor=0,pr.IdProveedor,@idproveedor)
 end
 go
+
+select * from DETALLE_COMPRA
