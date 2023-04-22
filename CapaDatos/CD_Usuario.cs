@@ -25,7 +25,7 @@ namespace CapaDatos
                     query.AppendLine("inner join rol r on r.IdRol = u.IdRol");      //Esa propiedad settea al final del objeto la cadena
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);   //SQLCOMMAND ejecuta comandos y usa una acción "query" como la consulta y a oconexion como la cadena de conexion
-                    cmd.CommandType = CommandType.Text;                             //La propiedad Text especifica que el cmd va a ser una consulta a la BD         
+                    cmd.CommandType = CommandType.Text;                             //La propiedad Text especifica que el cmd va a ser una consulta a la BD
                                                             
                     oconexion.Open();                                               //abre una conexion de datos con los valores que se especifica en SqlConnection
                     using (SqlDataReader dr = cmd.ExecuteReader())                  //convierte cmd que es un SqlCommand a SqlDataReader que permite leer las filas que se ejecuto en la BD
@@ -54,7 +54,7 @@ namespace CapaDatos
                     lista = new List<Usuario>();    //hace que lista tenga la lista vacia de los usuarios
                 }
             }
-            return lista;                                       //retorna la lista
+            return lista;   //retorna la lista
         }
         
         public int Registrar(Usuario obj, out string Mensaje)   //Los parametros de Mensaje es un parametro de salida y Usuario de entrada
@@ -77,7 +77,7 @@ namespace CapaDatos
                     cmd.Parameters.Add("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;  //declara la variable de salida. "IdUsuarioResultado" es el nombre de la columna de la BD
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;     //declara la variable de salida. "Mensaje" es el nombre de la columna de la BD
 
-                    cmd.CommandType = CommandType.StoredProcedure;  //establece que la consulta ca a ser un procedimiento almacenado
+                    cmd.CommandType = CommandType.StoredProcedure;  //establece que la consulta va a ser un procedimiento almacenado
                     oconexion.Open();                               //abre una conexion de datos con los valores que se especifica en SqlConnection
                     cmd.ExecuteNonQuery();                          //ejecuta la instrucion en la conexion y devuelve el numero de filas afectadas
 

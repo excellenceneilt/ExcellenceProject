@@ -15,7 +15,7 @@ namespace CapaDatos
     public class CD_Producto
     {
 
-        //Metodo para listar
+        //Metodo para listar los productos
         public List<Producto> Listar()
         {
             List<Producto> lista = new List<Producto>();
@@ -99,7 +99,7 @@ namespace CapaDatos
 
             return idProductogenerado;
         }
-
+        //funcion para Editar el producto
         public bool Editar(Producto obj, out string Mensaje)
         {
             bool respuesta = false;
@@ -139,6 +139,7 @@ namespace CapaDatos
             return respuesta;
         }
 
+        //funcions para eliminar el producto
         public bool Eliminar(Producto obj, out string Mensaje)
         {
             bool respuesta = false;

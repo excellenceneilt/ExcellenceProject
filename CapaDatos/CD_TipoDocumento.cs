@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class CD_TipoDocumento
     {
-        //Metodo para listar
+        //Metodo para listar los tipos de documento
         public List<Tipo_Documento> Listar()
         {
             List<Tipo_Documento> lista = new List<Tipo_Documento>();
