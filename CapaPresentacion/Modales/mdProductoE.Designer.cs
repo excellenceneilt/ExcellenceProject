@@ -37,8 +37,10 @@
             this.btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
             this.btnbuscar = new FontAwesome.Sharp.IconButton();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SinNroSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             this.label10.Location = new System.Drawing.Point(10, 9);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label10.Size = new System.Drawing.Size(572, 96);
+            this.label10.Size = new System.Drawing.Size(737, 96);
             this.label10.TabIndex = 63;
             this.label10.Text = "Lista de productos:";
             // 
@@ -70,14 +72,16 @@
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
-            this.Nombre,
-            this.Marca});
+            this.NombreProducto,
+            this.Marca,
+            this.CantidadTotal,
+            this.SinNroSerie});
             this.dgvdata.Location = new System.Drawing.Point(10, 108);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(573, 330);
+            this.dgvdata.Size = new System.Drawing.Size(737, 330);
             this.dgvdata.TabIndex = 62;
             this.dgvdata.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellDoubleClick);
             // 
@@ -153,12 +157,12 @@
             this.Codigo.ReadOnly = true;
             this.Codigo.Width = 130;
             // 
-            // Nombre
+            // NombreProducto
             // 
-            this.Nombre.HeaderText = "Nombre Producto";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 260;
+            this.NombreProducto.HeaderText = "Nombre producto";
+            this.NombreProducto.Name = "NombreProducto";
+            this.NombreProducto.ReadOnly = true;
+            this.NombreProducto.Width = 260;
             // 
             // Marca
             // 
@@ -166,11 +170,23 @@
             this.Marca.Name = "Marca";
             this.Marca.ReadOnly = true;
             // 
+            // CantidadTotal
+            // 
+            this.CantidadTotal.HeaderText = "Cantidad total";
+            this.CantidadTotal.Name = "CantidadTotal";
+            this.CantidadTotal.ReadOnly = true;
+            // 
+            // SinNroSerie
+            // 
+            this.SinNroSerie.HeaderText = "Sin nro serie";
+            this.SinNroSerie.Name = "SinNroSerie";
+            this.SinNroSerie.ReadOnly = true;
+            // 
             // mdProductoE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 450);
+            this.ClientSize = new System.Drawing.Size(759, 450);
             this.Controls.Add(this.txtbusqueda);
             this.Controls.Add(this.cbobusqueda);
             this.Controls.Add(this.label11);
@@ -196,7 +212,9 @@
         private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
         private FontAwesome.Sharp.IconButton btnbuscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SinNroSerie;
     }
 }

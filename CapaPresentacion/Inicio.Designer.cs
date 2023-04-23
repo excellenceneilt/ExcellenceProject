@@ -106,11 +106,11 @@
             // 
             this.menuMantenimiento.AutoSize = false;
             this.menuMantenimiento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marcaToolStripMenuItem,
             this.submenuProducto,
-            this.submenuEspecialidad,
-            this.submenunegocio,
             this.equipoToolStripMenuItem,
-            this.marcaToolStripMenuItem});
+            this.submenuEspecialidad,
+            this.submenunegocio});
             this.menuMantenimiento.IconChar = FontAwesome.Sharp.IconChar.Tools;
             this.menuMantenimiento.IconColor = System.Drawing.Color.Black;
             this.menuMantenimiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
