@@ -60,7 +60,7 @@ namespace CapaPresentacion.Modales
                 _Producto = new Producto()
                 {
                     Codigo = dgvdata.Rows[iRow].Cells["Codigo"].Value.ToString(),
-                    Nombre = dgvdata.Rows[iRow].Cells["Nombre"].Value.ToString(),
+                    Nombre = dgvdata.Rows[iRow].Cells["NombreProducto"].Value.ToString(),
                     oMarca = new Marca() { Descripcion = dgvdata.Rows[iRow].Cells["Marca"].Value.ToString() }
                 };
                 this.DialogResult = DialogResult.OK;
