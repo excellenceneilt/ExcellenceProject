@@ -47,7 +47,10 @@ namespace CapaPresentacion.Modales
                 {
                     item.Codigo,
                     item.Nombre,
-                    item.oMarca.Descripcion
+                    item.oMarca.Descripcion,
+                    "",
+                    "",
+                    item.IdProducto,
                 });
             }
         }
@@ -61,7 +64,9 @@ namespace CapaPresentacion.Modales
                 {
                     Codigo = dgvdata.Rows[iRow].Cells["Codigo"].Value.ToString(),
                     Nombre = dgvdata.Rows[iRow].Cells["NombreProducto"].Value.ToString(),
-                    oMarca = new Marca() { Descripcion = dgvdata.Rows[iRow].Cells["Marca"].Value.ToString() }
+                    oMarca = new Marca() { Descripcion = dgvdata.Rows[iRow].Cells["Marca"].Value.ToString() },
+                    // IdProducto = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdProducto"].Value.ToString())
+                    IdProducto = int.Parse(dgvdata.Rows[iRow].Cells["IdProducto"].Value.ToString())
                 };
                 this.DialogResult = DialogResult.OK;
                 this.Close();

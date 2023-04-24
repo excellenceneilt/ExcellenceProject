@@ -33,6 +33,7 @@ namespace CapaPresentacion
                     txtcodigo.Text = modal._Producto.Codigo;
                     txtmodelo.Text = modal._Producto.Nombre;
                     txtmarca.Text = modal._Producto.oMarca.Descripcion;
+                    txtidproducto.Text = modal._Producto.IdProducto.ToString();
                     txtserial.Select();
                 }
             }
@@ -54,7 +55,8 @@ namespace CapaPresentacion
                 dgvdata.Rows.Add(new object[] {
                     item.IdEquipo,
                     item.Modelo,
-                    item.SerialNumber
+                    item.SerialNumber,
+                   
                 });
             }
             #endregion
@@ -78,7 +80,9 @@ namespace CapaPresentacion
                 CodigoEquipo = txtcodigo.Text,
                 Marca = txtmarca.Text,
                 Modelo = txtmodelo.Text,
-                SerialNumber = txtserial.Text
+                SerialNumber = txtserial.Text,
+                eProducto = new Producto() { IdProducto = Convert.ToInt32(txtidproducto.Text) },
+                
                
             };
             if (objEquipo.IdEquipo == 0)
@@ -99,6 +103,7 @@ namespace CapaPresentacion
                         txtcodigo.Text,
                         txtmarca.Text,
                         txtmodelo.Text,
+                        txtidproducto.Text,
                         txtserial.Text
 
                 });
@@ -125,7 +130,8 @@ namespace CapaPresentacion
                     row.Cells["Marca"].Value = txtmarca.Text;
                     row.Cells["Modelo"].Value = txtmodelo.Text;
                     row.Cells["Serial"].Value = txtserial.Text;
-                  //  Limpiar();
+                    row.Cells["IdProducto"].Value = txtidproducto.Text;
+                    //  Limpiar();
 
                 }
                 else

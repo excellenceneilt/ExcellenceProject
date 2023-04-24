@@ -41,6 +41,7 @@
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantidadTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SinNroSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +76,8 @@
             this.NombreProducto,
             this.Marca,
             this.CantidadTotal,
-            this.SinNroSerie});
+            this.SinNroSerie,
+            this.IdProducto});
             this.dgvdata.Location = new System.Drawing.Point(10, 108);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
@@ -182,6 +184,12 @@
             this.SinNroSerie.Name = "SinNroSerie";
             this.SinNroSerie.ReadOnly = true;
             // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "IdProducto";
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.ReadOnly = true;
+            // 
             // mdProductoE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,5 +224,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantidadTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn SinNroSerie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdProducto;
     }
 }
