@@ -1,19 +1,5 @@
 --Creación tablas
 
-/*
-create table Equipo(
-	IdEquipo int primary key identity,
-	CodigoEquipo varchar(50),
-	Modelo varchar(50),
-	SerialNumber varchar(50),
-	IdProducto int foreign key  references Producto(IdProducto),
-	IdCategoria int foreign key  references Categoria(IdCategoria),
-	IdEstadoEquipo  int foreign key references EstadoEquipo(IdEstadoEquipo),
-	Estado bit,
-	FechaRegistro date default getdate()
-);
-*/
-drop table Equipo
 create table Equipo(
 	IdEquipo int primary key identity,
 	CodigoEquipo varchar(50),
@@ -22,7 +8,8 @@ create table Equipo(
 	SerialNumber varchar(50),
 	IdEstadoEquipo  int default 1 foreign key references EstadoEquipo(IdEstadoEquipo),
 	Estado bit,
-	FechaRegistro date default getdate()
+	FechaRegistro date default getdate(),
+	IdProducto int references Producto(IdProducto)
 );
 go
 

@@ -17,5 +17,6 @@ namespace CapaEntidad
         public EstadoEquipo eEstadoEquipo { get; set; } //es el estado del equipo, el equipo puede tener diferentes estados cuando pasa por servicio tecnico
         public bool Estado {get; set;}                  //es el estado del equipo, de manera general
         public string FechaRegistro { get; set; }       //es la fecha en la que se registra el equipo
+        public Producto eProducto { get; set; }       //es el id del producto al que pertenece el equipo
     }
 }
