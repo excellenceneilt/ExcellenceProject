@@ -52,20 +52,9 @@ namespace CapaPresentacion
                 //procurar tener la misma cantidad de items que de columnas.
 
                 dgvdata.Rows.Add(new object[] {
-                  //   "",
-                     item.IdEquipo,
-                   // item.CodigoEquipo,
-                   item.Modelo,
-                   item.SerialNumber,
-                    
-                  //  item.Marca,
-                    
-                  //  item.Producto,
-                  //  item.eEstadoEquipo.Descripcion,
-                    
-
-                    item.Estado==true ?1 : 0,
-                    item.Estado==true ?"Activo":"Inactivo",
+                    item.IdEquipo,
+                    item.Modelo,
+                    item.SerialNumber
                 });
             }
             #endregion

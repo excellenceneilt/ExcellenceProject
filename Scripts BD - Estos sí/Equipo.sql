@@ -13,12 +13,6 @@ create table Equipo(
 );
 go
 
-exec sp_fkeys 'Equipo'
-
-select * from Equipo
-select * from Estado
-select IdEquipo, Modelo, SerialNumber from  Equipo 
-
 --Procedimientos almacenados
 
 --Registrar equipos
@@ -65,6 +59,7 @@ create proc SP_RegistrarEquipos(
 @Marca varchar(50),
 @Modelo varchar (50),
 @SerialNumber varchar (50),
+@IdProducto	int,
 @Estado bit, 
 
   @Resultado int output, 
@@ -79,11 +74,11 @@ set
     where 
       SerialNumber = @SerialNumber
   ) begin insert into Equipo(
-    CodigoEquipo, Marca,Modelo, SerialNumber,  Estado
+    CodigoEquipo, Marca,Modelo, SerialNumber,  Estado, IdProducto
   ) 
 values 
   (
-   @CodigoEquipo,@Marca, @Modelo, @SerialNumber, @Estado
+   @CodigoEquipo,@Marca, @Modelo, @SerialNumber, @Estado, @IdProducto
   ) 
 set 
   @Resultado = SCOPE_IDENTITY() end else 
@@ -142,11 +137,11 @@ create proc SP_ModificarEquipo(
 @SerialNumber varchar (50),
 @IdProducto int,
 @IdEstadoEquipo int,
-
-	@Estado bit, 
-  @Resultado int output, 
-  @Mensaje varchar(500) output
-) as begin 
+@Estado bit, 
+@Resultado int output, 
+@Mensaje varchar(500) output
+)
+	as begin 
 set 
   @Resultado = 1 declare @IDequipp INT if not exists(
     select 

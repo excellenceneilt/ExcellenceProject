@@ -39,9 +39,7 @@ namespace CapaDatos
                                 eProducto = new Producto() 
                                 { 
                                     IdProducto = Convert.ToInt32(dr["IdProducto"])    
-                                },
-                                Estado = Convert.ToBoolean(dr["Estado"])
-
+                                }
                             });
                         }
                     }
