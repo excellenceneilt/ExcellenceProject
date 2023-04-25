@@ -10,6 +10,7 @@ namespace CapaDatos
 {
     public class CD_Negocio
     {
+        //funcion para obtener los datos de un negocio
         public Negocio ObtenerDatos()
         {
             Negocio obj = new Negocio();
@@ -45,6 +46,7 @@ namespace CapaDatos
             return obj;
         }
 
+        //funcion para guardar los datos de un negocio
         public bool GuardarDatos(Negocio objeto, out string mensaje)
         {
             mensaje = string.Empty;
@@ -57,7 +59,7 @@ namespace CapaDatos
                 {
                     conexion.Open();
 
-
+                    //guarda los datos en el id 1, porque es el unico registro que debe de existir del negocio
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("update NEGOCIO set Nombre = @Nombre,");
                     query.AppendLine("RUC = @ruc,");
@@ -85,7 +87,7 @@ namespace CapaDatos
             }
             return respuesta;
         }
-
+        //funcion para obtener el logo del negocio
         public byte[] ObtenerLogo(out bool obtenido)
         {
             obtenido = true;
@@ -118,6 +120,7 @@ namespace CapaDatos
             return LogoBytes;
         }
 
+        //funcion para actualizar el logo de la empresa
         public bool ActualizarLogo(byte[] image, out string mensaje)
         {
             mensaje = string.Empty;

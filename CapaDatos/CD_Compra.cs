@@ -144,9 +144,9 @@ namespace CapaDatos
                     conexion.Open();
                     StringBuilder query = new StringBuilder();
 
-                    query.AppendLine("select p.Nombre,dc.PrecioCompra,dc.Cantidad,dc.MontoTotal from DETALLE_COMPRA dc");
-                    query.AppendLine("inner join PRODUCTO p on p.IdProducto = dc.IdProducto");
-                    query.AppendLine("where dc.IdCompra = @idcompra");
+                    query.AppendLine("select p.Nombre,dc.PrecioCompra,dc.Cantidad,dc.Total from DETALLE_COMPRA dc");
+                    query.AppendLine("inner join PRODUCTO p on p.IdProducto = dc.IdProductoDC");
+                    query.AppendLine("where dc.IdCompraDC = @idcompra");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), conexion);
                     cmd.Parameters.AddWithValue("@idcompra", idcompra);
@@ -161,7 +161,7 @@ namespace CapaDatos
                                 oProducto = new Producto() { Nombre = dr["Nombre"].ToString() },
                                 PrecioCompra = Convert.ToDecimal(dr["PrecioCompra"].ToString()),
                                 Cantidad = Convert.ToInt32(dr["Cantidad"].ToString()),
-                                MontoTotal = Convert.ToDecimal(dr["MontoTotal"].ToString())
+                                MontoTotal = Convert.ToDecimal(dr["Total"].ToString())
                             });
                         }
                     }

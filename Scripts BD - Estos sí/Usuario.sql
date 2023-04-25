@@ -47,7 +47,7 @@ set
   @Mensaje = 'No se puede repetir el documento para más de un usuario' end
   GO
 
-
+  
 
 -- Editar usuario
 
@@ -69,7 +69,7 @@ set
     select 
       * 
     from 
-      USUARIO 
+      USUARIO
     where 
       Documento = @Documento 
       and IdUsuario != @IdUsuario

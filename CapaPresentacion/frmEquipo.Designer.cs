@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtindice = new System.Windows.Forms.TextBox();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.txtmarca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnbuscar = new FontAwesome.Sharp.IconButton();
@@ -37,16 +39,16 @@
             this.btnlimpiar = new FontAwesome.Sharp.IconButton();
             this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.dgvdata = new System.Windows.Forms.DataGridView();
-            this.Serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtserial = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtcodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtindice = new System.Windows.Forms.TextBox();
-            this.txtid = new System.Windows.Forms.TextBox();
+            this.IdEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtidproducto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +56,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.txtidproducto);
             this.groupBox1.Controls.Add(this.txtindice);
             this.groupBox1.Controls.Add(this.txtid);
             this.groupBox1.Controls.Add(this.txtmarca);
@@ -72,10 +75,28 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(562, 428);
+            this.groupBox1.Size = new System.Drawing.Size(609, 428);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingreso de equipo";
+            // 
+            // txtindice
+            // 
+            this.txtindice.Location = new System.Drawing.Point(403, 28);
+            this.txtindice.Name = "txtindice";
+            this.txtindice.Size = new System.Drawing.Size(23, 29);
+            this.txtindice.TabIndex = 151;
+            this.txtindice.Text = "-1";
+            this.txtindice.Visible = false;
+            // 
+            // txtid
+            // 
+            this.txtid.Location = new System.Drawing.Point(432, 28);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(23, 29);
+            this.txtid.TabIndex = 150;
+            this.txtid.Text = "0";
+            this.txtid.Visible = false;
             // 
             // txtmarca
             // 
@@ -184,29 +205,16 @@
             this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Serial,
-            this.Modelo});
+            this.IdEquipo,
+            this.Modelo,
+            this.Serial});
             this.dgvdata.Location = new System.Drawing.Point(8, 209);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(544, 205);
+            this.dgvdata.Size = new System.Drawing.Size(595, 205);
             this.dgvdata.TabIndex = 142;
-            // 
-            // Serial
-            // 
-            this.Serial.HeaderText = "Serial";
-            this.Serial.Name = "Serial";
-            this.Serial.ReadOnly = true;
-            this.Serial.Width = 160;
-            // 
-            // Modelo
-            // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
-            this.Modelo.Width = 340;
             // 
             // txtserial
             // 
@@ -267,29 +275,42 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código de equipo:";
             // 
-            // txtindice
+            // IdEquipo
             // 
-            this.txtindice.Location = new System.Drawing.Point(403, 28);
-            this.txtindice.Name = "txtindice";
-            this.txtindice.Size = new System.Drawing.Size(23, 29);
-            this.txtindice.TabIndex = 151;
-            this.txtindice.Text = "-1";
-            this.txtindice.Visible = false;
+            this.IdEquipo.HeaderText = "IdEquipo";
+            this.IdEquipo.Name = "IdEquipo";
+            this.IdEquipo.ReadOnly = true;
             // 
-            // txtid
+            // Modelo
             // 
-            this.txtid.Location = new System.Drawing.Point(432, 28);
-            this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(23, 29);
-            this.txtid.TabIndex = 150;
-            this.txtid.Text = "0";
-            this.txtid.Visible = false;
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            this.Modelo.Width = 280;
+            // 
+            // Serial
+            // 
+            this.Serial.HeaderText = "Serial";
+            this.Serial.Name = "Serial";
+            this.Serial.ReadOnly = true;
+            this.Serial.Width = 160;
+
+            // txtidproducto
+            // 
+            this.txtidproducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtidproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtidproducto.Location = new System.Drawing.Point(229, 52);
+            this.txtidproducto.Name = "txtidproducto";
+            this.txtidproducto.ReadOnly = true;
+            this.txtidproducto.Size = new System.Drawing.Size(143, 20);
+            this.txtidproducto.TabIndex = 153;
+
             // 
             // frmEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 450);
+            this.ClientSize = new System.Drawing.Size(629, 450);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmEquipo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -312,8 +333,6 @@
         private System.Windows.Forms.TextBox txtserial;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvdata;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Serial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
         private System.Windows.Forms.Label label5;
         private FontAwesome.Sharp.IconButton btnlimpiar;
         private FontAwesome.Sharp.IconButton btnguardar;
@@ -322,5 +341,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtindice;
         private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdEquipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Serial;
+        private System.Windows.Forms.TextBox txtidproducto;
     }
 }

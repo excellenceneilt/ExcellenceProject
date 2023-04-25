@@ -20,10 +20,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdEquipo, CodigoEquipo, Modelo, SerialNumber,Marca,Producto,  ed.IdEstadoEquipo, ed.Descripcion[DescripcionEquipo] from Equipo e");
-                    
-                   // query.AppendLine("inner join PRODUCTO p on p.IdProducto = e.IdProducto");
-                    query.AppendLine("inner join EstadoEquipo ed on ed.IdEstadoEquipo = e.IdEstadoEquipo");
+                    query.AppendLine("select IdEquipo, Modelo, SerialNumber, IdProducto from  Equipo");
                     
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -37,22 +34,12 @@ namespace CapaDatos
                             {
                                 //Listar productos en tabla
                                 IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
-                                CodigoEquipo = dr["CodigoEquipo"].ToString(),
                                 Modelo = dr["Modelo"].ToString(),
                                 SerialNumber = dr["SerialNumber"].ToString(),
-                                Marca = dr["Marca"].ToString(),
-                               // Producto = dr["Producto"].ToString(),
-                                //Llave foránea
-                               
-                                eEstadoEquipo = new EstadoEquipo()
-                                {
-                                    IdEstadoEquipo = Convert.ToInt32(dr["IdEstadoEquipo"]),
-                                    Descripcion = dr["DescripcionEquipo"].ToString()
-                                },
-
-                                
-                                Estado = Convert.ToBoolean(dr["Estado"])
-
+                                eProducto = new Producto() 
+                                { 
+                                    IdProducto = Convert.ToInt32(dr["IdProducto"])    
+                                }
                             });
                         }
                     }
@@ -81,10 +68,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Marca", obj.Marca);
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
                     cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
-                    
-                 //   cmd.Parameters.AddWithValue("IdProducto",obj.Producto);
-                   // cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.eEstadoEquipo.IdEstadoEquipo);
-
+                    cmd.Parameters.AddWithValue("IdProducto", obj.eProducto.IdProducto);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
 
                     //Declarando parámetros de salida
@@ -122,18 +106,14 @@ namespace CapaDatos
                     //Declarando los parámetros de entrada
                     SqlCommand cmd = new SqlCommand("SP_ModificarProducto", oconexion);
                     cmd.Parameters.AddWithValue("IdEquipo", obj.IdEquipo);
-
-                 //   cmd.Parameters.AddWithValue("CodigoEquipo", obj.eCodigoEquipo.Codigo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
-
                     cmd.Parameters.AddWithValue("CodigoEquipo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
-
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
                     cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
                     cmd.Parameters.AddWithValue("Marca", obj.Marca);
-                  //  cmd.Parameters.AddWithValue("IdProducto", obj.Producto);
                     cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.eEstadoEquipo.IdEstadoEquipo);
-
+                    cmd.Parameters.AddWithValue("IdProducto", obj.eProducto.IdProducto);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
+
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 

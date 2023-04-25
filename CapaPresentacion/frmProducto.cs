@@ -137,7 +137,7 @@ namespace CapaPresentacion
                 IdProducto = Convert.ToInt32(txtid.Text),
                 Nombre = txtnombre.Text,
                 Codigo = txtcodigo.Text,
-                Descripcion = txtnombre.Text,
+                Descripcion = txtdescripcion.Text,
                 //Para los combobox:
                 //  oMarca = new Marca() { IdMarca = Convert.ToInt32(cbomarca.SelectedIndex)}, incorrecto
                 oMarca = new Marca() { IdMarca = Convert.ToInt32(((OpcionCombo)cbomarca.SelectedItem).Valor) },
