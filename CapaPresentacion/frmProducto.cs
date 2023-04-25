@@ -67,25 +67,7 @@ namespace CapaPresentacion
             #endregion
 
             #region Datagrid
-
-            List<Producto> listaProducto = new CN_Producto().Listar();
-            foreach (Producto item in listaProducto)
-            {
-                dgvdata.Rows.Add(new object[] {
-                    "",
-                   item.IdProducto,
-                   item.Codigo,
-                   item.Nombre,
-                   item.Descripcion,
-                   item.oMarca.IdMarca,
-                   item.oMarca.Descripcion,
-                   item.Stock,
-                   item.PrecioCompra,
-                   item.PrecioVenta,
-                   item.Estado==true ?1 : 0,
-                   item.Estado==true ?"Activo":"Inactivo"
-                });
-            }
+            listarDgv();
             #endregion
         }
 
@@ -370,6 +352,61 @@ namespace CapaPresentacion
         }
 
 
+        #endregion
+
+        private void btnrecargartabla_Click(object sender, EventArgs e)
+        {
+            listarDgv();
+        }
+
+        private void listarDgv()
+        {
+            txtbusqueda.Text = string.Empty;
+            txtcodigo.Text = string.Empty;
+            txtnombre.Text = string.Empty;
+            txtdescripcion.Text = string.Empty;
+            txtcodigo.Focus();
+            dgvdata.Rows.Clear();
+
+            List<Producto> listaProducto = new CN_Producto().Listar();
+            foreach (Producto item in listaProducto)
+            {
+                dgvdata.Rows.Add(new object[] {
+                    "",
+                   item.IdProducto,
+                   item.Codigo,
+                   item.Nombre,
+                   item.Descripcion,
+                   item.oMarca.IdMarca,
+                   item.oMarca.Descripcion,
+                   item.Stock,
+                   item.PrecioCompra,
+                   item.PrecioVenta,
+                   item.Estado==true ?1 : 0,
+                   item.Estado==true ?"Activo":"Inactivo"
+                });
+            }
+        }
+
+        #region Comentario del llenado del DGV
+        /*List<Producto> listaProducto = new CN_Producto().Listar();
+            foreach (Producto item in listaProducto)
+            {
+                dgvdata.Rows.Add(new object[] {
+                    "",
+                   item.IdProducto,
+                   item.Codigo,
+                   item.Nombre,
+                   item.Descripcion,
+                   item.oMarca.IdMarca,
+                   item.oMarca.Descripcion,
+                   item.Stock,
+                   item.PrecioCompra,
+                   item.PrecioVenta,
+                   item.Estado==true ?1 : 0,
+                   item.Estado==true ?"Activo":"Inactivo"
+                });
+            }*/
         #endregion
     }
 }

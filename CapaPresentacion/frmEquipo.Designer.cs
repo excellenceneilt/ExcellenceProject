@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtidproducto = new System.Windows.Forms.TextBox();
             this.txtindice = new System.Windows.Forms.TextBox();
             this.txtid = new System.Windows.Forms.TextBox();
             this.txtmarca = new System.Windows.Forms.TextBox();
@@ -39,16 +42,15 @@
             this.btnlimpiar = new FontAwesome.Sharp.IconButton();
             this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.dgvdata = new System.Windows.Forms.DataGridView();
+            this.IdEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtserial = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtcodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.IdEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtidproducto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
@@ -80,20 +82,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingreso de equipo";
             // 
+            // txtidproducto
+            // 
+            this.txtidproducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtidproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtidproducto.Location = new System.Drawing.Point(229, 52);
+            this.txtidproducto.Name = "txtidproducto";
+            this.txtidproducto.ReadOnly = true;
+            this.txtidproducto.Size = new System.Drawing.Size(143, 20);
+            this.txtidproducto.TabIndex = 153;
+            // 
             // txtindice
             // 
+            this.txtindice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtindice.Location = new System.Drawing.Point(403, 28);
             this.txtindice.Name = "txtindice";
-            this.txtindice.Size = new System.Drawing.Size(23, 29);
+            this.txtindice.Size = new System.Drawing.Size(23, 20);
             this.txtindice.TabIndex = 151;
             this.txtindice.Text = "-1";
             this.txtindice.Visible = false;
             // 
             // txtid
             // 
+            this.txtid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtid.Location = new System.Drawing.Point(432, 28);
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(23, 29);
+            this.txtid.Size = new System.Drawing.Size(23, 20);
             this.txtid.TabIndex = 150;
             this.txtid.Text = "0";
             this.txtid.Visible = false;
@@ -193,7 +207,6 @@
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -208,13 +221,49 @@
             this.IdEquipo,
             this.Modelo,
             this.Serial});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvdata.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvdata.Location = new System.Drawing.Point(8, 209);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.RowTemplate.Height = 28;
             this.dgvdata.Size = new System.Drawing.Size(595, 205);
             this.dgvdata.TabIndex = 142;
+            // 
+            // IdEquipo
+            // 
+            this.IdEquipo.HeaderText = "IdEquipo";
+            this.IdEquipo.Name = "IdEquipo";
+            this.IdEquipo.ReadOnly = true;
+            // 
+            // Modelo
+            // 
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            this.Modelo.Width = 280;
+            // 
+            // Serial
+            // 
+            this.Serial.HeaderText = "Serial";
+            this.Serial.Name = "Serial";
+            this.Serial.ReadOnly = true;
+            this.Serial.Width = 160;
             // 
             // txtserial
             // 
@@ -274,37 +323,6 @@
             this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Código de equipo:";
-            // 
-            // IdEquipo
-            // 
-            this.IdEquipo.HeaderText = "IdEquipo";
-            this.IdEquipo.Name = "IdEquipo";
-            this.IdEquipo.ReadOnly = true;
-            // 
-            // Modelo
-            // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
-            this.Modelo.Width = 280;
-            // 
-            // Serial
-            // 
-            this.Serial.HeaderText = "Serial";
-            this.Serial.Name = "Serial";
-            this.Serial.ReadOnly = true;
-            this.Serial.Width = 160;
-
-            // txtidproducto
-            // 
-            this.txtidproducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtidproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtidproducto.Location = new System.Drawing.Point(229, 52);
-            this.txtidproducto.Name = "txtidproducto";
-            this.txtidproducto.ReadOnly = true;
-            this.txtidproducto.Size = new System.Drawing.Size(143, 20);
-            this.txtidproducto.TabIndex = 153;
-
             // 
             // frmEquipo
             // 

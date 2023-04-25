@@ -48,21 +48,7 @@ namespace CapaPresentacion
             cbobusqueda.SelectedIndex = 0;
             #endregion
 
-            #region Datagrid
-
-            List<Marca> listaMarca = new CN_Marca().Listar();
-            foreach (Marca item in listaMarca)
-            {
-                dgvdata.Rows.Add(new object[] {
-                    "",
-                   item.IdMarca,
-                   item.Descripcion,
-                   item.Estado==true ?1 : 0,
-                   item.Estado==true ?"Activo":"Inactivo"
-                });
-            }
-            #endregion
-
+            listarDgv();
         }
 
         private void btnguardar_Click(object sender, EventArgs e)
@@ -86,12 +72,15 @@ namespace CapaPresentacion
                 if (idgenerado != 0)
                 {
                     //Agregar nueva fila y declara nuevo objeto en el datagridview
-                    dgvdata.Rows.Add(new object[] {"",idgenerado,txtdescripcion.Text,
-              ((OpcionCombo) cboestado.SelectedItem).Valor.ToString(),
-              ((OpcionCombo) cboestado.SelectedItem).Texto.ToString(),
-                });
+                    dgvdata.Rows.Add(new object[] {
+                        "",
+                        idgenerado,
+                        txtdescripcion.Text,
+                        ((OpcionCombo) cboestado.SelectedItem).Valor.ToString(),
+                        ((OpcionCombo) cboestado.SelectedItem).Texto.ToString()
+                    });
 
-                    //Limpiar();
+                    Limpiar();
                 }
                 else
                 {
@@ -134,7 +123,6 @@ namespace CapaPresentacion
 
         }
         
-        
         private void buscar()
         {
             string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
@@ -153,6 +141,23 @@ namespace CapaPresentacion
                 }
             }
         }
+        private void listarDgv()
+        {
+            txtbusqueda.Text = string.Empty;
+            dgvdata.Rows.Clear();
+
+            List<Marca> listaMarca = new CN_Marca().Listar();
+            foreach (Marca item in listaMarca)
+            {
+                dgvdata.Rows.Add(new object[] {
+                    "",
+                   item.IdMarca,
+                   item.Descripcion,
+                   item.Estado==true ?1 : 0,
+                   item.Estado==true ?"Activo":"Inactivo"
+                });
+            }
+        }
         private void txtbusqueda_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == (char)Keys.Enter)
@@ -160,12 +165,6 @@ namespace CapaPresentacion
                 buscar();
             }
         }
-        private void frmProducto_Shown(object sender, EventArgs e)
-        {
-            txtdescripcion.Focus();
-        }
-
-
 
         #endregion
 
@@ -220,12 +219,17 @@ namespace CapaPresentacion
 
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
-            txtindice.Text = "-1";
-            txtid.Text = "0";
+            Limpiar();
+        }
 
-            txtdescripcion.Text = "";
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            buscar();
+        }
 
-            cboestado.SelectedIndex = 0;
+        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
+        {
+            listarDgv();
         }
     }
 }
