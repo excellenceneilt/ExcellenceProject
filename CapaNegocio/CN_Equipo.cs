@@ -83,6 +83,10 @@ namespace CapaNegocio
         {
             return objcd_Equipo.Eliminar(obj, out Mensaje);
         }
+        public int ProductoConSerial(int idProducto)
+        {
+            return objcd_Equipo.ProductoConSerial(idProducto);
+        }
 
     }
 }

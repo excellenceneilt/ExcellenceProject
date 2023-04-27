@@ -64,10 +64,7 @@ namespace CapaPresentacion
 
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
-            txtmodelo.Text = string.Empty;
-            txtcodigo.Text = string.Empty;
-            txtserial.Text = string.Empty;
-            txtmodelo.Focus();
+            Limpiar();
         }
 
         private void btnguardar_Click(object sender, EventArgs e)
@@ -82,8 +79,6 @@ namespace CapaPresentacion
                 Modelo = txtmodelo.Text,
                 SerialNumber = txtserial.Text,
                 eProducto = new Producto() { IdProducto = Convert.ToInt32(txtidproducto.Text) },
-                
-               
             };
             if (objEquipo.IdEquipo == 0)
             {
@@ -97,18 +92,16 @@ namespace CapaPresentacion
                     //No sé qué es lo que hace ._.
 
                     dgvdata.Rows.Add(new object[] {
-                       // "",
-                       // idEquipogenerado,
-                        
+                        txtidproducto.Text,
                         txtcodigo.Text,
                         txtmarca.Text,
                         txtmodelo.Text,
                         txtidproducto.Text,
                         txtserial.Text
 
-                });
+                    });
 
-                   // Limpiar();
+                    Limpiar();
 
                 }
                 else
@@ -131,7 +124,7 @@ namespace CapaPresentacion
                     row.Cells["Modelo"].Value = txtmodelo.Text;
                     row.Cells["Serial"].Value = txtserial.Text;
                     row.Cells["IdProducto"].Value = txtidproducto.Text;
-                    //  Limpiar();
+                    Limpiar();
 
                 }
                 else
@@ -139,11 +132,28 @@ namespace CapaPresentacion
                     MessageBox.Show(mensaje);
                 }
             }
-
-
-
         }
 
-        
+        private void Limpiar()
+        {
+            txtcodigo.Text = string.Empty;
+            txtmarca.Text = string.Empty;
+            txtmodelo.Text = string.Empty;
+            txtserial.Text = string.Empty;
+            txtidproducto.Text = string.Empty;
+            txtmodelo.Focus();
+        }
+
+        private void txtidproducto_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtidproducto.Text))
+            {
+                btnguardar.Enabled = false;
+            }
+            else
+            {
+                btnguardar.Enabled = true;
+            }
+        }
     }
 }

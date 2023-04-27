@@ -1,6 +1,7 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
 using CapaPresentacion.Utilidades;
+using DocumentFormat.OpenXml.Drawing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,13 +44,15 @@ namespace CapaPresentacion.Modales
             //Se recorre la lista
             foreach (Producto item in listaProducto)
             {//Colocar las columnas del datagrid
+                int cantidad = new CN_Equipo().ProductoConSerial(item.IdProducto);
+                int equiposSinSerial = item.Stock - cantidad;
                 dgvdata.Rows.Add(new object[]
                 {
                     item.Codigo,
                     item.Nombre,
                     item.oMarca.Descripcion,
-                    "",
-                    "",
+                    item.Stock,
+                    equiposSinSerial,
                     item.IdProducto,
                 });
             }
@@ -60,16 +63,25 @@ namespace CapaPresentacion.Modales
             int iColum = e.ColumnIndex;
             if (iRow >= 0 && iColum >= 0)
             {
-                _Producto = new Producto()
+                if (Convert.ToInt32(dgvdata.Rows[iRow].Cells["SinNroSerie"].Value) > 0)
                 {
-                    Codigo = dgvdata.Rows[iRow].Cells["Codigo"].Value.ToString(),
-                    Nombre = dgvdata.Rows[iRow].Cells["NombreProducto"].Value.ToString(),
-                    oMarca = new Marca() { Descripcion = dgvdata.Rows[iRow].Cells["Marca"].Value.ToString() },
-                    // IdProducto = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdProducto"].Value.ToString())
-                    IdProducto = int.Parse(dgvdata.Rows[iRow].Cells["IdProducto"].Value.ToString())
-                };
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    _Producto = new Producto()
+                    {
+                        Codigo = dgvdata.Rows[iRow].Cells["Codigo"].Value.ToString(),
+                        Nombre = dgvdata.Rows[iRow].Cells["NombreProducto"].Value.ToString(),
+                        oMarca = new Marca() { Descripcion = dgvdata.Rows[iRow].Cells["Marca"].Value.ToString() },
+                        IdProducto = int.Parse(dgvdata.Rows[iRow].Cells["IdProducto"].Value.ToString())
+                    };
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("No se puede agregar número de serie a este producto" +
+                        " debido a que no hay stock disponible sin número de serie o ya todos tienen número de serie",
+                        "Mensaje informativo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
             }
         }
         private void btnbuscar_Click(object sender, EventArgs e)

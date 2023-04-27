@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -171,6 +172,39 @@ namespace CapaDatos
             }
 
             return respuesta;
+        }
+
+        //Funcion para determinar cuantos equipos tienen un numero de serie agrupandolos por el id del producto
+        public int ProductoConSerial(int idProducto)
+        {
+            int cantidad = 0;
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select count(*)[ProductoConSerial] from Equipo where IdProducto = @IdProducto group by IdProducto");
+                    
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmd.CommandType = CommandType.Text;
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            cantidad = Convert.ToInt32(dr["ProductoConSerial"]);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    cantidad = 0;
+                }
+                return cantidad;
+            }
         }
     }
 }

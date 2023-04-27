@@ -77,7 +77,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(609, 428);
+            this.groupBox1.Size = new System.Drawing.Size(651, 540);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingreso de equipo";
@@ -86,11 +86,12 @@
             // 
             this.txtidproducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtidproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtidproducto.Location = new System.Drawing.Point(229, 52);
+            this.txtidproducto.Location = new System.Drawing.Point(350, 29);
             this.txtidproducto.Name = "txtidproducto";
             this.txtidproducto.ReadOnly = true;
-            this.txtidproducto.Size = new System.Drawing.Size(143, 20);
+            this.txtidproducto.Size = new System.Drawing.Size(38, 20);
             this.txtidproducto.TabIndex = 153;
+            this.txtidproducto.TextChanged += new System.EventHandler(this.txtidproducto_TextChanged);
             // 
             // txtindice
             // 
@@ -187,6 +188,7 @@
             // 
             this.btnguardar.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnguardar.Enabled = false;
             this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnguardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -235,14 +237,14 @@
             this.dgvdata.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(595, 205);
+            this.dgvdata.Size = new System.Drawing.Size(614, 325);
             this.dgvdata.TabIndex = 142;
             // 
             // IdEquipo
@@ -328,7 +330,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 450);
+            this.ClientSize = new System.Drawing.Size(671, 562);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmEquipo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
