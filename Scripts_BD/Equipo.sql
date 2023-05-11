@@ -9,7 +9,9 @@ create table Equipo(
 	IdEstadoEquipo  int default 1 foreign key references EstadoEquipo(IdEstadoEquipo),
 	Estado bit,
 	FechaRegistro date default getdate(),
-	IdProducto int references Producto(IdProducto)
+	IdProducto int references Producto(IdProducto),
+	IdCliente int references Cliente(IdCliente),
+	IdCompra int references Compra(IdCompra)
 );
 go
 

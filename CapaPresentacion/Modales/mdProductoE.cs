@@ -17,6 +17,10 @@ namespace CapaPresentacion.Modales
     public partial class mdProductoE : Form
     {
         public Producto _Producto { get; set; }
+        public Compra _Compra { get; set; }
+        public CN_Compra _CN_Compra { get; set; }
+        public Detalle_Compra _Detalle_Compra { get; set; }
+        public Equipo _Equipo { get; set; }
         public mdProductoE()
         {
             InitializeComponent();
@@ -37,30 +41,15 @@ namespace CapaPresentacion.Modales
             cbobusqueda.ValueMember = "Valor";
             cbobusqueda.SelectedIndex = 0;
 
-            //Mostrar todos los productos
-            //Se crea la lista
-            List<Producto> listaProducto = new CN_Producto().Listar();
-
-            //Se recorre la lista
-            foreach (Producto item in listaProducto)
-            {//Colocar las columnas del datagrid
-                int cantidad = new CN_Equipo().ProductoConSerial(item.IdProducto);
-                int equiposSinSerial = item.Stock - cantidad;
-                dgvdata.Rows.Add(new object[]
-                {
-                    item.Codigo,
-                    item.Nombre,
-                    item.oMarca.Descripcion,
-                    item.Stock,
-                    equiposSinSerial,
-                    item.IdProducto,
-                });
-            }
+            
         }
         private void dgvdata_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int iRow = e.RowIndex;
             int iColum = e.ColumnIndex;
+            int _idCompra;
+            Compra _CN_Compra = new CN_Compra().ObtenerIdCompra(txtcodigocompra.Text);
+            _idCompra = _CN_Compra.IdCompra;
             if (iRow >= 0 && iColum >= 0)
             {
                 if (Convert.ToInt32(dgvdata.Rows[iRow].Cells["SinNroSerie"].Value) > 0)
@@ -72,6 +61,12 @@ namespace CapaPresentacion.Modales
                         oMarca = new Marca() { Descripcion = dgvdata.Rows[iRow].Cells["Marca"].Value.ToString() },
                         IdProducto = int.Parse(dgvdata.Rows[iRow].Cells["IdProducto"].Value.ToString())
                     };
+                    _Compra = new Compra()
+                    {
+                        IdCompra = _idCompra,
+                        NumeroDocumento = txtcodigocompra.Text
+                    };
+                    
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -124,5 +119,51 @@ namespace CapaPresentacion.Modales
             }
         }
 
+        private void btnbuscarcompra_Click(object sender, EventArgs e)
+        {
+            dgvdata.Rows.Clear();
+            //Mostrar todos los productos
+            //Se crea la lista
+            List<Producto> listaProducto = new CN_Producto().ListarConId(txtcodigocompra.Text.ToString());
+
+            //Se recorre la lista
+            foreach (Producto item in listaProducto)
+            {//Colocar las columnas del datagrid
+                int cantidad = new CN_Equipo().ProductoConSerial(item.IdProducto);
+                int equiposSinSerial = item.Stock - cantidad;
+                dgvdata.Rows.Add(new object[]
+                {
+                    item.Codigo,
+                    item.Nombre,
+                    item.oMarca.Descripcion,
+                    item.Stock,
+                    equiposSinSerial,
+                    item.IdProducto,
+                });
+            }
+            if (listaProducto.Count < 1) 
+            {
+                MessageBox.Show("Este número de boleta no tiene productos para mostrar",
+                    "Mensaje informativo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtcodigocompra.Text = string.Empty;
+                txtcodigocompra.Focus();
+            }
+        }
+
+        private void btnlimpiarbuscadorcompra_Click(object sender, EventArgs e)
+        {
+            txtcodigocompra.Text = string.Empty;
+            txtbusqueda.Text = string.Empty;
+            dgvdata.Rows.Clear();
+            txtcodigocompra.Focus();
+        }
+
+        private void txtcodigocompra_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnbuscarcompra_Click(sender, e);
+            }
+        }
     }
 }

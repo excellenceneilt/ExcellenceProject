@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using System.Windows.Media.Media3D;
 
 namespace CapaDatos
 {
@@ -173,6 +174,53 @@ namespace CapaDatos
             }
 
             return respuesta;
+        }
+        public List<Producto> ListarConId(string idcompra)
+        {
+            List<Producto> lista = new List<Producto>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select p.IdProducto, c.NumeroDocumento, p.Codigo, p.Nombre, p.Descripcion, m.IdMarca, m.Descripcion[DescripcionMarca], dc.Cantidad, p.PrecioCompra, p.PrecioVenta, p.Estado, dc.IdDetalleCompra from PRODUCTO p");
+                    query.AppendLine("inner join MARCA m on m.IdMarca = p.IdMarca");
+                    query.AppendLine("inner join DETALLE_COMPRA dc on dc.IdProductoDC = p.IdProducto");
+                    query.AppendLine("inner join COMPRA c on c.IdCompra = dc.IdCompraDC");
+                    query.AppendLine("where c.NumeroDocumento = @idcompra");
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@idcompra", idcompra);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Producto()
+                            {
+                                //Listar productos en tabla
+                                IdProducto = Convert.ToInt32(dr["IdProducto"]),
+                                Codigo = dr["Codigo"].ToString(),
+                                Nombre = dr["Nombre"].ToString(),
+                                Descripcion = dr["Descripcion"].ToString(),
+                                //Llave foránea
+                                oMarca = new Marca() { IdMarca = Convert.ToInt32(dr["IdMarca"]), /*Añadiendo alias*/ Descripcion = dr["DescripcionMarca"].ToString() },
+                                Stock = Convert.ToInt32(dr["Cantidad"].ToString()),
+                                PrecioCompra = Convert.ToDecimal(dr["PrecioCompra"].ToString()),
+                                PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"].ToString()),
+                                Estado = Convert.ToBoolean(dr["Estado"])
+
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<Producto>();
+                }
+            }
+            return lista;
         }
 
     }

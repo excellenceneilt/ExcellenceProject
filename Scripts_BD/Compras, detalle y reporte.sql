@@ -9,7 +9,8 @@ FechaRegistro	datetime default getdate()
 CONSTRAINT FK_IdUsuarioC FOREIGN KEY (IdUsuarioC)
     REFERENCES USUARIO(IdUsuario),
 CONSTRAINT FK_IdProveedorC FOREIGN KEY (IdProveedorC)
-    REFERENCES PROVEEDOR(IdProveedor)
+    REFERENCES PROVEEDOR(IdProveedor),
+IdDetalleCompra int references Detalle_compra(IdDetalleCompra)
 )
 
 go
@@ -130,4 +131,3 @@ and pr.IdProveedor = iif(@idproveedor=0,pr.IdProveedor,@idproveedor)
 end
 go
 
-select * from DETALLE_COMPRA

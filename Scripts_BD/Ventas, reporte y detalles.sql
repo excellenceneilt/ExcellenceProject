@@ -8,7 +8,8 @@ NombreCliente		varchar(50),
 MontoPago			decimal(10,2),
 MontoCambio			decimal(10,2),
 MontoTotal			decimal(10,2),
-FechaRegistro		datetime default getdate()
+FechaRegistro		datetime default getdate(),
+IdClienteV			int references Cliente(IdCliente)
 )
 
 create table DETALLE_VENTA

@@ -17,5 +17,9 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+        private void frmCertifiadoGarantia_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -31,6 +31,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvdata = new System.Windows.Forms.DataGridView();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductoManual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FacturaBoleta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FBManual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Garantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -60,16 +70,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductoManual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FacturaBoleta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FBManual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Desde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Garantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
@@ -145,6 +145,69 @@
             this.dgvdata.RowTemplate.Height = 28;
             this.dgvdata.Size = new System.Drawing.Size(1286, 352);
             this.dgvdata.TabIndex = 119;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 210;
+            // 
+            // ProductoManual
+            // 
+            this.ProductoManual.HeaderText = "Producto manual";
+            this.ProductoManual.Name = "ProductoManual";
+            this.ProductoManual.ReadOnly = true;
+            // 
+            // Serie
+            // 
+            this.Serie.HeaderText = "Serie";
+            this.Serie.Name = "Serie";
+            this.Serie.ReadOnly = true;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Width = 250;
+            // 
+            // FacturaBoleta
+            // 
+            this.FacturaBoleta.HeaderText = "Factura/Boleta";
+            this.FacturaBoleta.Name = "FacturaBoleta";
+            this.FacturaBoleta.ReadOnly = true;
+            // 
+            // FBManual
+            // 
+            this.FBManual.HeaderText = "F./B. Manual";
+            this.FBManual.Name = "FBManual";
+            this.FBManual.ReadOnly = true;
+            // 
+            // Entrega
+            // 
+            this.Entrega.HeaderText = "Entrega";
+            this.Entrega.Name = "Entrega";
+            this.Entrega.ReadOnly = true;
+            // 
+            // Desde
+            // 
+            this.Desde.HeaderText = "Desde";
+            this.Desde.Name = "Desde";
+            this.Desde.ReadOnly = true;
+            // 
+            // Hasta
+            // 
+            this.Hasta.HeaderText = "Hasta";
+            this.Hasta.Name = "Hasta";
+            this.Hasta.ReadOnly = true;
+            // 
+            // Garantia
+            // 
+            this.Garantia.HeaderText = "Garantía";
+            this.Garantia.Name = "Garantia";
+            this.Garantia.ReadOnly = true;
+            this.Garantia.Width = 80;
             // 
             // button1
             // 
@@ -396,69 +459,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código interno:";
             // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            this.Producto.Width = 210;
-            // 
-            // ProductoManual
-            // 
-            this.ProductoManual.HeaderText = "Producto manual";
-            this.ProductoManual.Name = "ProductoManual";
-            this.ProductoManual.ReadOnly = true;
-            // 
-            // Serie
-            // 
-            this.Serie.HeaderText = "Serie";
-            this.Serie.Name = "Serie";
-            this.Serie.ReadOnly = true;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Width = 250;
-            // 
-            // FacturaBoleta
-            // 
-            this.FacturaBoleta.HeaderText = "Factura/Boleta";
-            this.FacturaBoleta.Name = "FacturaBoleta";
-            this.FacturaBoleta.ReadOnly = true;
-            // 
-            // FBManual
-            // 
-            this.FBManual.HeaderText = "F./B. Manual";
-            this.FBManual.Name = "FBManual";
-            this.FBManual.ReadOnly = true;
-            // 
-            // Entrega
-            // 
-            this.Entrega.HeaderText = "Entrega";
-            this.Entrega.Name = "Entrega";
-            this.Entrega.ReadOnly = true;
-            // 
-            // Desde
-            // 
-            this.Desde.HeaderText = "Desde";
-            this.Desde.Name = "Desde";
-            this.Desde.ReadOnly = true;
-            // 
-            // Hasta
-            // 
-            this.Hasta.HeaderText = "Hasta";
-            this.Hasta.Name = "Hasta";
-            this.Hasta.ReadOnly = true;
-            // 
-            // Garantia
-            // 
-            this.Garantia.HeaderText = "Garantía";
-            this.Garantia.Name = "Garantia";
-            this.Garantia.ReadOnly = true;
-            this.Garantia.Width = 80;
-            // 
             // frmCertifiadoGarantia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,6 +467,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmCertifiadoGarantia";
             this.Text = "Certificado de garantía";
+            this.Load += new System.EventHandler(this.frmCertifiadoGarantia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();

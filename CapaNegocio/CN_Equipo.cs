@@ -32,7 +32,7 @@ namespace CapaNegocio
             }
             if (obj.SerialNumber == "")
             {
-                Mensaje += "Es necesario definir una descripción del producto\n";
+                Mensaje += "Es necesario definir un número de serie del Equipo\n";
             }
             if (Mensaje != string.Empty)
             {
@@ -61,7 +61,7 @@ namespace CapaNegocio
             }
             if (obj.SerialNumber == "")
             {
-                Mensaje += "Es necesario definir una descripción del producto\n";
+                Mensaje += "Es necesario definir un número de serie del Equipo\n";
             }
             if (Mensaje != string.Empty)
             {

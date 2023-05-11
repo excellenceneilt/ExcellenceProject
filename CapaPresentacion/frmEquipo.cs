@@ -34,6 +34,8 @@ namespace CapaPresentacion
                     txtmodelo.Text = modal._Producto.Nombre;
                     txtmarca.Text = modal._Producto.oMarca.Descripcion;
                     txtidproducto.Text = modal._Producto.IdProducto.ToString();
+                    txtidcompra.Text = modal._Compra.IdCompra.ToString();
+                    txtnumerodocumento.Text = modal._Compra.NumeroDocumento;
                     txtserial.Select();
                 }
             }
@@ -115,8 +117,6 @@ namespace CapaPresentacion
 
                 if (resultado)
                 {
-
-
                     DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
                     row.Cells["Id"].Value = txtid.Text;
                     row.Cells["CodigoEquipo"].Value = txtcodigo.Text;
