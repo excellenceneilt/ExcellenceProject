@@ -18,9 +18,7 @@ namespace CapaPresentacion.Modales
     {
         public Producto _Producto { get; set; }
         public Compra _Compra { get; set; }
-        public CN_Compra _CN_Compra { get; set; }
         public Detalle_Compra _Detalle_Compra { get; set; }
-        public Equipo _Equipo { get; set; }
         public mdProductoE()
         {
             InitializeComponent();
@@ -47,9 +45,8 @@ namespace CapaPresentacion.Modales
         {
             int iRow = e.RowIndex;
             int iColum = e.ColumnIndex;
-            int _idCompra;
+            int _idDetalleCompra;
             Compra _CN_Compra = new CN_Compra().ObtenerIdCompra(txtcodigocompra.Text);
-            _idCompra = _CN_Compra.IdCompra;
             if (iRow >= 0 && iColum >= 0)
             {
                 if (Convert.ToInt32(dgvdata.Rows[iRow].Cells["SinNroSerie"].Value) > 0)
@@ -63,10 +60,14 @@ namespace CapaPresentacion.Modales
                     };
                     _Compra = new Compra()
                     {
-                        IdCompra = _idCompra,
+                        IdCompra = _CN_Compra.IdCompra,
                         NumeroDocumento = txtcodigocompra.Text
                     };
-                    
+                    _idDetalleCompra = new CN_Detalle_Compra().ObtenerIdDC(_Compra.IdCompra, _Producto.IdProducto);
+                    _Detalle_Compra = new Detalle_Compra()
+                    {
+                        IdDetalleCompra = _idDetalleCompra,
+                    };
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -129,7 +130,7 @@ namespace CapaPresentacion.Modales
             //Se recorre la lista
             foreach (Producto item in listaProducto)
             {//Colocar las columnas del datagrid
-                int cantidad = new CN_Equipo().ProductoConSerial(item.IdProducto);
+                int cantidad = new CN_Equipo().ProductoConSerial(item.IdProducto, item.pDetalleCompra.IdDetalleCompra, item.pCompra.NumeroDocumento);
                 int equiposSinSerial = item.Stock - cantidad;
                 dgvdata.Rows.Add(new object[]
                 {

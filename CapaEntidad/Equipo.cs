@@ -20,6 +20,6 @@ namespace CapaEntidad
         public Producto eProducto { get; set; }         //es el id del producto al que pertenece el equipo
         public Cliente Cliente { get; set; }            //es el id del cliente al que le va a pertenecer el equipo
         public Compra eCompra { get; set; }             //es el id de la compra donde se registró el equipo
-        public Detalle_Compra detalle { get; set; }     //es el id del detalle de la compra donde se realizó la compra del equipo
+        public Detalle_Compra eDetalle { get; set; }     //es el id del detalle de la compra donde se realizó la compra del equipo
     }
 }

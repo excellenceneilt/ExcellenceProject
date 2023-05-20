@@ -175,7 +175,7 @@ namespace CapaDatos
 
             return respuesta;
         }
-        public List<Producto> ListarConId(string idcompra)
+        public List<Producto> ListarConId(string numerodocumento)
         {
             List<Producto> lista = new List<Producto>();
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
@@ -183,13 +183,13 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select p.IdProducto, c.NumeroDocumento, p.Codigo, p.Nombre, p.Descripcion, m.IdMarca, m.Descripcion[DescripcionMarca], dc.Cantidad, p.PrecioCompra, p.PrecioVenta, p.Estado, dc.IdDetalleCompra from PRODUCTO p");
-                    query.AppendLine("inner join MARCA m on m.IdMarca = p.IdMarca");
-                    query.AppendLine("inner join DETALLE_COMPRA dc on dc.IdProductoDC = p.IdProducto");
-                    query.AppendLine("inner join COMPRA c on c.IdCompra = dc.IdCompraDC");
-                    query.AppendLine("where c.NumeroDocumento = @idcompra");
+                    query.AppendLine("select p.IdProducto, p.Codigo, p.Nombre, p.Descripcion, m.IdMarca, m.Descripcion[DescripcionMarca], dc.Cantidad, p.Estado, dc.IdDetalleCompra, c.IdCompra, c.NumeroDocumento from PRODUCTO p ");
+                    query.AppendLine("inner join MARCA m on m.IdMarca = p.IdMarca ");
+                    query.AppendLine("inner join DETALLE_COMPRA dc on dc.IdProductoDC = p.IdProducto ");
+                    query.AppendLine("inner join COMPRA c on c.IdCompra = dc.IdCompraDC ");
+                    query.AppendLine("where c.NumeroDocumento = @numerodocumento");
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
-                    cmd.Parameters.AddWithValue("@idcompra", idcompra);
+                    cmd.Parameters.AddWithValue("@numerodocumento", numerodocumento);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -207,10 +207,10 @@ namespace CapaDatos
                                 //Llave foránea
                                 oMarca = new Marca() { IdMarca = Convert.ToInt32(dr["IdMarca"]), /*Añadiendo alias*/ Descripcion = dr["DescripcionMarca"].ToString() },
                                 Stock = Convert.ToInt32(dr["Cantidad"].ToString()),
-                                PrecioCompra = Convert.ToDecimal(dr["PrecioCompra"].ToString()),
-                                PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"].ToString()),
-                                Estado = Convert.ToBoolean(dr["Estado"])
-
+                                Estado = Convert.ToBoolean(dr["Estado"]),
+                                //Datos que se crearon sólo para la útilización de esta función
+                                pDetalleCompra = new Detalle_Compra() { IdDetalleCompra = Convert.ToInt32(dr["IdDetalleCompra"])},
+                                pCompra = new Compra() { IdCompra = Convert.ToInt32(dr["IdCompra"]), NumeroDocumento = numerodocumento}
                             });
                         }
                     }

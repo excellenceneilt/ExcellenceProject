@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="CD_Cliente.cs" />
     <Compile Include="CD_Compra.cs" />
+    <Compile Include="CD_Detalle_Compra.cs" />
     <Compile Include="CD_Equipo.cs" />
     <Compile Include="CD_Especialidad.cs" />
     <Compile Include="CD_EstadoEquipo.cs" />

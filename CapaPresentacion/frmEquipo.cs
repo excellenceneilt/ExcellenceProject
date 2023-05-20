@@ -36,6 +36,7 @@ namespace CapaPresentacion
                     txtidproducto.Text = modal._Producto.IdProducto.ToString();
                     txtidcompra.Text = modal._Compra.IdCompra.ToString();
                     txtnumerodocumento.Text = modal._Compra.NumeroDocumento;
+                    txtiddetallecompra.Text = modal._Detalle_Compra.IdDetalleCompra.ToString();
                     txtserial.Select();
                 }
             }
@@ -81,6 +82,9 @@ namespace CapaPresentacion
                 Modelo = txtmodelo.Text,
                 SerialNumber = txtserial.Text,
                 eProducto = new Producto() { IdProducto = Convert.ToInt32(txtidproducto.Text) },
+                Estado = true,
+                eCompra = new Compra() { IdCompra = Convert.ToInt32(txtidcompra.Text)},
+                eDetalle = new Detalle_Compra { IdDetalleCompra = Convert.ToInt32(txtiddetallecompra.Text) },
             };
             if (objEquipo.IdEquipo == 0)
             {
@@ -91,15 +95,15 @@ namespace CapaPresentacion
                 if (idEquipogenerado != 0)
                 {
                     //En el mismo orden que la tabla por favor es acá
-                    //No sé qué es lo que hace ._.
+                    //agrega los datos a la tabla
 
                     dgvdata.Rows.Add(new object[] {
-                        txtidproducto.Text,
-                        txtcodigo.Text,
-                        txtmarca.Text,
+                        idEquipogenerado,
                         txtmodelo.Text,
-                        txtidproducto.Text,
-                        txtserial.Text
+                        txtserial.Text,
+                        txtidproducto.Text, //Estos no se muestran en la tabla
+                        txtcodigo.Text,     //Estos no se muestran en la tabla
+                        txtmarca.Text       //Estos no se muestran en la tabla
 
                     });
 
@@ -136,12 +140,18 @@ namespace CapaPresentacion
 
         private void Limpiar()
         {
+            txtidproducto.Text = string.Empty;
+            txtidcompra.Text = string.Empty;
+            txtnumerodocumento.Text = string.Empty;
             txtcodigo.Text = string.Empty;
             txtmarca.Text = string.Empty;
             txtmodelo.Text = string.Empty;
             txtserial.Text = string.Empty;
-            txtidproducto.Text = string.Empty;
-            txtmodelo.Focus();
+
+            txtidcliente.Text= string.Empty;
+            txtiddetallecompra.Text = string.Empty;
+            
+            txtserial.Focus();
         }
 
         private void txtidproducto_TextChanged(object sender, EventArgs e)

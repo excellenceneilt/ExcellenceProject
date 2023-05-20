@@ -215,11 +215,7 @@ namespace CapaDatos
                     obj = new Compra();
                 }
             }
-
-
-
             return obj;
-
         }
 
     }

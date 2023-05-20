@@ -71,6 +71,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
                     cmd.Parameters.AddWithValue("IdProducto", obj.eProducto.IdProducto);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
+                    cmd.Parameters.AddWithValue("IdCompra", obj.eCompra.IdCompra);
+                    cmd.Parameters.AddWithValue("IdDetalleCompra", obj.eDetalle.IdDetalleCompra);
 
                     //Declarando parámetros de salida
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -175,7 +177,44 @@ namespace CapaDatos
         }
 
         //Funcion para determinar cuantos equipos tienen un numero de serie agrupandolos por el id del producto
-        public int ProductoConSerial(int idProducto)
+        public int ProductoConSerial(int idProducto, int idDetalleCompra, string numeroDocumento)
+        {
+            int cantidad = 0;
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT COUNT(*)[ProductoConSerial] ");
+                    query.AppendLine("FROM Equipo ");
+                    query.AppendLine("WHERE IdProducto = @IdProducto and IdDetalleCompra = @IdDetalleCompra and ");
+                    query.AppendLine("IdCompra = (select IdCompra from COMPRA where NumeroDocumento =@NumeroDocumento)");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmd.Parameters.AddWithValue("@IdDetalleCompra", idDetalleCompra);
+                    cmd.Parameters.AddWithValue("@NumeroDocumento", numeroDocumento);
+                    cmd.CommandType = CommandType.Text;
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            cantidad = Convert.ToInt32(dr["ProductoConSerial"]);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    cantidad = 0;
+                }
+                return cantidad;
+            }
+        }
+
+        /*public int ProductoConSerial(int idProducto)
         {
             int cantidad = 0;
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
@@ -205,6 +244,6 @@ namespace CapaDatos
                 }
                 return cantidad;
             }
-        }
+        }*/
     }
 }

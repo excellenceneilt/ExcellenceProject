@@ -20,5 +20,9 @@ namespace CapaEntidad
         public decimal PrecioVenta { get; set; }    //es el precio de venta del producto
         public bool Estado { get; set; }            //es el estado del producto
         public string FechaRegistro { get; set; }   //es la fecha en que se registro el producto, se genera en la BD
+        //LOS SIGUIENTES DATOS SON SÓLO PARA USO DE UNA TAREA EN ESPECÍFICO.
+        //EN EL MODAL PRODUCTOE, SE TIENEN QUE LISTAR LOS PRODUCTOS CON ESTOS DATOS.
+        public Detalle_Compra pDetalleCompra { get; set; }
+        public Compra pCompra { get; set; }
     }
 }
