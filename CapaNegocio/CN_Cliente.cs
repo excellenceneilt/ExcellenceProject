@@ -73,11 +73,6 @@ namespace CapaNegocio
             {
                 return objcd_Cliente.Editar(obj, out Mensaje);
             }
-
-
-
-
-
             //return objcd_Cliente.Editar(obj, out Mensaje);
         }
 

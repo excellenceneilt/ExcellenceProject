@@ -71,7 +71,6 @@ namespace CapaPresentacion
                     rc.RazonSocial,
                     rc.CodigoProducto,
                     rc.NombreProducto,
-                    rc.Categoria,
                     rc.PrecioCompra,
                     rc.PrecioVenta,
                     rc.Cantidad,
@@ -111,8 +110,7 @@ namespace CapaPresentacion
                             row.Cells[9].Value.ToString(),
                             row.Cells[10].Value.ToString(),
                             row.Cells[11].Value.ToString(),
-                            row.Cells[12].Value.ToString(),
-                            row.Cells[13].Value.ToString(),
+                            row.Cells[12].Value.ToString()
 
                     });
                 }

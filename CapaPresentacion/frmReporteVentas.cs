@@ -53,7 +53,6 @@ namespace CapaPresentacion
                     rv.NombreCliente,
                     rv.CodigoProducto,
                     rv.NombreProducto,
-                    rv.Categoria,
                     rv.PrecioVenta,
                     rv.Cantidad,
                     rv.SubTotal

@@ -156,7 +156,10 @@ select * from ordeni --orden de ingreso? con tipo de cambio
 select * from ordeniB --orden de ingreso .-.
 select * from ordeniSI --orden de ingresos   detalle cliente y equipos comprados
 select * from ordenix --ult reg 2010
+
 select * from ost --parece aun de servicio tecnico
+select * from rst
+
 select * from ost_bkp --bckp de ariba
 select * from para -- es como un destinatario
 select * from pbcatcol --no entiendo v:

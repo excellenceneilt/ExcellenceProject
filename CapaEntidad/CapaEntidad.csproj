@@ -46,7 +46,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Compra.cs" />
     <Compile Include="Departamento.cs" />
@@ -56,6 +55,7 @@
     <Compile Include="Equipo.cs" />
     <Compile Include="Especialidad.cs" />
     <Compile Include="EstadoEquipo.cs" />
+    <Compile Include="Marca.cs" />
     <Compile Include="Negocio.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Producto.cs" />

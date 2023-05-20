@@ -120,12 +120,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCategoria.Designer.cs">
-      <DependentUpon>frmCategoria.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +167,12 @@
     </Compile>
     <Compile Include="frmMantenimientoTablas.Designer.cs">
       <DependentUpon>frmMantenimientoTablas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMarca.Designer.cs">
+      <DependentUpon>frmMarca.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNegocio.cs">
       <SubType>Form</SubType>
@@ -288,6 +288,12 @@
     <Compile Include="Modales\mdProducto.Designer.cs">
       <DependentUpon>mdProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\mdProductoE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\mdProductoE.Designer.cs">
+      <DependentUpon>mdProductoE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modales\mdProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,9 +303,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\OpcionCombo.cs" />
-    <EmbeddedResource Include="frmCategoria.resx">
-      <DependentUpon>frmCategoria.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoTablas.resx">
       <DependentUpon>frmMantenimientoTablas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMarca.resx">
+      <DependentUpon>frmMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNegocio.resx">
       <DependentUpon>frmNegocio.cs</DependentUpon>
@@ -380,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdProducto.resx">
       <DependentUpon>mdProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\mdProductoE.resx">
+      <DependentUpon>mdProductoE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdProveedor.resx">
       <DependentUpon>mdProveedor.cs</DependentUpon>

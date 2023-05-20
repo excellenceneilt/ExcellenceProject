@@ -35,5 +35,10 @@ namespace CapaNegocio
             }
             return oCompra;
         }
+
+        public Compra ObtenerIdCompra(string numerodocumento)
+        {
+            return objcd_compra.ObtenerIdCompra(numerodocumento);
+        }
     }
 }

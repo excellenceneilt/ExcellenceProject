@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -20,8 +21,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdEquipo, CodigoEquipo, NombreEquipo, SerialNumber, c.IdCategoria,C.Descripcion[DescripcionCategoria],  e.Estado from Equipo e");
-                    query.AppendLine("inner join CATEGORIA c on c.IdCategoria = e.IdCategoria");
+                    query.AppendLine("select IdEquipo, Modelo, SerialNumber, IdProducto from  Equipo");
                     
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -35,14 +35,12 @@ namespace CapaDatos
                             {
                                 //Listar productos en tabla
                                 IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
-                                CodigoEquipo = Convert.ToInt32(dr["CodigoEquipo"]),
                                 Modelo = dr["Modelo"].ToString(),
                                 SerialNumber = dr["SerialNumber"].ToString(),
-                                //Llave foránea
-                                eCategoria = new Categoria() { IdCategoria = Convert.ToInt32(dr["IdCategoria"]), /*Añadiendo alias*/ Descripcion = dr["DescripcionCategoria"].ToString() },
-                                
-                                Estado = Convert.ToBoolean(dr["Estado"])
-
+                                eProducto = new Producto() 
+                                { 
+                                    IdProducto = Convert.ToInt32(dr["IdProducto"])    
+                                }
                             });
                         }
                     }
@@ -58,7 +56,7 @@ namespace CapaDatos
 
         public int Registrar(Equipo obj, out string Mensaje)
         {
-            int idProductogenerado = 0;
+            int idEquipogenerado = 0;
             Mensaje = string.Empty;
             try
             {
@@ -66,13 +64,15 @@ namespace CapaDatos
                 {
 
                     //Declarando los parámetros de entrada
-                    SqlCommand cmd = new SqlCommand("SP_RegistrarEquipo", oconexion);
-                    cmd.Parameters.AddWithValue("Codigo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
+                    SqlCommand cmd = new SqlCommand("SP_RegistrarEquipos", oconexion);
+                    cmd.Parameters.AddWithValue("CodigoEquipo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
+                    cmd.Parameters.AddWithValue("Marca", obj.Marca);
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
-                    cmd.Parameters.AddWithValue("Descripcion", obj.SerialNumber);
-                    cmd.Parameters.AddWithValue("IdCategoria", obj.eCategoria.IdCategoria);
-                  //  cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
+                    cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
+                    cmd.Parameters.AddWithValue("IdProducto", obj.eProducto.IdProducto);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
+                    cmd.Parameters.AddWithValue("IdCompra", obj.eCompra.IdCompra);
+                    cmd.Parameters.AddWithValue("IdDetalleCompra", obj.eDetalle.IdDetalleCompra);
 
                     //Declarando parámetros de salida
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -83,18 +83,18 @@ namespace CapaDatos
                     cmd.ExecuteNonQuery();
 
                     //Obtener parametros de salida después de ejecución
-                    idProductogenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    idEquipogenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
 
             }
             catch (Exception ex)
             {
-                idProductogenerado = 0;
+                idEquipogenerado = 0;
                 Mensaje = ex.Message;
             }
 
-            return idProductogenerado;
+            return idEquipogenerado;
         }
 
         public bool Editar(Equipo obj, out string Mensaje)
@@ -111,10 +111,12 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdEquipo", obj.IdEquipo);
                     cmd.Parameters.AddWithValue("CodigoEquipo", obj.CodigoEquipo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.AddWithValue("Modelo", obj.Modelo);
-                    cmd.Parameters.AddWithValue("Descripcion", obj.SerialNumber);
-                    cmd.Parameters.AddWithValue("IdCategoria", obj.eCategoria.IdCategoria);
-                    //  cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.oEstadoEquipo.IdEstadoEquipo);
+                    cmd.Parameters.AddWithValue("SerialNumber", obj.SerialNumber);
+                    cmd.Parameters.AddWithValue("Marca", obj.Marca);
+                    cmd.Parameters.AddWithValue("IdEstadoEquipo", obj.eEstadoEquipo.IdEstadoEquipo);
+                    cmd.Parameters.AddWithValue("IdProducto", obj.eProducto.IdProducto);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
+
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
@@ -137,6 +139,8 @@ namespace CapaDatos
             return respuesta;
         }
 
+
+        //Eliminar incompleto
         public bool Eliminar(Equipo obj, out string Mensaje)
         {
             bool respuesta = false;
@@ -171,5 +175,75 @@ namespace CapaDatos
 
             return respuesta;
         }
+
+        //Funcion para determinar cuantos equipos tienen un numero de serie agrupandolos por el id del producto
+        public int ProductoConSerial(int idProducto, int idDetalleCompra, string numeroDocumento)
+        {
+            int cantidad = 0;
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT COUNT(*)[ProductoConSerial] ");
+                    query.AppendLine("FROM Equipo ");
+                    query.AppendLine("WHERE IdProducto = @IdProducto and IdDetalleCompra = @IdDetalleCompra and ");
+                    query.AppendLine("IdCompra = (select IdCompra from COMPRA where NumeroDocumento =@NumeroDocumento)");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmd.Parameters.AddWithValue("@IdDetalleCompra", idDetalleCompra);
+                    cmd.Parameters.AddWithValue("@NumeroDocumento", numeroDocumento);
+                    cmd.CommandType = CommandType.Text;
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            cantidad = Convert.ToInt32(dr["ProductoConSerial"]);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    cantidad = 0;
+                }
+                return cantidad;
+            }
+        }
+
+        /*public int ProductoConSerial(int idProducto)
+        {
+            int cantidad = 0;
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select count(*)[ProductoConSerial] from Equipo where IdProducto = @IdProducto group by IdProducto");
+                    
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmd.CommandType = CommandType.Text;
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            cantidad = Convert.ToInt32(dr["ProductoConSerial"]);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    cantidad = 0;
+                }
+                return cantidad;
+            }
+        }*/
     }
 }

@@ -16,5 +16,10 @@ namespace CapaPresentacion.Modales
         {
             InitializeComponent();
         }
+
+        private void mdEquipoST_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

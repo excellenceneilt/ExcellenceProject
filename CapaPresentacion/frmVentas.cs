@@ -24,11 +24,6 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmVentas_Load(object sender, EventArgs e)
         {
             cbotipodocumento.Items.Add(new OpcionCombo() { Valor = "Boleta", Texto = "Boleta" });
@@ -354,7 +349,7 @@ namespace CapaPresentacion
             }
 
             int idcorrelativo = new CN_Venta().ObtenerCorrelativo();
-            string numeroDocumento = string.Format("{0:00000}    ", idcorrelativo);
+            string numeroDocumento = string.Format("{0:00000}", idcorrelativo);
             calcularcambio();
 
             Venta oVenta = new Venta()
