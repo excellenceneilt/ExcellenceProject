@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using System.Reflection;
+using System.Text.RegularExpressions;
+using System.Windows.Media.Media3D;
 
 namespace CapaDatos
 {
     public class CD_Producto
     {
 
-        //Metodo para listar
+        //Metodo para listar los productos
         public List<Producto> Listar()
         {
             List<Producto> lista = new List<Producto>();
@@ -23,8 +25,8 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdProducto, Codigo, Nombre, p.Descripcion, c.IdCategoria,C.Descripcion[DescripcionCategoria], Stock, PrecioCompra, PrecioVenta, p.Estado from PRODUCTO p");
-                    query.AppendLine("inner join CATEGORIA c on c.IdCategoria = p.IdCategoria");
+                    query.AppendLine("select IdProducto, Codigo, Nombre, p.Descripcion, m.IdMarca, m.Descripcion[DescripcionMarca], Stock, PrecioCompra, PrecioVenta, p.Estado from PRODUCTO p");
+                    query.AppendLine("inner join MARCA m on m.IdMarca = p.IdMarca");
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -41,7 +43,7 @@ namespace CapaDatos
                                 Nombre = dr["Nombre"].ToString(),
                                 Descripcion = dr["Descripcion"].ToString(),
                                 //Llave foránea
-                                oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(dr["IdCategoria"]), /*Añadiendo alias*/ Descripcion = dr["DescripcionCategoria"].ToString() },
+                                oMarca = new Marca() { IdMarca = Convert.ToInt32(dr["IdMarca"]), /*Añadiendo alias*/ Descripcion = dr["DescripcionMarca"].ToString() },
                                 Stock = Convert.ToInt32(dr["Stock"].ToString()),
                                 PrecioCompra = Convert.ToDecimal(dr["PrecioCompra"].ToString()),
                                 PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"].ToString()),
@@ -73,7 +75,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Codigo", obj.Codigo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.AddWithValue("Nombre", obj.Nombre);
                     cmd.Parameters.AddWithValue("Descripcion", obj.Descripcion);
-                    cmd.Parameters.AddWithValue("IdCategoria", obj.oCategoria.IdCategoria);
+                    cmd.Parameters.AddWithValue("IdMarca", obj.oMarca.IdMarca);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
 
                     //Declarando parámetros de salida
@@ -98,7 +100,7 @@ namespace CapaDatos
 
             return idProductogenerado;
         }
-
+        //funcion para Editar el producto
         public bool Editar(Producto obj, out string Mensaje)
         {
             bool respuesta = false;
@@ -114,7 +116,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Codigo", obj.Codigo);//Los parametros entre "" se escriben sin arroba, referencian a los campos con @ dentro del procedimiento almacenado
                     cmd.Parameters.AddWithValue("Nombre", obj.Nombre);
                     cmd.Parameters.AddWithValue("Descripcion", obj.Descripcion);
-                    cmd.Parameters.AddWithValue("IdCategoria", obj.oCategoria.IdCategoria);
+                    cmd.Parameters.AddWithValue("IdMarca", obj.oMarca.IdMarca);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
@@ -138,6 +140,7 @@ namespace CapaDatos
             return respuesta;
         }
 
+        //funcions para eliminar el producto
         public bool Eliminar(Producto obj, out string Mensaje)
         {
             bool respuesta = false;
@@ -171,6 +174,53 @@ namespace CapaDatos
             }
 
             return respuesta;
+        }
+        public List<Producto> ListarConId(string numerodocumento)
+        {
+            List<Producto> lista = new List<Producto>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select p.IdProducto, p.Codigo, p.Nombre, p.Descripcion, m.IdMarca, m.Descripcion[DescripcionMarca], dc.Cantidad, p.Estado, dc.IdDetalleCompra, c.IdCompra, c.NumeroDocumento from PRODUCTO p ");
+                    query.AppendLine("inner join MARCA m on m.IdMarca = p.IdMarca ");
+                    query.AppendLine("inner join DETALLE_COMPRA dc on dc.IdProductoDC = p.IdProducto ");
+                    query.AppendLine("inner join COMPRA c on c.IdCompra = dc.IdCompraDC ");
+                    query.AppendLine("where c.NumeroDocumento = @numerodocumento");
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@numerodocumento", numerodocumento);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Producto()
+                            {
+                                //Listar productos en tabla
+                                IdProducto = Convert.ToInt32(dr["IdProducto"]),
+                                Codigo = dr["Codigo"].ToString(),
+                                Nombre = dr["Nombre"].ToString(),
+                                Descripcion = dr["Descripcion"].ToString(),
+                                //Llave foránea
+                                oMarca = new Marca() { IdMarca = Convert.ToInt32(dr["IdMarca"]), /*Añadiendo alias*/ Descripcion = dr["DescripcionMarca"].ToString() },
+                                Stock = Convert.ToInt32(dr["Cantidad"].ToString()),
+                                Estado = Convert.ToBoolean(dr["Estado"]),
+                                //Datos que se crearon sólo para la útilización de esta función
+                                pDetalleCompra = new Detalle_Compra() { IdDetalleCompra = Convert.ToInt32(dr["IdDetalleCompra"])},
+                                pCompra = new Compra() { IdCompra = Convert.ToInt32(dr["IdCompra"]), NumeroDocumento = numerodocumento}
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<Producto>();
+                }
+            }
+            return lista;
         }
 
     }

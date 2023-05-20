@@ -11,7 +11,6 @@ namespace CapaDatos
 {
     public class CD_Especialidad
     {
-
         //Metodo para listar
         public List<Especialidad> Listar()
         {
@@ -36,7 +35,6 @@ namespace CapaDatos
                                 IdEspecialidad = Convert.ToInt32(dr["IdEspecialidad"]),
                                 Descripcion = dr["Descripcion"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"])
-
                             });
                         }
                     }

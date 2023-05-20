@@ -40,7 +40,7 @@ namespace CapaDatos
                             lista.Add(new Cliente()
                             {
                                 //Listar Clientes en tabla no necesariamente en orden
-                                //Izquierda atributo de entidad y derecha
+                                //Izquierda atributo de entidad y derecha es el nombre de la BD
 
                                 IdCliente = Convert.ToInt32(dr["IdCliente"]),
                                 CodigoCliente = dr["CodigoCliente"].ToString(),

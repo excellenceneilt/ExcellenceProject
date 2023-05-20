@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using System.Reflection;
+using System.Windows.Documents;
+using System.ComponentModel;
 
 namespace CapaDatos
 {
@@ -144,9 +146,9 @@ namespace CapaDatos
                     conexion.Open();
                     StringBuilder query = new StringBuilder();
 
-                    query.AppendLine("select p.Nombre,dc.PrecioCompra,dc.Cantidad,dc.MontoTotal from DETALLE_COMPRA dc");
-                    query.AppendLine("inner join PRODUCTO p on p.IdProducto = dc.IdProducto");
-                    query.AppendLine("where dc.IdCompra = @idcompra");
+                    query.AppendLine("select p.Nombre,dc.PrecioCompra,dc.Cantidad,dc.Total from DETALLE_COMPRA dc");
+                    query.AppendLine("inner join PRODUCTO p on p.IdProducto = dc.IdProductoDC");
+                    query.AppendLine("where dc.IdCompraDC = @idcompra");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), conexion);
                     cmd.Parameters.AddWithValue("@idcompra", idcompra);
@@ -161,7 +163,7 @@ namespace CapaDatos
                                 oProducto = new Producto() { Nombre = dr["Nombre"].ToString() },
                                 PrecioCompra = Convert.ToDecimal(dr["PrecioCompra"].ToString()),
                                 Cantidad = Convert.ToInt32(dr["Cantidad"].ToString()),
-                                MontoTotal = Convert.ToDecimal(dr["MontoTotal"].ToString())
+                                MontoTotal = Convert.ToDecimal(dr["Total"].ToString())
                             });
                         }
                     }
@@ -172,6 +174,48 @@ namespace CapaDatos
                 oLista = new List<Detalle_Compra>();
             }
             return oLista;
+        }
+
+        public Compra ObtenerIdCompra(string numerodocumento)
+        {
+            Compra obj = new Compra();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select * from COMPRA where NumeroDocumento = @numerodocumento");
+
+                    //SQLCOMMAND ejecuta comandos y usa una acción "query" y la cadena de conexion
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@numerodocumento", numerodocumento);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            obj = new Compra()
+                            {
+                                IdCompra = Convert.ToInt32(dr["IdCompra"]),
+                                oUsuario = new Usuario() { IdUsuario = Convert.ToInt32(dr["IdUsuario"].ToString()) },
+                                oProveedor = new Proveedor() { IdProveedor = Convert.ToInt32(dr["IdProveedor"].ToString()) },
+                                TipoDocumento = dr["TipoDocumento"].ToString(),
+                                NumeroDocumento = dr["NumeroDocumento"].ToString(),
+                                MontoTotal = Convert.ToDecimal(dr["MontoTotal"].ToString()),
+                                FechaRegistro = dr["FechaRegistro"].ToString()
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    obj = new Compra();
+                }
+            }
+            return obj;
         }
 
     }

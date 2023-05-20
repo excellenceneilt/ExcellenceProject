@@ -112,10 +112,10 @@ namespace CapaPresentacion
                 {
                     //Agregar nueva fila y declara nuevo objeto en el datagridview
                     dgvdata.Rows.Add(new object[] {"",idusuariogenerado,txtdocumento.Text, txtnombrecompleto.Text,txtcorreo.Text,txtclave.Text,
-              ((OpcionCombo) cborol.SelectedItem).Valor.ToString(),
-              ((OpcionCombo) cborol.SelectedItem).Texto.ToString(),
-              ((OpcionCombo) cboestado.SelectedItem).Valor.ToString(),
-              ((OpcionCombo) cboestado.SelectedItem).Texto.ToString(),
+                        ((OpcionCombo) cborol.SelectedItem).Valor.ToString(),
+                        ((OpcionCombo) cborol.SelectedItem).Texto.ToString(),
+                        ((OpcionCombo) cboestado.SelectedItem).Valor.ToString(),
+                        ((OpcionCombo) cboestado.SelectedItem).Texto.ToString(),
                 });
 
                     Limpiar();
@@ -149,12 +149,6 @@ namespace CapaPresentacion
                     MessageBox.Show(mensaje);
                 }
             }
-
-
-
-
-
-
         }
         private void btnlimpiar_Click(object sender, EventArgs e)
         {

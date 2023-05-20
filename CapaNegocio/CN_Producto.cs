@@ -17,6 +17,10 @@ namespace CapaNegocio
         {
             return objcd_Producto.Listar();
         }
+        public List<Producto> ListarConId(string idcompra) 
+        {
+            return objcd_Producto.ListarConId(idcompra);
+        }
         //Procedimientos de mantenimiento
         public int Registrar(Producto obj, out string Mensaje)
         {

@@ -33,21 +33,6 @@ namespace CapaPresentacion
             
             ListarDepartamento();
 
-            #region COLUMNAS (Por ahora deshabilitado)
-            // Descripción: Permite seleccionar todas las celdas de una columna
-            /*foreach (DataGridViewColumn c in dgvdata.Columns)
-            {
-                c.SortMode = DataGridViewColumnSortMode.NotSortable;
-                c.Selected = false;
-            }
-            dgvdata.SelectionMode = DataGridViewSelectionMode.FullColumnSelect;
-            dgvdata.Columns[0].Selected = true;
-
-            //Seleccionar columnas
-            this.dgvdata.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.dgvdata.MultiSelect = false;*/
-            #endregion
-
             #region COMBOBOX
 
             //Estados 
@@ -322,8 +307,8 @@ namespace CapaPresentacion
                         "",
                         idClientegenerado,
                         txtcodigocliente.Text,
-                         ((OpcionCombo) cbotipodocumento.SelectedItem).Valor.ToString(),
-                         ((OpcionCombo) cbotipodocumento.SelectedItem).Texto.ToString(),
+                        ((OpcionCombo) cbotipodocumento.SelectedItem).Valor.ToString(),
+                        ((OpcionCombo) cbotipodocumento.SelectedItem).Texto.ToString(),
                         txtdocumento.Text,
                         txtruc.Text,
                         txtrazonsocial.Text,
@@ -332,9 +317,9 @@ namespace CapaPresentacion
                         txtnombrecompleto.Text,
                         txtdireccion.Text,
                         txtcmp.Text,
-                         txtnombrecomercial.Text,
-                         txtdireccioncomercial.Text,
-                         txtcorreo1.Text,
+                        txtnombrecomercial.Text,
+                        txtdireccioncomercial.Text,
+                        txtcorreo1.Text,
                         txttelefono1.Text,
                         txtnombrecontacto.Text,
                         txtdireccioncontacto.Text,
@@ -342,6 +327,7 @@ namespace CapaPresentacion
                         txtruccontacto.Text,
                         txttlffijo.Text,
                         txtcelularcontacto.Text,
+                        txtcorreocontacto.Text,
                         txtcorreo2.Text,
                         txttelefono2.Text,
                         cbodepartamento.Text,
@@ -353,9 +339,9 @@ namespace CapaPresentacion
                         cbodepartamentocontacto.Text,
                         cboprovinciacontacto.Text,
                         cbodistritocontacto.Text,
-                      ((OpcionCombo) cboestado.SelectedItem).Valor.ToString(),
-                         ((OpcionCombo) cboestado.SelectedItem).Texto.ToString(),
-                });
+                        ((OpcionCombo) cboestado.SelectedItem).Valor.ToString(),
+                        ((OpcionCombo) cboestado.SelectedItem).Texto.ToString(),
+                    });
 
                     Limpiar();
                     
