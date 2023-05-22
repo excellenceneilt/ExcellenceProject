@@ -21,8 +21,8 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdEquipo, Modelo, SerialNumber, IdProducto from  Equipo");
-                    
+                    query.AppendLine("select * from  Equipo");
+
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -35,11 +35,30 @@ namespace CapaDatos
                             {
                                 //Listar productos en tabla
                                 IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
+                                CodigoEquipo = dr["CodigoEquipo"].ToString(),
+                                Marca = dr["Marca"].ToString(),
                                 Modelo = dr["Modelo"].ToString(),
                                 SerialNumber = dr["SerialNumber"].ToString(),
+                                eEstadoEquipo = new EstadoEquipo()
+                                {
+                                    IdEstadoEquipo = Convert.ToInt32(dr["IdEstadoEquipo"])
+                                },
+                                Estado = Convert.ToBoolean(dr["Estado"]),
                                 eProducto = new Producto() 
                                 { 
                                     IdProducto = Convert.ToInt32(dr["IdProducto"])    
+                                },
+                                /*Cliente = new Cliente() //Está comentado porque por el momento no está vinculado a algún cliente
+                                {
+                                    IdCliente = Convert.ToInt32(dr["IdCliente"])
+                                },*/
+                                eCompra = new Compra()
+                                {
+                                    IdCompra = Convert.ToInt32(dr["IdCompra"])
+                                },
+                                eDetalle = new Detalle_Compra() 
+                                { 
+                                    IdDetalleCompra = Convert.ToInt32(dr["IdDetalleCompra"])
                                 }
                             });
                         }

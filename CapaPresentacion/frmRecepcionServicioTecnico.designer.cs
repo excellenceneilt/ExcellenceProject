@@ -912,7 +912,6 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "frmRecepcionServicioTecnico";
             this.Text = "frmServicioTecnico";
-            this.Load += new System.EventHandler(this.frmRecepcionServicioTecnico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

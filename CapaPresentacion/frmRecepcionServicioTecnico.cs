@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,14 +71,21 @@ namespace CapaPresentacion
             using (var modal = new mdEquipoST())
             {
                 var result = modal.ShowDialog();
+
+                //Las siguientes dos líneas sirven para convertir un formato de fecha en otro formato de fecha, ambos en string, bota error
+                /*DateTime fecha = DateTime.ParseExact(modal._Compra.FechaRegistro, "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+                string fechaFormateada = fecha.ToString("dd/MM/yyyy");*/
+                if (result == DialogResult.OK)
+                {
+                    //este codigo muestra la fecha, solo hasta el caracter numero 10, es el tamaño correcto para mostrar la fecha en el formato correcto
+                    string fechaFormateada = modal._Compra.FechaRegistro.Substring(0, Math.Min(modal._Compra.FechaRegistro.Length, 10));
+                    txtmarca.Text = modal._Equipo.Marca;
+                    txtserie.Text = modal._Equipo.SerialNumber;
+                    txtmodelo.Text = modal._Equipo.Modelo;
+                    txtfechacompra.Text = fechaFormateada;
+                }
             }
         }
-
-        private void frmRecepcionServicioTecnico_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void cckseleccionarequipo_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = (CheckBox)sender;
@@ -134,6 +142,7 @@ namespace CapaPresentacion
                 txtcosto.Enabled = false;
             }
         }
+
 
     }
 }
