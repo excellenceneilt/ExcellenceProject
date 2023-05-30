@@ -15,11 +15,7 @@ namespace CapaPresentacion.Modales
 {
     public partial class mdEquipoST : Form
     {
-        public Compra _Compra { get; set; }
-        public Venta _Venta { get; set; }
-        public Cliente _Cliente { get; set; }
         public Equipo _Equipo { get; set; }
-        public Producto _Producto { get; set; }
         public mdEquipoST()
         {
             InitializeComponent();
@@ -32,7 +28,10 @@ namespace CapaPresentacion.Modales
             {
                 if (columna.Visible == true)
                 {
-                    cbobusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText});
+                    cbobusqueda.Items.Add(new OpcionCombo() 
+                    {
+                        Valor = columna.Name, Texto = columna.HeaderText
+                    });
                 }
             }
 
@@ -48,15 +47,11 @@ namespace CapaPresentacion.Modales
                 string fec = new CN_Compra().ObtenerFecha(item.eCompra.IdCompra);
                 dgvdata.Rows.Add(new object[]
                 {
+                    item.IdEquipo,
                     item.CodigoEquipo,
                     item.Modelo,
                     item.Marca,
                     item.SerialNumber,
-                    "",//numero de documento
-                    item.IdEquipo,
-                    item.eCompra.IdCompra,
-                    "",//id de la venta
-                    item.eProducto.IdProducto,
                     fec
                 });
             }
@@ -71,29 +66,40 @@ namespace CapaPresentacion.Modales
             {
                 _Equipo = new Equipo()
                 {
+                    IdEquipo = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdEquipo"].Value),
                     CodigoEquipo = dgvdata.Rows[iRow].Cells["Codigo"].Value.ToString(),
                     Modelo = dgvdata.Rows[iRow].Cells["Modelo"].Value.ToString(),
                     Marca = dgvdata.Rows[iRow].Cells["Marca"].Value.ToString(),
                     SerialNumber = dgvdata.Rows[iRow].Cells["Serie"].Value.ToString(),
-                    IdEquipo = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdEquipo"].Value)
-                };
-                /*Acá va el número de documento*/
-                _Compra = new Compra()
-                {
-                    IdCompra = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdCompra"].Value),
-                    /*NumeroDocumento = dgvdata.Rows[iRow].Cells["NumeroDocumento"].Value.ToString(),*/
-                    FechaRegistro = dgvdata.Rows[iRow].Cells["Fecha"].Value.ToString(),
-                };
-                /*_Venta = new Venta()
-                {
-                    IdVenta = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdVenta"].Value)
-                };*/
-                _Producto = new Producto()
-                {
-                    IdProducto = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdProducto"].Value)
+                    FechaRegistro = dgvdata.Rows[iRow].Cells["Fecha"].Value.ToString()
                 };
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+            }
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
+
+            if (dgvdata.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            }
+        }
+
+        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
+        {
+            txtbusqueda.Text = "";
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                row.Visible = true;
             }
         }
     }

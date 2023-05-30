@@ -51,13 +51,14 @@ namespace CapaPresentacion
 
                 if (result == DialogResult.OK)
                 {
-                    txtcliente.Text = modal._Cliente.NombreCompleto;
+                    txtcliente.Text = modal._Cliente.RazonSocial;
                     txtruc.Text = modal._Cliente.RUC;
                     txtcontacto.Text = modal._Cliente.NombreContacto;
                     txtcorreo.Text = modal._Cliente.Correo1;
-                    txtdni.Text = modal._Cliente.Documento;
+                    /*Estos datos se tienen que llenar con los datos de la persona encargada de dejar el equipo
+                     * txtdni.Text = modal._Cliente.Documento;
                     txttelefono.Text = modal._Cliente.Telefono1;
-                    
+                    txtdeja.Text = modal._Cliente.NombreContacto;*/
                 }
                 else
                 {
@@ -78,7 +79,7 @@ namespace CapaPresentacion
                 if (result == DialogResult.OK)
                 {
                     //este codigo muestra la fecha, solo hasta el caracter numero 10, es el tamaño correcto para mostrar la fecha en el formato correcto
-                    string fechaFormateada = modal._Compra.FechaRegistro.Substring(0, Math.Min(modal._Compra.FechaRegistro.Length, 10));
+                    string fechaFormateada = modal._Equipo.FechaRegistro.Substring(0, Math.Min(modal._Equipo.FechaRegistro.Length, 10));
                     txtmarca.Text = modal._Equipo.Marca;
                     txtserie.Text = modal._Equipo.SerialNumber;
                     txtmodelo.Text = modal._Equipo.Modelo;
