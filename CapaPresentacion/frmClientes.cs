@@ -500,7 +500,7 @@ namespace CapaPresentacion
         }
         private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-                if (dgvdata.Columns[e.ColumnIndex].Name == "btnseleccionar")
+            if (dgvdata.Columns[e.ColumnIndex].Name == "btnseleccionar")
             {
                 int indice = e.RowIndex;
                 if (indice >= 0)

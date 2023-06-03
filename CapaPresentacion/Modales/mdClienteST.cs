@@ -46,6 +46,7 @@ namespace CapaPresentacion.Modales
                 if (item.Estado)
                     dgvdata.Rows.Add(new object[] 
                     {
+                        item.IdCliente,
                         item.RazonSocial,
                         item.RUC,
                         item.NombreContacto,
@@ -72,6 +73,7 @@ namespace CapaPresentacion.Modales
             {
                 _Cliente = new Cliente()
                 {
+                    IdCliente = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdCliente"].Value),
                     RazonSocial = dgvdata.Rows[iRow].Cells["RazonSocial"].Value.ToString(),
                     RUC = dgvdata.Rows[iRow].Cells["Ruc"].Value.ToString(),
                     NombreContacto = dgvdata.Rows[iRow].Cells["Contacto"].Value.ToString(),

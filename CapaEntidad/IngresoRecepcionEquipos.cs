@@ -29,20 +29,22 @@ namespace CapaEntidad
                                                      * Estado
                                                      */
         public EstadoEquipo iEstadoEquipo { get; set; } //son los datos del estado del equipo al momento de ingresar a servicio tecnico
-        public Producto iProducto { get; set; } //son los datos del producto al momento de jalar el equipo. Solo es para el idProducto
+        //public Producto iProducto { get; set; } //son los datos del producto al momento de jalar el equipo. Solo es para el idProducto
         public Compra iCompra { get; set; }     //son los datos de la compra al momento de jalar el equipo. Solo es para el idCompra
-        public Detalle_Compra iDC { get; set; } //son los datos del detalle de compra al momento de jalar el equipo. Solo es para el idDetalleCompra
-        public Detalle_Venta iDV { get; set; }  /*son los datos del detalle de compra al momento de jalar el equipo. Solo es para el idDetalleCompra
-                                                 * idDetalleVenta
-                                                 * fecha de registro de la venta
-                                                 */
+        public string Fecha { get; set; }
+        //public Detalle_Compra iDC { get; set; } //son los datos del detalle de compra al momento de jalar el equipo. Solo es para el idDetalleCompra
+        //public Detalle_Venta iDV { get; set; }  /*son los datos del detalle de compra al momento de jalar el equipo. Solo es para el idDetalleCompra
+        //                                       * idDetalleVenta
+        //                                       * fecha de registro de la venta
+        //                                       */
         public bool Garantia { get; set; }  //si el producto tiene garantia al momento de ingresar a IRE
         public Moneda iMoneda { get; set; } //registra el tipo de moneda en la que se cobra la reparacion. Solo es para el idMoneda
-        public float Costo { get; set; }    //registra el costo del servicio
+        public decimal Costo { get; set; }    //registra el costo del servicio
+        public bool Enciende { get; set; }    //registra si el equipo enciende
         public string Situacion { get; set; }       //informacion que escribe el personal de ST, tiene como maximo 1000 caracteres
         public string Accesorios { get; set; }      //informacion que escribe el personal de ST, tiene como maximo 1000 caracteres
         public string Observaciones { get; set; }   //informacion que escribe el personal de ST, tiene como maximo 1000 caracteres
-        public string fechaIRE { get; set; }        //es la fecha en la que se crea el IRE
+        public string FechaIRE { get; set; }        //es la fecha en la que se crea el IRE
 
     }
 }

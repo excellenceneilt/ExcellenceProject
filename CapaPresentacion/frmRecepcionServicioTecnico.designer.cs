@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtdeja = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.cboenciende = new System.Windows.Forms.ComboBox();
@@ -38,29 +38,49 @@
             this.label25 = new System.Windows.Forms.Label();
             this.txtserie = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblobservaciones = new System.Windows.Forms.Label();
             this.txttelefono = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtcorreo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtfecha = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.txtnumero = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblaccesorios = new System.Windows.Forms.Label();
             this.txtcosto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblsituacion = new System.Windows.Forms.Label();
             this.cbomoneda = new System.Windows.Forms.ComboBox();
             this.txtbusqueda = new System.Windows.Forms.TextBox();
             this.cbobusqueda = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvdata = new System.Windows.Forms.DataGridView();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IdIre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodOST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Deja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DniDeja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelefonoDeja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdEstadoEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Garantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Enciende = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Situacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accesorios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaIRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtindice = new System.Windows.Forms.TextBox();
             this.txtid = new System.Windows.Forms.TextBox();
             this.txtcontacto = new System.Windows.Forms.TextBox();
@@ -79,18 +99,21 @@
             this.txtfechacompra = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtobservaciones = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtidcliente = new System.Windows.Forms.TextBox();
             this.btnbuscarcliente = new FontAwesome.Sharp.IconButton();
             this.txtcliente = new System.Windows.Forms.TextBox();
+            this.txtfecha = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cckgarantia = new System.Windows.Forms.CheckBox();
             this.cckcostord = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtsituacion = new System.Windows.Forms.TextBox();
+            this.txtaccesorio = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtidequipo = new System.Windows.Forms.TextBox();
             this.cckseleccionarequipo = new System.Windows.Forms.CheckBox();
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.txtmarca = new System.Windows.Forms.TextBox();
@@ -110,7 +133,7 @@
             this.txtdeja.Location = new System.Drawing.Point(63, 97);
             this.txtdeja.Name = "txtdeja";
             this.txtdeja.Size = new System.Drawing.Size(259, 20);
-            this.txtdeja.TabIndex = 128;
+            this.txtdeja.TabIndex = 6;
             // 
             // label30
             // 
@@ -131,7 +154,7 @@
             this.cboenciende.Location = new System.Drawing.Point(83, 38);
             this.cboenciende.Name = "cboenciende";
             this.cboenciende.Size = new System.Drawing.Size(60, 21);
-            this.cboenciende.TabIndex = 182;
+            this.cboenciende.TabIndex = 22;
             // 
             // label27
             // 
@@ -174,7 +197,7 @@
             this.txtserie.Location = new System.Drawing.Point(74, 86);
             this.txtserie.Name = "txtserie";
             this.txtserie.Size = new System.Drawing.Size(230, 20);
-            this.txtserie.TabIndex = 125;
+            this.txtserie.TabIndex = 15;
             // 
             // label14
             // 
@@ -187,16 +210,16 @@
             this.label14.TabIndex = 156;
             this.label14.Text = "Serie:";
             // 
-            // label12
+            // lblobservaciones
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(14, 288);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(164, 13);
-            this.label12.TabIndex = 154;
-            this.label12.Text = "Observaciones (1000 caracteres)";
+            this.lblobservaciones.AutoSize = true;
+            this.lblobservaciones.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblobservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblobservaciones.Location = new System.Drawing.Point(14, 288);
+            this.lblobservaciones.Name = "lblobservaciones";
+            this.lblobservaciones.Size = new System.Drawing.Size(164, 13);
+            this.lblobservaciones.TabIndex = 154;
+            this.lblobservaciones.Text = "Observaciones (1000 caracteres)";
             // 
             // txttelefono
             // 
@@ -205,7 +228,8 @@
             this.txttelefono.Location = new System.Drawing.Point(537, 97);
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(72, 20);
-            this.txttelefono.TabIndex = 138;
+            this.txttelefono.TabIndex = 11;
+            this.txttelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttelefono_KeyPress);
             // 
             // label6
             // 
@@ -226,7 +250,7 @@
             this.txtcorreo.Location = new System.Drawing.Point(384, 76);
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(225, 20);
-            this.txtcorreo.TabIndex = 136;
+            this.txtcorreo.TabIndex = 9;
             // 
             // label5
             // 
@@ -239,22 +263,12 @@
             this.label5.TabIndex = 152;
             this.label5.Text = "Correo:\r\n";
             // 
-            // txtfecha
-            // 
-            this.txtfecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtfecha.Enabled = false;
-            this.txtfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfecha.Location = new System.Drawing.Point(209, 30);
-            this.txtfecha.Name = "txtfecha";
-            this.txtfecha.Size = new System.Drawing.Size(71, 20);
-            this.txtfecha.TabIndex = 132;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(166, 34);
+            this.label20.Location = new System.Drawing.Point(154, 34);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(37, 13);
             this.label20.TabIndex = 167;
@@ -290,7 +304,7 @@
             this.txtnumero.Name = "txtnumero";
             this.txtnumero.ReadOnly = true;
             this.txtnumero.Size = new System.Drawing.Size(72, 20);
-            this.txtnumero.TabIndex = 161;
+            this.txtnumero.TabIndex = 1;
             // 
             // label16
             // 
@@ -303,16 +317,16 @@
             this.label16.TabIndex = 160;
             this.label16.Text = "Código";
             // 
-            // label13
+            // lblaccesorios
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(13, 176);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(145, 13);
-            this.label13.TabIndex = 155;
-            this.label13.Text = "Accesorios (1000 caracteres)";
+            this.lblaccesorios.AutoSize = true;
+            this.lblaccesorios.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblaccesorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblaccesorios.Location = new System.Drawing.Point(13, 176);
+            this.lblaccesorios.Name = "lblaccesorios";
+            this.lblaccesorios.Size = new System.Drawing.Size(145, 13);
+            this.lblaccesorios.TabIndex = 155;
+            this.lblaccesorios.Text = "Accesorios (1000 caracteres)";
             // 
             // txtcosto
             // 
@@ -322,7 +336,9 @@
             this.txtcosto.Location = new System.Drawing.Point(538, 46);
             this.txtcosto.Name = "txtcosto";
             this.txtcosto.Size = new System.Drawing.Size(48, 20);
-            this.txtcosto.TabIndex = 134;
+            this.txtcosto.TabIndex = 21;
+            this.txtcosto.Text = "0.00";
+            this.txtcosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcosto_KeyPress);
             // 
             // label4
             // 
@@ -335,16 +351,16 @@
             this.label4.TabIndex = 122;
             this.label4.Text = "Costo";
             // 
-            // label8
+            // lblsituacion
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(14, 71);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(137, 13);
-            this.label8.TabIndex = 130;
-            this.label8.Text = "Situación (1000 caracteres)";
+            this.lblsituacion.AutoSize = true;
+            this.lblsituacion.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblsituacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsituacion.Location = new System.Drawing.Point(14, 71);
+            this.lblsituacion.Name = "lblsituacion";
+            this.lblsituacion.Size = new System.Drawing.Size(137, 13);
+            this.lblsituacion.TabIndex = 130;
+            this.lblsituacion.Text = "Situación (1000 caracteres)";
             // 
             // cbomoneda
             // 
@@ -355,7 +371,7 @@
             this.cbomoneda.Location = new System.Drawing.Point(395, 46);
             this.cbomoneda.Name = "cbomoneda";
             this.cbomoneda.Size = new System.Drawing.Size(84, 21);
-            this.cbomoneda.TabIndex = 131;
+            this.cbomoneda.TabIndex = 20;
             // 
             // txtbusqueda
             // 
@@ -364,7 +380,7 @@
             this.txtbusqueda.Location = new System.Drawing.Point(240, 38);
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(218, 20);
-            this.txtbusqueda.TabIndex = 148;
+            this.txtbusqueda.TabIndex = 31;
             // 
             // cbobusqueda
             // 
@@ -374,7 +390,7 @@
             this.cbobusqueda.Location = new System.Drawing.Point(81, 37);
             this.cbobusqueda.Name = "cbobusqueda";
             this.cbobusqueda.Size = new System.Drawing.Size(154, 21);
-            this.cbobusqueda.TabIndex = 147;
+            this.cbobusqueda.TabIndex = 30;
             // 
             // label11
             // 
@@ -390,20 +406,41 @@
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Numero,
-            this.Cliente,
-            this.Equipo});
+            this.btnseleccionar,
+            this.IdIre,
+            this.CodOST,
+            this.Deja,
+            this.DniDeja,
+            this.TelefonoDeja,
+            this.IdCliente,
+            this.RUC,
+            this.NombreContacto,
+            this.Correo1,
+            this.IdEquipo,
+            this.Marca,
+            this.Modelo,
+            this.SerialNumber,
+            this.IdEstadoEquipo,
+            this.Fecha,
+            this.Garantia,
+            this.IdMoneda,
+            this.Costo,
+            this.Enciende,
+            this.Situacion,
+            this.Accesorios,
+            this.Observaciones,
+            this.FechaIRE});
             this.dgvdata.Location = new System.Drawing.Point(0, 323);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
@@ -412,25 +449,168 @@
             this.dgvdata.Size = new System.Drawing.Size(652, 209);
             this.dgvdata.TabIndex = 141;
             // 
-            // Numero
+            // btnseleccionar
             // 
-            this.Numero.HeaderText = "Número";
-            this.Numero.Name = "Numero";
-            this.Numero.ReadOnly = true;
+            this.btnseleccionar.HeaderText = "";
+            this.btnseleccionar.Name = "btnseleccionar";
+            this.btnseleccionar.ReadOnly = true;
+            this.btnseleccionar.Width = 30;
             // 
-            // Cliente
+            // IdIre
             // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Width = 275;
+            this.IdIre.HeaderText = "IdIre";
+            this.IdIre.Name = "IdIre";
+            this.IdIre.ReadOnly = true;
+            this.IdIre.Visible = false;
+            this.IdIre.Width = 30;
             // 
-            // Equipo
+            // CodOST
             // 
-            this.Equipo.HeaderText = "Equipo";
-            this.Equipo.Name = "Equipo";
-            this.Equipo.ReadOnly = true;
-            this.Equipo.Width = 230;
+            this.CodOST.HeaderText = "CodOST";
+            this.CodOST.Name = "CodOST";
+            this.CodOST.ReadOnly = true;
+            // 
+            // Deja
+            // 
+            this.Deja.HeaderText = "Deja";
+            this.Deja.Name = "Deja";
+            this.Deja.ReadOnly = true;
+            this.Deja.Visible = false;
+            // 
+            // DniDeja
+            // 
+            this.DniDeja.HeaderText = "DniDeja";
+            this.DniDeja.Name = "DniDeja";
+            this.DniDeja.ReadOnly = true;
+            this.DniDeja.Visible = false;
+            // 
+            // TelefonoDeja
+            // 
+            this.TelefonoDeja.HeaderText = "TelefonoDeja";
+            this.TelefonoDeja.Name = "TelefonoDeja";
+            this.TelefonoDeja.ReadOnly = true;
+            this.TelefonoDeja.Visible = false;
+            // 
+            // IdCliente
+            // 
+            this.IdCliente.HeaderText = "IdCliente";
+            this.IdCliente.Name = "IdCliente";
+            this.IdCliente.ReadOnly = true;
+            this.IdCliente.Visible = false;
+            // 
+            // RUC
+            // 
+            this.RUC.HeaderText = "RUC";
+            this.RUC.Name = "RUC";
+            this.RUC.ReadOnly = true;
+            this.RUC.Visible = false;
+            // 
+            // NombreContacto
+            // 
+            this.NombreContacto.HeaderText = "NombreContacto";
+            this.NombreContacto.Name = "NombreContacto";
+            this.NombreContacto.ReadOnly = true;
+            // 
+            // Correo1
+            // 
+            this.Correo1.HeaderText = "Correo1";
+            this.Correo1.Name = "Correo1";
+            this.Correo1.ReadOnly = true;
+            this.Correo1.Visible = false;
+            // 
+            // IdEquipo
+            // 
+            this.IdEquipo.HeaderText = "IdEquipo";
+            this.IdEquipo.Name = "IdEquipo";
+            this.IdEquipo.ReadOnly = true;
+            this.IdEquipo.Visible = false;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            // 
+            // Modelo
+            // 
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            // 
+            // SerialNumber
+            // 
+            this.SerialNumber.HeaderText = "SerialNumber";
+            this.SerialNumber.Name = "SerialNumber";
+            this.SerialNumber.ReadOnly = true;
+            // 
+            // IdEstadoEquipo
+            // 
+            this.IdEstadoEquipo.HeaderText = "IdEstadoEquipo";
+            this.IdEstadoEquipo.Name = "IdEstadoEquipo";
+            this.IdEstadoEquipo.ReadOnly = true;
+            this.IdEstadoEquipo.Visible = false;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Visible = false;
+            // 
+            // Garantia
+            // 
+            this.Garantia.HeaderText = "Garantia";
+            this.Garantia.Name = "Garantia";
+            this.Garantia.ReadOnly = true;
+            this.Garantia.Visible = false;
+            // 
+            // IdMoneda
+            // 
+            this.IdMoneda.HeaderText = "IdMoneda";
+            this.IdMoneda.Name = "IdMoneda";
+            this.IdMoneda.ReadOnly = true;
+            this.IdMoneda.Visible = false;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.Name = "Costo";
+            this.Costo.ReadOnly = true;
+            this.Costo.Visible = false;
+            // 
+            // Enciende
+            // 
+            this.Enciende.HeaderText = "Enciende";
+            this.Enciende.Name = "Enciende";
+            this.Enciende.ReadOnly = true;
+            this.Enciende.Visible = false;
+            // 
+            // Situacion
+            // 
+            this.Situacion.HeaderText = "Situacion";
+            this.Situacion.Name = "Situacion";
+            this.Situacion.ReadOnly = true;
+            this.Situacion.Visible = false;
+            // 
+            // Accesorios
+            // 
+            this.Accesorios.HeaderText = "Accesorios";
+            this.Accesorios.Name = "Accesorios";
+            this.Accesorios.ReadOnly = true;
+            this.Accesorios.Visible = false;
+            // 
+            // Observaciones
+            // 
+            this.Observaciones.HeaderText = "Observaciones";
+            this.Observaciones.Name = "Observaciones";
+            this.Observaciones.ReadOnly = true;
+            this.Observaciones.Visible = false;
+            // 
+            // FechaIRE
+            // 
+            this.FechaIRE.HeaderText = "FechaIRE";
+            this.FechaIRE.Name = "FechaIRE";
+            this.FechaIRE.ReadOnly = true;
             // 
             // txtindice
             // 
@@ -460,7 +640,7 @@
             this.txtcontacto.Location = new System.Drawing.Point(63, 75);
             this.txtcontacto.Name = "txtcontacto";
             this.txtcontacto.Size = new System.Drawing.Size(259, 20);
-            this.txtcontacto.TabIndex = 126;
+            this.txtcontacto.TabIndex = 5;
             // 
             // txtdni
             // 
@@ -469,7 +649,8 @@
             this.txtdni.Location = new System.Drawing.Point(384, 97);
             this.txtdni.Name = "txtdni";
             this.txtdni.Size = new System.Drawing.Size(79, 20);
-            this.txtdni.TabIndex = 123;
+            this.txtdni.TabIndex = 10;
+            this.txtdni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdni_KeyPress);
             // 
             // label3
             // 
@@ -507,7 +688,7 @@
             this.btneliminar.Location = new System.Drawing.Point(397, 401);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(105, 23);
-            this.btneliminar.TabIndex = 146;
+            this.btneliminar.TabIndex = 28;
             this.btneliminar.Text = "Eliminar";
             this.btneliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btneliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -527,11 +708,12 @@
             this.btnlimpiar.Location = new System.Drawing.Point(286, 401);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(105, 23);
-            this.btnlimpiar.TabIndex = 144;
+            this.btnlimpiar.TabIndex = 27;
             this.btnlimpiar.Text = "Limpiar";
             this.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnlimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnlimpiar.UseVisualStyleBackColor = false;
+            this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
             // 
             // btnguardar
             // 
@@ -547,11 +729,12 @@
             this.btnguardar.Location = new System.Drawing.Point(175, 401);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(105, 23);
-            this.btnguardar.TabIndex = 142;
+            this.btnguardar.TabIndex = 26;
             this.btnguardar.Text = "Guardar";
             this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnguardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnguardar.UseVisualStyleBackColor = false;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // btnlimpiarbuscador
             // 
@@ -567,7 +750,7 @@
             this.btnlimpiarbuscador.Location = new System.Drawing.Point(514, 38);
             this.btnlimpiarbuscador.Name = "btnlimpiarbuscador";
             this.btnlimpiarbuscador.Size = new System.Drawing.Size(45, 23);
-            this.btnlimpiarbuscador.TabIndex = 150;
+            this.btnlimpiarbuscador.TabIndex = 33;
             this.btnlimpiarbuscador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnlimpiarbuscador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnlimpiarbuscador.UseVisualStyleBackColor = false;
@@ -586,7 +769,7 @@
             this.btnbuscar.Location = new System.Drawing.Point(468, 38);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(41, 23);
-            this.btnbuscar.TabIndex = 149;
+            this.btnbuscar.TabIndex = 32;
             this.btnbuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnbuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnbuscar.UseVisualStyleBackColor = false;
@@ -610,7 +793,7 @@
             this.txtruc.Location = new System.Drawing.Point(384, 54);
             this.txtruc.Name = "txtruc";
             this.txtruc.Size = new System.Drawing.Size(225, 20);
-            this.txtruc.TabIndex = 124;
+            this.txtruc.TabIndex = 8;
             // 
             // txtost
             // 
@@ -620,7 +803,7 @@
             this.txtost.Name = "txtost";
             this.txtost.ReadOnly = true;
             this.txtost.Size = new System.Drawing.Size(72, 20);
-            this.txtost.TabIndex = 185;
+            this.txtost.TabIndex = 7;
             // 
             // label1
             // 
@@ -641,7 +824,7 @@
             this.txtfechacompra.Location = new System.Drawing.Point(405, 86);
             this.txtfechacompra.Name = "txtfechacompra";
             this.txtfechacompra.Size = new System.Drawing.Size(104, 20);
-            this.txtfechacompra.TabIndex = 187;
+            this.txtfechacompra.TabIndex = 17;
             // 
             // label19
             // 
@@ -659,15 +842,17 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // textBox4
+            // txtobservaciones
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(17, 304);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(649, 81);
-            this.textBox4.TabIndex = 194;
+            this.txtobservaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtobservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtobservaciones.Location = new System.Drawing.Point(17, 304);
+            this.txtobservaciones.Multiline = true;
+            this.txtobservaciones.Name = "txtobservaciones";
+            this.txtobservaciones.Size = new System.Drawing.Size(649, 81);
+            this.txtobservaciones.TabIndex = 25;
+            this.txtobservaciones.TextChanged += new System.EventHandler(this.txtobservaciones_TextChanged);
+            this.txtobservaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtobservaciones_KeyPress);
             // 
             // groupBox1
             // 
@@ -688,6 +873,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox2.Controls.Add(this.txtidcliente);
             this.groupBox2.Controls.Add(this.btnbuscarcliente);
             this.groupBox2.Controls.Add(this.txtcliente);
             this.groupBox2.Controls.Add(this.label15);
@@ -719,6 +905,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información";
             // 
+            // txtidcliente
+            // 
+            this.txtidcliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtidcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtidcliente.Location = new System.Drawing.Point(299, 30);
+            this.txtidcliente.Name = "txtidcliente";
+            this.txtidcliente.Size = new System.Drawing.Size(23, 20);
+            this.txtidcliente.TabIndex = 188;
+            this.txtidcliente.Text = "-1";
+            // 
             // btnbuscarcliente
             // 
             this.btnbuscarcliente.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
@@ -728,7 +924,7 @@
             this.btnbuscarcliente.Location = new System.Drawing.Point(287, 52);
             this.btnbuscarcliente.Name = "btnbuscarcliente";
             this.btnbuscarcliente.Size = new System.Drawing.Size(35, 23);
-            this.btnbuscarcliente.TabIndex = 187;
+            this.btnbuscarcliente.TabIndex = 4;
             this.btnbuscarcliente.UseVisualStyleBackColor = true;
             this.btnbuscarcliente.Click += new System.EventHandler(this.btnbuscarcliente_Click);
             // 
@@ -740,7 +936,17 @@
             this.txtcliente.Location = new System.Drawing.Point(63, 53);
             this.txtcliente.Name = "txtcliente";
             this.txtcliente.Size = new System.Drawing.Size(217, 20);
-            this.txtcliente.TabIndex = 186;
+            this.txtcliente.TabIndex = 3;
+            // 
+            // txtfecha
+            // 
+            this.txtfecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtfecha.Enabled = false;
+            this.txtfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfecha.Location = new System.Drawing.Point(192, 31);
+            this.txtfecha.Name = "txtfecha";
+            this.txtfecha.Size = new System.Drawing.Size(71, 20);
+            this.txtfecha.TabIndex = 2;
             // 
             // groupBox3
             // 
@@ -768,7 +974,7 @@
             this.cckgarantia.Location = new System.Drawing.Point(28, 46);
             this.cckgarantia.Name = "cckgarantia";
             this.cckgarantia.Size = new System.Drawing.Size(108, 17);
-            this.cckgarantia.TabIndex = 194;
+            this.cckgarantia.TabIndex = 18;
             this.cckgarantia.Text = "¿Tiene garantía?";
             this.cckgarantia.UseVisualStyleBackColor = true;
             this.cckgarantia.CheckedChanged += new System.EventHandler(this.cckgarantia_CheckedChanged);
@@ -781,7 +987,7 @@
             this.cckcostord.Location = new System.Drawing.Point(156, 47);
             this.cckcostord.Name = "cckcostord";
             this.cckcostord.Size = new System.Drawing.Size(175, 17);
-            this.cckcostord.TabIndex = 193;
+            this.cckcostord.TabIndex = 19;
             this.cckcostord.Text = "Costo por revisión y diagnóstico";
             this.cckcostord.UseVisualStyleBackColor = true;
             this.cckcostord.CheckedChanged += new System.EventHandler(this.cckcostord_CheckedChanged);
@@ -789,15 +995,15 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.textBox3);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.textBox4);
+            this.groupBox4.Controls.Add(this.txtsituacion);
+            this.groupBox4.Controls.Add(this.txtaccesorio);
+            this.groupBox4.Controls.Add(this.lblsituacion);
+            this.groupBox4.Controls.Add(this.txtobservaciones);
             this.groupBox4.Controls.Add(this.btneliminar);
-            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.lblaccesorios);
             this.groupBox4.Controls.Add(this.btnlimpiar);
             this.groupBox4.Controls.Add(this.btnguardar);
-            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.lblobservaciones);
             this.groupBox4.Controls.Add(this.cboenciende);
             this.groupBox4.Controls.Add(this.label27);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -808,29 +1014,34 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Estado del equipo";
             // 
-            // textBox5
+            // txtsituacion
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(17, 87);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(649, 81);
-            this.textBox5.TabIndex = 196;
+            this.txtsituacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtsituacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtsituacion.Location = new System.Drawing.Point(17, 87);
+            this.txtsituacion.Multiline = true;
+            this.txtsituacion.Name = "txtsituacion";
+            this.txtsituacion.Size = new System.Drawing.Size(649, 81);
+            this.txtsituacion.TabIndex = 23;
+            this.txtsituacion.TextChanged += new System.EventHandler(this.txtsituacion_TextChanged);
+            this.txtsituacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsituacion_KeyPress);
             // 
-            // textBox3
+            // txtaccesorio
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(17, 192);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(649, 81);
-            this.textBox3.TabIndex = 195;
+            this.txtaccesorio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtaccesorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtaccesorio.Location = new System.Drawing.Point(17, 192);
+            this.txtaccesorio.Multiline = true;
+            this.txtaccesorio.Name = "txtaccesorio";
+            this.txtaccesorio.Size = new System.Drawing.Size(649, 81);
+            this.txtaccesorio.TabIndex = 24;
+            this.txtaccesorio.TextChanged += new System.EventHandler(this.txtaccesorio_TextChanged);
+            this.txtaccesorio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtaccesorio_KeyPress);
             // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox5.Controls.Add(this.txtidequipo);
             this.groupBox5.Controls.Add(this.cckseleccionarequipo);
             this.groupBox5.Controls.Add(this.txtmodelo);
             this.groupBox5.Controls.Add(this.txtmarca);
@@ -849,16 +1060,27 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Equipo";
             // 
+            // txtidequipo
+            // 
+            this.txtidequipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtidequipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtidequipo.Location = new System.Drawing.Point(240, 34);
+            this.txtidequipo.Name = "txtidequipo";
+            this.txtidequipo.Size = new System.Drawing.Size(23, 20);
+            this.txtidequipo.TabIndex = 189;
+            this.txtidequipo.Text = "-1";
+            // 
             // cckseleccionarequipo
             // 
             this.cckseleccionarequipo.AutoSize = true;
             this.cckseleccionarequipo.Checked = true;
             this.cckseleccionarequipo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cckseleccionarequipo.Enabled = false;
             this.cckseleccionarequipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cckseleccionarequipo.Location = new System.Drawing.Point(74, 37);
             this.cckseleccionarequipo.Name = "cckseleccionarequipo";
             this.cckseleccionarequipo.Size = new System.Drawing.Size(117, 17);
-            this.cckseleccionarequipo.TabIndex = 192;
+            this.cckseleccionarequipo.TabIndex = 12;
             this.cckseleccionarequipo.Text = "Seleccionar equipo";
             this.cckseleccionarequipo.UseVisualStyleBackColor = true;
             this.cckseleccionarequipo.CheckedChanged += new System.EventHandler(this.cckseleccionarequipo_CheckedChanged);
@@ -871,7 +1093,7 @@
             this.txtmodelo.Location = new System.Drawing.Point(405, 60);
             this.txtmodelo.Name = "txtmodelo";
             this.txtmodelo.Size = new System.Drawing.Size(230, 20);
-            this.txtmodelo.TabIndex = 191;
+            this.txtmodelo.TabIndex = 16;
             // 
             // txtmarca
             // 
@@ -881,7 +1103,7 @@
             this.txtmarca.Location = new System.Drawing.Point(74, 60);
             this.txtmarca.Name = "txtmarca";
             this.txtmarca.Size = new System.Drawing.Size(230, 20);
-            this.txtmarca.TabIndex = 190;
+            this.txtmarca.TabIndex = 14;
             // 
             // btnbuscarequipo
             // 
@@ -892,7 +1114,7 @@
             this.btnbuscarequipo.Location = new System.Drawing.Point(269, 34);
             this.btnbuscarequipo.Name = "btnbuscarequipo";
             this.btnbuscarequipo.Size = new System.Drawing.Size(35, 23);
-            this.btnbuscarequipo.TabIndex = 189;
+            this.btnbuscarequipo.TabIndex = 13;
             this.btnbuscarequipo.UseVisualStyleBackColor = true;
             this.btnbuscarequipo.Click += new System.EventHandler(this.btnbuscarequipo_Click);
             // 
@@ -909,6 +1131,7 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "frmRecepcionServicioTecnico";
             this.Text = "frmServicioTecnico";
+            this.Load += new System.EventHandler(this.frmRecepcionServicioTecnico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -934,24 +1157,23 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtserie;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblobservaciones;
         private System.Windows.Forms.TextBox txttelefono;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtcorreo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtfecha;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtnumero;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblaccesorios;
         private FontAwesome.Sharp.IconButton btneliminar;
         private FontAwesome.Sharp.IconButton btnlimpiar;
         private FontAwesome.Sharp.IconButton btnguardar;
         private System.Windows.Forms.TextBox txtcosto;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblsituacion;
         private System.Windows.Forms.ComboBox cbomoneda;
         private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
         private FontAwesome.Sharp.IconButton btnbuscar;
@@ -972,17 +1194,14 @@
         private System.Windows.Forms.TextBox txtfechacompra;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtobservaciones;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtsituacion;
+        private System.Windows.Forms.TextBox txtaccesorio;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Equipo;
         private System.Windows.Forms.TextBox txtcliente;
         private FontAwesome.Sharp.IconButton btnbuscarcliente;
         private FontAwesome.Sharp.IconButton btnbuscarequipo;
@@ -991,5 +1210,32 @@
         private System.Windows.Forms.CheckBox cckseleccionarequipo;
         private System.Windows.Forms.CheckBox cckcostord;
         private System.Windows.Forms.CheckBox cckgarantia;
+        private System.Windows.Forms.TextBox txtidcliente;
+        private System.Windows.Forms.TextBox txtidequipo;
+        private System.Windows.Forms.DataGridViewButtonColumn btnseleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdIre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodOST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Deja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DniDeja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TelefonoDeja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RUC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreContacto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Correo1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdEquipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SerialNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdEstadoEquipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Garantia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdMoneda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Enciende;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Situacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Accesorios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observaciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaIRE;
+        private System.Windows.Forms.TextBox txtfecha;
     }
 }

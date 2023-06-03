@@ -40,7 +40,7 @@ namespace CapaPresentacion.Modales
             cbobusqueda.SelectedIndex = 0;
 
             dgvdata.Rows.Clear();
-            List<Equipo> listaEquipo = new CN_Equipo().Listar();
+            List<Equipo> listaEquipo = new CN_Equipo().ListarSinST();
 
             foreach (Equipo item in listaEquipo)
             {

@@ -16,6 +16,11 @@ namespace CapaNegocio
         {
             return objcd_Equipo.Listar();
         }
+
+        public List<Equipo> ListarSinST()
+        {
+            return objcd_Equipo.ListarSinST();
+        }
         //Procedimientos de mantenimiento
         public int Registrar(Equipo obj, out string Mensaje)
         {
