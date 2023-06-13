@@ -22,19 +22,18 @@ namespace CapaNegocio
 
             //Validaciones por si se dejan campos vacíos
             Mensaje = string.Empty;
-            if (obj.Documento == "")
+            /*if (obj.Documento == "")
             {
                 Mensaje += "Es necesario definir un dni de Cliente\n";
-            }
-            if (obj.NombreCompleto == "")
+            }*/
+            /*if (obj.NombreCompleto == "")
             {
                 Mensaje += "Es necesario definir un nombre de Cliente\n";
-            }
-            
-            if (obj.Correo1 == "")
+            }*/
+            /*if (obj.Correo1 == "")
             {
                 Mensaje += "Es necesario definir un correo del Cliente\n";
-            }
+            }*/
             if (Mensaje != string.Empty)
             {
                 return 0;

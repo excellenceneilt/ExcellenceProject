@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtindice = new System.Windows.Forms.TextBox();
             this.txtid = new System.Windows.Forms.TextBox();
             this.btneliminar = new FontAwesome.Sharp.IconButton();
@@ -43,6 +43,43 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvdata = new System.Windows.Forms.DataGridView();
+            this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DireccionComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DireccionContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocumentoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RucContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelefonoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CelularContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CorreoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Distrito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartamentoComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProvinciaComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DistritoComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartamentoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProvinciaContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DistritoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtcorreo2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txttelefono1 = new System.Windows.Forms.TextBox();
@@ -111,43 +148,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cbobusqueda = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DistritoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProvinciaContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepartamentoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DistritoComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProvinciaComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepartamentoComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Distrito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CorreoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CelularContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TelefonoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RucContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DocumentoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DireccionContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DireccionComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdTipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -179,6 +179,7 @@
             // 
             this.btneliminar.BackColor = System.Drawing.Color.Tomato;
             this.btneliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btneliminar.Enabled = false;
             this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btneliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btneliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -282,6 +283,8 @@
             this.txtdocumento.Name = "txtdocumento";
             this.txtdocumento.Size = new System.Drawing.Size(99, 20);
             this.txtdocumento.TabIndex = 60;
+            this.txtdocumento.TextChanged += new System.EventHandler(this.txtdocumento_TextChanged);
+            this.txtdocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdocumento_KeyPress);
             // 
             // label4
             // 
@@ -319,15 +322,15 @@
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnseleccionar,
@@ -376,6 +379,235 @@
             this.dgvdata.TabIndex = 73;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
+            // 
+            // btnseleccionar
+            // 
+            this.btnseleccionar.HeaderText = "";
+            this.btnseleccionar.Name = "btnseleccionar";
+            this.btnseleccionar.ReadOnly = true;
+            this.btnseleccionar.Width = 30;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // CodigoCliente
+            // 
+            this.CodigoCliente.HeaderText = "Cod. Cliente";
+            this.CodigoCliente.Name = "CodigoCliente";
+            this.CodigoCliente.ReadOnly = true;
+            // 
+            // IdTipoDocumento
+            // 
+            this.IdTipoDocumento.HeaderText = "IdTipoDocumento";
+            this.IdTipoDocumento.Name = "IdTipoDocumento";
+            this.IdTipoDocumento.ReadOnly = true;
+            this.IdTipoDocumento.Visible = false;
+            // 
+            // TipoDocumento
+            // 
+            this.TipoDocumento.HeaderText = "Tipo Documento";
+            this.TipoDocumento.Name = "TipoDocumento";
+            this.TipoDocumento.ReadOnly = true;
+            // 
+            // Documento
+            // 
+            this.Documento.HeaderText = "DNI";
+            this.Documento.Name = "Documento";
+            this.Documento.ReadOnly = true;
+            this.Documento.Width = 80;
+            // 
+            // RUC
+            // 
+            this.RUC.HeaderText = "RUC";
+            this.RUC.Name = "RUC";
+            this.RUC.ReadOnly = true;
+            // 
+            // RazonSocial
+            // 
+            this.RazonSocial.HeaderText = "Razon Social";
+            this.RazonSocial.Name = "RazonSocial";
+            this.RazonSocial.ReadOnly = true;
+            // 
+            // IdTipoCliente
+            // 
+            this.IdTipoCliente.HeaderText = "IdTipoCliente";
+            this.IdTipoCliente.Name = "IdTipoCliente";
+            this.IdTipoCliente.ReadOnly = true;
+            this.IdTipoCliente.Visible = false;
+            // 
+            // TipoCliente
+            // 
+            this.TipoCliente.HeaderText = "Tipo Cliente";
+            this.TipoCliente.Name = "TipoCliente";
+            this.TipoCliente.ReadOnly = true;
+            // 
+            // NombreCompleto
+            // 
+            this.NombreCompleto.HeaderText = "Nombre Completo";
+            this.NombreCompleto.Name = "NombreCompleto";
+            this.NombreCompleto.ReadOnly = true;
+            this.NombreCompleto.Width = 180;
+            // 
+            // Direccion
+            // 
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            // 
+            // CMP
+            // 
+            this.CMP.HeaderText = "CMP";
+            this.CMP.Name = "CMP";
+            this.CMP.ReadOnly = true;
+            // 
+            // NombreComercial
+            // 
+            this.NombreComercial.HeaderText = "Nombre Comercial";
+            this.NombreComercial.Name = "NombreComercial";
+            this.NombreComercial.ReadOnly = true;
+            // 
+            // DireccionComercial
+            // 
+            this.DireccionComercial.HeaderText = "Direccion Comercial";
+            this.DireccionComercial.Name = "DireccionComercial";
+            this.DireccionComercial.ReadOnly = true;
+            // 
+            // Correo1
+            // 
+            this.Correo1.HeaderText = "Correo 1";
+            this.Correo1.Name = "Correo1";
+            this.Correo1.ReadOnly = true;
+            // 
+            // Telefono1
+            // 
+            this.Telefono1.HeaderText = "Telefono 1";
+            this.Telefono1.Name = "Telefono1";
+            this.Telefono1.ReadOnly = true;
+            // 
+            // NombreContacto
+            // 
+            this.NombreContacto.HeaderText = "Nombre de Contacto";
+            this.NombreContacto.Name = "NombreContacto";
+            this.NombreContacto.ReadOnly = true;
+            // 
+            // DireccionContacto
+            // 
+            this.DireccionContacto.HeaderText = "Dirección de Contacto";
+            this.DireccionContacto.Name = "DireccionContacto";
+            this.DireccionContacto.ReadOnly = true;
+            // 
+            // DocumentoContacto
+            // 
+            this.DocumentoContacto.HeaderText = "DNI de Contacto";
+            this.DocumentoContacto.Name = "DocumentoContacto";
+            this.DocumentoContacto.ReadOnly = true;
+            // 
+            // RucContacto
+            // 
+            this.RucContacto.HeaderText = "RUC de Contacto";
+            this.RucContacto.Name = "RucContacto";
+            this.RucContacto.ReadOnly = true;
+            // 
+            // TelefonoContacto
+            // 
+            this.TelefonoContacto.HeaderText = "Teléfono de Contacto";
+            this.TelefonoContacto.Name = "TelefonoContacto";
+            this.TelefonoContacto.ReadOnly = true;
+            // 
+            // CelularContacto
+            // 
+            this.CelularContacto.HeaderText = "Celular de Contacto";
+            this.CelularContacto.Name = "CelularContacto";
+            this.CelularContacto.ReadOnly = true;
+            // 
+            // CorreoContacto
+            // 
+            this.CorreoContacto.HeaderText = "Correo de Contacto";
+            this.CorreoContacto.Name = "CorreoContacto";
+            this.CorreoContacto.ReadOnly = true;
+            // 
+            // Correo2
+            // 
+            this.Correo2.HeaderText = "Correo 2";
+            this.Correo2.Name = "Correo2";
+            this.Correo2.ReadOnly = true;
+            // 
+            // Telefono2
+            // 
+            this.Telefono2.HeaderText = "Telefono 2";
+            this.Telefono2.Name = "Telefono2";
+            this.Telefono2.ReadOnly = true;
+            // 
+            // Departamento
+            // 
+            this.Departamento.HeaderText = "Departamento";
+            this.Departamento.Name = "Departamento";
+            this.Departamento.ReadOnly = true;
+            // 
+            // Provincia
+            // 
+            this.Provincia.HeaderText = "Provincia";
+            this.Provincia.Name = "Provincia";
+            this.Provincia.ReadOnly = true;
+            // 
+            // Distrito
+            // 
+            this.Distrito.HeaderText = "Distrito";
+            this.Distrito.Name = "Distrito";
+            this.Distrito.ReadOnly = true;
+            // 
+            // DepartamentoComercial
+            // 
+            this.DepartamentoComercial.HeaderText = "Departamento Comercial";
+            this.DepartamentoComercial.Name = "DepartamentoComercial";
+            this.DepartamentoComercial.ReadOnly = true;
+            // 
+            // ProvinciaComercial
+            // 
+            this.ProvinciaComercial.HeaderText = "Provincia Comercial";
+            this.ProvinciaComercial.Name = "ProvinciaComercial";
+            this.ProvinciaComercial.ReadOnly = true;
+            // 
+            // DistritoComercial
+            // 
+            this.DistritoComercial.HeaderText = "Distrito Comercial";
+            this.DistritoComercial.Name = "DistritoComercial";
+            this.DistritoComercial.ReadOnly = true;
+            // 
+            // DepartamentoContacto
+            // 
+            this.DepartamentoContacto.HeaderText = "Departamento Contacto";
+            this.DepartamentoContacto.Name = "DepartamentoContacto";
+            this.DepartamentoContacto.ReadOnly = true;
+            // 
+            // ProvinciaContacto
+            // 
+            this.ProvinciaContacto.HeaderText = "Provincia Contacto";
+            this.ProvinciaContacto.Name = "ProvinciaContacto";
+            this.ProvinciaContacto.ReadOnly = true;
+            // 
+            // DistritoContacto
+            // 
+            this.DistritoContacto.HeaderText = "Distrito Contacto";
+            this.DistritoContacto.Name = "DistritoContacto";
+            this.DistritoContacto.ReadOnly = true;
+            // 
+            // EstadoValor
+            // 
+            this.EstadoValor.HeaderText = "EstadoValor";
+            this.EstadoValor.Name = "EstadoValor";
+            this.EstadoValor.ReadOnly = true;
+            this.EstadoValor.Visible = false;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // txtcorreo2
             // 
@@ -460,6 +692,8 @@
             this.txtruc.Name = "txtruc";
             this.txtruc.Size = new System.Drawing.Size(148, 20);
             this.txtruc.TabIndex = 61;
+            this.txtruc.TextChanged += new System.EventHandler(this.txtruc_TextChanged);
+            this.txtruc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtruc_KeyPress);
             // 
             // label15
             // 
@@ -918,6 +1152,8 @@
             this.txtdocumentocontacto.Name = "txtdocumentocontacto";
             this.txtdocumentocontacto.Size = new System.Drawing.Size(99, 20);
             this.txtdocumentocontacto.TabIndex = 133;
+            this.txtdocumentocontacto.TextChanged += new System.EventHandler(this.txtdocumentocontacto_TextChanged);
+            this.txtdocumentocontacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdocumentocontacto_KeyPress);
             // 
             // label31
             // 
@@ -937,6 +1173,8 @@
             this.txtruccontacto.Name = "txtruccontacto";
             this.txtruccontacto.Size = new System.Drawing.Size(112, 20);
             this.txtruccontacto.TabIndex = 134;
+            this.txtruccontacto.TextChanged += new System.EventHandler(this.txtruccontacto_TextChanged);
+            this.txtruccontacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtruccontacto_KeyPress);
             // 
             // label1
             // 
@@ -1164,235 +1402,6 @@
             this.groupBox1.TabIndex = 119;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista de clientes";
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            // 
-            // EstadoValor
-            // 
-            this.EstadoValor.HeaderText = "EstadoValor";
-            this.EstadoValor.Name = "EstadoValor";
-            this.EstadoValor.ReadOnly = true;
-            this.EstadoValor.Visible = false;
-            // 
-            // DistritoContacto
-            // 
-            this.DistritoContacto.HeaderText = "Distrito Contacto";
-            this.DistritoContacto.Name = "DistritoContacto";
-            this.DistritoContacto.ReadOnly = true;
-            // 
-            // ProvinciaContacto
-            // 
-            this.ProvinciaContacto.HeaderText = "Provincia Contacto";
-            this.ProvinciaContacto.Name = "ProvinciaContacto";
-            this.ProvinciaContacto.ReadOnly = true;
-            // 
-            // DepartamentoContacto
-            // 
-            this.DepartamentoContacto.HeaderText = "Departamento Contacto";
-            this.DepartamentoContacto.Name = "DepartamentoContacto";
-            this.DepartamentoContacto.ReadOnly = true;
-            // 
-            // DistritoComercial
-            // 
-            this.DistritoComercial.HeaderText = "Distrito Comercial";
-            this.DistritoComercial.Name = "DistritoComercial";
-            this.DistritoComercial.ReadOnly = true;
-            // 
-            // ProvinciaComercial
-            // 
-            this.ProvinciaComercial.HeaderText = "Provincia Comercial";
-            this.ProvinciaComercial.Name = "ProvinciaComercial";
-            this.ProvinciaComercial.ReadOnly = true;
-            // 
-            // DepartamentoComercial
-            // 
-            this.DepartamentoComercial.HeaderText = "Departamento Comercial";
-            this.DepartamentoComercial.Name = "DepartamentoComercial";
-            this.DepartamentoComercial.ReadOnly = true;
-            // 
-            // Distrito
-            // 
-            this.Distrito.HeaderText = "Distrito";
-            this.Distrito.Name = "Distrito";
-            this.Distrito.ReadOnly = true;
-            // 
-            // Provincia
-            // 
-            this.Provincia.HeaderText = "Provincia";
-            this.Provincia.Name = "Provincia";
-            this.Provincia.ReadOnly = true;
-            // 
-            // Departamento
-            // 
-            this.Departamento.HeaderText = "Departamento";
-            this.Departamento.Name = "Departamento";
-            this.Departamento.ReadOnly = true;
-            // 
-            // Telefono2
-            // 
-            this.Telefono2.HeaderText = "Telefono 2";
-            this.Telefono2.Name = "Telefono2";
-            this.Telefono2.ReadOnly = true;
-            // 
-            // Correo2
-            // 
-            this.Correo2.HeaderText = "Correo 2";
-            this.Correo2.Name = "Correo2";
-            this.Correo2.ReadOnly = true;
-            // 
-            // CorreoContacto
-            // 
-            this.CorreoContacto.HeaderText = "Correo de Contacto";
-            this.CorreoContacto.Name = "CorreoContacto";
-            this.CorreoContacto.ReadOnly = true;
-            // 
-            // CelularContacto
-            // 
-            this.CelularContacto.HeaderText = "Celular de Contacto";
-            this.CelularContacto.Name = "CelularContacto";
-            this.CelularContacto.ReadOnly = true;
-            // 
-            // TelefonoContacto
-            // 
-            this.TelefonoContacto.HeaderText = "Teléfono de Contacto";
-            this.TelefonoContacto.Name = "TelefonoContacto";
-            this.TelefonoContacto.ReadOnly = true;
-            // 
-            // RucContacto
-            // 
-            this.RucContacto.HeaderText = "RUC de Contacto";
-            this.RucContacto.Name = "RucContacto";
-            this.RucContacto.ReadOnly = true;
-            // 
-            // DocumentoContacto
-            // 
-            this.DocumentoContacto.HeaderText = "DNI de Contacto";
-            this.DocumentoContacto.Name = "DocumentoContacto";
-            this.DocumentoContacto.ReadOnly = true;
-            // 
-            // DireccionContacto
-            // 
-            this.DireccionContacto.HeaderText = "Dirección de Contacto";
-            this.DireccionContacto.Name = "DireccionContacto";
-            this.DireccionContacto.ReadOnly = true;
-            // 
-            // NombreContacto
-            // 
-            this.NombreContacto.HeaderText = "Nombre de Contacto";
-            this.NombreContacto.Name = "NombreContacto";
-            this.NombreContacto.ReadOnly = true;
-            // 
-            // Telefono1
-            // 
-            this.Telefono1.HeaderText = "Telefono 1";
-            this.Telefono1.Name = "Telefono1";
-            this.Telefono1.ReadOnly = true;
-            // 
-            // Correo1
-            // 
-            this.Correo1.HeaderText = "Correo 1";
-            this.Correo1.Name = "Correo1";
-            this.Correo1.ReadOnly = true;
-            // 
-            // DireccionComercial
-            // 
-            this.DireccionComercial.HeaderText = "Direccion Comercial";
-            this.DireccionComercial.Name = "DireccionComercial";
-            this.DireccionComercial.ReadOnly = true;
-            // 
-            // NombreComercial
-            // 
-            this.NombreComercial.HeaderText = "Nombre Comercial";
-            this.NombreComercial.Name = "NombreComercial";
-            this.NombreComercial.ReadOnly = true;
-            // 
-            // CMP
-            // 
-            this.CMP.HeaderText = "CMP";
-            this.CMP.Name = "CMP";
-            this.CMP.ReadOnly = true;
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            // 
-            // NombreCompleto
-            // 
-            this.NombreCompleto.HeaderText = "Nombre Completo";
-            this.NombreCompleto.Name = "NombreCompleto";
-            this.NombreCompleto.ReadOnly = true;
-            this.NombreCompleto.Width = 180;
-            // 
-            // TipoCliente
-            // 
-            this.TipoCliente.HeaderText = "Tipo Cliente";
-            this.TipoCliente.Name = "TipoCliente";
-            this.TipoCliente.ReadOnly = true;
-            // 
-            // IdTipoCliente
-            // 
-            this.IdTipoCliente.HeaderText = "IdTipoCliente";
-            this.IdTipoCliente.Name = "IdTipoCliente";
-            this.IdTipoCliente.ReadOnly = true;
-            this.IdTipoCliente.Visible = false;
-            // 
-            // RazonSocial
-            // 
-            this.RazonSocial.HeaderText = "Razon Social";
-            this.RazonSocial.Name = "RazonSocial";
-            this.RazonSocial.ReadOnly = true;
-            // 
-            // RUC
-            // 
-            this.RUC.HeaderText = "RUC";
-            this.RUC.Name = "RUC";
-            this.RUC.ReadOnly = true;
-            // 
-            // Documento
-            // 
-            this.Documento.HeaderText = "DNI";
-            this.Documento.Name = "Documento";
-            this.Documento.ReadOnly = true;
-            this.Documento.Width = 80;
-            // 
-            // TipoDocumento
-            // 
-            this.TipoDocumento.HeaderText = "Tipo Documento";
-            this.TipoDocumento.Name = "TipoDocumento";
-            this.TipoDocumento.ReadOnly = true;
-            // 
-            // IdTipoDocumento
-            // 
-            this.IdTipoDocumento.HeaderText = "IdTipoDocumento";
-            this.IdTipoDocumento.Name = "IdTipoDocumento";
-            this.IdTipoDocumento.ReadOnly = true;
-            this.IdTipoDocumento.Visible = false;
-            // 
-            // CodigoCliente
-            // 
-            this.CodigoCliente.HeaderText = "Cod. Cliente";
-            this.CodigoCliente.Name = "CodigoCliente";
-            this.CodigoCliente.ReadOnly = true;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // btnseleccionar
-            // 
-            this.btnseleccionar.HeaderText = "";
-            this.btnseleccionar.Name = "btnseleccionar";
-            this.btnseleccionar.ReadOnly = true;
-            this.btnseleccionar.Width = 30;
             // 
             // frmClientes
             // 

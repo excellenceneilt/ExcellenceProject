@@ -1,0 +1,6 @@
+D:\Proyecto\ExcellenceProject\CapaEntidad\bin\Release\CapaEntidad.dll
+D:\Proyecto\ExcellenceProject\CapaEntidad\bin\Release\CapaEntidad.pdb
+D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Release\CapaEntidad.csproj.AssemblyReference.cache
+D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Release\CapaEntidad.csproj.CoreCompileInputs.cache
+D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Release\CapaEntidad.dll
+D:\Proyecto\ExcellenceProject\CapaEntidad\obj\Release\CapaEntidad.pdb
