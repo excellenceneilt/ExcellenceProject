@@ -182,3 +182,6 @@ where
   IdProducto = @IdProducto 
 set 
   @Respuesta = 1 end end
+
+
+create procedure

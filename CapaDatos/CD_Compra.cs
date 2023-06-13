@@ -218,5 +218,42 @@ namespace CapaDatos
             return obj;
         }
 
+        public string ObtenerFecha(int idCompra)
+        {
+            Compra obj = new Compra();
+            string fecha;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select FechaRegistro from COMPRA where IdCompra = @idCompra");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@idCompra", idCompra);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            obj = new Compra()
+                            {
+                                FechaRegistro = dr["FechaRegistro"].ToString()
+                            };
+                        }
+                    }
+                    fecha = obj.FechaRegistro;
+                }
+                catch(Exception ex)
+                {
+                    fecha = "";
+                }
+            }
+            return fecha;
+        }
+
     }
 }

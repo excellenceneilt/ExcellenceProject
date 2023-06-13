@@ -1,0 +1,9 @@
+D:\Proyecto\ExcellenceProject\CapaDatos\bin\Release\CapaDatos.dll
+D:\Proyecto\ExcellenceProject\CapaDatos\bin\Release\CapaDatos.pdb
+D:\Proyecto\ExcellenceProject\CapaDatos\bin\Release\CapaEntidad.dll
+D:\Proyecto\ExcellenceProject\CapaDatos\bin\Release\CapaEntidad.pdb
+D:\Proyecto\ExcellenceProject\CapaDatos\obj\Release\CapaDatos.csproj.AssemblyReference.cache
+D:\Proyecto\ExcellenceProject\CapaDatos\obj\Release\CapaDatos.csproj.CoreCompileInputs.cache
+D:\Proyecto\ExcellenceProject\CapaDatos\obj\Release\CapaDatos.csproj.CopyComplete
+D:\Proyecto\ExcellenceProject\CapaDatos\obj\Release\CapaDatos.dll
+D:\Proyecto\ExcellenceProject\CapaDatos\obj\Release\CapaDatos.pdb

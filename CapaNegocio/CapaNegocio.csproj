@@ -51,6 +51,7 @@
     <Compile Include="CN_Detalle_Compra.cs" />
     <Compile Include="CN_Equipo.cs" />
     <Compile Include="CN_Especialidad.cs" />
+    <Compile Include="CN_IngresoRecepcionEquipos.cs" />
     <Compile Include="CN_Marca.cs" />
     <Compile Include="CN_Negocio.cs" />
     <Compile Include="CN_Permiso.cs" />

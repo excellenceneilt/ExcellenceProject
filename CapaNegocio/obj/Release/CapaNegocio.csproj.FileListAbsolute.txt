@@ -1,0 +1,11 @@
+D:\Proyecto\ExcellenceProject\CapaNegocio\bin\Release\CapaNegocio.dll
+D:\Proyecto\ExcellenceProject\CapaNegocio\bin\Release\CapaNegocio.pdb
+D:\Proyecto\ExcellenceProject\CapaNegocio\bin\Release\CapaDatos.dll
+D:\Proyecto\ExcellenceProject\CapaNegocio\bin\Release\CapaEntidad.dll
+D:\Proyecto\ExcellenceProject\CapaNegocio\bin\Release\CapaDatos.pdb
+D:\Proyecto\ExcellenceProject\CapaNegocio\bin\Release\CapaEntidad.pdb
+D:\Proyecto\ExcellenceProject\CapaNegocio\obj\Release\CapaNegocio.csproj.AssemblyReference.cache
+D:\Proyecto\ExcellenceProject\CapaNegocio\obj\Release\CapaNegocio.csproj.CoreCompileInputs.cache
+D:\Proyecto\ExcellenceProject\CapaNegocio\obj\Release\CapaNegocio.csproj.CopyComplete
+D:\Proyecto\ExcellenceProject\CapaNegocio\obj\Release\CapaNegocio.dll
+D:\Proyecto\ExcellenceProject\CapaNegocio\obj\Release\CapaNegocio.pdb

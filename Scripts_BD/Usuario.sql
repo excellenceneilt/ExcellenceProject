@@ -1,12 +1,13 @@
 create table USUARIO(
 IdUsuario int primary key identity,
 Documento varchar(50),
-NombreCompleto varchar(50),
+NombreCompleto varchar(150),
 Correo varchar(50),
 Clave varchar(50),
 IdRol int references ROL(IdRol),
 Estado bit,
-FechaCreacion datetime default getdate()
+FechaCreacion datetime default getdate(),
+firma varbinary(max)
 )
 
 
