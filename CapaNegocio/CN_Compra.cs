@@ -40,5 +40,10 @@ namespace CapaNegocio
         {
             return objcd_compra.ObtenerIdCompra(numerodocumento);
         }
+
+        public string ObtenerFecha(int idCompra)
+        {
+            return objcd_compra.ObtenerFecha(idCompra);
+        }
     }
 }

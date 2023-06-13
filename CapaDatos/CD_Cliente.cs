@@ -24,7 +24,6 @@ namespace CapaDatos
                     StringBuilder query = new StringBuilder();
 
                     query.AppendLine("select IdCliente, CodigoCliente, td.IdTipoDocumento, td.Descripcion[Documentos], Documento, RUC, RazonSocial, tc.IdTipoCliente, tc.Descripcion[TipoCliente], NombreCompleto, Direccion,CMP,NombreComercial, DireccionComercial, Correo1,Telefono1,NombreContacto,DireccionContacto,DocumentoContacto,RUCContacto,TelefonofijoContacto,CelularContacto,CorreoContacto,Correo2,Telefono2, Departamento, Provincia, Distrito,DepartamentoComercial, ProvinciaComercial, DistritoComercial,DepartamentoContacto, ProvinciaContacto, DistritoContacto,  c.Estado from CLIENTE c");
-                    // query.AppendLine("inner join ESPECIALIDAD e on e.IdEspecialidad = c.IdEspecialidad");
                     query.AppendLine("inner join TIPODOCUMENTO td on td.IdTipoDocumento = c.IdTipoDocumento");
                     query.AppendLine("inner join TIPOCLIENTE tc on tc.IdTipoCliente = c.IdTipoCliente");
                     query.AppendLine("inner join Departamento d on d.Descripcion = c.Departamento");
@@ -64,7 +63,7 @@ namespace CapaDatos
                                 DireccionComercial = dr["DireccionComercial"].ToString(),
                                 Correo1 = dr["Correo1"].ToString(),
                                 Telefono1 = dr["Telefono1"].ToString(),
-                                NombreContacto = dr["NombreContacto"].ToString(), //NEW
+                                NombreContacto = dr["NombreContacto"].ToString(),
                                 DireccionContacto = dr["DireccionContacto"].ToString(),
                                 DocumentoContacto = dr["DocumentoContacto"].ToString(),
                                 RUCContacto = dr["RucContacto"].ToString(),
@@ -140,7 +139,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("RUC", obj.RUC);
                     cmd.Parameters.AddWithValue("RUCContacto", obj.RUCContacto);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
-
+                    
                     //Declarando parámetros de salida
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
@@ -153,14 +152,12 @@ namespace CapaDatos
                     idClientegenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
-
             }
             catch (Exception ex)
             {
                 idClientegenerado = 0;
                 Mensaje = ex.Message;
             }
-
             return idClientegenerado;
         }
 
@@ -207,7 +204,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("RazonSocial", obj.RazonSocial);
                     cmd.Parameters.AddWithValue("RUC", obj.RUC);
                     cmd.Parameters.AddWithValue("RUCContacto", obj.RUCContacto);
-                    //   cmd.Parameters.AddWithValue("IdEspecialidad", obj.oEspecialidad.IdEspecialidad);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
 
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -221,14 +217,12 @@ namespace CapaDatos
                     respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
-
             }
             catch (Exception ex)
             {
                 respuesta = false;
                 Mensaje = ex.Message;
             }
-
             return respuesta;
         }
 

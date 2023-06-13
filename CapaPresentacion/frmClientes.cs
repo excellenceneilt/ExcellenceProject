@@ -50,7 +50,7 @@ namespace CapaPresentacion
             }
             cbotipocliente.DisplayMember = "Texto";
             cbotipocliente.ValueMember = "Valor";
-            cbotipocliente.SelectedIndex = 0;
+            cbotipocliente.SelectedIndex = 1;
 
             //Listar TipoDocumento en combobox
             List<Tipo_Documento> listaTipoDocumento = new CN_TipoDocumento().Listar();
@@ -60,7 +60,7 @@ namespace CapaPresentacion
             }
             cbotipodocumento.DisplayMember = "Texto";
             cbotipodocumento.ValueMember = "Valor";
-            cbotipodocumento.SelectedIndex = 0;
+            cbotipodocumento.SelectedIndex = 2;
 
             #endregion
 
@@ -397,7 +397,7 @@ namespace CapaPresentacion
             }
 
 
-            defaultindexcombo();
+            //defaultindexcombo();
             
         }
         private void btnlimpiarbuscador_Click(object sender, EventArgs e)
@@ -438,15 +438,15 @@ namespace CapaPresentacion
             txtdireccion.Text = "";
             txtdireccioncomercial.Text = "";
             txtdireccioncontacto.Text = "";
-            cbodepartamento.SelectedIndex= 0;
-            cbodepartamentocomercial.SelectedIndex= 0;
-            cbodepartamentocontacto.SelectedIndex = 0;
+            //cbodepartamento.SelectedIndex= 0;
+            //cbodepartamentocomercial.SelectedIndex= 0;
+            //cbodepartamentocontacto.SelectedIndex = 0;
 
             checkBox1.Checked = false;
             checkBox2.Checked = false;
             checkBox3.Checked = false;
 
-
+            defaultindexcombo();
         }
         private void buscar()
         {
@@ -500,7 +500,7 @@ namespace CapaPresentacion
         }
         private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-                if (dgvdata.Columns[e.ColumnIndex].Name == "btnseleccionar")
+            if (dgvdata.Columns[e.ColumnIndex].Name == "btnseleccionar")
             {
                 int indice = e.RowIndex;
                 if (indice >= 0)
@@ -544,8 +544,8 @@ namespace CapaPresentacion
                     cbodistritocomercial.SelectedIndex = cbodistritocomercial.FindStringExact(dgvdata.Rows[indice].Cells["DistritoComercial"].Value.ToString());
 
                     cbodepartamentocontacto.SelectedIndex = cbodepartamentocontacto.FindStringExact(dgvdata.Rows[indice].Cells["DepartamentoContacto"].Value.ToString());
-                     cboprovinciacontacto.SelectedIndex = cboprovinciacontacto.FindStringExact(dgvdata.Rows[indice].Cells["ProvinciaContacto"].Value.ToString());
-                     cbodistritocontacto.SelectedIndex = cbodistritocontacto.FindStringExact(dgvdata.Rows[indice].Cells["DistritoContacto"].Value.ToString());
+                    cboprovinciacontacto.SelectedIndex = cboprovinciacontacto.FindStringExact(dgvdata.Rows[indice].Cells["ProvinciaContacto"].Value.ToString());
+                    cbodistritocontacto.SelectedIndex = cbodistritocontacto.FindStringExact(dgvdata.Rows[indice].Cells["DistritoContacto"].Value.ToString());
 
 
                     foreach (OpcionCombo oc in cbotipodocumento.Items)
@@ -573,12 +573,12 @@ namespace CapaPresentacion
                     //Setear en el combobox el rol del Cliente oc es el elemento que recorre toda la lista
                     foreach (OpcionCombo oc in cboestado.Items)
                     {
-                      //  if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value))
-                            if (oc.Valor == dgvdata.Rows[indice].Cells["EstadoValor"].Value)
-                            {
-                            int indice_combo = cboestado.Items.IndexOf(oc);
-                            cboestado.SelectedIndex = indice_combo;
-                            break; //Para cuando lo encuentre debe terminar
+                        //  if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value))
+                        if (oc.Valor == dgvdata.Rows[indice].Cells["EstadoValor"].Value)
+                        {
+                        int indice_combo = cboestado.Items.IndexOf(oc);
+                        cboestado.SelectedIndex = indice_combo;
+                        break; //Para cuando lo encuentre debe terminar
                         }
                     }
 
@@ -641,5 +641,95 @@ namespace CapaPresentacion
 
         #endregion
 
+        #region Restricciones de tamaño y numeros para ruc y documento
+        private void txtdocumento_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            // Verificar la longitud del texto en el TextBox
+            if (textBox.Text.Length > 12)
+            {
+                // Si el texto excede los 20 dígitos, truncarlo a 20 dígitos
+                textBox.Text = textBox.Text.Substring(0, 12);
+            }
+        }
+
+        private void txtruc_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            // Verificar la longitud del texto en el TextBox
+            if (textBox.Text.Length > 20)
+            {
+                // Si el texto excede los 20 dígitos, truncarlo a 20 dígitos
+                textBox.Text = textBox.Text.Substring(0, 20);
+            }
+        }
+
+        private void txtdocumentocontacto_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            // Verificar la longitud del texto en el TextBox
+            if (textBox.Text.Length > 12)
+            {
+                // Si el texto excede los 20 dígitos, truncarlo a 20 dígitos
+                textBox.Text = textBox.Text.Substring(0, 12);
+            }
+        }
+
+        private void txtruccontacto_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            // Verificar la longitud del texto en el TextBox
+            if (textBox.Text.Length > 20)
+            {
+                // Si el texto excede los 20 dígitos, truncarlo a 20 dígitos
+                textBox.Text = textBox.Text.Substring(0, 20);
+            }
+        }
+
+        private void txtdocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número o una tecla de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Ignorar la tecla si no es un número o una tecla de control
+                e.Handled = true;
+            }
+        }
+
+        private void txtruc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número o una tecla de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Ignorar la tecla si no es un número o una tecla de control
+                e.Handled = true;
+            }
+        }
+
+        private void txtdocumentocontacto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número o una tecla de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Ignorar la tecla si no es un número o una tecla de control
+                e.Handled = true;
+            }
+        }
+
+        private void txtruccontacto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número o una tecla de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Ignorar la tecla si no es un número o una tecla de control
+                e.Handled = true;
+            }
+        }
+
+        #endregion
     }
 }

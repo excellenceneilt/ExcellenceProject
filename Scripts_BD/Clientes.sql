@@ -3,21 +3,21 @@ create table CLIENTE(
 	CodigoCliente  AS('CL' + RIGHT('000000000'+ CONVERT(VARCHAR, IdCliente),(7))),  --New
 	Documento varchar(50) , --dni
 	DocumentoContacto varchar(50), --new
-	NombreCompleto nvarchar(50),
-	NombreComercial nvarchar(50), --New
-	NombreContacto nvarchar(50), --New
-	Direccion nvarchar(50), --New
-	DireccionComercial nvarchar(50),--New
-	DireccionContacto nvarchar(50), --New
-	Correo1 varchar(50),
-	Correo2 varchar(50),
-	CorreoContacto varchar(50),
+	NombreCompleto nvarchar(150),
+	NombreComercial nvarchar(150), --New
+	NombreContacto nvarchar(150), --New
+	Direccion nvarchar(150), --New
+	DireccionComercial nvarchar(150),--New
+	DireccionContacto nvarchar(150), --New
+	Correo1 varchar(150),
+	Correo2 varchar(150),
+	CorreoContacto varchar(150),
 	Telefono1 varchar(50),
 	Telefono2 varchar(50),
 	TelefonofijoContacto varchar(50),
 	CelularContacto varchar(50), --New
 	CMP varchar(7) ,
-	RazonSocial varchar(100),
+	RazonSocial varchar(150),
 	RUC varchar(20) ,
 	RUCContacto varchar(20),
 	Departamento nvarchar(50),--New
@@ -100,17 +100,17 @@ set
 --Modificar cliente
 
 create proc SP_ModificarCliente(
-  @IdCliente int, 
-@Documento varchar(50), 
+	--@IdCliente int, 
+	@Documento varchar(50), 
 	@DocumentoContacto varchar(50),
-	 @NombreCompleto varchar(50),
-	 @NombreComercial varchar(50),
-	 @NombreContacto varchar(50),
-	 @Direccion nvarchar(50),
-	 @DireccionComercial nvarchar(50),--New
-	 @DireccionContacto nvarchar(50),
-	 @IdTipoCliente int, --New
-	 @IdTipoDocumento int, --New
+	@NombreCompleto varchar(50),
+	@NombreComercial varchar(50),
+	@NombreContacto varchar(50),
+	@Direccion nvarchar(50),
+	@DireccionComercial nvarchar(50),--New
+	@DireccionContacto nvarchar(50),
+	@IdTipoCliente int, --New
+	@IdTipoDocumento int, --New
 	@Departamento nvarchar(50),
 	@Provincia nvarchar(50),
 	@Distrito nvarchar(50),
@@ -129,12 +129,12 @@ create proc SP_ModificarCliente(
 	@CelularContacto varchar(50), --New
 	@CMP varchar(7),
 	@RazonSocial varchar(100), 
-  @RUC varchar(20),
-  @RUCContacto varchar(20),
+	@RUC varchar(20),
+	@RUCContacto varchar(20),
 
-  @Estado bit, 
-  @Resultado int output, 
-  @Mensaje varchar(500) output
+	@Estado bit, 
+	@Resultado int output, 
+	@Mensaje varchar(500) output
 ) as begin 
 set 
   @Resultado = 1 declare @IDCLIENTE INT if not exists(

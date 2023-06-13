@@ -1,18 +1,4 @@
-/*
-create table PRODUCTO(
-IdProducto int primary key identity,
-Codigo varchar(50),
-Nombre varchar(50),
-Descripcion varchar(50),
-IdMarca int references Marca(IdMarca),
-IdCategoria int references Categoria(IdCategoria),
-Stock int not null default 0,
-PrecioCompra decimal(10,2) default 0,
-PrecioVenta decimal(10,2) default 0,
-Estado bit,
-FechaRegistro datetime default getdate()
-);
-*/
+select * from PRODUCTO
 drop table producto
 exec sp_fkeys 'producto'
 create table PRODUCTO(
@@ -25,7 +11,10 @@ Stock int not null default 0,
 PrecioCompra decimal(10,2) default 0,
 PrecioVenta decimal(10,2) default 0,
 Estado bit,
-FechaRegistro datetime default getdate()
+FechaRegistro datetime default getdate(),
+RegistroSanitario nvarchar(50),
+idpais int references pais(idpais),
+nombrepais nvarchar(80)
 );
 drop table PRODUCTO
 --Procedimientos almacenados

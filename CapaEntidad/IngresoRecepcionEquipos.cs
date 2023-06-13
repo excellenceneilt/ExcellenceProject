@@ -9,30 +9,42 @@ namespace CapaEntidad
     //guarda los datos del ingreso de Recepción de Equipos, es la primera parte de servicio tecnico
     public class IngresoRecepcionEquipos
     {
-        public int IdIRE { get; set; }              //es el id de la entidad, se genera en la BD
-        public string CodIRE { get; set; }          //es el codigo de la entidad, se genera en el BackEnd
-        public string fechaIRE { get; set; }        //es la fecha en la que se crea el IRE
-        public string fecha { get; set; }           //es la fecha en la que se compro el equipo seleccionado
-        public string OST { get; set; }             //es el codigo que se crea cuando se guarde la entidad
-        public string cliente{ get; set; }          //es el cliente que compro el producto, por lo general vienen a ser razon social de empresas
-        public string ruc { get; set; }             //es el ruc del cliente
-        public string contacto { get; set; }        //es el nombre del contacto del cliente
-        public string correo { get; set; }          //es el correo del cliente
-        public string telefono { get; set; }        //es el telefono del cliente
-        public string deja { get; set; }            //es quien dejo el equipo a servicio tecnico
-        public string dni { get; set; }             //es el dni de la persona que deja el equipo
-        public string marca { get; set; }           //es la marca del equipo
-        public string equipo { get; set; }          //es el nombre del equipo
-        public string serie { get; set; }           //es el numero de serie del equipo
-        public int    codequipo { get; set; }       //es el codigo del equipo, es el que le pone la empresa fabricante
-        public string fechacompra { get; set; }     //es la fecha en la que se compro el equipo
-        public string garantia { get; set; }        //indica si el equipo tiene garantía o no
-        public string costorev { get; set; }        //es el costo de la revision si es que lo tuviera
-        public float  costo { get; set; }            //es el costo de la revision
-        public string enciende { get; set; }        //selecciona si enciende o no el equipo
-        public string situacion { get; set; }       //indica la situacion del equipo
-        public string accesorios { get; set; }      //indica los accesorios con los que se está dejando el equipo
-        public string observaciones { get; set; }   //indica las observaciones del equipo
-        public string moneda { get; set; }          //indica si el pago es en dólares o soles
+        public int IdIre { get; set; }              //es el id de la entidad, se genera en la BD
+        public string CodOST { get; set; }          //es el codigo de la entidad, se genera en el BackEnd
+        public string Deja { get; set; }            //es quien dejo el equipo a servicio tecnico
+        public string DniDeja { get; set; }         //es el dni de la persona que deja el equipo
+        public string TelefonoDeja { get; set; }    //es el telefono de la persona que deja el equipo
+        public Cliente iCliente { get; set; }       /* son los datos del cliente a quien le pertenece el equipo
+                                                     * idcliente
+                                                     * ruc
+                                                     * Contacto
+                                                     * Correo
+                                                     */
+        public Equipo iEquipo { get; set; }         /*son los datos del equipo que está entrando a servicio tecnico
+                                                     * idequipo
+                                                     * codigo
+                                                     * marca
+                                                     * modelo
+                                                     * serial
+                                                     * Estado
+                                                     */
+        public EstadoEquipo iEstadoEquipo { get; set; } //son los datos del estado del equipo al momento de ingresar a servicio tecnico
+        //public Producto iProducto { get; set; } //son los datos del producto al momento de jalar el equipo. Solo es para el idProducto
+        public Compra iCompra { get; set; }     //son los datos de la compra al momento de jalar el equipo. Solo es para el idCompra
+        public string Fecha { get; set; }
+        //public Detalle_Compra iDC { get; set; } //son los datos del detalle de compra al momento de jalar el equipo. Solo es para el idDetalleCompra
+        //public Detalle_Venta iDV { get; set; }  /*son los datos del detalle de compra al momento de jalar el equipo. Solo es para el idDetalleCompra
+        //                                       * idDetalleVenta
+        //                                       * fecha de registro de la venta
+        //                                       */
+        public bool Garantia { get; set; }  //si el producto tiene garantia al momento de ingresar a IRE
+        public Moneda iMoneda { get; set; } //registra el tipo de moneda en la que se cobra la reparacion. Solo es para el idMoneda
+        public decimal Costo { get; set; }    //registra el costo del servicio
+        public bool Enciende { get; set; }    //registra si el equipo enciende
+        public string Situacion { get; set; }       //informacion que escribe el personal de ST, tiene como maximo 1000 caracteres
+        public string Accesorios { get; set; }      //informacion que escribe el personal de ST, tiene como maximo 1000 caracteres
+        public string Observaciones { get; set; }   //informacion que escribe el personal de ST, tiene como maximo 1000 caracteres
+        public string FechaIRE { get; set; }        //es la fecha en la que se crea el IRE
+
     }
 }

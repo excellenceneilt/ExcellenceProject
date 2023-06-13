@@ -95,7 +95,10 @@ values
 	Nombre varchar(60),
 	RUC varchar(60),
 	Direccion varchar(60),
-	Logo varbinary(max) NULL
+	Logo varbinary(max) NULL,
+	NombreComercial nvarchar(150),
+	RazonSocial nvarchar(150),
+	NumeroRegistro nvarchar(50)
 	);
 	go
 

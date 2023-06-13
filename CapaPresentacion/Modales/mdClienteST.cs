@@ -29,12 +29,15 @@ namespace CapaPresentacion.Modales
                 {
                     cbobusqueda.Items.Add(new OpcionCombo() 
                     { 
-                        Valor = columna.Name, Texto = columna.HeaderText });
+                        Valor = columna.Name, Texto = columna.HeaderText
+                    });
                 }
             }
             cbobusqueda.DisplayMember = "Texto";
             cbobusqueda.ValueMember = "Valor";
             cbobusqueda.SelectedIndex = 0;
+
+            dgvdata.Rows.Clear();
 
             List<Cliente> lista = new CN_Cliente().Listar();
 
@@ -43,7 +46,8 @@ namespace CapaPresentacion.Modales
                 if (item.Estado)
                     dgvdata.Rows.Add(new object[] 
                     {
-                        item.NombreCompleto,
+                        item.IdCliente,
+                        item.RazonSocial,
                         item.RUC,
                         item.NombreContacto,
                         item.Correo1,
@@ -69,7 +73,8 @@ namespace CapaPresentacion.Modales
             {
                 _Cliente = new Cliente()
                 {
-                    NombreCompleto = dgvdata.Rows[iRow].Cells["NombreCompleto"].Value.ToString(),
+                    IdCliente = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdCliente"].Value),
+                    RazonSocial = dgvdata.Rows[iRow].Cells["RazonSocial"].Value.ToString(),
                     RUC = dgvdata.Rows[iRow].Cells["Ruc"].Value.ToString(),
                     NombreContacto = dgvdata.Rows[iRow].Cells["Contacto"].Value.ToString(),
                     Correo1 = dgvdata.Rows[iRow].Cells["Correo"].Value.ToString(),

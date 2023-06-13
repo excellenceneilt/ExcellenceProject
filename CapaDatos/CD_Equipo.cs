@@ -21,8 +21,8 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdEquipo, Modelo, SerialNumber, IdProducto from  Equipo");
-                    
+                    query.AppendLine("select * from  Equipo");
+
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -35,11 +35,30 @@ namespace CapaDatos
                             {
                                 //Listar productos en tabla
                                 IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
+                                CodigoEquipo = dr["CodigoEquipo"].ToString(),
+                                Marca = dr["Marca"].ToString(),
                                 Modelo = dr["Modelo"].ToString(),
                                 SerialNumber = dr["SerialNumber"].ToString(),
+                                eEstadoEquipo = new EstadoEquipo()
+                                {
+                                    IdEstadoEquipo = Convert.ToInt32(dr["IdEstadoEquipo"])
+                                },
+                                Estado = Convert.ToBoolean(dr["Estado"]),
                                 eProducto = new Producto() 
                                 { 
                                     IdProducto = Convert.ToInt32(dr["IdProducto"])    
+                                },
+                                /*Cliente = new Cliente() //Está comentado porque por el momento no está vinculado a algún cliente
+                                {
+                                    IdCliente = Convert.ToInt32(dr["IdCliente"])
+                                },*/
+                                eCompra = new Compra()
+                                {
+                                    IdCompra = Convert.ToInt32(dr["IdCompra"])
+                                },
+                                eDetalle = new Detalle_Compra() 
+                                { 
+                                    IdDetalleCompra = Convert.ToInt32(dr["IdDetalleCompra"])
                                 }
                             });
                         }
@@ -212,6 +231,65 @@ namespace CapaDatos
                 }
                 return cantidad;
             }
+        }
+
+        public List<Equipo> ListarSinST()
+        {
+            List<Equipo> lista = new List<Equipo>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select * from  Equipo where IdEstadoEquipo != 3");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Equipo()
+                            {
+                                //Listar productos en tabla
+                                IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
+                                CodigoEquipo = dr["CodigoEquipo"].ToString(),
+                                Marca = dr["Marca"].ToString(),
+                                Modelo = dr["Modelo"].ToString(),
+                                SerialNumber = dr["SerialNumber"].ToString(),
+                                eEstadoEquipo = new EstadoEquipo()
+                                {
+                                    IdEstadoEquipo = Convert.ToInt32(dr["IdEstadoEquipo"])
+                                },
+                                Estado = Convert.ToBoolean(dr["Estado"]),
+                                eProducto = new Producto()
+                                {
+                                    IdProducto = Convert.ToInt32(dr["IdProducto"])
+                                },
+                                /*Cliente = new Cliente() //Está comentado porque por el momento no está vinculado a algún cliente
+                                {
+                                    IdCliente = Convert.ToInt32(dr["IdCliente"])
+                                },*/
+                                eCompra = new Compra()
+                                {
+                                    IdCompra = Convert.ToInt32(dr["IdCompra"])
+                                },
+                                eDetalle = new Detalle_Compra()
+                                {
+                                    IdDetalleCompra = Convert.ToInt32(dr["IdDetalleCompra"])
+                                }
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<Equipo>();
+                }
+            }
+            return lista;
         }
 
         /*public int ProductoConSerial(int idProducto)
