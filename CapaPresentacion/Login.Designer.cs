@@ -36,6 +36,7 @@
             this.btnIngresar = new FontAwesome.Sharp.IconButton();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.cbousuario = new System.Windows.Forms.ComboBox();
+            this.btnminimizar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,11 +138,25 @@
             this.cbousuario.Size = new System.Drawing.Size(254, 21);
             this.cbousuario.TabIndex = 8;
             // 
+            // btnminimizar
+            // 
+            this.btnminimizar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnminimizar.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.btnminimizar.IconColor = System.Drawing.Color.Black;
+            this.btnminimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnminimizar.IconSize = 20;
+            this.btnminimizar.Location = new System.Drawing.Point(545, 0);
+            this.btnminimizar.Name = "btnminimizar";
+            this.btnminimizar.Size = new System.Drawing.Size(39, 23);
+            this.btnminimizar.TabIndex = 9;
+            this.btnminimizar.UseVisualStyleBackColor = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 242);
+            this.Controls.Add(this.btnminimizar);
             this.Controls.Add(this.cbousuario);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnIngresar);
@@ -171,5 +186,6 @@
         private FontAwesome.Sharp.IconButton btnIngresar;
         private FontAwesome.Sharp.IconButton btnCancelar;
         private System.Windows.Forms.ComboBox cbousuario;
+        private FontAwesome.Sharp.IconButton btnminimizar;
     }
 }
