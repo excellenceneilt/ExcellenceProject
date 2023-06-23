@@ -1,6 +1,6 @@
-D:\Proyecto\ExcellenceProject\CapaPresentacion\bin\Release\CapaPresentacion.exe.config
-D:\Proyecto\ExcellenceProject\CapaPresentacion\bin\Release\CapaPresentacion.exe
-D:\Proyecto\ExcellenceProject\CapaPresentacion\bin\Release\CapaPresentacion.pdb
+D:\Proyecto\ExcellenceProject\CapaPresentacion\bin\Release\Excellence.exe.config
+D:\Proyecto\ExcellenceProject\CapaPresentacion\bin\Release\Excellence.exe
+D:\Proyecto\ExcellenceProject\CapaPresentacion\bin\Release\Excellence.pdb
 D:\Proyecto\ExcellenceProject\CapaPresentacion\bin\Release\BouncyCastle.Crypto.dll
 D:\Proyecto\ExcellenceProject\CapaPresentacion\bin\Release\CapaDatos.dll
 D:\Proyecto\ExcellenceProject\CapaPresentacion\bin\Release\CapaEntidad.dll
@@ -74,5 +74,5 @@ D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Release\CapaPresentacion.Prop
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Release\CapaPresentacion.csproj.GenerateResource.cache
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Release\CapaPresentacion.csproj.CoreCompileInputs.cache
 D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Release\CapaPresentacion.csproj.CopyComplete
-D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Release\CapaPresentacion.exe
-D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Release\CapaPresentacion.pdb
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Release\Excellence.exe
+D:\Proyecto\ExcellenceProject\CapaPresentacion\obj\Release\Excellence.pdb

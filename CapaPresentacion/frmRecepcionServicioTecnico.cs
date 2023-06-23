@@ -72,7 +72,6 @@ namespace CapaPresentacion
                     item.TelefonoDeja,
                     item.iCliente.IdCliente,
                     item.iCliente.NombreContacto,
-                    item.iCliente.RUC,
                     item.iCliente.Correo1,
                     item.iEquipo.IdEquipo,
                     item.iEquipo.Marca,
@@ -104,7 +103,6 @@ namespace CapaPresentacion
                 {
                     txtidcliente.Text = modal._Cliente.IdCliente.ToString();
                     txtcliente.Text = modal._Cliente.RazonSocial;
-                    txtruc.Text = modal._Cliente.RUC;
                     txtcontacto.Text = modal._Cliente.NombreContacto;
                     txtcorreo.Text = modal._Cliente.Correo1;
                     /*Estos datos se tienen que llenar con los datos de la persona encargada de dejar el equipo
@@ -221,7 +219,6 @@ namespace CapaPresentacion
                 iCliente = new Cliente()
                 {
                     IdCliente = Convert.ToInt32(txtidcliente.Text),
-                    RUC = txtruc.Text,
                     NombreContacto = txtcontacto.Text,
                     Correo1 = txtcorreo.Text
                 },
