@@ -48,7 +48,6 @@ namespace CapaPresentacion.Modales
                     {
                         item.IdCliente,
                         item.RazonSocial,
-                        item.RUC,
                         item.NombreContacto,
                         item.Correo1,
                         item.Documento,
@@ -75,7 +74,6 @@ namespace CapaPresentacion.Modales
                 {
                     IdCliente = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdCliente"].Value),
                     RazonSocial = dgvdata.Rows[iRow].Cells["RazonSocial"].Value.ToString(),
-                    RUC = dgvdata.Rows[iRow].Cells["Ruc"].Value.ToString(),
                     NombreContacto = dgvdata.Rows[iRow].Cells["Contacto"].Value.ToString(),
                     Correo1 = dgvdata.Rows[iRow].Cells["Correo"].Value.ToString(),
                     Documento = dgvdata.Rows[iRow].Cells["Documento"].Value.ToString(),

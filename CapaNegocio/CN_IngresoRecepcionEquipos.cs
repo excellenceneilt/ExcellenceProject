@@ -30,8 +30,6 @@ namespace CapaNegocio
                 Mensaje += "Es necesario definir el telefono de la persona que deja el equipo\n";
             if (obj.iCliente.IdCliente == -1)
                 Mensaje += "Es necesario definir el id del cliente\n";
-            if (obj.iCliente.RUC == "")
-                Mensaje += "Es necesario definir el RUC del cliente\n";
             if (obj.iCliente.NombreContacto == "")
                 Mensaje += "Es necesario definir el nombre del cliente\n";
             if (obj.iCliente.Correo1 == "")
@@ -79,8 +77,6 @@ namespace CapaNegocio
                 Mensaje += "Es necesario definir el telefono de la persona que deja el equipo\n";
             if (obj.iCliente.IdCliente == -1)
                 Mensaje += "Es necesario definir el id del cliente\n";
-            if (obj.iCliente.RUC == "")
-                Mensaje += "Es necesario definir el RUC del cliente\n";
             if (obj.iCliente.NombreContacto == "")
                 Mensaje += "Es necesario definir el nombre del cliente\n";
             if (obj.iCliente.Correo1 == "")

@@ -48,7 +48,6 @@ namespace CapaDatos
                                 iCliente = new Cliente()
                                 {
                                     IdCliente = Convert.ToInt32(dr["IdCliente"]),
-                                    RUC = dr["Ruc"].ToString(),
                                     NombreContacto = dr["Contacto"].ToString(),
                                     Correo1 = dr["Correo"].ToString()
                                 },
@@ -106,7 +105,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@DniDeja", obj.DniDeja);
                     cmd.Parameters.AddWithValue("@Telefono", obj.TelefonoDeja);
                     cmd.Parameters.AddWithValue("@IdCliente", obj.iCliente.IdCliente);
-                    cmd.Parameters.AddWithValue("@Ruc", obj.iCliente.RUC);
                     cmd.Parameters.AddWithValue("@Contacto", obj.iCliente.NombreContacto);
                     cmd.Parameters.AddWithValue("@Correo", obj.iCliente.Correo1);
                     cmd.Parameters.AddWithValue("@IdEquipo", obj.iEquipo.IdEquipo);
@@ -159,7 +157,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@DniDeja", obj.DniDeja);
                     cmd.Parameters.AddWithValue("@Telefono", obj.TelefonoDeja);
                     cmd.Parameters.AddWithValue("@IdCliente", obj.iCliente.IdCliente);
-                    cmd.Parameters.AddWithValue("@Ruc", obj.iCliente.RUC);
                     cmd.Parameters.AddWithValue("@Contacto", obj.iCliente.NombreContacto);
                     cmd.Parameters.AddWithValue("@Correo", obj.iCliente.Correo1);
                     cmd.Parameters.AddWithValue("@IdEquipo", obj.iEquipo.IdEquipo);

@@ -51,7 +51,7 @@ namespace CapaNegocio
             //Validaciones
             Mensaje = string.Empty;
 
-            if (obj.Documento == "")
+            /*if (obj.Documento == "")
             {
                 Mensaje += "Es necesario definir un dni de Cliente\n";
             }
@@ -63,7 +63,7 @@ namespace CapaNegocio
             if (obj.Correo1 == "")
             {
                 Mensaje += "Es necesario definir un correo del Cliente\n";
-            }
+            }*/
             if (Mensaje != string.Empty)
             {
                 return false;
