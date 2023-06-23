@@ -150,6 +150,7 @@
             this.btnminimizar.Size = new System.Drawing.Size(39, 23);
             this.btnminimizar.TabIndex = 9;
             this.btnminimizar.UseVisualStyleBackColor = false;
+            this.btnminimizar.Click += new System.EventHandler(this.btnminimizar_Click);
             // 
             // Login
             // 
@@ -170,6 +171,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
