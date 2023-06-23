@@ -33,7 +33,7 @@ namespace CapaPresentacion
             
             ListarDepartamento();
 
-            #region COMBOBOX
+            #region COMBOBOX [ESTADO-TIPOS DE DOCUMENTOS]
 
             //Estados 
             cboestado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
@@ -42,17 +42,7 @@ namespace CapaPresentacion
             cboestado.ValueMember = "Valor";
             cboestado.SelectedIndex = 0;
 
-            //Listar TipoCliente en combobox
-            List<Tipo_Cliente> listaTipoCliente = new CN_TipoCliente().Listar();
-            foreach (Tipo_Cliente item in listaTipoCliente)
-            {
-                cbotipocliente.Items.Add(new OpcionCombo() { Valor = item.IdTipoCliente, Texto = item.Descripcion });
-            }
-            cbotipocliente.DisplayMember = "Texto";
-            cbotipocliente.ValueMember = "Valor";
-            cbotipocliente.SelectedIndex = 1;
-
-            //Listar TipoDocumento en combobox
+            //Listar TipoDocumento en Facturación
             List<Tipo_Documento> listaTipoDocumento = new CN_TipoDocumento().Listar();
             foreach (Tipo_Documento item in listaTipoDocumento)
             {
@@ -62,9 +52,18 @@ namespace CapaPresentacion
             cbotipodocumento.ValueMember = "Valor";
             cbotipodocumento.SelectedIndex = 2;
 
+            //Listar TipoDocumento en Contacto
+            List<Tipo_Documento> listaTipoDocumentoContacto = new CN_TipoDocumento().Listar();
+            foreach (Tipo_Documento item in listaTipoDocumentoContacto)
+            {
+                cbotipodocumentocontacto.Items.Add(new OpcionCombo() { Valor = item.IdTipoDocumento, Texto = item.Descripcion });
+            }
+            cbotipodocumentocontacto.DisplayMember = "Texto";
+            cbotipodocumentocontacto.ValueMember = "Valor";
+            cbotipodocumentocontacto.SelectedIndex = 0;
             #endregion
 
-            #region FILTRAR REGISTROS EN TABLA
+            #region COMBOBOX PARA BUSCAR DATOS
             //Para filtrar registros en el datagrid
             foreach (DataGridViewColumn columna in dgvdata.Columns)
             {
@@ -73,9 +72,10 @@ namespace CapaPresentacion
                     cbobusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
                 }
             }
+            cbobusqueda.Items.Add(new OpcionCombo() { Valor = "TODOS", Texto = "TODOS" });
             cbobusqueda.DisplayMember = "Texto";
             cbobusqueda.ValueMember = "Valor";
-            cbobusqueda.SelectedIndex = 0;
+            cbobusqueda.SelectedIndex = 4;
             #endregion
 
             #region LLENAR DATAGRID
@@ -83,59 +83,49 @@ namespace CapaPresentacion
             List<Cliente> listaCliente = new CN_Cliente().Listar();
             foreach (Cliente item in listaCliente)
             {
-             //Colocar los atributos en el mismo orden que el datagrid,
-             //esto no influye en la integridad de la información
-             //pero sí en su comportamiento en el datagrid,
-             //los valores se mueven de una columna a otra,
-             //procurar tener la misma cantidad de items que de columnas.
-
                 dgvdata.Rows.Add(new object[] {
-                     "",
+
+                    "",
+
                     item.IdCliente,
                     item.CodigoCliente,
                     item.oTipo_Documento.IdTipoDocumento,
                     item.oTipo_Documento.Descripcion,
                     item.Documento,
-                    item.RUC,
-                    item.RazonSocial,
-                    item.oTipo_Cliente.IdTipoCliente,
-                    item.oTipo_Cliente.Descripcion,
                     item.NombreCompleto,
+                    item.RazonSocial,
                     item.Direccion,
-                    item.CMP,
-                    item.NombreComercial,
-                    item.DireccionComercial,
-                    item.Correo1,
-                    item.Telefono1,
-                    item.NombreContacto,
-                    item.DireccionContacto,
-                    item.DocumentoContacto,
-                    item.RUCContacto,
-                    item.TelefonofijoContacto,
-                    item.CelularContacto,
-                    item.CorreoContacto,
-                    item.Correo2,
-                    item.Telefono2,
-
                     item.Departamento,
                     item.Provincia,
                     item.Distrito,
 
+                    item.NombreComercial,
+                    item.DireccionComercial,
+                    item.Correo1,
+                    item.Correo2,
+                    item.Telefono1,
+                    item.Telefono2,
                     item.DepartamentoComercial,
                     item.ProvinciaComercial,
                     item.DistritoComercial,
 
-                    
+                    item.NombreContacto,
+                    item.DireccionContacto,
                     item.DepartamentoContacto,
                     item.ProvinciaContacto,
                     item.DistritoContacto,
-
+                    item.ocTipo_Documento.IdTipoDocumento,
+                    item.ocTipo_Documento.Descripcion,
+                    item.DocumentoContacto,
+                    item.CMP,
+                    item.TelefonofijoContacto,
+                    item.CelularContacto,
+                    item.CorreoContacto,
                     item.Estado==true ?1 : 0,
                     item.Estado==true ?"Activo":"Inactivo",
                 });
             }
             #endregion
-
         }
         #region LISTAR DEPARTAMENTOS PROVINCIAS Y DISTRITOS
         public void ListarDepartamento()
@@ -252,40 +242,38 @@ namespace CapaPresentacion
             string mensaje = string.Empty;
             Cliente objCliente = new Cliente()
             {
-                //Asociando los atributos de la entidad (izquierda)
-                //con los datos obtenidos en cada entrada como: textbox, combobox, etc (derecha)
                 IdCliente = Convert.ToInt32(txtid.Text),
                 CodigoCliente= txtcodigocliente.Text,
-                Documento =txtdocumento.Text,
-                DocumentoContacto = txtdocumentocontacto.Text,
-                NombreCompleto = txtnombrecompleto.Text,
-                NombreComercial = txtnombrecomercial.Text,
-                NombreContacto = txtnombrecontacto.Text,
-                Direccion = txtdireccion.Text,
-                DireccionComercial = txtdireccioncomercial.Text,
-                DireccionContacto = txtdireccioncontacto.Text,
-                oTipo_Cliente = new Tipo_Cliente() { IdTipoCliente = Convert.ToInt32(((OpcionCombo)cbotipocliente.SelectedItem).Valor) },
                 oTipo_Documento = new Tipo_Documento() { IdTipoDocumento = Convert.ToInt32(((OpcionCombo)cbotipodocumento.SelectedItem).Valor) },
+                Documento = txtdocumento.Text,
+                NombreCompleto = txtnombre.Text,
+                RazonSocial = txtrazonsocial.Text,
+                Direccion = txtdireccion.Text,
                 Departamento = this.cbodepartamento.GetItemText(this.cbodepartamento.SelectedItem),
                 Provincia = this.cboprovincia.GetItemText(this.cboprovincia.SelectedItem),
                 Distrito = this.cbodistrito.GetItemText(this.cbodistrito.SelectedItem),
-                DepartamentoComercial = this.cbodepartamento.GetItemText(this.cbodepartamentocomercial.SelectedItem),
-                ProvinciaComercial = this.cboprovincia.GetItemText(this.cboprovinciacomercial.SelectedItem),
-                DistritoComercial = this.cbodistrito.GetItemText(this.cbodistritocomercial.SelectedItem),
-                DepartamentoContacto = this.cbodepartamento.GetItemText(this.cbodepartamentocontacto.SelectedItem),
-                ProvinciaContacto = this.cboprovincia.GetItemText(this.cboprovinciacontacto.SelectedItem),
-                DistritoContacto = this.cbodistrito.GetItemText(this.cbodistritocontacto.SelectedItem),
+
+                NombreComercial = txtnombrecomercial.Text,
+                DireccionComercial = txtdireccioncomercial.Text,
                 Correo1 = txtcorreo1.Text,
                 Correo2 = txtcorreo2.Text,
-                CorreoContacto = txtcorreocontacto.Text,
                 Telefono1 = txttelefono1.Text,
                 Telefono2 = txttelefono2.Text,
+                DepartamentoComercial = this.cbodepartamentocomercial.GetItemText(this.cbodepartamentocomercial.SelectedItem),
+                ProvinciaComercial = this.cboprovinciacomercial.GetItemText(this.cboprovinciacomercial.SelectedItem),
+                DistritoComercial = this.cbodistritocomercial.GetItemText(this.cbodistritocomercial.SelectedItem),
+
+                NombreContacto = txtnombrecontacto.Text,
+                DireccionContacto = txtdireccioncontacto.Text,
+                DepartamentoContacto = this.cbodepartamentocontacto.GetItemText(this.cbodepartamentocontacto.SelectedItem),
+                ProvinciaContacto = this.cboprovinciacontacto.GetItemText(this.cboprovinciacontacto.SelectedItem),
+                DistritoContacto = this.cbodistritocontacto.GetItemText(this.cbodistritocontacto.SelectedItem),
+                ocTipo_Documento = new Tipo_Documento() { IdTipoDocumento = Convert.ToInt32(((OpcionCombo)cbotipodocumentocontacto.SelectedItem).Valor) },
+                DocumentoContacto = txtdocumentocontacto.Text,
+                CMP = txtcmp.Text,
                 TelefonofijoContacto = txttlffijo.Text,
                 CelularContacto = txtcelularcontacto.Text,
-                RazonSocial = txtrazonsocial.Text,
-                CMP = txtcmp.Text,
-                RUC = txtruc.Text,
-                RUCContacto = txtruccontacto.Text,
+                CorreoContacto = txtcorreocontacto.Text,
 
                 //El item seleccionado se convierte a la clase opcioncombo, y se accede a su propiedad valor, si es igual a 1 será true caso contrario false
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
@@ -304,41 +292,43 @@ namespace CapaPresentacion
                     //No sé qué es lo que hace ._.
 
                     dgvdata.Rows.Add(new object[] {
+
                         "",
+
                         idClientegenerado,
                         txtcodigocliente.Text,
                         ((OpcionCombo) cbotipodocumento.SelectedItem).Valor.ToString(),
                         ((OpcionCombo) cbotipodocumento.SelectedItem).Texto.ToString(),
                         txtdocumento.Text,
-                        txtruc.Text,
+                        txtnombre.Text,
                         txtrazonsocial.Text,
-                        ((OpcionCombo) cbotipocliente.SelectedItem).Valor.ToString(),
-                        ((OpcionCombo) cbotipocliente.SelectedItem).Texto.ToString(),
-                        txtnombrecompleto.Text,
                         txtdireccion.Text,
-                        txtcmp.Text,
-                        txtnombrecomercial.Text,
-                        txtdireccioncomercial.Text,
-                        txtcorreo1.Text,
-                        txttelefono1.Text,
-                        txtnombrecontacto.Text,
-                        txtdireccioncontacto.Text,
-                        txtdocumentocontacto.Text,
-                        txtruccontacto.Text,
-                        txttlffijo.Text,
-                        txtcelularcontacto.Text,
-                        txtcorreocontacto.Text,
-                        txtcorreo2.Text,
-                        txttelefono2.Text,
                         cbodepartamento.Text,
                         cboprovincia.Text,
                         cbodistrito.Text,
+
+                        txtnombrecomercial.Text,
+                        txtdireccioncomercial.Text,
+                        txtcorreo1.Text,
+                        txtcorreo2.Text,
+                        txttelefono1.Text,
+                        txttelefono2.Text,
                         cbodepartamentocomercial.Text,
                         cboprovinciacomercial.Text,
                         cbodistritocomercial.Text,
+
+                        txtnombrecontacto.Text,
+                        txtdireccioncontacto.Text,
                         cbodepartamentocontacto.Text,
                         cboprovinciacontacto.Text,
                         cbodistritocontacto.Text,
+                        ((OpcionCombo) cbotipodocumentocontacto.SelectedItem).Valor.ToString(),
+                        ((OpcionCombo) cbotipodocumentocontacto.SelectedItem).Valor.ToString(),
+                        txtdocumentocontacto.Text,
+                        txtcmp.Text,
+                        txttlffijo.Text,
+                        txtcelularcontacto.Text,
+                        txtcorreocontacto.Text,
                         ((OpcionCombo) cboestado.SelectedItem).Valor.ToString(),
                         ((OpcionCombo) cboestado.SelectedItem).Texto.ToString(),
                     });
@@ -353,52 +343,56 @@ namespace CapaPresentacion
             }
             else
             {
-                bool resultado = new CN_Cliente().Editar(objCliente, out mensaje);
-
-                if (resultado)
+                if (MessageBox.Show("¿Desea editar el cliente?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    bool resultado = new CN_Cliente().Editar(objCliente, out mensaje);
+                    if (resultado)
+                    {
+                        DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
+                        row.Cells["Id"].Value = txtid.Text;
+                        row.Cells["CodigoCliente"].Value = txtcodigocliente.Text;
+                        row.Cells["IdTipoDocumento"].Value = ((OpcionCombo)cbotipodocumento.SelectedItem).Valor.ToString();
+                        row.Cells["TipoDocumento"].Value = ((OpcionCombo)cbotipodocumento.SelectedItem).Texto.ToString();
+                        row.Cells["Documento"].Value = txtdocumento.Text;
+                        row.Cells["NombreCompleto"].Value = txtnombre.Text;
+                        row.Cells["RazonSocial"].Value = txtrazonsocial.Text;
+                        row.Cells["Direccion"].Value = txtdireccion.Text;
+                        row.Cells["Departamento"].Value = this.cbodepartamento.GetItemText(this.cbodepartamento.SelectedItem);
+                        row.Cells["Provincia"].Value = this.cboprovincia.GetItemText(this.cboprovincia.SelectedItem);
+                        row.Cells["Distrito"].Value = this.cbodistrito.GetItemText(this.cbodistrito.SelectedItem);
 
-                    
-                    DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
-                    row.Cells["Id"].Value = txtid.Text;
-                    row.Cells["CodigoCliente"].Value = txtcodigocliente.Text;
-                    row.Cells["IdTipoDocumento"].Value = ((OpcionCombo)cbotipodocumento.SelectedItem).Valor.ToString();
-                    row.Cells["TipoDocumento"].Value = ((OpcionCombo)cbotipodocumento.SelectedItem).Texto.ToString();
-                    row.Cells["Documento"].Value = txtdocumento.Text;
-                    row.Cells["RUC"].Value = txtruc.Text;
-                    row.Cells["RazonSocial"].Value = txtrazonsocial.Text;
-                    row.Cells["IdTipoCliente"].Value = ((OpcionCombo)cbotipocliente.SelectedItem).Valor.ToString();
-                    row.Cells["TipoCliente"].Value = ((OpcionCombo)cbotipocliente.SelectedItem).Texto.ToString();
-                    row.Cells["NombreCompleto"].Value = txtnombrecompleto.Text;
-                    row.Cells["Direccion"].Value =txtdireccion.Text;
-                    row.Cells["CMP"].Value = txtcmp.Text;                
-                    row.Cells["NombreComercial"].Value = txtnombrecomercial.Text;
-                    row.Cells["DireccionComercial"].Value = txtdireccioncomercial.Text;
-                    row.Cells["Correo1"].Value = txtcorreo1.Text;
-                    row.Cells["Telefono1"].Value = txttelefono1.Text;
-                    row.Cells["NombreContacto"].Value = txtnombrecontacto.Text;
-                    row.Cells["DireccionContacto"].Value = txtdireccioncontacto.Text;
-                    row.Cells["DocumentoContacto"].Value = txtdocumentocontacto.Text;
-                    row.Cells["RucContacto"].Value = txtruccontacto.Text;
-                    row.Cells["TelefonoContacto"].Value = txttlffijo.Text;
-                    row.Cells["CelularContacto"].Value = txtcelularcontacto.Text;
-                    row.Cells["Correo2"].Value = txtcorreo2.Text;
-                    row.Cells["Telefono2"].Value = txttelefono2.Text;
-                  
-                    row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
-                    row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
-                    Limpiar();
+                        row.Cells["NombreComercial"].Value = txtnombrecomercial.Text;
+                        row.Cells["DireccionComercial"].Value = txtdireccioncomercial.Text;
+                        row.Cells["Correo1"].Value = txtcorreo1.Text;
+                        row.Cells["Correo2"].Value = txtcorreo2.Text;
+                        row.Cells["Telefono1"].Value = txttelefono1.Text;
+                        row.Cells["Telefono2"].Value = txttelefono2.Text;
+                        row.Cells["DepartamentoComercial"].Value = this.cbodepartamentocomercial.GetItemText(this.cbodepartamentocomercial.SelectedItem);
+                        row.Cells["ProvinciaComercial"].Value = this.cboprovinciacomercial.GetItemText(this.cboprovinciacomercial.SelectedItem);
+                        row.Cells["DistritoComercial"].Value = this.cbodistritocomercial.GetItemText(this.cbodistritocomercial.SelectedItem);
 
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
+                        row.Cells["NombreContacto"].Value = txtnombrecontacto.Text;
+                        row.Cells["DireccionContacto"].Value = txtdireccioncontacto.Text;
+                        row.Cells["DepartamentoContacto"].Value = this.cbodepartamentocontacto.GetItemText(this.cbodepartamentocontacto.SelectedItem);
+                        row.Cells["ProvinciaContacto"].Value = this.cboprovinciacontacto.GetItemText(this.cboprovinciacontacto.SelectedItem);
+                        row.Cells["DistritoContacto"].Value = this.cbodistritocontacto.GetItemText(this.cbodistritocontacto.SelectedItem);
+                        row.Cells["IdTipoDocumentoContacto"].Value = ((OpcionCombo)cbotipodocumentocontacto.SelectedItem).Valor.ToString();
+                        row.Cells["TipoDocumentoContacto"].Value = ((OpcionCombo)cbotipodocumentocontacto.SelectedItem).Texto.ToString();
+                        row.Cells["NumeroDocumentoContacto"].Value = txtdocumentocontacto.Text;
+                        row.Cells["Cmp"].Value = txtcmp.Text;
+                        row.Cells["TelefonoContacto"].Value = txttlffijo.Text;
+                        row.Cells["CelularContacto"].Value = txtcelularcontacto.Text;
+                        row.Cells["CorreoContacto"].Value = txtcorreocontacto.Text;
+                        row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
+                        row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
             }
-
-
-            //defaultindexcombo();
-            
         }
         private void btnlimpiarbuscador_Click(object sender, EventArgs e)
         {
@@ -414,55 +408,69 @@ namespace CapaPresentacion
         #region PROCEDIMIENTOS
         private void Limpiar()
         {
+            txtcodigocliente.Text = "";
             txtindice.Text = "-1";
             txtid.Text = "0";
-
+            cboestado.SelectedIndex = 0;
+            cbotipodocumento.SelectedIndex = 2;
             txtdocumento.Text = "";
-            txtdocumentocontacto.Text = "";
-            txtnombrecompleto.Text = "";
+            txtnombre.Text = "";
+            txtrazonsocial.Text = "";
+            txtdireccion.Text = "";
+
             txtnombrecomercial.Text = "";
-            txtnombrecontacto.Text = "";
+            txtdireccioncomercial.Text = "";
             txtcorreo1.Text = "";
-            txtcorreocontacto.Text = "";
+            txtcorreo2.Text = "";
             txttelefono1.Text = "";
+            txttelefono2.Text = "";
+
+            txtnombrecontacto.Text = "";
+            txtdireccioncontacto.Text = "";
+            cbotipodocumentocontacto.SelectedIndex = 1;
+            txtdocumentocontacto.Text = "";
+            txtcmp.Text = "";
             txttlffijo.Text = "";
             txtcelularcontacto.Text = "";
-            txtrazonsocial.Text = "";
-            txtcmp.Text = "";
-            txtruc.Text = "";
-            txtruccontacto.Text = "";
-            cboestado.SelectedIndex = 0;
-            txtcorreo2.Text = "";
-            txttelefono2.Text = "";
-            txtcodigocliente.Text = "";
-            txtdireccion.Text = "";
-            txtdireccioncomercial.Text = "";
-            txtdireccioncontacto.Text = "";
-            //cbodepartamento.SelectedIndex= 0;
-            //cbodepartamentocomercial.SelectedIndex= 0;
-            //cbodepartamentocontacto.SelectedIndex = 0;
+            txtcorreocontacto.Text = "";
 
             checkBox1.Checked = false;
             checkBox2.Checked = false;
-            checkBox3.Checked = false;
 
             defaultindexcombo();
         }
         private void buscar()
         {
-            string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
-            if (dgvdata.Rows.Count > 0)
+            if (((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString() == "TODOS")
             {
-
                 foreach (DataGridViewRow row in dgvdata.Rows)
                 {
-                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
+                    row.Visible = false;
+                    foreach (DataGridViewColumn column in dgvdata.Columns)
                     {
-                        row.Visible = true;
+                        if (row.Cells[column.Index].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
+                        {
+                            row.Visible = true;
+                        }
                     }
-                    else
+                }
+            }
+            else
+            {
+                string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
+                if (dgvdata.Rows.Count > 0)
+                {
+
+                    foreach (DataGridViewRow row in dgvdata.Rows)
                     {
-                        row.Visible = false;
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
+                        {
+                            row.Visible = true;
+                        }
+                        else
+                        {
+                            row.Visible = false;
+                        }
                     }
                 }
             }
@@ -505,83 +513,65 @@ namespace CapaPresentacion
                 int indice = e.RowIndex;
                 if (indice >= 0)
                 {
-
-                    //.Text = dgvdata.Rows[indice].Cells[""].Value.ToString();
-
-                    //No debe estar en orden necesariamente
                     txtindice.Text = indice.ToString();
-                    //Setear en campos la información del Cliente (obtener los datos de una fila y ponerlos en edicion)
+
                     txtid.Text = dgvdata.Rows[indice].Cells["Id"].Value.ToString();
-                    txtcodigocliente.Text = dgvdata.Rows[indice].Cells["CodigoCliente"].Value.ToString(); //No se edita, solo se muestra
-                                                                                                          //TIPODOCUMENTO
-                    txtdocumento.Text = dgvdata.Rows[indice].Cells["Documento"].Value.ToString();
-                    txtruc.Text = dgvdata.Rows[indice].Cells["RUC"].Value.ToString();
-                    txtrazonsocial.Text = dgvdata.Rows[indice].Cells["RazonSocial"].Value.ToString();
-                    //TIPOCLIENTE
-                    txtnombrecompleto.Text = dgvdata.Rows[indice].Cells["NombreCompleto"].Value.ToString();
-                    txtdireccion.Text = dgvdata.Rows[indice].Cells["Direccion"].Value.ToString();
-                    txtcmp.Text = dgvdata.Rows[indice].Cells["CMP"].Value.ToString();
-                    txtnombrecomercial.Text = dgvdata.Rows[indice].Cells["NombreComercial"].Value.ToString();
-                    txtdireccioncomercial.Text = dgvdata.Rows[indice].Cells["DireccionComercial"].Value.ToString();
-                    txtcorreo1.Text = dgvdata.Rows[indice].Cells["Correo1"].Value.ToString();
-                    txttelefono1.Text = dgvdata.Rows[indice].Cells["Telefono1"].Value.ToString();
-                    txtnombrecontacto.Text = dgvdata.Rows[indice].Cells["NombreContacto"].Value.ToString();
-                    txtdireccioncontacto.Text = dgvdata.Rows[indice].Cells["DireccionContacto"].Value.ToString();
-                    txtdocumentocontacto.Text = dgvdata.Rows[indice].Cells["DocumentoContacto"].Value.ToString();
-                    txtruccontacto.Text = dgvdata.Rows[indice].Cells["RucContacto"].Value.ToString();
-                    txttlffijo.Text = dgvdata.Rows[indice].Cells["TelefonoContacto"].Value.ToString();
-                    txtcelularcontacto.Text = dgvdata.Rows[indice].Cells["CelularContacto"].Value.ToString();
-                    txtcorreocontacto.Text = dgvdata.Rows[indice].Cells["CorreoContacto"].Value.ToString();
-                    txtcorreo2.Text = dgvdata.Rows[indice].Cells["Correo2"].Value.ToString();
-                    txttelefono2.Text = dgvdata.Rows[indice].Cells["Telefono2"].Value.ToString();
-
-                    cbodepartamento.SelectedIndex = cbodepartamento.FindStringExact(dgvdata.Rows[indice].Cells["Departamento"].Value.ToString());
-                    cboprovincia.SelectedIndex = cboprovincia.FindStringExact(dgvdata.Rows[indice].Cells["Provincia"].Value.ToString());
-                    cbodistrito.SelectedIndex = cbodistrito.FindStringExact(dgvdata.Rows[indice].Cells["Distrito"].Value.ToString());
-
-                    cbodepartamentocomercial.SelectedIndex = cbodepartamentocomercial.FindStringExact(dgvdata.Rows[indice].Cells["DepartamentoComercial"].Value.ToString());
-                    cboprovinciacomercial.SelectedIndex = cboprovinciacomercial.FindStringExact(dgvdata.Rows[indice].Cells["ProvinciaComercial"].Value.ToString());
-                    cbodistritocomercial.SelectedIndex = cbodistritocomercial.FindStringExact(dgvdata.Rows[indice].Cells["DistritoComercial"].Value.ToString());
-
-                    cbodepartamentocontacto.SelectedIndex = cbodepartamentocontacto.FindStringExact(dgvdata.Rows[indice].Cells["DepartamentoContacto"].Value.ToString());
-                    cboprovinciacontacto.SelectedIndex = cboprovinciacontacto.FindStringExact(dgvdata.Rows[indice].Cells["ProvinciaContacto"].Value.ToString());
-                    cbodistritocontacto.SelectedIndex = cbodistritocontacto.FindStringExact(dgvdata.Rows[indice].Cells["DistritoContacto"].Value.ToString());
-
-
+                    txtcodigocliente.Text = dgvdata.Rows[indice].Cells["CodigoCliente"].Value.ToString();
                     foreach (OpcionCombo oc in cbotipodocumento.Items)
                     {
-
                         if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdTipoDocumento"].Value))
                         {
                             int indice_combo = cbotipodocumento.Items.IndexOf(oc);
                             cbotipodocumento.SelectedIndex = indice_combo;
-                            break; //Para cuando lo encuentre debe terminar
+                            break;
                         }
                     }
-                    foreach (OpcionCombo oc in cbotipocliente.Items)
+                    txtdocumento.Text = dgvdata.Rows[indice].Cells["Documento"].Value.ToString();
+                    txtnombre.Text = dgvdata.Rows[indice].Cells["NombreCompleto"].Value.ToString();
+                    txtrazonsocial.Text = dgvdata.Rows[indice].Cells["RazonSocial"].Value.ToString();
+                    txtdireccion.Text = dgvdata.Rows[indice].Cells["Direccion"].Value.ToString();
+                    cbodepartamento.SelectedIndex = cbodepartamento.FindStringExact(dgvdata.Rows[indice].Cells["Departamento"].Value.ToString());
+                    cboprovincia.SelectedIndex = cboprovincia.FindStringExact(dgvdata.Rows[indice].Cells["Provincia"].Value.ToString());
+                    cbodistrito.SelectedIndex = cbodistrito.FindStringExact(dgvdata.Rows[indice].Cells["Distrito"].Value.ToString());
+
+                    txtnombrecomercial.Text = dgvdata.Rows[indice].Cells["NombreComercial"].Value.ToString();
+                    txtdireccioncomercial.Text = dgvdata.Rows[indice].Cells["DireccionComercial"].Value.ToString();
+                    txtcorreo1.Text = dgvdata.Rows[indice].Cells["Correo1"].Value.ToString();
+                    txtcorreo2.Text = dgvdata.Rows[indice].Cells["Correo2"].Value.ToString();
+                    txttelefono1.Text = dgvdata.Rows[indice].Cells["Telefono1"].Value.ToString();
+                    txttelefono2.Text = dgvdata.Rows[indice].Cells["Telefono2"].Value.ToString();
+                    cbodepartamentocomercial.SelectedIndex = cbodepartamentocomercial.FindStringExact(dgvdata.Rows[indice].Cells["DepartamentoComercial"].Value.ToString());
+                    cboprovinciacomercial.SelectedIndex = cboprovinciacomercial.FindStringExact(dgvdata.Rows[indice].Cells["ProvinciaComercial"].Value.ToString());
+                    cbodistritocomercial.SelectedIndex = cbodistritocomercial.FindStringExact(dgvdata.Rows[indice].Cells["DistritoComercial"].Value.ToString());
+
+                    txtnombrecontacto.Text = dgvdata.Rows[indice].Cells["NombreContacto"].Value.ToString();
+                    txtdireccioncontacto.Text = dgvdata.Rows[indice].Cells["DireccionContacto"].Value.ToString();
+                    cbodepartamentocontacto.SelectedIndex = cbodepartamentocontacto.FindStringExact(dgvdata.Rows[indice].Cells["DepartamentoContacto"].Value.ToString());
+                    cboprovinciacontacto.SelectedIndex = cboprovinciacontacto.FindStringExact(dgvdata.Rows[indice].Cells["ProvinciaContacto"].Value.ToString());
+                    cbodistritocontacto.SelectedIndex = cbodistritocontacto.FindStringExact(dgvdata.Rows[indice].Cells["DistritoContacto"].Value.ToString());
+                    foreach (OpcionCombo oc in cbotipodocumentocontacto.Items)
                     {
-
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdTipoCliente"].Value))
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdTipoDocumentoContacto"].Value))
                         {
-                            int indice_combo = cbotipocliente.Items.IndexOf(oc);
-                            cbotipocliente.SelectedIndex = indice_combo;
-                            break; //Para cuando lo encuentre debe terminar
+                            int indice_combo = cbotipodocumentocontacto.Items.IndexOf(oc);
+                            cbotipodocumentocontacto.SelectedIndex = indice_combo;
+                            break;
                         }
                     }
-                    
-
-                    //Setear en el combobox el rol del Cliente oc es el elemento que recorre toda la lista
+                    txtdocumentocontacto.Text = dgvdata.Rows[indice].Cells["NumeroDocumentoContacto"].Value.ToString();
+                    txtcmp.Text = dgvdata.Rows[indice].Cells["CMP"].Value.ToString();
+                    txttlffijo.Text = dgvdata.Rows[indice].Cells["TelefonoContacto"].Value.ToString();
+                    txtcelularcontacto.Text = dgvdata.Rows[indice].Cells["CelularContacto"].Value.ToString();
+                    txtcorreocontacto.Text = dgvdata.Rows[indice].Cells["CorreoContacto"].Value.ToString();
                     foreach (OpcionCombo oc in cboestado.Items)
                     {
-                        //  if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value))
                         if (oc.Valor == dgvdata.Rows[indice].Cells["EstadoValor"].Value)
                         {
                         int indice_combo = cboestado.Items.IndexOf(oc);
                         cboestado.SelectedIndex = indice_combo;
-                        break; //Para cuando lo encuentre debe terminar
+                        break;
                         }
                     }
-
                 }
             }
         }
@@ -590,6 +580,7 @@ namespace CapaPresentacion
             if (checkBox1.Checked) {
 
                 txtdireccioncomercial.Text = txtdireccion.Text;
+                txtnombrecomercial.Text = txtnombre.Text;
                 cbodepartamentocomercial.SelectedIndex = cbodepartamento.SelectedIndex;
                 cboprovinciacomercial.SelectedIndex=cboprovincia.SelectedIndex;
                 cbodistritocomercial.SelectedIndex=cbodistrito.SelectedIndex;
@@ -619,19 +610,6 @@ namespace CapaPresentacion
                 
             }
         }
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox3.Checked)
-            {
-                txtdocumentocontacto.Text = txtdocumento.Text;
-                txtruccontacto.Text = txtruc.Text;
-            }
-            else
-            {
-                txtdocumentocontacto.Text = "";
-                txtruccontacto.Text = "";
-            }
-        }
         public void defaultindexcombo()
         {
             cbodepartamento.SelectedIndex = 25;
@@ -641,95 +619,92 @@ namespace CapaPresentacion
 
         #endregion
 
-        #region Restricciones de tamaño y numeros para ruc y documento
-        private void txtdocumento_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-
-            // Verificar la longitud del texto en el TextBox
-            if (textBox.Text.Length > 12)
-            {
-                // Si el texto excede los 20 dígitos, truncarlo a 20 dígitos
-                textBox.Text = textBox.Text.Substring(0, 12);
-            }
-        }
-
-        private void txtruc_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-
-            // Verificar la longitud del texto en el TextBox
-            if (textBox.Text.Length > 20)
-            {
-                // Si el texto excede los 20 dígitos, truncarlo a 20 dígitos
-                textBox.Text = textBox.Text.Substring(0, 20);
-            }
-        }
-
-        private void txtdocumentocontacto_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-
-            // Verificar la longitud del texto en el TextBox
-            if (textBox.Text.Length > 12)
-            {
-                // Si el texto excede los 20 dígitos, truncarlo a 20 dígitos
-                textBox.Text = textBox.Text.Substring(0, 12);
-            }
-        }
-
-        private void txtruccontacto_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-
-            // Verificar la longitud del texto en el TextBox
-            if (textBox.Text.Length > 20)
-            {
-                // Si el texto excede los 20 dígitos, truncarlo a 20 dígitos
-                textBox.Text = textBox.Text.Substring(0, 20);
-            }
-        }
-
+        #region Restricciones de tamaño y numeros para los textbox que contengan número
         private void txtdocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si la tecla presionada es un número o una tecla de control
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
             {
-                // Ignorar la tecla si no es un número o una tecla de control
+                e.Handled = true;
+                return;
+            }
+            if (txtdocumento.Text.Length >= 20 && e.KeyChar != '\b')
+            {
                 e.Handled = true;
             }
         }
-
-        private void txtruc_KeyPress(object sender, KeyPressEventArgs e)
+        private void txttelefono1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si la tecla presionada es un número o una tecla de control
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
             {
-                // Ignorar la tecla si no es un número o una tecla de control
+                e.Handled = true;
+                return;
+            }
+            if (txttelefono1.Text.Length >= 20 && e.KeyChar != '\b')
+            {
+                txttelefono1.ShortcutsEnabled = false;
                 e.Handled = true;
             }
         }
-
+        private void txttelefono2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+                return;
+            }
+            if (txttelefono2.Text.Length >= 20 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
         private void txtdocumentocontacto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si la tecla presionada es un número o una tecla de control
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
             {
-                // Ignorar la tecla si no es un número o una tecla de control
+                e.Handled = true;
+                return;
+            }
+            if (txtdocumentocontacto.Text.Length >= 20 && e.KeyChar != '\b')
+            {
                 e.Handled = true;
             }
         }
-
-        private void txtruccontacto_KeyPress(object sender, KeyPressEventArgs e)
+        private void txttlffijo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si la tecla presionada es un número o una tecla de control
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
             {
-                // Ignorar la tecla si no es un número o una tecla de control
+                e.Handled = true;
+                return;
+            }
+            if (txttlffijo.Text.Length >= 20 && e.KeyChar != '\b')
+            {
                 e.Handled = true;
             }
         }
-
+        private void txtcelularcontacto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+                return;
+            }
+            if (txtcelularcontacto.Text.Length >= 20 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtcmp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+                return;
+            }
+            if (txtcmp.Text.Length >= 5 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
         #endregion
     }
 }

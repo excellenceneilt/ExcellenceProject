@@ -119,5 +119,15 @@ namespace CapaPresentacion
         }
 
         #endregion
+
+        private void btnminimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnminimizar_Click(sender, (KeyEventArgs)e);
+        }
     }
 }
