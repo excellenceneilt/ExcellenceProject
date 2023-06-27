@@ -23,10 +23,10 @@ namespace CapaDatos
                 {
                     StringBuilder query = new StringBuilder();
 
-                    query.AppendLine("select IdIre,CodOst,Deja,DniDeja,Telefono, ");
-                    query.AppendLine("IdCliente,Ruc,Contacto,Correo,IdEquipo, ");
-                    query.AppendLine("Marca,Modelo,Serial,IdEstEqui,Fecha, ");
-                    query.AppendLine("Garantia,IdMoneda,Costo,Enciende,Situacion, ");
+                    query.AppendLine("select IdIre,CodOst,Deja,DniDeja,Telefono,");
+                    query.AppendLine("IdCliente,NombreCompleto,Ruc,Contacto,Correo,IdEquipo,");
+                    query.AppendLine("Marca,Modelo,Serial,IdEstEqui,Fecha,");
+                    query.AppendLine("Garantia,IdMoneda,Costo,Enciende,Situacion,");
                     query.AppendLine("Accesorios,Observaciones,FechaRegistro ");
                     query.AppendLine("from IngresoRecepcionEquipos");
 
@@ -48,6 +48,8 @@ namespace CapaDatos
                                 iCliente = new Cliente()
                                 {
                                     IdCliente = Convert.ToInt32(dr["IdCliente"]),
+                                    NombreCompleto = dr["NombreCompleto"].ToString(),
+                                    Documento = dr["Ruc"].ToString(),
                                     NombreContacto = dr["Contacto"].ToString(),
                                     Correo1 = dr["Correo"].ToString()
                                 },
@@ -62,10 +64,11 @@ namespace CapaDatos
                                 {
                                     IdEstadoEquipo = Convert.ToInt32(dr["IdEstEqui"])
                                 },
-                                iCompra = new Compra()
+                                Fecha = dr["Fecha"].ToString(),
+                                /*iCompra = new Compra()
                                 {
                                     FechaRegistro = dr["Fecha"].ToString()
-                                },
+                                },*/
                                 Garantia = Convert.ToBoolean(dr["Garantia"]),
                                 iMoneda = new Moneda()
                                 {
@@ -105,6 +108,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@DniDeja", obj.DniDeja);
                     cmd.Parameters.AddWithValue("@Telefono", obj.TelefonoDeja);
                     cmd.Parameters.AddWithValue("@IdCliente", obj.iCliente.IdCliente);
+                    cmd.Parameters.AddWithValue("@NombreCompleto", obj.iCliente.NombreCompleto);
+                    cmd.Parameters.AddWithValue("@Ruc", obj.iCliente.Documento);
                     cmd.Parameters.AddWithValue("@Contacto", obj.iCliente.NombreContacto);
                     cmd.Parameters.AddWithValue("@Correo", obj.iCliente.Correo1);
                     cmd.Parameters.AddWithValue("@IdEquipo", obj.iEquipo.IdEquipo);
@@ -157,6 +162,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@DniDeja", obj.DniDeja);
                     cmd.Parameters.AddWithValue("@Telefono", obj.TelefonoDeja);
                     cmd.Parameters.AddWithValue("@IdCliente", obj.iCliente.IdCliente);
+                    cmd.Parameters.AddWithValue("@NombreCompleto", obj.iCliente.NombreCompleto);
+                    cmd.Parameters.AddWithValue("@Ruc", obj.iCliente.Documento);
                     cmd.Parameters.AddWithValue("@Contacto", obj.iCliente.NombreContacto);
                     cmd.Parameters.AddWithValue("@Correo", obj.iCliente.Correo1);
                     cmd.Parameters.AddWithValue("@IdEquipo", obj.iEquipo.IdEquipo);

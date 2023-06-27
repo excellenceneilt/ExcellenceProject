@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtdeja = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.cboenciende = new System.Windows.Forms.ComboBox();
@@ -57,30 +57,6 @@
             this.cbobusqueda = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvdata = new System.Windows.Forms.DataGridView();
-            this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdIre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodOST = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Deja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DniDeja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TelefonoDeja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdEstadoEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Garantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Enciende = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Situacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accesorios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaIRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtindice = new System.Windows.Forms.TextBox();
             this.txtid = new System.Windows.Forms.TextBox();
             this.txtcontacto = new System.Windows.Forms.TextBox();
@@ -118,6 +94,31 @@
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.txtmarca = new System.Windows.Forms.TextBox();
             this.btnbuscarequipo = new FontAwesome.Sharp.IconButton();
+            this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IdIre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodOST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Deja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DniDeja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelefonoDeja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdEstadoEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Garantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Enciende = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Situacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accesorios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaIRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -142,9 +143,9 @@
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(28, 97);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(29, 13);
+            this.label30.Size = new System.Drawing.Size(32, 13);
             this.label30.TabIndex = 183;
-            this.label30.Text = "Deja";
+            this.label30.Text = "Deja:";
             // 
             // cboenciende
             // 
@@ -225,7 +226,7 @@
             // 
             this.txttelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txttelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefono.Location = new System.Drawing.Point(537, 97);
+            this.txttelefono.Location = new System.Drawing.Point(553, 97);
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(72, 20);
             this.txttelefono.TabIndex = 11;
@@ -236,7 +237,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(470, 100);
+            this.label6.Location = new System.Drawing.Point(489, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 153;
@@ -249,7 +250,7 @@
             this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcorreo.Location = new System.Drawing.Point(384, 76);
             this.txtcorreo.Name = "txtcorreo";
-            this.txtcorreo.Size = new System.Drawing.Size(225, 20);
+            this.txtcorreo.Size = new System.Drawing.Size(241, 20);
             this.txtcorreo.TabIndex = 9;
             // 
             // label5
@@ -292,9 +293,9 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(18, 58);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 13);
+            this.label17.Size = new System.Drawing.Size(42, 13);
             this.label17.TabIndex = 162;
-            this.label17.Text = "Cliente";
+            this.label17.Text = "Cliente:";
             // 
             // txtnumero
             // 
@@ -337,7 +338,7 @@
             this.txtcosto.Name = "txtcosto";
             this.txtcosto.Size = new System.Drawing.Size(48, 20);
             this.txtcosto.TabIndex = 21;
-            this.txtcosto.Text = "0.00";
+            this.txtcosto.Text = "0";
             this.txtcosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcosto_KeyPress);
             // 
             // label4
@@ -406,15 +407,15 @@
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnseleccionar,
@@ -424,6 +425,7 @@
             this.DniDeja,
             this.TelefonoDeja,
             this.IdCliente,
+            this.Cliente,
             this.RUC,
             this.NombreContacto,
             this.Correo1,
@@ -448,169 +450,8 @@
             this.dgvdata.RowTemplate.Height = 28;
             this.dgvdata.Size = new System.Drawing.Size(652, 209);
             this.dgvdata.TabIndex = 141;
-            // 
-            // btnseleccionar
-            // 
-            this.btnseleccionar.HeaderText = "";
-            this.btnseleccionar.Name = "btnseleccionar";
-            this.btnseleccionar.ReadOnly = true;
-            this.btnseleccionar.Width = 30;
-            // 
-            // IdIre
-            // 
-            this.IdIre.HeaderText = "IdIre";
-            this.IdIre.Name = "IdIre";
-            this.IdIre.ReadOnly = true;
-            this.IdIre.Visible = false;
-            this.IdIre.Width = 30;
-            // 
-            // CodOST
-            // 
-            this.CodOST.HeaderText = "CodOST";
-            this.CodOST.Name = "CodOST";
-            this.CodOST.ReadOnly = true;
-            // 
-            // Deja
-            // 
-            this.Deja.HeaderText = "Deja";
-            this.Deja.Name = "Deja";
-            this.Deja.ReadOnly = true;
-            this.Deja.Visible = false;
-            // 
-            // DniDeja
-            // 
-            this.DniDeja.HeaderText = "DniDeja";
-            this.DniDeja.Name = "DniDeja";
-            this.DniDeja.ReadOnly = true;
-            this.DniDeja.Visible = false;
-            // 
-            // TelefonoDeja
-            // 
-            this.TelefonoDeja.HeaderText = "TelefonoDeja";
-            this.TelefonoDeja.Name = "TelefonoDeja";
-            this.TelefonoDeja.ReadOnly = true;
-            this.TelefonoDeja.Visible = false;
-            // 
-            // IdCliente
-            // 
-            this.IdCliente.HeaderText = "IdCliente";
-            this.IdCliente.Name = "IdCliente";
-            this.IdCliente.ReadOnly = true;
-            this.IdCliente.Visible = false;
-            // 
-            // RUC
-            // 
-            this.RUC.HeaderText = "RUC";
-            this.RUC.Name = "RUC";
-            this.RUC.ReadOnly = true;
-            this.RUC.Visible = false;
-            // 
-            // NombreContacto
-            // 
-            this.NombreContacto.HeaderText = "NombreContacto";
-            this.NombreContacto.Name = "NombreContacto";
-            this.NombreContacto.ReadOnly = true;
-            // 
-            // Correo1
-            // 
-            this.Correo1.HeaderText = "Correo1";
-            this.Correo1.Name = "Correo1";
-            this.Correo1.ReadOnly = true;
-            this.Correo1.Visible = false;
-            // 
-            // IdEquipo
-            // 
-            this.IdEquipo.HeaderText = "IdEquipo";
-            this.IdEquipo.Name = "IdEquipo";
-            this.IdEquipo.ReadOnly = true;
-            this.IdEquipo.Visible = false;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            this.Marca.ReadOnly = true;
-            // 
-            // Modelo
-            // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
-            // 
-            // SerialNumber
-            // 
-            this.SerialNumber.HeaderText = "SerialNumber";
-            this.SerialNumber.Name = "SerialNumber";
-            this.SerialNumber.ReadOnly = true;
-            // 
-            // IdEstadoEquipo
-            // 
-            this.IdEstadoEquipo.HeaderText = "IdEstadoEquipo";
-            this.IdEstadoEquipo.Name = "IdEstadoEquipo";
-            this.IdEstadoEquipo.ReadOnly = true;
-            this.IdEstadoEquipo.Visible = false;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Visible = false;
-            // 
-            // Garantia
-            // 
-            this.Garantia.HeaderText = "Garantia";
-            this.Garantia.Name = "Garantia";
-            this.Garantia.ReadOnly = true;
-            this.Garantia.Visible = false;
-            // 
-            // IdMoneda
-            // 
-            this.IdMoneda.HeaderText = "IdMoneda";
-            this.IdMoneda.Name = "IdMoneda";
-            this.IdMoneda.ReadOnly = true;
-            this.IdMoneda.Visible = false;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.Name = "Costo";
-            this.Costo.ReadOnly = true;
-            this.Costo.Visible = false;
-            // 
-            // Enciende
-            // 
-            this.Enciende.HeaderText = "Enciende";
-            this.Enciende.Name = "Enciende";
-            this.Enciende.ReadOnly = true;
-            this.Enciende.Visible = false;
-            // 
-            // Situacion
-            // 
-            this.Situacion.HeaderText = "Situacion";
-            this.Situacion.Name = "Situacion";
-            this.Situacion.ReadOnly = true;
-            this.Situacion.Visible = false;
-            // 
-            // Accesorios
-            // 
-            this.Accesorios.HeaderText = "Accesorios";
-            this.Accesorios.Name = "Accesorios";
-            this.Accesorios.ReadOnly = true;
-            this.Accesorios.Visible = false;
-            // 
-            // Observaciones
-            // 
-            this.Observaciones.HeaderText = "Observaciones";
-            this.Observaciones.Name = "Observaciones";
-            this.Observaciones.ReadOnly = true;
-            this.Observaciones.Visible = false;
-            // 
-            // FechaIRE
-            // 
-            this.FechaIRE.HeaderText = "FechaIRE";
-            this.FechaIRE.Name = "FechaIRE";
-            this.FechaIRE.ReadOnly = true;
+            this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
+            this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
             // 
             // txtindice
             // 
@@ -621,6 +462,7 @@
             this.txtindice.Size = new System.Drawing.Size(23, 20);
             this.txtindice.TabIndex = 140;
             this.txtindice.Text = "-1";
+            this.txtindice.Visible = false;
             // 
             // txtid
             // 
@@ -631,6 +473,7 @@
             this.txtid.Size = new System.Drawing.Size(23, 20);
             this.txtid.TabIndex = 157;
             this.txtid.Text = "0";
+            this.txtid.Visible = false;
             // 
             // txtcontacto
             // 
@@ -646,9 +489,9 @@
             // 
             this.txtdni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtdni.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdni.Location = new System.Drawing.Point(384, 97);
+            this.txtdni.Location = new System.Drawing.Point(394, 97);
             this.txtdni.Name = "txtdni";
-            this.txtdni.Size = new System.Drawing.Size(79, 20);
+            this.txtdni.Size = new System.Drawing.Size(89, 20);
             this.txtdni.TabIndex = 10;
             this.txtdni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdni_KeyPress);
             // 
@@ -659,20 +502,20 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(8, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 121;
-            this.label3.Text = "Contacto";
+            this.label3.Text = "Contacto:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(349, 100);
+            this.label2.Location = new System.Drawing.Point(328, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 120;
-            this.label2.Text = "DNI:";
+            this.label2.Text = "Documento:";
             // 
             // btneliminar
             // 
@@ -773,26 +616,27 @@
             this.btnbuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnbuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(345, 58);
+            this.label15.Location = new System.Drawing.Point(327, 58);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(33, 13);
+            this.label15.Size = new System.Drawing.Size(103, 13);
             this.label15.TabIndex = 158;
-            this.label15.Text = "RUC:\r\n";
+            this.label15.Text = "Número documento:\r\n";
             // 
             // txtruc
             // 
             this.txtruc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtruc.Enabled = false;
             this.txtruc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtruc.Location = new System.Drawing.Point(384, 54);
+            this.txtruc.Location = new System.Drawing.Point(436, 54);
             this.txtruc.Name = "txtruc";
-            this.txtruc.Size = new System.Drawing.Size(225, 20);
+            this.txtruc.Size = new System.Drawing.Size(189, 20);
             this.txtruc.TabIndex = 8;
             // 
             // txtost
@@ -914,6 +758,7 @@
             this.txtidcliente.Size = new System.Drawing.Size(23, 20);
             this.txtidcliente.TabIndex = 188;
             this.txtidcliente.Text = "-1";
+            this.txtidcliente.Visible = false;
             // 
             // btnbuscarcliente
             // 
@@ -1069,6 +914,7 @@
             this.txtidequipo.Size = new System.Drawing.Size(23, 20);
             this.txtidequipo.TabIndex = 189;
             this.txtidequipo.Text = "-1";
+            this.txtidequipo.Visible = false;
             // 
             // cckseleccionarequipo
             // 
@@ -1117,6 +963,177 @@
             this.btnbuscarequipo.TabIndex = 13;
             this.btnbuscarequipo.UseVisualStyleBackColor = true;
             this.btnbuscarequipo.Click += new System.EventHandler(this.btnbuscarequipo_Click);
+            // 
+            // btnseleccionar
+            // 
+            this.btnseleccionar.HeaderText = "";
+            this.btnseleccionar.Name = "btnseleccionar";
+            this.btnseleccionar.ReadOnly = true;
+            this.btnseleccionar.Width = 30;
+            // 
+            // IdIre
+            // 
+            this.IdIre.HeaderText = "IdIre";
+            this.IdIre.Name = "IdIre";
+            this.IdIre.ReadOnly = true;
+            this.IdIre.Visible = false;
+            this.IdIre.Width = 30;
+            // 
+            // CodOST
+            // 
+            this.CodOST.HeaderText = "CodOST";
+            this.CodOST.Name = "CodOST";
+            this.CodOST.ReadOnly = true;
+            // 
+            // Deja
+            // 
+            this.Deja.HeaderText = "Deja";
+            this.Deja.Name = "Deja";
+            this.Deja.ReadOnly = true;
+            this.Deja.Visible = false;
+            // 
+            // DniDeja
+            // 
+            this.DniDeja.HeaderText = "DniDeja";
+            this.DniDeja.Name = "DniDeja";
+            this.DniDeja.ReadOnly = true;
+            this.DniDeja.Visible = false;
+            // 
+            // TelefonoDeja
+            // 
+            this.TelefonoDeja.HeaderText = "TelefonoDeja";
+            this.TelefonoDeja.Name = "TelefonoDeja";
+            this.TelefonoDeja.ReadOnly = true;
+            this.TelefonoDeja.Visible = false;
+            // 
+            // IdCliente
+            // 
+            this.IdCliente.HeaderText = "IdCliente";
+            this.IdCliente.Name = "IdCliente";
+            this.IdCliente.ReadOnly = true;
+            this.IdCliente.Visible = false;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "NombreCompleto";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Visible = false;
+            // 
+            // RUC
+            // 
+            this.RUC.HeaderText = "Documento";
+            this.RUC.Name = "RUC";
+            this.RUC.ReadOnly = true;
+            this.RUC.Visible = false;
+            // 
+            // NombreContacto
+            // 
+            this.NombreContacto.HeaderText = "NombreContacto";
+            this.NombreContacto.Name = "NombreContacto";
+            this.NombreContacto.ReadOnly = true;
+            this.NombreContacto.Visible = false;
+            // 
+            // Correo1
+            // 
+            this.Correo1.HeaderText = "Correo1";
+            this.Correo1.Name = "Correo1";
+            this.Correo1.ReadOnly = true;
+            this.Correo1.Visible = false;
+            // 
+            // IdEquipo
+            // 
+            this.IdEquipo.HeaderText = "IdEquipo";
+            this.IdEquipo.Name = "IdEquipo";
+            this.IdEquipo.ReadOnly = true;
+            this.IdEquipo.Visible = false;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            // 
+            // Modelo
+            // 
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            // 
+            // SerialNumber
+            // 
+            this.SerialNumber.HeaderText = "SerialNumber";
+            this.SerialNumber.Name = "SerialNumber";
+            this.SerialNumber.ReadOnly = true;
+            // 
+            // IdEstadoEquipo
+            // 
+            this.IdEstadoEquipo.HeaderText = "IdEstadoEquipo";
+            this.IdEstadoEquipo.Name = "IdEstadoEquipo";
+            this.IdEstadoEquipo.ReadOnly = true;
+            this.IdEstadoEquipo.Visible = false;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Visible = false;
+            // 
+            // Garantia
+            // 
+            this.Garantia.HeaderText = "Garantia";
+            this.Garantia.Name = "Garantia";
+            this.Garantia.ReadOnly = true;
+            this.Garantia.Visible = false;
+            // 
+            // IdMoneda
+            // 
+            this.IdMoneda.HeaderText = "IdMoneda";
+            this.IdMoneda.Name = "IdMoneda";
+            this.IdMoneda.ReadOnly = true;
+            this.IdMoneda.Visible = false;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.Name = "Costo";
+            this.Costo.ReadOnly = true;
+            this.Costo.Visible = false;
+            // 
+            // Enciende
+            // 
+            this.Enciende.HeaderText = "Enciende";
+            this.Enciende.Name = "Enciende";
+            this.Enciende.ReadOnly = true;
+            this.Enciende.Visible = false;
+            // 
+            // Situacion
+            // 
+            this.Situacion.HeaderText = "Situacion";
+            this.Situacion.Name = "Situacion";
+            this.Situacion.ReadOnly = true;
+            this.Situacion.Visible = false;
+            // 
+            // Accesorios
+            // 
+            this.Accesorios.HeaderText = "Accesorios";
+            this.Accesorios.Name = "Accesorios";
+            this.Accesorios.ReadOnly = true;
+            this.Accesorios.Visible = false;
+            // 
+            // Observaciones
+            // 
+            this.Observaciones.HeaderText = "Observaciones";
+            this.Observaciones.Name = "Observaciones";
+            this.Observaciones.ReadOnly = true;
+            this.Observaciones.Visible = false;
+            // 
+            // FechaIRE
+            // 
+            this.FechaIRE.HeaderText = "FechaIRE";
+            this.FechaIRE.Name = "FechaIRE";
+            this.FechaIRE.ReadOnly = true;
             // 
             // frmRecepcionServicioTecnico
             // 
@@ -1212,6 +1229,7 @@
         private System.Windows.Forms.CheckBox cckgarantia;
         private System.Windows.Forms.TextBox txtidcliente;
         private System.Windows.Forms.TextBox txtidequipo;
+        private System.Windows.Forms.TextBox txtfecha;
         private System.Windows.Forms.DataGridViewButtonColumn btnseleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdIre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodOST;
@@ -1219,6 +1237,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DniDeja;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefonoDeja;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn RUC;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreContacto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo1;
@@ -1236,6 +1255,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Accesorios;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observaciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaIRE;
-        private System.Windows.Forms.TextBox txtfecha;
     }
 }

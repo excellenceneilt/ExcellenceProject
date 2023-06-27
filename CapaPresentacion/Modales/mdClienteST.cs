@@ -44,14 +44,15 @@ namespace CapaPresentacion.Modales
             foreach (Cliente item in lista)
             {
                 if (item.Estado)
-                    dgvdata.Rows.Add(new object[] 
+                    dgvdata.Rows.Add(new object[]
                     {
                         item.IdCliente,
-                        item.RazonSocial,
+                        item.NombreCompleto,
+                        item.Documento,
                         item.NombreContacto,
                         item.Correo1,
-                        item.Documento,
-                        item.Telefono1
+                        item.DocumentoContacto,
+                        item.Telefono1,
                     });
             }
         }
@@ -73,12 +74,14 @@ namespace CapaPresentacion.Modales
                 _Cliente = new Cliente()
                 {
                     IdCliente = Convert.ToInt32(dgvdata.Rows[iRow].Cells["IdCliente"].Value),
-                    RazonSocial = dgvdata.Rows[iRow].Cells["RazonSocial"].Value.ToString(),
-                    NombreContacto = dgvdata.Rows[iRow].Cells["Contacto"].Value.ToString(),
-                    Correo1 = dgvdata.Rows[iRow].Cells["Correo"].Value.ToString(),
+                    NombreCompleto = dgvdata.Rows[iRow].Cells["NombreCompleto"].Value.ToString(),
                     Documento = dgvdata.Rows[iRow].Cells["Documento"].Value.ToString(),
-                    Telefono1 = dgvdata.Rows[iRow].Cells["Telefono"].Value.ToString()
+                    NombreContacto = dgvdata.Rows[iRow].Cells["NombreContacto"].Value.ToString(),
+                    Correo1 = dgvdata.Rows[iRow].Cells["Correo1"].Value.ToString(),
+                    DocumentoContacto = dgvdata.Rows[iRow].Cells["DocumentoContacto"].Value.ToString(),
+                    Telefono1 = dgvdata.Rows[iRow].Cells["Telefono1"].Value.ToString()
                 };
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

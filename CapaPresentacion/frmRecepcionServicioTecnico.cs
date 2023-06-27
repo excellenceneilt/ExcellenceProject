@@ -1,3 +1,4 @@
+using CapaDatos;
 using CapaEntidad;
 using CapaNegocio;
 using CapaPresentacion.Modales;
@@ -17,6 +18,13 @@ namespace CapaPresentacion
 {
     public partial class frmRecepcionServicioTecnico : Form
     {
+        public const string OPC_ENCIENDE = "Enciende";
+        public const string OPC_NO_ENCIENDE = "No Enciende";
+        public const string OPC_SOLES = "Soles";
+        public const string OPC_DOLARES = "Dólares";
+        public const string OPC_GARANTIA = "Tiene Garantía";
+        public const string OPC_NO_GARANTIA = "No tiene garantía";
+        public const string OPC_SERVICIO_TECNICO = "Servicio Técnico";
         public frmRecepcionServicioTecnico()
         {
             InitializeComponent();
@@ -57,7 +65,7 @@ namespace CapaPresentacion
                 string fechaBaseDatos = FechaIREOriginal;
 
                 // Analizar la fecha en el formato de entrada
-                DateTime fecha = DateTime.ParseExact(fechaBaseDatos, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                DateTime fecha = DateTime.ParseExact(fechaBaseDatos, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
                 // Formatear la fecha en el formato deseado "dd/MM/yyyy"
                 string fechaFormateada = fecha.ToString("dd/MM/yyyy");
@@ -71,6 +79,8 @@ namespace CapaPresentacion
                     item.DniDeja,
                     item.TelefonoDeja,
                     item.iCliente.IdCliente,
+                    item.iCliente.NombreCompleto,
+                    item.iCliente.Documento,
                     item.iCliente.NombreContacto,
                     item.iCliente.Correo1,
                     item.iEquipo.IdEquipo,
@@ -79,10 +89,10 @@ namespace CapaPresentacion
                     item.iEquipo.SerialNumber,
                     item.iEstadoEquipo.IdEstadoEquipo == 3 ? "Servicio Técnico" : "No ST",
                     item.Fecha,
-                    item.Garantia == true ? "Tiene Garantía" : "No tiene garantía",
-                    item.iMoneda.IdMoneda == 1 ? "Soles" : "Dólares",
+                    item.Garantia == true ? OPC_GARANTIA : OPC_NO_GARANTIA,
+                    item.iMoneda.IdMoneda == 1 ? OPC_SOLES : OPC_DOLARES,
                     item.Costo,
-                    item.Enciende == true ? "Enciendo" : "No Enciende",
+                    item.Enciende == true ? OPC_ENCIENDE : OPC_NO_ENCIENDE,
                     item.Situacion,
                     item.Accesorios,
                     item.Observaciones,
@@ -102,13 +112,13 @@ namespace CapaPresentacion
                 if (result == DialogResult.OK)
                 {
                     txtidcliente.Text = modal._Cliente.IdCliente.ToString();
-                    txtcliente.Text = modal._Cliente.RazonSocial;
-                    txtcontacto.Text = modal._Cliente.NombreContacto;
-                    txtcorreo.Text = modal._Cliente.Correo1;
-                    /*Estos datos se tienen que llenar con los datos de la persona encargada de dejar el equipo
-                     * txtdni.Text = modal._Cliente.Documento;
-                    txttelefono.Text = modal._Cliente.Telefono1;
-                    txtdeja.Text = modal._Cliente.NombreContacto;*/
+                    txtcliente.Text = modal._Cliente.NombreCompleto.ToString();
+                    txtruc.Text = modal._Cliente.Documento.ToString();
+                    txtcontacto.Text = modal._Cliente.NombreContacto.ToString();
+                    txtcorreo.Text = modal._Cliente.Correo1.ToString();
+                    txtdeja.Text = modal._Cliente.NombreContacto.ToString();
+                    txtdni.Text = modal._Cliente.DocumentoContacto.ToString();
+                    txttelefono.Text = modal._Cliente.Telefono1.ToString();
                 }
                 else
                 {
@@ -123,12 +133,8 @@ namespace CapaPresentacion
             {
                 var result = modal.ShowDialog();
 
-                //Las siguientes dos líneas sirven para convertir un formato de fecha en otro formato de fecha, ambos en string, bota error
-                /*DateTime fecha = DateTime.ParseExact(modal._Compra.FechaRegistro, "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-                string fechaFormateada = fecha.ToString("dd/MM/yyyy");*/
                 if (result == DialogResult.OK)
                 {
-                    //este codigo muestra la fecha, solo hasta el caracter numero 10, es el tamaño correcto para mostrar la fecha en el formato correcto
                     string fechaFormateada = modal._Equipo.FechaRegistro.Substring(0, Math.Min(modal._Equipo.FechaRegistro.Length, 10));
                     txtidequipo.Text = modal._Equipo.IdEquipo.ToString();
                     txtmarca.Text = modal._Equipo.Marca;
@@ -163,7 +169,6 @@ namespace CapaPresentacion
                 txtfechacompra.Enabled = true;
             }
         }
-
         private void cckgarantia_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = (CheckBox)sender;
@@ -173,7 +178,7 @@ namespace CapaPresentacion
                 cckcostord.Checked = false;
                 cckcostord.Enabled = false;
                 cbomoneda.Enabled = false;
-                txtcosto.Text = "0.00";
+                txtcosto.Text = "0";
                 txtcosto.Enabled = false;
             }
             else
@@ -196,7 +201,7 @@ namespace CapaPresentacion
             {
                 cbomoneda.Enabled = false;
                 txtcosto.Enabled = false;
-                txtcosto.Text = "0.00";
+                txtcosto.Text = "0";
             }
         }
         #endregion
@@ -219,6 +224,8 @@ namespace CapaPresentacion
                 iCliente = new Cliente()
                 {
                     IdCliente = Convert.ToInt32(txtidcliente.Text),
+                    NombreCompleto = txtcliente.Text,
+                    Documento = txtruc.Text,
                     NombreContacto = txtcontacto.Text,
                     Correo1 = txtcorreo.Text
                 },
@@ -267,19 +274,20 @@ namespace CapaPresentacion
                         txtdni.Text,
                         txttelefono.Text,
                         txtidcliente.Text,
-                        txtcontacto.Text,
+                        txtcliente.Text,
                         txtruc.Text,
+                        txtcontacto.Text,
                         txtcorreo.Text,
                         txtidequipo.Text,
                         txtmarca.Text,
                         txtmodelo.Text,
                         txtserie.Text,
-                        3,
+                        OPC_SERVICIO_TECNICO,
                         txtfechacompra.Text,
-                        cckgarantia.Checked == true ? "Tiene Garantía" : "No tiene garantía",
-                        ((OpcionCombo) cbomoneda.SelectedItem).Valor.ToString(),
+                        cckgarantia.Checked == true ? OPC_GARANTIA : OPC_NO_GARANTIA,
+                        ((OpcionCombo) cbomoneda.SelectedItem).Texto.ToString(),
                         txtcosto.Text,
-                        ((OpcionCombo) cboenciende.SelectedItem).Valor.ToString(),
+                        ((OpcionCombo) cboenciende.SelectedItem).Texto.ToString() == "Si" ? OPC_ENCIENDE : OPC_NO_ENCIENDE ,
                         txtsituacion.Text,
                         txtaccesorio.Text,
                         txtobservaciones.Text,
@@ -294,16 +302,43 @@ namespace CapaPresentacion
             }
             else
             {
-                bool resultado = new CN_IngresoRecepcionEquipos().Editar(objIre, out mensaje);
+                if (MessageBox.Show("¿Desea editar el registro?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    bool resultado = new CN_IngresoRecepcionEquipos().Editar(objIre, out mensaje);
 
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
+                    if (resultado)
+                    {
+                        DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
+                        row.Cells["IdIre"].Value = txtid.Text;
+                        row.Cells["CodOST"].Value = txtost.Text;
+                        row.Cells["Deja"].Value = txtdeja.Text;
+                        row.Cells["DniDeja"].Value = txtdni.Text;
+                        row.Cells["TelefonoDeja"].Value = txttelefono.Text;
+                        row.Cells["IdCliente"].Value = txtidcliente.Text;
+                        row.Cells["Cliente"].Value = txtcliente.Text;
+                        row.Cells["RUC"].Value = txtruc.Text;
+                        row.Cells["NombreContacto"].Value = txtcontacto.Text;
+                        row.Cells["Correo1"].Value = txtcorreo.Text;
+                        row.Cells["IdEquipo"].Value = txtidequipo.Text;
+                        row.Cells["Marca"].Value = txtmarca.Text;
+                        row.Cells["Modelo"].Value = txtmodelo.Text;
+                        row.Cells["SerialNumber"].Value = txtserie.Text;
+                        //EstadoEquipo
+                        row.Cells["Fecha"].Value = txtfechacompra.Text;
+                        if (cckgarantia.Checked == true) row.Cells["Garantia"].Value = OPC_GARANTIA;
+                        else row.Cells["Garantia"].Value = OPC_NO_GARANTIA;
+                        row.Cells["IdMoneda"].Value = ((OpcionCombo)cbomoneda.SelectedItem).Valor.ToString();
+                        row.Cells["Costo"].Value = txtcosto.Text;
+                        row.Cells["Enciende"].Value = ((OpcionCombo)cboenciende.SelectedItem).Valor.ToString();
+                        row.Cells["Situacion"].Value = txtsituacion.Text;
+                        row.Cells["Accesorios"].Value = txtaccesorio.Text;
+                        row.Cells["Observaciones"].Value = txtobservaciones.Text;
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
             }
         }
@@ -317,12 +352,11 @@ namespace CapaPresentacion
         {
             txtnumero.Text = string.Empty;
             txtfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            txtidcliente.Text = string.Empty;
+            txtidcliente.Text = "-1";
             txtcliente.Text = string.Empty;
             txtcontacto.Text = string.Empty;
             txtdeja.Text = string.Empty;
             txtost.Text = string.Empty;
-            txtidcliente.Text = "-1";
             txtindice.Text = "-1";
             txtid.Text = "0";
             txtidequipo.Text = "-1";
@@ -336,7 +370,7 @@ namespace CapaPresentacion
             txtmodelo.Text = string.Empty;
             txtfechacompra.Text = string.Empty;
             cckgarantia.Checked = true;
-            txtcosto.Text = "0.00";
+            txtcosto.Text = "0";
             txtsituacion.Text = string.Empty;
             txtaccesorio.Text = string.Empty;
             txtobservaciones.Text = string.Empty;
@@ -451,5 +485,77 @@ namespace CapaPresentacion
 
         #endregion
 
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                //Obteniendo las dimensiones de la imagen
+                var w = Properties.Resources.check20.Width;
+                var h = Properties.Resources.check20.Height;
+                //Centrando la imagen en la celda
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
+                //Si la acción del click puede continuar
+                e.Handled = true;
+            }
+        }
+        private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvdata.Columns[e.ColumnIndex].Name == "btnseleccionar")
+            {
+                int indice = e.RowIndex;
+                if (indice >= 0)
+                {
+                    txtindice.Text = indice.ToString();
+                    txtnumero.Text = dgvdata.Rows[indice].Cells["CodOST"].Value.ToString();
+                    txtfecha.Text = dgvdata.Rows[indice].Cells["Fecha"].Value.ToString();
+                    txtidcliente.Text = dgvdata.Rows[indice].Cells["IdCliente"].Value.ToString();
+                    txtost.Text = dgvdata.Rows[indice].Cells["CodOST"].Value.ToString();
+                    txtid.Text = dgvdata.Rows[indice].Cells["IdIre"].Value.ToString();
+                    txtcliente.Text = dgvdata.Rows[indice].Cells["Cliente"].Value.ToString();
+                    txtruc.Text = dgvdata.Rows[indice].Cells["RUC"].Value.ToString();
+                    txtcontacto.Text = dgvdata.Rows[indice].Cells["NombreContacto"].Value.ToString();
+                    txtcorreo.Text = dgvdata.Rows[indice].Cells["Correo1"].Value.ToString();
+                    txtdeja.Text = dgvdata.Rows[indice].Cells["Deja"].Value.ToString();
+                    txtdni.Text = dgvdata.Rows[indice].Cells["DniDeja"].Value.ToString();
+                    txttelefono.Text = dgvdata.Rows[indice].Cells["TelefonoDeja"].Value.ToString();
+                    txtidequipo.Text = dgvdata.Rows[indice].Cells["IdEquipo"].Value.ToString();
+                    txtmarca.Text = dgvdata.Rows[indice].Cells["Marca"].Value.ToString();
+                    txtmodelo.Text = dgvdata.Rows[indice].Cells["Modelo"].Value.ToString();
+                    txtserie.Text = dgvdata.Rows[indice].Cells["SerialNumber"].Value.ToString();
+                    txtfechacompra.Text = dgvdata.Rows[indice].Cells["Fecha"].Value.ToString();
+                    if (dgvdata.Rows[indice].Cells["Garantia"].Value.ToString() == "Tiene Garantía") cckgarantia.Checked = true;
+                    else cckgarantia.Checked = false;
+                    if (Convert.ToInt32(dgvdata.Rows[indice].Cells["Costo"].Value) <= 0 ) cckcostord.Checked = false;
+                    else cckcostord.Checked = true;
+                    foreach (OpcionCombo oc in cbomoneda.Items)
+                    {
+                        if (oc.Texto == dgvdata.Rows[indice].Cells["IdMoneda"].Value.ToString())
+                        {
+                            int indice_combo = cbomoneda.Items.IndexOf(oc);
+                            cbomoneda.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+                    txtcosto.Text = dgvdata.Rows[indice].Cells["Costo"].Value.ToString();
+                    if (dgvdata.Rows[indice].Cells["Enciende"].Value.ToString() == OPC_ENCIENDE) cboenciende.SelectedIndex = 0;
+                    else cboenciende.SelectedIndex = 1;
+                    txtsituacion.Text = dgvdata.Rows[indice].Cells["Situacion"].Value.ToString();
+                    txtaccesorio.Text = dgvdata.Rows[indice].Cells["Accesorios"].Value.ToString();
+                    txtobservaciones.Text = dgvdata.Rows[indice].Cells["Observaciones"].Value.ToString();
+                }
+            }
+        }
     }
 }

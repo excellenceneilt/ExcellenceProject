@@ -16,6 +16,7 @@ namespace CapaEntidad
         public string TelefonoDeja { get; set; }    //es el telefono de la persona que deja el equipo
         public Cliente iCliente { get; set; }       /* son los datos del cliente a quien le pertenece el equipo
                                                      * idcliente
+                                                     * nombrecompleto(Razon social)
                                                      * ruc
                                                      * Contacto
                                                      * Correo

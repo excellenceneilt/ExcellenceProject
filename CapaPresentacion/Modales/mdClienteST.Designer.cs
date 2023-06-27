@@ -37,12 +37,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dgvdata = new System.Windows.Forms.DataGridView();
             this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ruc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocumentoContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,12 +138,12 @@
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdCliente,
-            this.RazonSocial,
-            this.Ruc,
-            this.Contacto,
-            this.Correo,
+            this.NombreCompleto,
             this.Documento,
-            this.Telefono});
+            this.NombreContacto,
+            this.Correo1,
+            this.DocumentoContacto,
+            this.Telefono1});
             this.dgvdata.Location = new System.Drawing.Point(4, 87);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
@@ -160,47 +160,47 @@
             this.IdCliente.ReadOnly = true;
             this.IdCliente.Visible = false;
             // 
-            // RazonSocial
+            // NombreCompleto
             // 
-            this.RazonSocial.HeaderText = "Razón Social";
-            this.RazonSocial.Name = "RazonSocial";
-            this.RazonSocial.ReadOnly = true;
-            this.RazonSocial.Width = 250;
-            // 
-            // Ruc
-            // 
-            this.Ruc.HeaderText = "RUC";
-            this.Ruc.Name = "Ruc";
-            this.Ruc.ReadOnly = true;
-            // 
-            // Contacto
-            // 
-            this.Contacto.HeaderText = "Contacto";
-            this.Contacto.Name = "Contacto";
-            this.Contacto.ReadOnly = true;
-            this.Contacto.Width = 150;
-            // 
-            // Correo
-            // 
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            this.Correo.Width = 150;
+            this.NombreCompleto.HeaderText = "Razón Social";
+            this.NombreCompleto.Name = "NombreCompleto";
+            this.NombreCompleto.ReadOnly = true;
+            this.NombreCompleto.Width = 250;
             // 
             // Documento
             // 
-            this.Documento.HeaderText = "Número de documento";
+            this.Documento.HeaderText = "Documento";
             this.Documento.Name = "Documento";
             this.Documento.ReadOnly = true;
             this.Documento.Visible = false;
             this.Documento.Width = 150;
             // 
-            // Telefono
+            // NombreContacto
             // 
-            this.Telefono.HeaderText = "Teléfono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            this.Telefono.Visible = false;
+            this.NombreContacto.HeaderText = "Contacto";
+            this.NombreContacto.Name = "NombreContacto";
+            this.NombreContacto.ReadOnly = true;
+            this.NombreContacto.Width = 150;
+            // 
+            // Correo1
+            // 
+            this.Correo1.HeaderText = "Correo";
+            this.Correo1.Name = "Correo1";
+            this.Correo1.ReadOnly = true;
+            this.Correo1.Width = 150;
+            // 
+            // DocumentoContacto
+            // 
+            this.DocumentoContacto.HeaderText = "Documento Contacto";
+            this.DocumentoContacto.Name = "DocumentoContacto";
+            this.DocumentoContacto.ReadOnly = true;
+            // 
+            // Telefono1
+            // 
+            this.Telefono1.HeaderText = "Teléfono";
+            this.Telefono1.Name = "Telefono1";
+            this.Telefono1.ReadOnly = true;
+            this.Telefono1.Visible = false;
             // 
             // mdClienteST
             // 
@@ -234,11 +234,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgvdata;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ruc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Contacto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreContacto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Correo1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocumentoContacto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono1;
     }
 }
