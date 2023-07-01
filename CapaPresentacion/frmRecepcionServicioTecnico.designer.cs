@@ -57,6 +57,31 @@
             this.cbobusqueda = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvdata = new System.Windows.Forms.DataGridView();
+            this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IdIre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodOST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Deja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DniDeja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelefonoDeja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdEstadoEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Garantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Enciende = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Situacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accesorios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaIRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtindice = new System.Windows.Forms.TextBox();
             this.txtid = new System.Windows.Forms.TextBox();
             this.txtcontacto = new System.Windows.Forms.TextBox();
@@ -94,31 +119,6 @@
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.txtmarca = new System.Windows.Forms.TextBox();
             this.btnbuscarequipo = new FontAwesome.Sharp.IconButton();
-            this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdIre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodOST = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Deja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DniDeja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TelefonoDeja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdEstadoEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Garantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Enciende = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Situacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accesorios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaIRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -453,6 +453,181 @@
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
             // 
+            // btnseleccionar
+            // 
+            this.btnseleccionar.HeaderText = "";
+            this.btnseleccionar.Name = "btnseleccionar";
+            this.btnseleccionar.ReadOnly = true;
+            this.btnseleccionar.Width = 30;
+            // 
+            // IdIre
+            // 
+            this.IdIre.HeaderText = "IdIre";
+            this.IdIre.Name = "IdIre";
+            this.IdIre.ReadOnly = true;
+            this.IdIre.Visible = false;
+            this.IdIre.Width = 30;
+            // 
+            // CodOST
+            // 
+            this.CodOST.HeaderText = "CodOST";
+            this.CodOST.Name = "CodOST";
+            this.CodOST.ReadOnly = true;
+            // 
+            // Deja
+            // 
+            this.Deja.HeaderText = "Deja";
+            this.Deja.Name = "Deja";
+            this.Deja.ReadOnly = true;
+            this.Deja.Visible = false;
+            // 
+            // DniDeja
+            // 
+            this.DniDeja.HeaderText = "DniDeja";
+            this.DniDeja.Name = "DniDeja";
+            this.DniDeja.ReadOnly = true;
+            this.DniDeja.Visible = false;
+            // 
+            // TelefonoDeja
+            // 
+            this.TelefonoDeja.HeaderText = "TelefonoDeja";
+            this.TelefonoDeja.Name = "TelefonoDeja";
+            this.TelefonoDeja.ReadOnly = true;
+            this.TelefonoDeja.Visible = false;
+            // 
+            // IdCliente
+            // 
+            this.IdCliente.HeaderText = "IdCliente";
+            this.IdCliente.Name = "IdCliente";
+            this.IdCliente.ReadOnly = true;
+            this.IdCliente.Visible = false;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "NombreCompleto";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Visible = false;
+            // 
+            // RUC
+            // 
+            this.RUC.HeaderText = "Documento";
+            this.RUC.Name = "RUC";
+            this.RUC.ReadOnly = true;
+            this.RUC.Visible = false;
+            // 
+            // NombreContacto
+            // 
+            this.NombreContacto.HeaderText = "NombreContacto";
+            this.NombreContacto.Name = "NombreContacto";
+            this.NombreContacto.ReadOnly = true;
+            this.NombreContacto.Visible = false;
+            // 
+            // Correo1
+            // 
+            this.Correo1.HeaderText = "Correo1";
+            this.Correo1.Name = "Correo1";
+            this.Correo1.ReadOnly = true;
+            this.Correo1.Visible = false;
+            // 
+            // IdEquipo
+            // 
+            this.IdEquipo.HeaderText = "IdEquipo";
+            this.IdEquipo.Name = "IdEquipo";
+            this.IdEquipo.ReadOnly = true;
+            this.IdEquipo.Visible = false;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            this.Marca.Width = 125;
+            // 
+            // Modelo
+            // 
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            this.Modelo.Width = 125;
+            // 
+            // SerialNumber
+            // 
+            this.SerialNumber.HeaderText = "SerialNumber";
+            this.SerialNumber.Name = "SerialNumber";
+            this.SerialNumber.ReadOnly = true;
+            this.SerialNumber.Width = 125;
+            // 
+            // IdEstadoEquipo
+            // 
+            this.IdEstadoEquipo.HeaderText = "IdEstadoEquipo";
+            this.IdEstadoEquipo.Name = "IdEstadoEquipo";
+            this.IdEstadoEquipo.ReadOnly = true;
+            this.IdEstadoEquipo.Visible = false;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Visible = false;
+            // 
+            // Garantia
+            // 
+            this.Garantia.HeaderText = "Garantia";
+            this.Garantia.Name = "Garantia";
+            this.Garantia.ReadOnly = true;
+            this.Garantia.Visible = false;
+            // 
+            // IdMoneda
+            // 
+            this.IdMoneda.HeaderText = "IdMoneda";
+            this.IdMoneda.Name = "IdMoneda";
+            this.IdMoneda.ReadOnly = true;
+            this.IdMoneda.Visible = false;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.Name = "Costo";
+            this.Costo.ReadOnly = true;
+            this.Costo.Visible = false;
+            // 
+            // Enciende
+            // 
+            this.Enciende.HeaderText = "Enciende";
+            this.Enciende.Name = "Enciende";
+            this.Enciende.ReadOnly = true;
+            this.Enciende.Visible = false;
+            // 
+            // Situacion
+            // 
+            this.Situacion.HeaderText = "Situacion";
+            this.Situacion.Name = "Situacion";
+            this.Situacion.ReadOnly = true;
+            this.Situacion.Visible = false;
+            // 
+            // Accesorios
+            // 
+            this.Accesorios.HeaderText = "Accesorios";
+            this.Accesorios.Name = "Accesorios";
+            this.Accesorios.ReadOnly = true;
+            this.Accesorios.Visible = false;
+            // 
+            // Observaciones
+            // 
+            this.Observaciones.HeaderText = "Observaciones";
+            this.Observaciones.Name = "Observaciones";
+            this.Observaciones.ReadOnly = true;
+            this.Observaciones.Visible = false;
+            // 
+            // FechaIRE
+            // 
+            this.FechaIRE.HeaderText = "FechaIRE";
+            this.FechaIRE.Name = "FechaIRE";
+            this.FechaIRE.ReadOnly = true;
+            this.FechaIRE.Width = 103;
+            // 
             // txtindice
             // 
             this.txtindice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -536,6 +711,7 @@
             this.btneliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btneliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btneliminar.UseVisualStyleBackColor = false;
+            this.btneliminar.Visible = false;
             // 
             // btnlimpiar
             // 
@@ -921,7 +1097,6 @@
             this.cckseleccionarequipo.AutoSize = true;
             this.cckseleccionarequipo.Checked = true;
             this.cckseleccionarequipo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cckseleccionarequipo.Enabled = false;
             this.cckseleccionarequipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cckseleccionarequipo.Location = new System.Drawing.Point(74, 37);
             this.cckseleccionarequipo.Name = "cckseleccionarequipo";
@@ -963,177 +1138,6 @@
             this.btnbuscarequipo.TabIndex = 13;
             this.btnbuscarequipo.UseVisualStyleBackColor = true;
             this.btnbuscarequipo.Click += new System.EventHandler(this.btnbuscarequipo_Click);
-            // 
-            // btnseleccionar
-            // 
-            this.btnseleccionar.HeaderText = "";
-            this.btnseleccionar.Name = "btnseleccionar";
-            this.btnseleccionar.ReadOnly = true;
-            this.btnseleccionar.Width = 30;
-            // 
-            // IdIre
-            // 
-            this.IdIre.HeaderText = "IdIre";
-            this.IdIre.Name = "IdIre";
-            this.IdIre.ReadOnly = true;
-            this.IdIre.Visible = false;
-            this.IdIre.Width = 30;
-            // 
-            // CodOST
-            // 
-            this.CodOST.HeaderText = "CodOST";
-            this.CodOST.Name = "CodOST";
-            this.CodOST.ReadOnly = true;
-            // 
-            // Deja
-            // 
-            this.Deja.HeaderText = "Deja";
-            this.Deja.Name = "Deja";
-            this.Deja.ReadOnly = true;
-            this.Deja.Visible = false;
-            // 
-            // DniDeja
-            // 
-            this.DniDeja.HeaderText = "DniDeja";
-            this.DniDeja.Name = "DniDeja";
-            this.DniDeja.ReadOnly = true;
-            this.DniDeja.Visible = false;
-            // 
-            // TelefonoDeja
-            // 
-            this.TelefonoDeja.HeaderText = "TelefonoDeja";
-            this.TelefonoDeja.Name = "TelefonoDeja";
-            this.TelefonoDeja.ReadOnly = true;
-            this.TelefonoDeja.Visible = false;
-            // 
-            // IdCliente
-            // 
-            this.IdCliente.HeaderText = "IdCliente";
-            this.IdCliente.Name = "IdCliente";
-            this.IdCliente.ReadOnly = true;
-            this.IdCliente.Visible = false;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "NombreCompleto";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Visible = false;
-            // 
-            // RUC
-            // 
-            this.RUC.HeaderText = "Documento";
-            this.RUC.Name = "RUC";
-            this.RUC.ReadOnly = true;
-            this.RUC.Visible = false;
-            // 
-            // NombreContacto
-            // 
-            this.NombreContacto.HeaderText = "NombreContacto";
-            this.NombreContacto.Name = "NombreContacto";
-            this.NombreContacto.ReadOnly = true;
-            this.NombreContacto.Visible = false;
-            // 
-            // Correo1
-            // 
-            this.Correo1.HeaderText = "Correo1";
-            this.Correo1.Name = "Correo1";
-            this.Correo1.ReadOnly = true;
-            this.Correo1.Visible = false;
-            // 
-            // IdEquipo
-            // 
-            this.IdEquipo.HeaderText = "IdEquipo";
-            this.IdEquipo.Name = "IdEquipo";
-            this.IdEquipo.ReadOnly = true;
-            this.IdEquipo.Visible = false;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            this.Marca.ReadOnly = true;
-            // 
-            // Modelo
-            // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
-            // 
-            // SerialNumber
-            // 
-            this.SerialNumber.HeaderText = "SerialNumber";
-            this.SerialNumber.Name = "SerialNumber";
-            this.SerialNumber.ReadOnly = true;
-            // 
-            // IdEstadoEquipo
-            // 
-            this.IdEstadoEquipo.HeaderText = "IdEstadoEquipo";
-            this.IdEstadoEquipo.Name = "IdEstadoEquipo";
-            this.IdEstadoEquipo.ReadOnly = true;
-            this.IdEstadoEquipo.Visible = false;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Visible = false;
-            // 
-            // Garantia
-            // 
-            this.Garantia.HeaderText = "Garantia";
-            this.Garantia.Name = "Garantia";
-            this.Garantia.ReadOnly = true;
-            this.Garantia.Visible = false;
-            // 
-            // IdMoneda
-            // 
-            this.IdMoneda.HeaderText = "IdMoneda";
-            this.IdMoneda.Name = "IdMoneda";
-            this.IdMoneda.ReadOnly = true;
-            this.IdMoneda.Visible = false;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.Name = "Costo";
-            this.Costo.ReadOnly = true;
-            this.Costo.Visible = false;
-            // 
-            // Enciende
-            // 
-            this.Enciende.HeaderText = "Enciende";
-            this.Enciende.Name = "Enciende";
-            this.Enciende.ReadOnly = true;
-            this.Enciende.Visible = false;
-            // 
-            // Situacion
-            // 
-            this.Situacion.HeaderText = "Situacion";
-            this.Situacion.Name = "Situacion";
-            this.Situacion.ReadOnly = true;
-            this.Situacion.Visible = false;
-            // 
-            // Accesorios
-            // 
-            this.Accesorios.HeaderText = "Accesorios";
-            this.Accesorios.Name = "Accesorios";
-            this.Accesorios.ReadOnly = true;
-            this.Accesorios.Visible = false;
-            // 
-            // Observaciones
-            // 
-            this.Observaciones.HeaderText = "Observaciones";
-            this.Observaciones.Name = "Observaciones";
-            this.Observaciones.ReadOnly = true;
-            this.Observaciones.Visible = false;
-            // 
-            // FechaIRE
-            // 
-            this.FechaIRE.HeaderText = "FechaIRE";
-            this.FechaIRE.Name = "FechaIRE";
-            this.FechaIRE.ReadOnly = true;
             // 
             // frmRecepcionServicioTecnico
             // 

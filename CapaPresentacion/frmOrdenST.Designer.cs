@@ -504,9 +504,9 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(6, 18);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(38, 13);
+            this.label17.Size = new System.Drawing.Size(40, 13);
             this.label17.TabIndex = 45;
-            this.label17.Text = "Línea:";
+            this.label17.Text = "Marca:";
             // 
             // groupBox4
             // 

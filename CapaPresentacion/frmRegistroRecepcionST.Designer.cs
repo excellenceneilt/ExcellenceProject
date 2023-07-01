@@ -255,6 +255,8 @@
             this.txtfechainicio.CustomFormat = "dd/MM/yyyy";
             this.txtfechainicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtfechainicio.Location = new System.Drawing.Point(103, 13);
+            this.txtfechainicio.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.txtfechainicio.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.txtfechainicio.Name = "txtfechainicio";
             this.txtfechainicio.Size = new System.Drawing.Size(102, 20);
             this.txtfechainicio.TabIndex = 90;
