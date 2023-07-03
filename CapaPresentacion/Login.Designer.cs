@@ -137,6 +137,7 @@
             this.cbousuario.Name = "cbousuario";
             this.cbousuario.Size = new System.Drawing.Size(254, 21);
             this.cbousuario.TabIndex = 8;
+            this.cbousuario.SelectedIndexChanged += new System.EventHandler(this.cbousuario_SelectedIndexChanged);
             // 
             // btnminimizar
             // 
@@ -145,7 +146,7 @@
             this.btnminimizar.IconColor = System.Drawing.Color.Black;
             this.btnminimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnminimizar.IconSize = 20;
-            this.btnminimizar.Location = new System.Drawing.Point(545, 0);
+            this.btnminimizar.Location = new System.Drawing.Point(544, 1);
             this.btnminimizar.Name = "btnminimizar";
             this.btnminimizar.Size = new System.Drawing.Size(39, 23);
             this.btnminimizar.TabIndex = 9;

@@ -17,6 +17,11 @@ namespace CapaNegocio
             return objcd_IRE.Listar();
         }
 
+        public List<IngresoRecepcionEquipos> ListarSoloRST()
+        {
+            return objcd_IRE.ListarSoloRST();
+        }
+
         public int Registrar(IngresoRecepcionEquipos obj, out string Mensaje)
         {
             Mensaje = string.Empty;
@@ -116,6 +121,11 @@ namespace CapaNegocio
         public string GetOst(int idIre)
         {
             return objcd_IRE.GetOst(idIre);
+        }
+
+        public IngresoRecepcionEquipos ListarUnIngresoRecepcionEquipo(string codOST)
+        {
+            return objcd_IRE.ListarUnIngresoRecepcionEquipo(codOST);
         }
     }
 }

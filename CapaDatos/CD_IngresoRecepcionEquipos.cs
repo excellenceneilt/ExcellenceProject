@@ -233,5 +233,163 @@ namespace CapaDatos
             }
             return codOst;
         }
+
+        public List<IngresoRecepcionEquipos> ListarSoloRST()
+        {
+            List<IngresoRecepcionEquipos> lista = new List<IngresoRecepcionEquipos>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+
+                    query.AppendLine("select IdIre,CodOst,Deja,DniDeja,Telefono,");
+                    query.AppendLine("IdCliente,NombreCompleto,Ruc,Contacto,Correo,IdEquipo,");
+                    query.AppendLine("Marca,Modelo,Serial,IdEstEqui,Fecha,");
+                    query.AppendLine("Garantia,IdMoneda,Costo,Enciende,Situacion,");
+                    query.AppendLine("Accesorios,Observaciones,FechaRegistro ");
+                    query.AppendLine("from IngresoRecepcionEquipos where IdEstEqui = 3");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new IngresoRecepcionEquipos()
+                            {
+                                IdIre = Convert.ToInt32(dr["IdIre"]),
+                                CodOST = dr["CodOst"].ToString(),
+                                Deja = dr["Deja"].ToString(),
+                                DniDeja = dr["DniDeja"].ToString(),
+                                TelefonoDeja = dr["Telefono"].ToString(),
+                                iCliente = new Cliente()
+                                {
+                                    IdCliente = Convert.ToInt32(dr["IdCliente"]),
+                                    NombreCompleto = dr["NombreCompleto"].ToString(),
+                                    Documento = dr["Ruc"].ToString(),
+                                    NombreContacto = dr["Contacto"].ToString(),
+                                    Correo1 = dr["Correo"].ToString()
+                                },
+                                iEquipo = new Equipo()
+                                {
+                                    IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
+                                    Marca = dr["Marca"].ToString(),
+                                    Modelo = dr["Modelo"].ToString(),
+                                    SerialNumber = dr["Serial"].ToString()
+                                },
+                                iEstadoEquipo = new EstadoEquipo()
+                                {
+                                    IdEstadoEquipo = Convert.ToInt32(dr["IdEstEqui"])
+                                },
+                                Fecha = dr["Fecha"].ToString(),
+                                /*iCompra = new Compra()
+                                {
+                                    FechaRegistro = dr["Fecha"].ToString()
+                                },*/
+                                Garantia = Convert.ToBoolean(dr["Garantia"]),
+                                iMoneda = new Moneda()
+                                {
+                                    IdMoneda = Convert.ToInt32(dr["IdMoneda"])
+                                },
+                                Costo = Convert.ToDecimal(dr["Costo"]),
+                                Enciende = Convert.ToBoolean(dr["Enciende"]),
+                                Situacion = dr["Situacion"].ToString(),
+                                Accesorios = dr["Accesorios"].ToString(),
+                                Observaciones = dr["Observaciones"].ToString(),
+                                FechaIRE = dr["FechaRegistro"].ToString()
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<IngresoRecepcionEquipos>();
+                }
+            }
+            return lista;
+        }
+
+        public IngresoRecepcionEquipos ListarUnIngresoRecepcionEquipo(string codOST)
+        {
+            IngresoRecepcionEquipos IRE = new IngresoRecepcionEquipos();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena)) 
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select IdIre,CodOst,Deja,DniDeja,Telefono,");
+                    query.AppendLine("IdCliente,NombreCompleto,Ruc,Contacto,Correo,IdEquipo,");
+                    query.AppendLine("Marca,Modelo,Serial,IdEstEqui,Fecha,");
+                    query.AppendLine("Garantia,IdMoneda,Costo,Enciende,Situacion,");
+                    query.AppendLine("Accesorios,Observaciones,FechaRegistro ");
+                    query.AppendLine($"from IngresoRecepcionEquipos where CodOst = '{codOST}'");
+
+
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            IngresoRecepcionEquipos IRE2 = new IngresoRecepcionEquipos()
+                            {
+                                IdIre = Convert.ToInt32(dr["IdIre"]),
+                                CodOST = dr["CodOst"].ToString(),
+                                Deja = dr["Deja"].ToString(),
+                                DniDeja = dr["DniDeja"].ToString(),
+                                TelefonoDeja = dr["Telefono"].ToString(),
+                                iCliente = new Cliente()
+                                {
+                                    IdCliente = Convert.ToInt32(dr["IdCliente"]),
+                                    NombreCompleto = dr["NombreCompleto"].ToString(),
+                                    Documento = dr["Ruc"].ToString(),
+                                    NombreContacto = dr["Contacto"].ToString(),
+                                    Correo1 = dr["Correo"].ToString()
+                                },
+                                iEquipo = new Equipo()
+                                {
+                                    IdEquipo = Convert.ToInt32(dr["IdEquipo"]),
+                                    Marca = dr["Marca"].ToString(),
+                                    Modelo = dr["Modelo"].ToString(),
+                                    SerialNumber = dr["Serial"].ToString()
+                                },
+                                iEstadoEquipo = new EstadoEquipo()
+                                {
+                                    IdEstadoEquipo = Convert.ToInt32(dr["IdEstEqui"])
+                                },
+                                Fecha = dr["Fecha"].ToString(),
+                                /*iCompra = new Compra()
+                                {
+                                    FechaRegistro = dr["Fecha"].ToString()
+                                },*/
+                                Garantia = Convert.ToBoolean(dr["Garantia"]),
+                                iMoneda = new Moneda()
+                                {
+                                    IdMoneda = Convert.ToInt32(dr["IdMoneda"])
+                                },
+                                Costo = Convert.ToDecimal(dr["Costo"]),
+                                Enciende = Convert.ToBoolean(dr["Enciende"]),
+                                Situacion = dr["Situacion"].ToString(),
+                                Accesorios = dr["Accesorios"].ToString(),
+                                Observaciones = dr["Observaciones"].ToString(),
+                                FechaIRE = dr["FechaRegistro"].ToString()
+                            };
+                            IRE = IRE2;
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+                    return IRE = new IngresoRecepcionEquipos();
+                }
+            }
+            return IRE;
+        }
     }
 }

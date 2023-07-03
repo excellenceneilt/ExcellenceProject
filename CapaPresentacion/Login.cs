@@ -60,7 +60,7 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            List<Usuario> TEST = new CN_Usuario().Listar();
+            //List<Usuario> TEST = new CN_Usuario().Listar();
 
             //Expresiones landa para tomar acciones respecto a listas, se automatiza la búsqueda de un objeto y devuelve el primero que encuentre o null
             Usuario oUsuario = new CN_Usuario().Listar().Where(u => u.Documento == cbousuario.Text && u.Clave == txtClave.Text).FirstOrDefault();
@@ -98,7 +98,7 @@ namespace CapaPresentacion
         {
             if (e.KeyValue == (char)Keys.Enter)
             {
-                List<Usuario> TEST = new CN_Usuario().Listar();
+                //List<Usuario> TEST = new CN_Usuario().Listar();
 
                 //Expresiones landa para tomar acciones respecto a listas, se automatiza la búsqueda de un objeto y devuelve el primero que encuentre o null
                 Usuario oUsuario = new CN_Usuario().Listar().Where(u => u.Documento == cbousuario.Text && u.Clave == txtClave.Text).FirstOrDefault();
@@ -128,6 +128,11 @@ namespace CapaPresentacion
         private void Login_KeyDown(object sender, KeyEventArgs e)
         {
             btnminimizar_Click(sender, (KeyEventArgs)e);
+        }
+
+        private void cbousuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtClave.Select();
         }
     }
 }
