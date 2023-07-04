@@ -337,7 +337,7 @@ namespace CapaDatos
                     {
                         while (dr.Read())
                         {
-                            IngresoRecepcionEquipos IRE2 = new IngresoRecepcionEquipos()
+                            IRE = new IngresoRecepcionEquipos()
                             {
                                 IdIre = Convert.ToInt32(dr["IdIre"]),
                                 CodOST = dr["CodOst"].ToString(),
@@ -380,7 +380,6 @@ namespace CapaDatos
                                 Observaciones = dr["Observaciones"].ToString(),
                                 FechaIRE = dr["FechaRegistro"].ToString()
                             };
-                            IRE = IRE2;
                         }
                     }
                 }

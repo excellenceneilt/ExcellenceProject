@@ -42,8 +42,24 @@ namespace CapaPresentacion
         private void cboNrst_SelectedIndexChanged(object sender, EventArgs e)
         {
             IngresoRecepcionEquipos IRE = new CN_IngresoRecepcionEquipos().ListarUnIngresoRecepcionEquipo(((OpcionCombo)cboNrst.SelectedItem).Texto.ToString());
+            txtIdCliente.Text = IRE.iCliente.IdCliente.ToString();
             txtNumero.Text = IRE.IdIre.ToString();
-            txtRuc.Text = IRE.iCliente.Documento.ToString();
+            txtFechaDiagnostico.Text = IRE.FechaIRE.ToString();
+            txtNumeroDocumento.Text = IRE.iCliente.Documento.ToString();
+            txtCliente.Text = IRE.iCliente.NombreCompleto.ToString();
+            txtQuienDeja.Text = IRE.Deja.ToString();
+            txtDocumento.Text = IRE.DniDeja.ToString();
+            txtContacto.Text = IRE.iCliente.NombreContacto.ToString();
+            txtCorreo.Text = IRE.iCliente.Correo1.ToString();
+            txtTelefono.Text = IRE.TelefonoDeja.ToString();
+
+            txtIdEquipo.Text = IRE.iEquipo.IdEquipo.ToString();
+            txtMarca.Text = IRE.iEquipo.Marca.ToString();
+            txtSerie.Text = IRE.iEquipo.SerialNumber.ToString();
+            txtModelo.Text = IRE.iEquipo.Modelo.ToString();
+            txtFechaCompra.Text = IRE.Fecha.ToString();
+
+            txtAccesorios.Text = IRE.Accesorios.ToString();
         }
     }
 }
