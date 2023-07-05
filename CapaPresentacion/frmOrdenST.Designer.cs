@@ -54,7 +54,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbldiagnostico = new System.Windows.Forms.GroupBox();
             this.txtDiagnostico = new System.Windows.Forms.TextBox();
             this.cckRevision = new System.Windows.Forms.CheckBox();
             this.cckReparacion = new System.Windows.Forms.CheckBox();
@@ -80,10 +80,10 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.txtFechaAceptacion = new System.Windows.Forms.DateTimePicker();
             this.label23 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.lblaccesorios = new System.Windows.Forms.GroupBox();
             this.txtAccesorios = new System.Windows.Forms.TextBox();
             this.txtInforme = new System.Windows.Forms.TextBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.lblinforme = new System.Windows.Forms.GroupBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -101,13 +101,13 @@
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtIdEquipo = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.lbldiagnostico.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
+            this.lblaccesorios.SuspendLayout();
+            this.lblinforme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -363,21 +363,21 @@
             this.label5.TabIndex = 41;
             this.label5.Text = "Número:";
             // 
-            // groupBox2
+            // lbldiagnostico
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.txtDiagnostico);
-            this.groupBox2.Controls.Add(this.cckRevision);
-            this.groupBox2.Controls.Add(this.cckReparacion);
-            this.groupBox2.Controls.Add(this.cckMantenimiento);
-            this.groupBox2.Controls.Add(this.txtTiempo);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Location = new System.Drawing.Point(10, 144);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(786, 124);
-            this.groupBox2.TabIndex = 62;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Diagnóstico";
+            this.lbldiagnostico.BackColor = System.Drawing.Color.White;
+            this.lbldiagnostico.Controls.Add(this.txtDiagnostico);
+            this.lbldiagnostico.Controls.Add(this.cckRevision);
+            this.lbldiagnostico.Controls.Add(this.cckReparacion);
+            this.lbldiagnostico.Controls.Add(this.cckMantenimiento);
+            this.lbldiagnostico.Controls.Add(this.txtTiempo);
+            this.lbldiagnostico.Controls.Add(this.label20);
+            this.lbldiagnostico.Location = new System.Drawing.Point(10, 144);
+            this.lbldiagnostico.Name = "lbldiagnostico";
+            this.lbldiagnostico.Size = new System.Drawing.Size(786, 124);
+            this.lbldiagnostico.TabIndex = 62;
+            this.lbldiagnostico.TabStop = false;
+            this.lbldiagnostico.Text = "Diagnóstico: (2000 caracteres)";
             // 
             // txtDiagnostico
             // 
@@ -387,6 +387,8 @@
             this.txtDiagnostico.Name = "txtDiagnostico";
             this.txtDiagnostico.Size = new System.Drawing.Size(634, 93);
             this.txtDiagnostico.TabIndex = 12;
+            this.txtDiagnostico.TextChanged += new System.EventHandler(this.txtDiagnostico_TextChanged);
+            this.txtDiagnostico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiagnostico_KeyPress);
             // 
             // cckRevision
             // 
@@ -425,6 +427,7 @@
             this.txtTiempo.Name = "txtTiempo";
             this.txtTiempo.Size = new System.Drawing.Size(70, 20);
             this.txtTiempo.TabIndex = 16;
+            this.txtTiempo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTiempo_KeyPress);
             // 
             // label20
             // 
@@ -542,6 +545,7 @@
             // 
             // cboMoneda
             // 
+            this.cboMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMoneda.FormattingEnabled = true;
             this.cboMoneda.Location = new System.Drawing.Point(55, 20);
             this.cboMoneda.Name = "cboMoneda";
@@ -573,6 +577,7 @@
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(128, 20);
             this.txtCosto.TabIndex = 18;
+            this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCosto_KeyPress);
             // 
             // groupBox5
             // 
@@ -587,6 +592,7 @@
             // 
             // cboEstadoOst
             // 
+            this.cboEstadoOst.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstadoOst.FormattingEnabled = true;
             this.cboEstadoOst.Location = new System.Drawing.Point(6, 19);
             this.cboEstadoOst.Name = "cboEstadoOst";
@@ -623,16 +629,16 @@
             this.label23.TabIndex = 63;
             this.label23.Text = "Fecha:";
             // 
-            // groupBox7
+            // lblaccesorios
             // 
-            this.groupBox7.BackColor = System.Drawing.Color.White;
-            this.groupBox7.Controls.Add(this.txtAccesorios);
-            this.groupBox7.Location = new System.Drawing.Point(803, 392);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(506, 165);
-            this.groupBox7.TabIndex = 68;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Accesorios";
+            this.lblaccesorios.BackColor = System.Drawing.Color.White;
+            this.lblaccesorios.Controls.Add(this.txtAccesorios);
+            this.lblaccesorios.Location = new System.Drawing.Point(803, 392);
+            this.lblaccesorios.Name = "lblaccesorios";
+            this.lblaccesorios.Size = new System.Drawing.Size(506, 165);
+            this.lblaccesorios.TabIndex = 68;
+            this.lblaccesorios.TabStop = false;
+            this.lblaccesorios.Text = "Accesorios";
             // 
             // txtAccesorios
             // 
@@ -643,6 +649,8 @@
             this.txtAccesorios.Name = "txtAccesorios";
             this.txtAccesorios.Size = new System.Drawing.Size(494, 136);
             this.txtAccesorios.TabIndex = 26;
+            this.txtAccesorios.TextChanged += new System.EventHandler(this.txtAccesorios_TextChanged);
+            this.txtAccesorios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAccesorios_KeyPress);
             // 
             // txtInforme
             // 
@@ -652,17 +660,19 @@
             this.txtInforme.Name = "txtInforme";
             this.txtInforme.Size = new System.Drawing.Size(492, 236);
             this.txtInforme.TabIndex = 25;
+            this.txtInforme.TextChanged += new System.EventHandler(this.txtInforme_TextChanged);
+            this.txtInforme.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInforme_KeyPress);
             // 
-            // groupBox8
+            // lblinforme
             // 
-            this.groupBox8.BackColor = System.Drawing.Color.White;
-            this.groupBox8.Controls.Add(this.txtInforme);
-            this.groupBox8.Location = new System.Drawing.Point(802, 120);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(507, 266);
-            this.groupBox8.TabIndex = 67;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Informe técnico de la entrega del equipo";
+            this.lblinforme.BackColor = System.Drawing.Color.White;
+            this.lblinforme.Controls.Add(this.txtInforme);
+            this.lblinforme.Location = new System.Drawing.Point(802, 120);
+            this.lblinforme.Name = "lblinforme";
+            this.lblinforme.Size = new System.Drawing.Size(507, 266);
+            this.lblinforme.TabIndex = 67;
+            this.lblinforme.TabStop = false;
+            this.lblinforme.Text = "Informe técnico de la entrega del equipo: (3000 caracteres)";
             // 
             // textBox18
             // 
@@ -849,13 +859,13 @@
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.groupBox8);
-            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.lblinforme);
+            this.Controls.Add(this.lblaccesorios);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.lbldiagnostico);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -864,8 +874,8 @@
             this.Load += new System.EventHandler(this.frmOrdenST_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.lbldiagnostico.ResumeLayout(false);
+            this.lbldiagnostico.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -873,10 +883,10 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
+            this.lblaccesorios.ResumeLayout(false);
+            this.lblaccesorios.PerformLayout();
+            this.lblinforme.ResumeLayout(false);
+            this.lblinforme.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -909,7 +919,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtFactura;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox lbldiagnostico;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtSerie;
@@ -935,9 +945,9 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.DateTimePicker txtFechaAceptacion;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox lblaccesorios;
         private System.Windows.Forms.TextBox txtInforme;
-        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox lblinforme;
         private System.Windows.Forms.TextBox txtAccesorios;
         private System.Windows.Forms.TextBox textBox18;
         private FontAwesome.Sharp.IconButton iconButton1;

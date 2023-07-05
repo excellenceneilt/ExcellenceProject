@@ -33,8 +33,8 @@ namespace CapaPresentacion
             #region COMBOBOX MONEDA
 
             //Moneda
-            cbomoneda.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Soles" });
-            cbomoneda.Items.Add(new OpcionCombo() { Valor = 2, Texto = "Dólares" });
+            cbomoneda.Items.Add(new OpcionCombo() { Valor = 1, Texto = OPC_SOLES });
+            cbomoneda.Items.Add(new OpcionCombo() { Valor = 2, Texto = OPC_DOLARES });
             cbomoneda.DisplayMember = "Texto";
             cbomoneda.ValueMember = "Valor";
             cbomoneda.SelectedIndex = 0;
